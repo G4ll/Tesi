@@ -21,6 +21,8 @@
 \usepackage{mdframed}
 \usepackage{enumitem}
 
+\usepackage{xfrac}
+
 % Per disegnare diagrammi commuatativi
 \usepackage{tikz-cd}
 \usepackage{tikz}
@@ -49,8 +51,8 @@
 \fi
 
 % Formato Teoremi, Dimostrazioni, Definizioni
-\newtheorem{theorem}{Teorema}[section]
-\newtheorem{lemma}[section]{Lemma}
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}{Lemma}[theorem]
 \theoremstyle{remark}
 \newtheorem*{remark}{Osservazione}
 \theoremstyle{definition}
@@ -73,7 +75,7 @@
 \cfoot{\thepage}
 
 % Crea una nuova pagina per ogni sottosezione
-\newcommand{\subsectionbreak}{\clearpage}
+%\newcommand{\subsectionbreak}{\clearpage}
 
 % indentazione
 \setlength{\parindent}{0pt}

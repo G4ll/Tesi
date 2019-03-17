@@ -18,11 +18,11 @@
 	\end{definition}
 
 	\subsection{La Coomologia}
-	\begin{lemma}
+	\begin{theorem}
 		$ Mod_G $ ha abbastanza iniettivi.
-	\end{lemma}
+	\end{theorem}
 
-	Questo ci serve per poter definire la coomologia passando per le risoluzioni iniettive: prendiamo il funtore $ F \colon A \mapsto A^G $ e definiamo $ H^i(G, A) = R^iF(A) $.
+	Questo ci serve per poter definire i funtori derivati: prendiamo il funtore $ F \colon A \mapsto A^G $ esatto a sinistra e definiamo $ H^i(G, A) = R^iF(A) $, il suo derivato destro.
 	
 	\begin{theorem}[Proprietà fondamentali della coomologia]
 		Abbiamo
@@ -33,9 +33,128 @@
 		\end{enumerate}
 	\end{theorem}
 
-	\begin{lemma}
+	\begin{theorem}
 		\[ \Hom_H(B,\, A) = \Hom_G(B, \, \Ind_H^G(A)) \]
-	\end{lemma}
+	\end{theorem}
+
+	\begin{theorem}
+		\[ H^i(G, \, \lim_{\rightarrow} A_j) =  \lim_{\rightarrow}H^i(G, \, A_j) \]
+	\end{theorem}
+
+	\begin{theorem}
+		\[ H^i(G, \, A) = Ext^i(\Z, \, A) \]
+	\end{theorem}
+
+	\subsection{Calcolo tramite cocatene}
+	\begin{theorem}
+		Otteniamo gli $ H^i $ come coomologia del complesso
+		\[ K^0 \to K^1 \to K^2 \to \dots \]
+		dove $ K^i = \{ f \colon G^i \to A \} $ e i differenziali sono i soliti.
+	\end{theorem}
+
+	\begin{theorem}
+		Se $ G $ ed $ A $ sono finiti, pure i $ K^i $ sono finiti, dunque anche gli $ H^i. $
+	\end{theorem}
 	
+	\subsection{Successione spettrale di Hochschild-Serre}
+	Se ho una mappa $ f \colon G' \to G $ e uno $ G $-modulo $ A $, ho automaticamente un funtore $ f^\times $ che "lo vede" come $ G' $-modulo con
+	\[ g' \cdot a = f(g') \cdot a. \]
+	Quando applico il funtore $ F \colon A \mapsto A^G $ ottengo un'inclusione
+	\[ A^G \hookrightarrow (f^\times A)^{G'}, \]
+	che sarà in realta un morfismo di complessi tra risoluzione iniettive, che ci dona una mappa funtoriale $$  f_i^\star \colon H^i(G, \, ) \to H^i(G', \, f^\times ).  $$
+	
+	\begin{definition}[Restrizione]
+		Chiamiamo $$  Res \colon H^i(G, \, A) \to H^i(H, \, A)  $$ la mappa indotta dall'inclusione naturale $ H \to G $.
+	\end{definition}
+
+	In generale, se abbiamo un $ G' $-morfismo $ u \colon f^\times A \to A'  $ otteniamo una mappa $ u^\star $ in coomologia, che possiamo comporre con $ f^\star $ tranquillamente per ottenere un morfismo funtoriale $ H^i(G, \, A) \to H^i(G', \, A') $.
+	
+	\begin{definition}[Inflazione]
+		Considerando ora la proiezione canonica $ f \colon G \to \sfrac{G}{H} $ e l'inclusione tra $ \sfrac{G}{H} $-moduli $ u \colon A^H \to A $, otteniamo la mappa funtoriale \[ Inf \colon H^i(\sfrac{G}{H}, \, A^H) \to H^i(G, \, A). \]
+	\end{definition}
+	
+	\begin{theorem}[Lemma di Shapiro]
+		Prendendo l'inclusione $ f \colon H \to G $ e la mappa $ u \colon Ind_H^G(A) \to A $ che manda ogni morfirmo nel suo valore in 1, otteniamo degli \textbf{isomorfismi} \[ H^i(G, \, Ind_H^G(A)) \to H^i(H, \, A) \]
+	\end{theorem}
+
+	\begin{theorem}[Invarianza per automorfismi interni]
+		Prendendo $ f = \sigma_t \colon G \to G $ un automorfismo interno e $ u \colon A \to A $ la moltiplicazione per $ t $ a sinistra, otteniamo degli isomorfismi in coomologia.
+	\end{theorem}
+
+	\begin{theorem}
+		Dalla successione spettrale \[ E^{p, q}_2 = H^p(\sfrac{G}{H}, \, H^q(H, \, A)) \RR H^{p+q}(G,\, A) \] otteniamo due successioni esatte che useremo tantissimo
+		\[ \begin{tikzcd}[column sep = small]
+		0 \rar & H^1(\sfrac{G}{H}, A^H) \rar["Inf"] & H^1(G, \, A) \rar["Res"] & H^1(H, \, A)^{\sfrac{G}{H}} \rar & H^2(\sfrac{G}{H}, \, A^H) \rar["Inf"] & H^2(G, \, A)
+		\end{tikzcd} \]
+	\end{theorem}
+
+	\begin{theorem}
+		Se $ H^i(G, \, A) = 0 $ per ogni $ 0 < i < q $, abbiamo
+		\[\begin{tikzcd}
+		0 \rar & H^q(\sfrac{G}{H}, A^H) \rar["Inf"] & H^q(G, \, A) \rar["Res"] & H^q(H, \, A)^{\sfrac{G}{H}}.
+		\end{tikzcd} \]
+	\end{theorem}
+	
+	\subsection{Corestrizione}
+	Definiamo una buffa norma
+	\begin{align*}
+		N_{\sfrac{G}{H}} : & A^H \to A^G \\
+		& a \to \sum_{g \in \sfrac{G}{H} } g\cdot a,
+	\end{align*}
+	dopodiché prendo una risoluzione iniettiva di $ A \to I^\bullet $, che tramite $ f^\times $ diventa una risoluzione iniettiva di $ f^\times A $, ho così:
+	\[ \begin{tikzcd}
+	0 \rar & f\times A^H \rar \dar["N"] & (f^\times I^\bullet) ^H \dar["N"] \\
+	0 \rar & A^G \rar & (I^\bullet)^G
+	\end{tikzcd} \]
+	che ci dona un meraviglioso morfismo in coomologia che chiamiamo
+	\[ coRes \colon H^i(H,\, A) \to H^i(G, \, A)  \]
+	
+	\begin{theorem}
+		Quando componiamo $ CoR \circ Res $ otteniamo la moltiplicazione per l'indice del sottogruppo
+		\[ \begin{tikzcd}
+		H^i(G, \, A) \rar["Res"] \arrow["\cdot {\left[G \colon H \right]}" description, bend right = 20]{rr} & H^i(H, \, A)\rar["CoRes"] & H^i(G, \, A)
+		\end{tikzcd} \]
+	\end{theorem}
+
+	Questo è piuttosto piacevole! Quando considero il sottogruppo banale $ H = \{ e \} $, scopro che
+	
+	\begin{theorem}
+		I gruppi $ H^i(G, \, A) $ sono di $ \mid G \mid  $-torsione per $ i > 0. $
+	\end{theorem}
+
+	Da cui, passando nuovamente per la descrizione in catene, scopriamo che
+	\begin{theorem}
+		Se $ G $ è finito e $ A $ è finitamente generato, allora $ H^i $ è finito (perché finitamente generato e di torsione).
+	\end{theorem}
+
+	\subsection{Gruppi Modificati di Tate}
+	Il funtore $ A \mapsto \sfrac{A}{I_GA} $  è esatto a destra, posso quindi prenderne il funtore derivato a sinistra, che mi definisce l'omologia $ H_i. $ A questo punto riallaccio il tutto:
+	\[ \begin{tikzcd}
+	0 \rar &  \widehat{H}^{-1} \rar & H_0 \rar["N"] & H^0 \rar & \widehat{H}^0 \rar & 0
+	\end{tikzcd} \]
+	
+	Mi ricavo facile che
+	\begin{theorem}
+		\[ H_1(G, \, \Z) \cong G^{ab} \]
+	\end{theorem}
+
+	\subsection{Coomologia dei Gruppi Ciclici}
+	Il risultato fondamentale è che la coomologia è semplice: $ \widehat{H}^i \cong \widehat{H}^{i+2} $.
+	
+	\begin{definition}[Queziente d'Hebrand]
+		Vuole essere il magico numero associato alla coomologia
+		\[ h(A) = \frac{h^0(A)}{h^1(A)}. \]
+	\end{definition}	
+
+	\begin{theorem}[Proprietà del Quoziente d'Hebrand]
+		Abbiamo che
+		\begin{enumerate}
+			\item Se ho $ 0 \to A \to B \to C \to 0 $ esatta e due quozienti definiti, è definito anche il terzo
+			\item Se $ A $ è finito, allora $ h(A) = 1 $.
+			\item Se ho $ f \colon A \to B $ con sia $ \ker $ che $ coker$ finiti e uno dei due $ h $ deifnito, è definito anche l'altro e sono uguali.
+		\end{enumerate}
+	\end{theorem}
+
+	\subsection{Tazza Prodotto}
 	
 \end{document}
