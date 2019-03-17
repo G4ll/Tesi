@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+
+\makeatletter
+\title{Teoremi}\let\Title\@title
+\author{Andrea Gallese}\let\Author\@author
+\date{\today}\let\Date\@date
+
+\usepackage{SetUp}
+
+\begin{document}
+	\section{Parte 1 -- Strumenti}
+	
+	\subsection{$ G $-moduli.}
+	\begin{definition}{Modulo Indotto}
+		\[ \Ind_H^G(A) = \Hom_H(G, \, A) = \{ f \colon G \to A \mid f(hg) = h f(g) \forall h \in H \} \]
+		su cui agiamo a sinistra: $ g \cdot f(x) = f(xg) $. In realtà questa era la definizione di modulo coindotto, secondo Maffei! Il grande trucco è che useremo solo gruppi finiti, per i quali le definizioni coincidono
+		\[ \Ind_H^G(A) = \Z[G] \otimes_{\Z[H]} A \]
+	\end{definition}
+
+	\subsection{La Coomologia}
+	\begin{lemma}
+		$ Mod_G $ ha abbastanza iniettivi.
+	\end{lemma}
+
+	Questo ci serve per poter definire la coomologia passando per le risoluzioni iniettive: prendiamo il funtore $ F \colon A \mapsto A^G $ e definiamo $ H^i(G, A) = R^iF(A) $.
+	
+	\begin{theorem}[Proprietà fondamentali della coomologia]
+		Abbiamo
+		\begin{enumerate}
+			\item $ H^0(G,\, A) = A^G $.
+			\item Gli iniettivi sono aciclici.
+			\item Per ogni successione esatta corta, ne abbiamo una esatta lunga in coomologia.
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{lemma}
+		\[ \Hom_H(B,\, A) = \Hom_G(B, \, \Ind_H^G(A)) \]
+	\end{lemma}
+	
+	
+\end{document}

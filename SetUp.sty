@@ -1,0 +1,115 @@
+\ProvidesPackage{SetUp}
+
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{faktor}
+\usepackage{wasysym}
+\usepackage{thmtools}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[position=top]{subfig}
+\usepackage{multirow}
+
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{mdframed}
+\usepackage{enumitem}
+
+% Per disegnare diagrammi commuatativi
+\usepackage{tikz-cd}
+\usepackage{tikz}
+
+
+% Comando Intitolante
+\newcommand{\Intitola}{\begin{center}
+		\vspace*{0,5 cm}
+		{\Huge \textsc{\Title}} \\
+		\vspace{0,5 cm}
+		\textsc{\Author} \hspace{1cm} \textsc{\Date}
+		\thispagestyle{empty}
+		\vspace{0,7 cm}
+\end{center}}
+
+% magia
+\iffalse
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\fi
+
+% Formato Teoremi, Dimostrazioni, Definizioni
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[section]{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Osservazione}
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}
+\renewcommand\qedsymbol{$\clubsuit$}
+
+% Frontespizio e piè di pagina
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textsf{\Author}}
+\chead{\textbf{\textsf{\Title}}}
+\lhead{\textsf{\today}}
+
+% Frontespizio e piè di pagina
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textsf{\Author}}
+\chead{\textbf{\textsf{\Title}}}
+\lhead{\textsf{\today}}
+\cfoot{\thepage}
+
+% Crea una nuova pagina per ogni sottosezione
+\newcommand{\subsectionbreak}{\clearpage}
+
+% indentazione
+\setlength{\parindent}{0pt}
+
+% multicols
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+\setlength{\columnseprule}{0,5pt}
+
+
+% Bullet delle liste puntate
+\renewcommand\labelitemi{$ \blacktriangleright $}
+
+% formattazione titoli sezioni
+\titleformat{\section}
+{\normalfont\scshape\center\Large}{}{1em}{}
+
+%Comandi specifici
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
+\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+\newcommand{\Ind}{\mathrm{Ind}}
+\newcommand{\Hom}{\mathrm{Hom}}
+
+\newcommand{\LR}{\quad\Leftrightarrow\quad}
+\newcommand{\RR}{\quad\Rightarrow\quad}
+
+\newcommand{\fun}[5]{
+	\begin{align*}
+	#1 \colon #2 &\to #3 \\
+	#4 &\mapsto #5
+	\end{align*}
+}
