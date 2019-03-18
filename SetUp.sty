@@ -22,6 +22,7 @@
 \usepackage{enumitem}
 
 \usepackage{xfrac}
+\usepackage[mathscr]{eucal}
 
 % Per disegnare diagrammi commuatativi
 \usepackage{tikz-cd}
@@ -103,8 +104,9 @@
 
 \newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
 \newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
-\newcommand{\Ind}{\mathrm{Ind}}
-\newcommand{\Hom}{\mathrm{Hom}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\HH}{H}
+\DeclareMathOperator{\Ind}{Ind}
 
 \newcommand{\LR}{\quad\Leftrightarrow\quad}
 \newcommand{\RR}{\quad\Rightarrow\quad}
