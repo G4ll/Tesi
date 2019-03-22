@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.9.24)  18 MAR 2019 19:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.9.24)  22 MAR 2019 18:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1585,41 +1585,41 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+LaTeX Font Info:    Try loading font information for U+msa on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+LaTeX Font Info:    Try loading font information for U+msb on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 13.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <6.99997> on input line 73.
+LaTeX Font Info:    Calculating math sizes for size <6.99997> on input line 74.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.49998> not available
-(Font)              size <5> substituted on input line 73.
+(Font)              size <5> substituted on input line 74.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.49998> not available
-(Font)              size <5> substituted on input line 73.
+(Font)              size <5> substituted on input line 74.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.49998> not available
-(Font)              size <5> substituted on input line 73.
+(Font)              size <5> substituted on input line 74.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <3.49998> not available
-(Font)              size <5> substituted on input line 73.
+(Font)              size <5> substituted on input line 74.
 
 [2] [3] [4] [5] (./Listone.aux)
 
@@ -1628,10 +1628,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 27338 strings out of 493013
- 535175 string characters out of 6135682
- 676244 words of memory out of 5000000
- 30407 multiletter control sequences out of 15000+600000
+ 27340 strings out of 493013
+ 535180 string characters out of 6135682
+ 676259 words of memory out of 5000000
+ 30409 multiletter control sequences out of 15000+600000
  19646 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,25n,86p,10418b,1174s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1653,7 +1653,7 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Listone.pdf (5 pages, 197572 bytes).
+Output written on Listone.pdf (5 pages, 202755 bytes).
 PDF statistics:
  99 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream

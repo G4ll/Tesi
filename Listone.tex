@@ -8,6 +8,7 @@
 \usepackage{SetUp}
 
 \begin{document}
+	
 	\section{Parte 1 -- Strumenti}
 	
 	\subsection{$ G $-moduli.}
@@ -103,7 +104,7 @@
 	\end{align*}
 	dopodiché prendo una risoluzione iniettiva di $ A \to I^\bullet $, che tramite $ f^\times $ diventa una risoluzione iniettiva di $ f^\times A $, ho così:
 	\[ \begin{tikzcd}
-	0 \rar & f\times A^H \rar \dar["N"] & (f^\times I^\bullet) ^H \dar["N"] \\
+	0 \rar & f^\times A^H \rar \dar["N"] & (f^\times I^\bullet) ^H \dar["N"] \\
 	0 \rar & A^G \rar & (I^\bullet)^G
 	\end{tikzcd} \]
 	che ci dona un meraviglioso morfismo in coomologia che chiamiamo
@@ -158,6 +159,39 @@
 	\subsection{Tazza Prodotto}
 	
 	\newpage
-	\section{ Parte 2 -- Dualità di Tate}
+	\section{ Parte 2 -- Cose}
+	
+	\subsection{Numeri Primi}
+	\begin{lemma}
+		$ G $ un $ p $-gruppo, $ A $ di torsione $ p $-primario. $ A^G = 0 \RR A = 0. $ [Formula delle Classi]
+	\end{lemma}
+	
+	\begin{lemma}
+		Prendo $ H < G $ con $ p \nmid [G \colon H ] $, la nostra amica $ Res $ è iniettiva sulla componenti $ p $-primarie.
+	\end{lemma}
+
+	\begin{lemma}
+		$ B $ indotto, allora $ \Hom_\Z(A, \, B) $ è indotto.
+	\end{lemma}
+	
+	\begin{definition}
+		Diciamo che un modulo $ A $ è coomologicamente banale se $ \HH^n(H, \, A) = 0 $ per ogni $ H < G $ e $ n > 0. $
+	\end{definition}
+
+	Qui c'è da fare attenzione: se cambio Sylow non cambia nulla, perché nel capitolo della successione spettrale c'è scritto che gli automorfismi interni di $ G $ mi danno gruppi di coomologia isomorfi.
+	
+	\begin{lemma}
+		$ A $ è $ G$-c.b. se e solo se è $ G_p$-c.b. per ogni $ p. $
+	\end{lemma}
+
+	\begin{theorem}
+		$ G $ un $ p $-gruppo, $ A $ di $ p $-torsione, esiste $ q $ per cui $ \Hh^q(G, \, A) = 0 $, allora $ A $ è \textbf{indotto}! ($ \F_p[G] $-libero, in effetti)
+	\end{theorem}
+
+	\begin{theorem}
+		Se per ogni primo trovo $ q $ per cui $$  \Hh ^q(G_p,\, A) = \Hh^{q+1}(G_p,\, A) = 0  $$ allora $ A $ è indotto
+	\end{theorem}
+
+	\subsection{Dualità di Tate-Nakayama}
 	
 \end{document}
