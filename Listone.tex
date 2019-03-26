@@ -39,6 +39,10 @@
 	\end{theorem}
 
 	\begin{theorem}
+		Gli indotti sono aciclici.
+	\end{theorem}
+
+	\begin{theorem}
 		\[ \HH^i(G, \, \lim_{\rightarrow} A_j) =  \lim_{\rightarrow}\HH^i(G, \, A_j) \]
 	\end{theorem}
 
@@ -65,13 +69,13 @@
 	che sarà in realta un morfismo di complessi tra risoluzione iniettive, che ci dona una mappa funtoriale $$  f_i^\star \colon H^i(G, \, ) \to H^i(G', \, f^\times ).  $$
 	
 	\begin{definition}[Restrizione]
-		Chiamiamo $$  Res \colon H^i(G, \, A) \to H^i(H, \, A)  $$ la mappa indotta dall'inclusione naturale $ H \to G $.
+		Chiamiamo $$  \Res \colon \HH^i(G, \, A) \to \HH^i(H, \, A)  $$ la mappa indotta dall'inclusione naturale $ H \to G $.
 	\end{definition}
 
 	In generale, se abbiamo un $ G' $-morfismo $ u \colon f^\times A \to A'  $ otteniamo una mappa $ u^\star $ in coomologia, che possiamo comporre con $ f^\star $ tranquillamente per ottenere un morfismo funtoriale $ H^i(G, \, A) \to H^i(G', \, A') $.
 	
 	\begin{definition}[Inflazione]
-		Considerando ora la proiezione canonica $ f \colon G \to \sfrac{G}{H} $ e l'inclusione tra $ \sfrac{G}{H} $-moduli $ u \colon A^H \to A $, otteniamo la mappa funtoriale \[ Inf \colon H^i(\sfrac{G}{H}, \, A^H) \to H^i(G, \, A). \]
+		Considerando ora la proiezione canonica $ f \colon G \to \sfrac{G}{H} $ e l'inclusione tra $ \sfrac{G}{H} $-moduli $ u \colon A^H \to A $, otteniamo la mappa funtoriale \[ \Inf \colon H^i(\sfrac{G}{H}, \, A^H) \to H^i(G, \, A). \]
 	\end{definition}
 	
 	\begin{theorem}[Lemma di Shapiro]
@@ -113,7 +117,7 @@
 	\begin{theorem}
 		Quando componiamo $ CoR \circ Res $ otteniamo la moltiplicazione per l'indice del sottogruppo
 		\[ \begin{tikzcd}
-		H^i(G, \, A) \rar["Res"] \arrow["\cdot {\left[G \colon H \right]}" description, bend right = 20]{rr} & H^i(H, \, A)\rar["CoRes"] & H^i(G, \, A)
+		H^i(G, \, A) \rar["\Res"] \arrow["\cdot {\left[G \colon H \right]}" description, bend right = 20]{rr} & H^i(H, \, A)\rar["CoRes"] & H^i(G, \, A)
 		\end{tikzcd} \]
 	\end{theorem}
 
