@@ -1,0 +1,175 @@
+\documentclass[a4paper]{article}
+
+\makeatletter
+\title{Colloquio}\let\Title\@title
+\author{Andrea Gallese}\let\Author\@author
+\date{\today}\let\Date\@date
+
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+
+% pack matematici
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{faktor}
+\usepackage{wasysym}
+\usepackage{thmtools}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage[position=top]{subfig}
+\usepackage{multirow}
+
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{mdframed}
+\usepackage{enumitem}
+
+% Comando Intitolante
+\newcommand{\Intitola}{\begin{center}
+		\vspace*{0,5 cm}
+		{\Huge \textsc{\Title}} \\
+		\vspace{0,5 cm}
+		\texttt{\Author} \hspace{0.5cm} - \hspace{0.5cm} \texttt{\Date}
+		\thispagestyle{empty}
+		\vspace{0,7 cm}
+\end{center}}
+
+% magia
+\iffalse
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\fi
+
+% Frontespizio e piè di pagina
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textsf{\Author}}
+\chead{\textbf{\textsf{\Title}}}
+\lhead{\textsf{\today}}
+\cfoot{\thepage}
+
+% multicols
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+\setlength{\columnseprule}{0,5pt}
+
+% indentazione
+\setlength{\parindent}{0pt}
+
+% Crea una nuova pagina per ogni sottosezione
+\newcommand{\subsectionbreak}{\clearpage}
+
+% Per avere le sezioni con le lettere
+%\renewcommand{\thesection}{\Alph{section}}
+
+% Bullet delle liste puntate
+\renewcommand\labelitemi{$ \blacktriangleright $}
+
+% Per disegnare diagrammi commuatativi
+\usepackage{tikz-cd}
+\usepackage{tikz}
+
+% Formato Teoremi, Dimostrazioni, Definizioni
+\newtheorem{theorem}{$ \blacksquare $ Teorema}
+\newtheorem{lemma}[theorem]{$ \RHD $ Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Osservazione}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definizione}
+\renewcommand\qedsymbol{$\clubsuit$}
+
+% Comandi matematici del caso
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\C}{\mathbb{C}}
+
+\renewcommand{\S}{\mathcal{S}}
+
+% Comandi di Algebra
+\newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
+\newcommand{\Int}[1]{\mathrm{Int}\left( #1 \right)}
+\newcommand{\Orb}[1]{\mathcal{O}rb\left( #1 \right)}
+\newcommand{\Stab}[1]{\mathcal{S}tab\left( #1 \right)}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\HH}{H}
+
+\newcommand{\RR}{\quad\Rightarrow\quad}
+
+% formattazione titoli sezioni
+\titleformat{\section}
+{\normalfont\scshape\center\large}{\thesection}{1em}{}
+
+\begin{document}
+\Intitola
+\small
+
+febbraio@olimpiadi.dm.unibo.it\\
+
+\section*{Introduzione}
+
+\textbf{Di che cosa parleremo?} Vogliamo introdurre un comodo strumento per parlare di problemi che sono in qualche comodo naturalmente collegati ad estensioni di campi. In particolare ci concentreremo su alcuni risultati nella direzione del problema di Galois inverso nel caso abeliano. \\
+
+\textbf{Esempio 0.} Per avere un'idea di quello che abbiamo in mente, iniziamo con un esempio banalissimo. Una domanda che ha qualche interesse porsi è: chi sono i quadrati in un dato campo $ K $ (finito)? Ovvero, cosa sappiamo dire sulla mappa
+\[ \begin{tikzcd}
+K^\times \rar["\cdot 2"] & K^\times?
+\end{tikzcd} \]
+Questo problema è banale quando $ K $ è algebricamente chiuso:
+\[ \begin{tikzcd}
+0 \rar & \mu_2 \rar & K^\times \rar["\cdot 2"] & K^\times \rar & 0.
+\end{tikzcd} \]
+Siamo allora tentati di sollevare il problema alla chiusura algebrica, risolverlo, e dopodiché capire quali proprietà si conservano nel discendere alle sotto-estensioni. A questo punto è naturale prendere in considerazione il funtore $ A \mapsto A^{\Gal{\bar{K}/K}} $. \\
+
+\textbf{Lo strumento.} Il nostro funtore è esatto a sinistra; l'algebra omologia fornisce un modo naturale di far proseguire la successione esatta: il funtore derivato a destra: $ \HH^i(G, \, \bullet) $. Ci sono due modi per costruirlo: magia nera ($ \HH^i(G, \, \bullet) \colon = R^iF(\bullet) $) oppure sudore e sangue
+\[ K^i(A) = \{ f \colon G^i \to A \}, \quad \delta^i(f) (g_0, \dots, \, g_i) = ?? \]
+Il secondo ci torna utile nel caso di azione banale: qui $ \HH^1(G, \, A) = \Hom(G, \, A) $. \\
+
+\section*{Perché ci piace?}
+
+Alcuni risultati si riescono a riformulare in forma compatta nel nostro linguaggio, ne è un esempio il Teorema di Hilbert 90:
+\begin{theorem}[Hilbert 90]
+	Data un'estensione $ L/K $ di Galois di gruppo $ G $, si ha che: $ \HH^1(G, \, L^\times) $.
+\end{theorem}
+Di conseguenza, questi diventano più accessibili e di facile utilizzo:
+
+\begin{lemma}
+	Parametrizzazione della circonferenza unitaria usando $ \HH^1(G,\, \Q(i)^\times) = 0 $.\\
+\end{lemma}
+
+\textbf{Cos'ha a che fare con il problema di Galois inverso?} Fissato un gruppo abeliano $ A $, le estensioni di Galois di gruppo sottogruppo di $ A $ sono classificate da
+\[ \Hom(G,\, A) = \HH^1(G, \, A). \]
+
+Stiamo quindi trasferendo il problema di Galois inverso al calcolo di un gruppo abeliano! Una conseguenza del poco detto fino ad ora è, per esempio:
+
+\begin{theorem}[Kummer]
+	Le estensioni di Galois di gruppo $ \Z/p\Z $ su un campo $ K $ che contiene le radici $ p $-esime dell'unità $ \mu_p $ sono classificate da $ K^\times / K^{\times p} $.
+\end{theorem}
+
+\section*{Altri Orizzonti}
+
+\textbf{Dualità di Pontryagin.} Il duale di un gruppo $ G $ è definito come
+\[ G^\vee = \Hom(G, \, \Q/\Z), \]
+il suo biduale sarà $ (G^\vee)^\vee = G^{\texttt{ab}} $. \\
+
+\textbf{Dualità di Tate.} Abbiamo un accoppiamento perfetto
+\[ \HH^1(G, M) \times \HH^1(G, M') \to \HH^2(G, \overline{K}^\times), \]
+dove $ M' = \Hom(M, \,\mu_\infty) $. \\
+
+Una volta calcolato $ \HH^2(G, \overline{K}^\times) = \Q / \Z $, ci basterà porre $ M = \Q/\Z $ per scoprire che 
+\[ G^\texttt{ab} = \HH^1(G, \, M)^\vee = \HH^1(G, \, \mu_\infty) = \varprojlim \HH^1(G, \, \mu_n ) = \varprojlim K^\times / K^{\times n}. \]
+
+\end{document}
