@@ -140,7 +140,7 @@ Il secondo ci torna utile nel caso di azione banale: qui $ \HH^1(G, \, A) = \Hom
 
 L'obiettivo diventa ora convincere il pubblico che, fatta la scelta naturale, abbiamo pure ottenuto un buon linguaggio: alcuni vecchi teoremi trovano piacevoli riformulazioni, ne è un esempio l'Hilbert 90 che guadagna un ruolo centrale nella teoria.
 \begin{theorem}[Hilbert 90]
-	Data un'estensione $ L/K $ di Galois di gruppo $ G $, si ha che: $ \HH^1(G, \, L^\times) $.
+	Data un'estensione $ L/K $ di Galois di gruppo $ G $, si ha che: $ \HH^1(G, \, L^\times) = 0 $.
 \end{theorem}
 \begin{proof}
 	Mostreremo che tutti i cocicli sono cobordi: prendiamo un cociclo $ a \colon G \to L^\times $, gli elementi di $ G $ sono linearmente indipendenti su $ L $, quindi troviamo $ x \in L^\times $ per cui
@@ -154,7 +154,7 @@ Inoltre, alcuni risultati stranoti si ripresentano in forme sorprendentemente se
 	Parametrizzazione della circonferenza unitaria usando $ \HH^1(G,\, \Q(i)^\times) = 0 $.
 \end{lemma}
 \begin{proof}
-	Essendo $ G $ è ciclico, abbiamo
+	Essendo $ G $ ciclico, abbiamo
 	\[ \frac{\ker N}{I_G \Q(i)^\times} = \hat{\HH}^{-1}(G, \, \Q(i)^\times) = \HH^1(G, \, \Q(i)^\times) = 0. \]
 \end{proof}
 
@@ -181,16 +181,16 @@ Una conseguenza del poco detto fino ad ora è, per esempio:
 
 \section*{Altri Orizzonti}
 
-\textbf{Dualità di Pontryagin.} Il duale di un gruppo $ G $ è definito come
+\textbf{Dualità di Pontryagin.} Il duale di un gruppo $ G $ (pro)finito è definito come
 \[ G^\vee = \Hom(G, \, \Q/\Z), \]
 il suo biduale sarà $ (G^\vee)^\vee = G^{\texttt{ab}} $. Questo assomiglia in qualche modo alla definizione di duale per spazi vettoriali: vale la pena di osservare che la dualità è equivalente ad avere un accoppiamento perfetto
 \[ A \times B \to \Q / \Z. \]
 
-\textbf{Dualità di Tate.} Abbiamo un accoppiamento perfetto
+\textbf{Dualità di Tate.} Abbiamo un accoppiamento perfetto, per $ M $ finito, 
 \[ \HH^1(G, M) \times \HH^1(G, M') \to \HH^2(G, \overline{K}^\times), \]
-dove $ M' = \Hom(M, \,\mu_\infty) $. \\
+dove $ M' = \Hom(M, \,\mu_\infty) $ è il Duale di Cartier. \\
 
 Una volta scoperto che $ \HH^2(G, \overline{K}^\times) = \Q / \Z $, ci basterà porre $ M = \Q/\Z $ per scoprire che le due dualità sono la stessa e concludere quindi che 
-\[ G^\texttt{ab} = \HH^1(G, \, M)^\vee = \HH^1(G, \, \mu_\infty) = \varprojlim \HH^1(G, \, \mu_n ) = \varprojlim K^\times / K^{\times n}. \]
+\[ G^\texttt{ab} = \HH^1(G, \, \Q/ \Z)^\vee = \left( \varinjlim \HH^1(G, \, \Z / n\Z) \right)^\vee = \varprojlim \HH^1(G, \, \Z / n\Z)^\vee =  \varprojlim \HH^1(G, \, \mu_n ) = \varprojlim K^\times / K^{\times n}. \]
 
 \end{document}
