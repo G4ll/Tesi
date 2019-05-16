@@ -1,4 +1,34 @@
-\chapter{Preliminari}
+\chapter{Lo Strumento}
+
+L'obiettivo di questo primo capitolo è di introdurre i gruppi della coomologia in questione, mostrarne le principali proprietà e presentare alcune generalizzazioni. Prima di cominciare vorrei però convincere il lettore dell'utilità del linguaggio che stiamo per costruire.\\
+
+ESEMPIO ? \\
+
+\section{Costruzione}
+
+Poniamoci nella dovuta generalità. Fissiamo un gruppo finito $ G $ e consideriamo la categoria $ \mathcal{M}od_G $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi sono le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \mathcal{M}od_G $ come la categoria dei moduli sull'anello $ \Z[G] $, che otteniamo ponendo sullo $ \Z $ modulo libero generato sugli elementi di $ G $ la moltiplicazione indotta da questi ultimi. In quest'ottica è naturale riferirsi agli oggetti della nostra categoria come "$ G $ moduli". \\
+
+Siamo ora interessati al funtore che, preso un modulo, restituisce il sottomodulo fissato degli elementi fissati dall'azione del gruppo
+\begin{align*}
+	F \colon \mathcal{M}od_G &\to \mathcal{A}b \\
+	 A &\mapsto A^G = \{ a \in A \mid ga = a \; \forall \, g \in G \},
+\end{align*}
+fondante in Teoria di Galois. Questo funtore è esatto a sinistra ma, in generale, non a destra. Vivendo questo nella categoria $ \mathcal{M}od_G $, che ha abbastanza iniettivi, ci è concesso prenderne il derivato destro $ R^iF $, da qui la nostra prima definizione.
+
+\begin{definition}
+	Dato un gruppo finito $ G $ e un intero $ i \geq 0 $, chiamiamo $ i $-esimo gruppo di coomologia di $ G $ il funtore
+	\[ \HH^i(G, \, \bullet) \colon = R^iF(\,\bullet\,). \]
+\end{definition}
+
+Ricordiamo velocemente com'è costruito il funtore derivato: innanzitutto sostituiamo il modulo $ A $ di cui vogliamo prendere i fissati con una sua risoluzione iniettiva
+\[\begin{tikzcd}[column sep = small]
+0 \rar & A \rar & I^0 \rar & I^1 \rar & I^2 \rar & \dots
+\end{tikzcd}\]
+cosa che possiamo fare perché, appunto, $ \mathcal{M}od_G $ ha abbastanza iniettivi, essendo una categoria di moduli su un anello. Applichiamo ora il funtore
+\[\begin{tikzcd}[column sep = small]
+0 \rar & (I^0)^G \rar & (I^1)^G \rar & (I^2)^G \rar & \dots
+\end{tikzcd}\]
+e prendiamo la coomologia del complesso così ottenuto.
 
 \section{Primissimi preliminari}
 

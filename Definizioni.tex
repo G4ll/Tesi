@@ -14,6 +14,10 @@
 \usepackage{multirow}
 %\usepackage{geometry}
 
+% Per disegnare diagrammi commuatativi
+\usepackage{tikz-cd}
+\usepackage{tikz}
+
 \setcounter{secnumdepth}{5}
 \setlength\extrarowheight{3pt}
 
@@ -58,3 +62,21 @@
 \newtheorem{remark}[theorem]{Osservazione}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{0.5in}
+
+%Comandi specifici
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
+\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\HH}{H}
+\DeclareMathOperator{\Hh}{\widehat{H}}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Res}{\texttt{res}}
+\DeclareMathOperator{\Inf}{\texttt{inf}}
