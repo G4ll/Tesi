@@ -1,73 +1,77 @@
 \chapter{Lo Strumento}
+\small
 
-L'obiettivo di questo primo capitolo è di introdurre i gruppi della coomologia in questione, mostrarne le principali proprietà e presentare alcune generalizzazioni. Prima di cominciare vorrei però convincere il lettore dell'utilità del linguaggio che stiamo per costruire.\\
+L'obiettivo di questo primo capitolo è di introdurre i gruppi della coomologia in questione, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
 
-ESEMPIO ? \\
+Poniamoci nella dovuta generalità. Sia $ G $ un gruppo \emph{finito}, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $ moduli".
+Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su tutti i campi intermedi, rendendo sia i loro gruppo additivo che il loro gruppo moltiplicativo degli $ \Gal{L/K} $ moduli. \\
 
-\section{Costruzione}
-
-Poniamoci nella dovuta generalità. Sia $ G $ un gruppo finito, consideriamo la categoria $ \mathcal{M}od_G $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \mathcal{M}od_G $ come la categoria dei moduli sull'anello $ \Z[G] $, che si ottiene ponendo sullo $ \Z $ modulo libero generato sugli elementi di $ G $ la moltiplicazione indotta da questi ultimi. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come "$ G $ moduli". \\
-
-Siamo ora interessati al funtore che, preso un modulo, restituisce il sottomodulo costituito dagli elementi fissi rispetto  all'azione del gruppo
+Siamo ora interessati al funtore $ \mathcal{F} $ che, preso un modulo, restituisce il sottomodulo costituito dagli elementi fissi rispetto  all'azione del gruppo
 \begin{align*} 
-	F \colon \mathcal{M}od_G &\to \mathcal{A}b \\
-	 A &\mapsto A^G = \{ a \in A \mid ga = a \; \forall \, g \in G \},
+\mathcal{F} \colon \Gmod &\to \mathcal{A}b \\
+A &\mapsto A^G = \{ a \in A \mid ga = a \; \forall \, g \in G \},
 \end{align*}
-di evidente importanza in Teoria di Galois. Questo funtore è esatto a sinistra ma, in generale, non a destra. Partendo questo da una categoria con abbastanza iniettivi, ci è concesso prenderne il derivato destro $ R^iF $, da cui la nostra prima definizione.
+di evidente importanza in Teoria di Galois. Questo funtore è esatto a sinistra ma, in generale, non a destra. Partendo questo da una categoria con abbastanza iniettivi, ci è concesso prenderne il derivato destro $ R^i\mathcal{F} $, da cui la nostra prima definizione.
 
 \begin{definition}
 	Dato un gruppo finito $ G $ e un intero $ i $ non negativo, chiamiamo $ i $-esimo gruppo di coomologia di $ G $ il funtore
-	\[ \HH^i(G, \, \bullet) \colon = R^iF(\,\bullet\,). \]
+	\[ \HH^i(G, \, \bullet) \colon = R^i\mathcal{F}(\,\bullet\,). \]
 \end{definition}
 
-Ricordiamo velocemente la costruzione del funtore derivato: innanzitutto sostituiamo il modulo $ A $ di cui vogliamo prendere i fissati con una sua risoluzione iniettiva
-\[\begin{tikzcd}[column sep = small]
-0 \rar & A \rar & I^0 \rar & I^1 \rar & I^2 \rar & \dots \; ,
-\end{tikzcd}\]
-cosa che possiamo fare perché, appunto, $ \mathcal{M}od_G $ ha abbastanza iniettivi, trattandosi di una categoria di moduli su un anello. Applichiamo ora il funtore
-\[\begin{tikzcd}[column sep = small]
-0 \rar & (I^0)^G \rar & (I^1)^G \rar & (I^2)^G \rar & \dots
-\end{tikzcd}\]
-e prendiamo la coomologia del complesso così ottenuto.
+Attraverso questa definizione e la magia occulta dei funtori derivati, l'algebra omologica ci permette di assegnare a un $ G $-modulo $ A $ un'intera famiglia di invarianti $ \HH^i(G, \, A) $, il cui studio ci permetterà di descrivere meglio sia il modulo che il gruppo in questione. 
 
-\newpage
-\section{Primissimi preliminari}
+Dall'altro lato la definizione appena data sembra, al momento, un cambio di notazione completamente arbitrario: perché non continuare a chiamare i nostri oggetti funtori derivati per il resto della tesi? Limitiamoci ad osservare che la presentazione scelta mette in evidenza la proprietà fondamentale di questi oggetti.
 
-Come tutti ben sappiamo, esistono le definizioni
-\begin{definition}
-Una definizione è una cosa del genere.
-\end{definition}
-
-Poi ci sono i teoremi:
 \begin{theorem}
-Ogni intero positivo è somma di quattro quadrati.
+	Data una successione esatta corta di $ G $ moduli
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar & A \rar & B \rar & C \rar & 0,
+	\end{tikzcd}\]
+	si ha una successione esatta lunga di gruppi abeliani
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar & A^G \rar & B^G \rar & C^G \rar & \HH^1(G, \, A) \rar & \dots \, .
+	\end{tikzcd}\]
 \end{theorem}
 
-E le dimostrazioni:
-\begin{proof}
-Le somme di quattro quadrati sono un monoide moltiplicativo (pensare ai quaternioni). Che ogni primo sia somma di quattro quadrati è ben noto. Una dimostrazione completa si può trovare in \cite[Teorema 2.3]{ArticoloFondamentale}.
-\end{proof}
+Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo al corso di Istituzioni di Algebra il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente osservazione:
 
-Poi lemmi, proposizioni, corollari, ed esempi, solo per citarne alcuni:
+\begin{remark}
+	Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che il noto funtore esatto a sinistra $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i(\Z, \, \bullet\,) $.
+\end{remark}
 
-\begin{example}
-\begin{equation}\label{eq:63}
-63=7^2+3^2+2^2+1
-\end{equation}
-\end{example}
-\begin{proposition}
-Se $n \equiv 7 \pmod 8$, allora $n$ non si scrive come somma di tre quadrati di interi.
-\end{proposition}
-\begin{lemma}\label{lemma:Gamma}
-\[
-\lim_{n \to \infty} \left( \log(n) - \sum_{i=1}^n \frac{1}{i} \right)= -\gamma
-\]
-\end{lemma}
-\begin{corollary}
-\[
-\zeta(s) = \frac{1}{s-1} + \gamma + O(s-1) \quad \text{ quando } s \to 1
-\]
-\end{corollary}
+Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. Mostreremo inoltre una costruzione dal taglio decisamente coomologico.
 
-\section{Riferimenti}
-Nel resto della tesi si può poi fare riferimento a risultati già dimostrati, come ad esempio l'utilissimo Lemma \ref{lemma:Gamma}, o l'ancora più fondamentale Equazione \eqref{eq:63}.
+\section{Le costruzioni}
+Per costruire l'immagine di un $ G $ modulo $ A $ tramite $ R^i\mathcal{F} $, abbiamo bisogno di una risoluzione iniettiva
+\[ 0 \to A \to I^{\,0} \to I^{\,1} \to I^{\,2} \to \dots, \]
+che sappiamo sempre esistere in una categoria di moduli su un anello, come la nostra $ \Gmod $. Applicando il funtore $ \mathcal{F} $, otteniamo il complesso
+\[ 0 \to \mathcal{F}\left(I^{\,0}\right) \to \mathcal{F}\left(I^{\,1}\right) \to \mathcal{F}\left(I^{\,2}\right) \to \dots, \]
+la cui omologia è, per definizione, $ R^i\mathcal{F}(A) = \HH^i(G, \, A) $. \\
+
+Possiamo quindi affermare ora, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
+\[ \HH^i(G, \, I) = 0 \quad \forall \, i > 0 \]
+e che la coomologia è semplice in grado zero
+$$  \HH^0(G, \, A) = \mathcal{F}(A) = A^G.  $$
+
+Affermiamo inoltre, in modo più ardito, che
+\begin{proposition} \todo[definire i limiti iniettivi!]
+	Se $ (A_j) $ è un sistema induttivo di $ G $ moduli, indicizzato su un insieme filtrante, allora
+	\[ \HH^i(G, \, \lim_\rightarrow A_j) = \lim_\rightarrow \HH^i(G, \, A_j) \qquad \forall \, i \geq 0. \] 
+\end{proposition} 
+
+Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
+\[ 0 \to K_0(A) \to K_1(A) \to K_2 (A) \to \dots, \]
+dove l'oggetto $ K_i(A) = \{ f \colon G^i \to A\} $ è l'insieme delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
+\[ \delta f(g_1, \, \dots, \, g_{i+1}) = g_1 f(g_2, \, \dots, \, g_{i+1}) + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) + (-1)^{i+1} f(g_1, \dots, g_i). \]
+Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi dei gruppi di coomologia $ \HH^i(G, \, A) $ che, pur avendo una qualche utilità in grado basso $ i = 0,\, 1 $, fornisce un evidente motivo per non 
+
+
+\section{Moduli Indotti}
+
+
+\newpage
+\section{Inflazione e Restrizione}
+
+\section{Corestrizione}
+
+\section{Gruppi Modificiati di Tate}
