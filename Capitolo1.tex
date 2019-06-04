@@ -105,7 +105,7 @@ I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione. S
 	\[ g' \cdot_{G'} A := f(g') \cdot_{G} A \qquad \forall\, g' \in G'. \]
 \end{definition}
 
-A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ f^\times $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In queto particolare caso questa operazione è, in un qualche senso, parzialmente invertibile:
+A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ f^\times $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In queto particolare caso l'operazione è, in un qualche senso, parzialmente invertibile:
 
 \begin{definition}
 	Preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, chiamiamo modulo indotto il gruppo abeliano
@@ -115,6 +115,8 @@ A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principa
 	
 \end{definition}
 
+
+
 \begin{proposition}\label{aggiunzione}\todo[dimostrare, introdurre]
 	I due funtori
 	\[ f^\times \colon \Gmod \to \Gmod \qquad\text{ e }\qquad  \Ind_H^G \colon \Gmod \to \Gmod \]
@@ -122,8 +124,10 @@ A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principa
 	\[ \Hom_G(A,\, \Ind_H^G(B)) = \Hom_H(f^\times A, \, B). \]
 \end{proposition}
 
+Per rimanere in tema, ribadiamo che $ f^\times $ è un'operazione puramente formale che usiamo per sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella naturale con il quale è stato introdotto, dunque inizieremo presto a omettere il funtore per sempplificare la notazione.
+
 Siamo ora pronti per affrontare il risultato principale, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
-\begin{proposition}
+\begin{proposition}\label{funct}
 	Siano  $ A $ uno $ G $ modulo e $ A' $ uno $ G' $ modulo. Dati $ f \colon G' \to G $ un omomorfismo di gruppi e $ u \colon f^\times A \to A' $ un omorfismo $ G' $-equivariante, otteniamo una mappa in coomologia
 	\[ \HH^i(G, \, A) \to \HH^i(G', \, A') \qquad\forall i \geq 0. \]
 \end{proposition}
@@ -195,7 +199,7 @@ Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su
 \begin{proof}
 	Dimostriamo il risultato per induzione su $ i $: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $ modulo. Preso ora un qualunque modulo $ A $, immergiamolo in modulo iniettivo $ I $:
 	\[ 0 \to A \to I \to Q \to 0. \]
-	Prendendo i fissati otteniamo una successione esatta lunga (per \ref{fond}) costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimane solo il segmento iniziale
+	Applicando $ \mathcal{F} $ otteniamo una successione esatta lunga (per \ref{fond}) costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar & A^G \rar\dar["\sigma_t = \id" description] & I^G \rar\dar["\sigma_t = \id" description] & Q^G \rar\dar["\sigma_t = \id" description] & \HH^1(G, \, A) \rar\dar["\sigma_t"] & 0 \\
 	0 \rar & A^G \rar & I^G \rar & Q^G \rar & \HH^1(G, \, A) \rar & 0
@@ -208,8 +212,119 @@ Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 \newpage
-\section{Inflazione e Restrizione}
+\section{Successione Spettrale di Hochschild-Serre}
+
+Questa sezione richiederà parecchio tempo, enuncio i due risultati
+
+\begin{theorem}[Hochschild-Serre]
+	Associata ad $ H $ sottogruppo normale di $ G $, si ha una successione spettrale
+	\[ E^{pq}_2 = \HH^p(G/H, \, \HH^q(H, \, A)) \;\Rightarrow\; \HH^{p+q}(G, \, A). \]
+	
+\end{theorem}
+
+\begin{corollary}[Succesione Restrizione-Inflazione]
+	Associata ad $ H $ sottogruppo normale di $ G $, si ha una successione esatta
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar & \HH^1(G/H, \, A^H) \rar["\Inf"]
+	& \HH^1(G, \, A) \rar["\Res"]
+	& \HH^1(H, \, A)^{G/H} \rar["\texttt{trs}"]
+	& \HH^2(G/H, \, A^H) \rar["\Inf"]
+	& \HH^2(G, \, A).
+	\end{tikzcd} \]
+\end{corollary}
+
+\begin{corollary}[Succesione Restrizione-Inflazione]
+	Associata ad $ H $, sottogruppo normale di $ G $ per cui $ \HH^i(H, \, A ) = 0 $ per ogni $ 1 \leq i < q $, si ha la successione esatta
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar & \HH^q(G/H, \, A^H) \rar["\Inf"]
+	& \HH^q(G, \, A) \rar["\Res"]
+	& \HH^q(H, \, A).
+	\end{tikzcd} \qquad  \]
+\end{corollary}
 
 \section{Corestrizione}
+Costruiamo ora un'interessante mappa che va nella direzione opposta rispetto alla restrione, dunque che in qualche senso risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che il gruppo $ G $ sia finito, cosa che abbiamo comodamente assunto all'inizio del capitolo.
+
+\begin{definition}[Corestrizione]
+Fissiamo uno $ G $ modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
+\[N_{G/H} \colon a \mapsto \sum_{x \in G/H} x \cdot a, \]
+che, oltre a essere ben definita, sia perché $ G/H $ è finito che perché l'azione di $ G $ su $ A^H $ coincide su ogni laterale di $ H $, ricorda in qualche modo l'omonimo operatore tra estensioni finite di campi.
+
+Per estendere la mappa a tutti i gradi, in memoria di quanto fatto l'ultima volta, prendiamo una risoluzione iniettiva di $ A $, prendiamo gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prendere l'omologia, applichiamo la norma per ottenere un morfismo di complessi \todo[perché è un morismo di complessi?]
+\[\begin{tikzcd}
+0 \rar
+& \left(I^{\,0}\right)^H \rar \dar["N"]
+& \left(I^{\,1}\right)^H \rar \dar["N"]
+& \left(I^{\,2}\right)^H \rar \dar["N"]
+& \dots \\
+0 \rar
+& \left(I^{\,0}\right)^{G} \rar
+& \left(I^{\,1}\right)^{G} \rar
+& \left(I^{\,2}\right)^{G} \rar
+& \dots
+\end{tikzcd} \]
+e quindi una mappa in coomologia che chiamiamo \emph{corestrizione}:
+
+\[ \Cor \colon \HH^i(H, \, A) \to \HH^i(G, \, A). \]
+
+\end{definition}
+
+Naturalmente, la nostra prima preoccupazione è di controllare come la corestrizione rispetto alla restrizione: osserviamo che componendo le due mappe otteniamo un endomorfismo di, a seconda dell'ordine, $ \HH^i(G, \, A) $ oppure $ \HH^i(H, \, A) $. Esplicitando la definizione di entrambe riusciamo a descrivere questi omomorfismi esplicitamente.
+
+\begin{theorem}[della corestrizione]
+	Sia $ m = [G \,\colon H] $ l'indice di $ H $ in $ G $. La composizione
+	\[\begin{tikzcd}
+	\HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) \rar["\Cor"] & \HH^i(G, \, A)
+	\end{tikzcd}  \]
+	coincide con la moltiplicazione per $ m $.
+\end{theorem}
+\begin{proof}
+	La dimostrazione è per induzione sul grado: in $ i = 0 $ ritroviamo l'azione della norma su elementi fissati dall'azione di $ G $
+	\[\begin{tikzcd}
+	A^G \rar["i"] & A^H \rar["N"] & A^G & \\
+	a \rar[mapsto] & a \rar[mapsto] & \displaystyle\sum_{x \in G/H} x \cdot a = ma.
+	\end{tikzcd}  \]
+	Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $ modulo. Preso ora un qualunque modulo $ A $, immergiamolo in modulo iniettivo $ I $:
+	\[ 0 \to A \to I \to Q \to 0. \]
+	Applicando $ \mathcal{F} $ otteniamo una successione esatta lunga (per \ref{fond}) costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
+	\[\begin{tikzcd}
+	0 \rar
+	& A^G \rar\dar["\cdot m" description]
+	& I^G \rar\dar["\cdot m" description] 
+	& Q^G \rar\dar["\cdot m" description] 
+	& \HH^1(G, \, A) \rar\dar["\Cor \cdot \Res"] 
+	& 0 \\
+	0 \rar 
+	& A^G \rar 
+	& I^G \rar 
+	& Q^G \rar 
+	& \HH^1(G, \, A) \rar 
+	& 0
+	\end{tikzcd}\]
+	e alcuni frammenti per $ i > 0 $
+	\[\begin{tikzcd}
+	0 \rar & \HH^i(G, \, Q) \rar\dar["\cdot m" description] & \HH^{i+1}(G, \, A) \rar\dar["\Cor \cdot \Res"] & 0 \\
+	0 \rar & \HH^i(G, \, Q) \rar & \HH^{i+1}(G, \, A) \rar & 0,
+	\end{tikzcd}\]
+	da cui deduciamo la tesi in grado $ i+1 $.
+\end{proof}
+
+Abbiamo ottenuto un risultato incredibilmente piacevole: componendo due mappe arbitrariamente inaccessibili, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un meraviglioso ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di meravigliosi risultati; per esempio, prendedo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
+\[\begin{tikzcd}
+\HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) = 0 \rar["\Cor"] & \HH^i(G, \, A)
+\end{tikzcd}  \]
+è necessariamente nulla, dunque:
+
+\begin{corollary}
+	Sia $ n = [G 	\,\colon 1] $ l'ordine di $ G $. I gruppi di coomologia $ \HH^i(G, \, A) $ sono di $ n $-torsione.
+\end{corollary}
+
+Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Un'osservazione piuttoto rilevante è che partendo da un gruppo $ A $ finitamente generato, pure $ \HH^i(G, \, A) $ sarà finitamente generato su $ \Z $ (per la descrizione esplicita in cocatene) e dunque finito, perché finitamente generato e di torsione.
+
+Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffinato dle precedente, 
+
+\begin{lemma}
+	Se $ p $ è un primo per cui $ m = [G \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
+\end{lemma}
 
 \section{Gruppi Modificiati di Tate}
