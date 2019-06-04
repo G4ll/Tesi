@@ -1,7 +1,7 @@
 \chapter{Lo Strumento}
 \small
 
-L'obiettivo di questo primo capitolo è di introdurre i gruppi della coomologia in questione, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
+L'obiettivo di questo primo capitolo è di introdurre i gruppi di coomologia, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
 
 Poniamoci nella dovuta generalità. Sia $ G $ un gruppo \emph{finito}, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $ moduli".
 Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su tutti i campi intermedi, rendendo sia i loro gruppo additivo che il loro gruppo moltiplicativo degli $ \Gal{L/K} $ moduli. \\
@@ -22,15 +22,27 @@ Attraverso questa definizione e la magia occulta dei funtori derivati, l'algebra
 
 Dall'altro lato la definizione appena data sembra, al momento, un cambio di notazione completamente arbitrario: perché non continuare a chiamare i nostri oggetti funtori derivati per il resto della tesi? Limitiamoci ad osservare che la presentazione scelta mette in evidenza la proprietà fondamentale di questi oggetti.
 
-\begin{theorem}\label{fond}
+\begin{theorem}\label{fond} \todo[questa si può fare meglio]
 	Data una successione esatta corta di $ G $ moduli
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & A \rar & B \rar & C \rar & 0,
 	\end{tikzcd}\]
 	si ha una successione esatta lunga di gruppi abeliani
-	\[\begin{tikzcd}[column sep = small]
-	0 \rar & A^G \rar & B^G \rar & C^G \rar & \HH^1(G, \, A) \rar & \dots \, .
-	\end{tikzcd}\]
+	\[\begin{tikzcd}[column sep = small, row sep = small]
+	0 \rar & A^G \rar & B^G \arrow[d,phantom, ""{coordinate, name=Z}] \rar & C^G \arrow[dll, 
+	rounded corners = 6 pt, 
+	to path={ --([xshift=3ex]\tikztostart.east)
+		|- (Z)[near end]\tikztonodes
+		-| ([xshift=-3ex]\tikztotarget.west)
+		-- (\tikztotarget)}] \\
+	\qquad \quad &\HH^1(G, \, A) \rar & \HH^1(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \HH^1(G, \, C) \arrow[dll, 
+	rounded corners = 6 pt, 
+	to path={ --([xshift=3ex]\tikztostart.east)
+		|- (W)[near end]\tikztonodes
+		-| ([xshift=-3ex]\tikztotarget.west)
+		-- (\tikztotarget)}]  \\
+	&\HH^2(G, \, A) \rar & \dots \, .
+	& \end{tikzcd}\]
 \end{theorem}
 
 Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo al corso di Istituzioni di Algebra il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente rassicurazione:
@@ -144,7 +156,7 @@ Siamo ora pronti per affrontare il risultato principale, che ci permetterà di c
 	0 \rar & A^G \rar \dar & \left(I^{\,0}\right)^G \rar & \left(I^{\,1}\right)^G \rar & \left(I^{\,2}\right)^G \rar & \dots \\
 	0 \rar & \left(f^\times A\right)^{G'}  \rar & \left(f^\times I^{\,0}\right)^{G'} \rar & \left(f^\times I^{\,1}\right)^{G'} \rar & \left(I^{\, 2}\right)^{G'} \rar & \dots
 	\end{tikzcd} \]
-	Per definizione di modulo iniettivo otteniamo tutte le mappe successive
+	Per definizione di modulo iniettivo otteniamo tutte le mappe successive \todo[la sto facendo più facile del dovuto?]
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& A^G \dar \rar \arrow[dashed, "comp." description]{dr}
@@ -243,7 +255,7 @@ Questa sezione richiederà parecchio tempo, enuncio i due risultati
 \end{corollary}
 
 \section{Corestrizione}
-Costruiamo ora un'interessante mappa che va nella direzione opposta rispetto alla restrione, dunque che in qualche senso risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che il gruppo $ G $ sia finito, cosa che abbiamo comodamente assunto all'inizio del capitolo.
+Costruiamo ora un'interessante mappa che va nella direzione opposta rispetto alla restrione, ovvero che in qualche modo risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che il gruppo $ G $ sia finito, cosa che abbiamo comodamente assunto all'inizio del capitolo.
 
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $ modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
@@ -309,7 +321,7 @@ Naturalmente, la nostra prima preoccupazione è di controllare come la corestriz
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 
-Abbiamo ottenuto un risultato incredibilmente piacevole: componendo due mappe arbitrariamente inaccessibili, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un meraviglioso ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di meravigliosi risultati; per esempio, prendedo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
+Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un meraviglioso ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di meravigliosi risultati; per esempio, prendedo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
 \[\begin{tikzcd}
 \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) = 0 \rar["\Cor"] & \HH^i(G, \, A)
 \end{tikzcd}  \]
@@ -319,12 +331,16 @@ Abbiamo ottenuto un risultato incredibilmente piacevole: componendo due mappe ar
 	Sia $ n = [G 	\,\colon 1] $ l'ordine di $ G $. I gruppi di coomologia $ \HH^i(G, \, A) $ sono di $ n $-torsione.
 \end{corollary}
 
-Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Un'osservazione piuttoto rilevante è che partendo da un gruppo $ A $ finitamente generato, pure $ \HH^i(G, \, A) $ sarà finitamente generato su $ \Z $ (per la descrizione esplicita in cocatene) e dunque finito, perché finitamente generato e di torsione.
+Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Partendo da un gruppo $ A $ finitamente generato, pure $ \HH^i(G, \, A) $ sarà finitamente generato su $ \Z $ (per la descrizione esplicita in cocatene) e dunque finito, perché finitamente generato e di torsione.
 
-Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffinato dle precedente, 
+Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffinato del precedente, lo otteniamo restringendo la nostra attenzione a una componente $ p $-primaria.
 
 \begin{lemma}
-	Se $ p $ è un primo per cui $ m = [G \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
+	Se $ p $ è un primo per cui $ m = [G \, \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
 \end{lemma}
 
-\section{Gruppi Modificiati di Tate}
+Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe ad una mappa iniettiva, dunque la mappa più interna, la restrizione, dev'essere iniettiva a sua volta.
+
+\section{Gruppi di Tate}
+
+A Tate fare le cose come gli altri non piaceva.
