@@ -33,16 +33,16 @@ Dall'altro lato la definizione appena data sembra, al momento, un cambio di nota
 	\end{tikzcd}\]
 \end{theorem}
 
-Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo al corso di Istituzioni di Algebra il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente osservazione:
+Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo al corso di Istituzioni di Algebra il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente rassicurazione:
 
 \begin{remark}
-	Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che il noto funtore esatto a sinistra $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i(\Z, \, \bullet\,) $.
+	Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i(\Z, \, \bullet\,) $.
 \end{remark}
 
-Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. Mostreremo inoltre una costruzione dal taglio decisamente coomologico.
+Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. Cominciamo però con una descrizione più esplicita dei nostri oggetti. \todo[questa è da sistemare]
 
-\section{Le costruzioni}
-Per costruire l'immagine di un $ G $ modulo $ A $ tramite $ R^i\mathcal{F} $, abbiamo bisogno di una risoluzione iniettiva
+\section{Una presentazione esplicita}
+Vediamo ora la costruzione classica: quella omologica. Per costruire l'immagine di un $ G $ modulo $ A $ tramite $ R^i\mathcal{F} $, abbiamo bisogno di una risoluzione iniettiva
 \[ 0 \to A \to I^{\,0} \to I^{\,1} \to I^{\,2} \to \dots, \]
 che sappiamo sempre esistere in una categoria di moduli su un anello, come quella in cui troviamo. Applicando il funtore $ \mathcal{F} $, otteniamo il complesso
 \[ 0 \to \mathcal{F}\left(I^{\,0}\right) \to \mathcal{F}\left(I^{\,1}\right) \to \mathcal{F}\left(I^{\,2}\right) \to \dots, \]
@@ -51,21 +51,32 @@ la cui omologia è, per definizione, $ R^i\mathcal{F}(A) = \HH^i(G, \, A) $. \\
 Possiamo quindi affermare ora, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
 \[ \HH^i(G, \, I) = 0 \quad \forall \, i > 0. \]
 
+Cosa ci abbiamo guadagnato?
+
+Lavorare con delle risoluzioni iniettive ci offre il vantaggio di poter costruire facilmente omomorfismi tra i gruppi di coomologia: mentre la funtorialità in $ A $ è  
+
+
+
+
 Affermiamo inoltre, in modo più ardito, che
-\begin{proposition} \todo[definire i limiti iniettivi!]
+\begin{proposition} 
 	Se $ (A_j) $ è un sistema induttivo di $ G $ moduli, indicizzato su un insieme filtrante, allora
 	\[ \HH^i(G, \, \lim_\rightarrow A_j) = \lim_\rightarrow \HH^i(G, \, A_j) \qquad \forall \, i \geq 0. \] 
-\end{proposition} 
-Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
+\end{proposition}
+\todo[definire i limiti iniettivi!]
+\todo[come si dimostra?]
+
+
+Una possibile costruzione dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
 \[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
 dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
 \begin{align*}
 	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
 \end{align*}
 
-Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo di coomologia $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
+Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
 
-È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente. Abbiamo quindi il seguente risultato.
+È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
 \begin{lemma}
 	Se sia $ G $ che $ A $ sono finiti, allora tutti i gruppi di coomologia $ \HH^i(G, \, A) $ sono finiti.
 \end{lemma}
@@ -84,7 +95,15 @@ Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavi
 \[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
 Accettiamo il risultato come vagamente interessante e procediamo.
 
-\section{Moduli Indotti}
+\section{Funtorialità}
+I gruppi coomologia sono funtoriali nei coefficienti $ A $ per costruzione. Siamo interessati a capire che tipo di relazioni otteniamo al variare del gruppo $ G $ che agisce. Un problema, puramente formale, che si pone immediatamente è che cambiando gruppo abbiamo bisogno di cambiare la categoria ambiente: definiamo quindi il funtore di transizione, in un qualche senso imparentato al funtore dimenticante.
+
+\begin{definition}
+	Dati due gruppi finiti $ G $ e $ G' $, un omomorfismo $ f \colon G \to G' $ e uno $ G' $ modulo $ A $, chiamiamo $ f^\times A $ il gruppo abeliano $ A $ equipaggiato dell'azione
+	\[ g \cdot_{G} A := f(g) \cdot_{G'} A. \]
+\end{definition}
+
+
 
 
 \newpage
