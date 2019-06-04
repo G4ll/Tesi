@@ -22,7 +22,7 @@ Attraverso questa definizione e la magia occulta dei funtori derivati, l'algebra
 
 Dall'altro lato la definizione appena data sembra, al momento, un cambio di notazione completamente arbitrario: perché non continuare a chiamare i nostri oggetti funtori derivati per il resto della tesi? Limitiamoci ad osservare che la presentazione scelta mette in evidenza la proprietà fondamentale di questi oggetti.
 
-\begin{theorem}
+\begin{theorem}\label{fond}
 	Data una successione esatta corta di $ G $ moduli
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & A \rar & B \rar & C \rar & 0,
@@ -49,7 +49,9 @@ che sappiamo sempre esistere in una categoria di moduli su un anello, come quell
 la cui omologia è, per definizione, $ R^i\mathcal{F}(A) = \HH^i(G, \, A) $. \\
 
 Possiamo quindi affermare ora, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
-\[ \HH^i(G, \, I) = 0 \quad \forall \, i > 0. \]
+\begin{equation} \label{injban}
+	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
+\end{equation}
 
 Cosa ci abbiamo guadagnato?
 
@@ -96,16 +98,115 @@ Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavi
 Accettiamo il risultato come vagamente interessante e procediamo.
 
 \section{Funtorialità}
-I gruppi coomologia sono funtoriali nei coefficienti $ A $ per costruzione. Siamo interessati a capire che tipo di relazioni otteniamo al variare del gruppo $ G $ che agisce. Un problema, puramente formale, che si pone immediatamente è che cambiando gruppo abbiamo bisogno di cambiare la categoria ambiente: definiamo quindi il funtore di transizione, in un qualche senso imparentato al funtore dimenticante.
+I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione. Siamo ora interessati a capire che tipo di relazioni otteniamo al variare del gruppo $ G $ che agisce. Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.
 
 \begin{definition}
-	Dati due gruppi finiti $ G $ e $ G' $, un omomorfismo $ f \colon G \to G' $ e uno $ G' $ modulo $ A $, chiamiamo $ f^\times A $ il gruppo abeliano $ A $ equipaggiato dell'azione
-	\[ g \cdot_{G} A := f(g) \cdot_{G'} A. \]
+	Dati due gruppi finiti $ G $ e $ G' $, un omomorfismo $ f \colon G' \to G $ e uno $ G $ modulo $ A $, chiamiamo $ f^\times A $ il gruppo abeliano $ A $ equipaggiato dell'azione
+	\[ g' \cdot_{G'} A := f(g') \cdot_{G} A \qquad \forall\, g' \in G'. \]
 \end{definition}
 
+A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ f^\times $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In queto particolare caso questa operazione è, in un qualche senso, parzialmente invertibile:
 
+\begin{definition}
+	Preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, chiamiamo modulo indotto il gruppo abeliano
+	\[ \Ind_H^G(A) := \{ f \colon G \to A \mid f(hg) = hf(g) \; \forall\, h \in H \} = \Hom_H(G, \, A), \]
+	munito dell'azione 
+	\[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
+	
+\end{definition}
 
+\begin{proposition}\label{aggiunzione}\todo[dimostrare, introdurre]
+	I due funtori
+	\[ f^\times \colon \Gmod \to \Gmod \qquad\text{ e }\qquad  \Ind_H^G \colon \Gmod \to \Gmod \]
+	sono aggiunti. Ovvero, per ogni $ A \in \Gmod $ e $ B \in \Gmod $, soddisfano
+	\[ \Hom_G(A,\, \Ind_H^G(B)) = \Hom_H(f^\times A, \, B). \]
+\end{proposition}
 
+Siamo ora pronti per affrontare il risultato principale, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
+\begin{proposition}
+	Siano  $ A $ uno $ G $ modulo e $ A' $ uno $ G' $ modulo. Dati $ f \colon G' \to G $ un omomorfismo di gruppi e $ u \colon f^\times A \to A' $ un omorfismo $ G' $-equivariante, otteniamo una mappa in coomologia
+	\[ \HH^i(G, \, A) \to \HH^i(G', \, A') \qquad\forall i \geq 0. \]
+\end{proposition}
+
+\begin{proof}
+	Osserviamo che, per definizione di $ f^\times A $, abbiamo un'inclusione
+	\[ A^G \hookrightarrow \left(f^\times A\right)^{G'} \]
+	che vogliamo estendere a un morfismo tra risoluzioni iniettive. Presa una risoluzione iniettiva di $ A $
+	\[ 0 \to A \to I^{\,0} \to I^{\,1} \to I^{\,2} \to \dots, \]
+	pocihé il funtore $ f^\times $ preserva gli iniettivi, anche
+	\[ 0 \to f^\times A \to f^\times I^{\,0} \to f^\times I^{\,1} \to f^\times I^{\,2} \to \dots \]
+	è una risoluzione iniettiva. Ci troviamo quindi nella seguente situazione:
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar & A^G \rar \dar & \left(I^{\,0}\right)^G \rar & \left(I^{\,1}\right)^G \rar & \left(I^{\,2}\right)^G \rar & \dots \\
+	0 \rar & \left(f^\times A\right)^{G'}  \rar & \left(f^\times I^{\,0}\right)^{G'} \rar & \left(f^\times I^{\,1}\right)^{G'} \rar & \left(I^{\, 2}\right)^{G'} \rar & \dots
+	\end{tikzcd} \]
+	Per definizione di modulo iniettivo otteniamo tutte le mappe successive
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar
+	& A^G \dar \rar \arrow[dashed, "comp." description]{dr}
+	& \left(I^{\,0}\right)^G \rar \dar[dashed, "inj." description] \arrow[dashed, gray]{dr}
+	& \left(I^{\,1}\right)^{G} \rar \dar[dashed, gray] \arrow[dashed, gray!50]{dr}
+	& \left(I^{\, 2}\right)^{G} \dar[dashed, gray!50] \rar
+	& \dots \\
+	0 \rar
+	& \left(f^\times A\right)^{G'} \rar
+	& \left(f^\times I^{\,0}\right)^{G'} \rar
+	& \left(f^\times I^{\,1}\right)^{G'} \rar
+	& \left(f^\times I^{\,2}\right)^{G'} \rar
+	& \dots
+	\end{tikzcd} \]
+	e un morfismo di complessi tra risoluzioni iniettive passa al quoziente, fornendoci una mappa
+	\[ \HH^i(G, \, A) \to \HH^i(G', \, f^\times A) \qquad \forall i \geq 0. \]
+	Abbiamo già osservato che $ \HH^i $ è funtoriale nel secondo argomento, dunque otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
+\end{proof}
+
+Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo $ H $ un sottogruppo di $ G $.
+\begin{definition}[Restrizione]
+	Chiamiamo mappa di restrizione l'omomorfismo
+	\[ \Res \colon \HH^i(G, \, A) \to \HH^i(H, \, f^\times A) \]
+	indotto da $ i \colon H \to G $.
+\end{definition}
+
+\begin{definition}[Inflazione]
+	Chiamiamo mappa d'inflazione l'omomorfismo
+	\[ \Inf \colon \HH^i(G/H, \, A^H) \to \HH^i(G, \, A) \]
+	indotto dalla proiezione natuarle $ \pi \colon G \to G/H $ e dall'inclusione $ u \colon A^H \to A $.
+\end{definition}
+
+Avendo sopra introdotto i moduli indotti, si sarebbe potuta fare un'altra scelta naturale nel tentativo di definire una mappa di restrizione, anch'essa di un certo interesse: abbiamo un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \] indotto dall'inclusione naturale $ i \colon H \to G $ e dal morfismo $ u \colon \Ind_H^G(B) \to B $ che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $. 
+\begin{proposition}[Lemma di Shapiro]
+	L'omomorfismo sopra definito
+	\[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \]
+	è un isomorfismo.
+\end{proposition}
+\begin{proof}
+	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ f^\times $ (\ref{aggiunzione}), abbiamo che
+	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
+	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto coincidono.
+\end{proof}
+
+Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su se stesso per coniugio, fissato un elmento $ t \in G $ otteniamo un automorfismo interno $ f_t \colon G \to G $. Questo induce naturalmente un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
+
+\begin{proposition}
+	L'isomorfimo indotto dal coniugio per $ t $
+	\[ \sigma_t \colon \HH^i(G, \, A) \to \HH^i(G, \, A) \]
+	è l'identità.
+\end{proposition}
+\begin{proof}
+	Dimostriamo il risultato per induzione su $ i $: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $ modulo. Preso ora un qualunque modulo $ A $, immergiamolo in modulo iniettivo $ I $:
+	\[ 0 \to A \to I \to Q \to 0. \]
+	Prendendo i fissati otteniamo una successione esatta lunga (per \ref{fond}) costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimane solo il segmento iniziale
+	\[\begin{tikzcd}
+	0 \rar & A^G \rar\dar["\sigma_t = \id" description] & I^G \rar\dar["\sigma_t = \id" description] & Q^G \rar\dar["\sigma_t = \id" description] & \HH^1(G, \, A) \rar\dar["\sigma_t"] & 0 \\
+	0 \rar & A^G \rar & I^G \rar & Q^G \rar & \HH^1(G, \, A) \rar & 0
+	\end{tikzcd}\]
+	e alcuni frammenti per $ i > 0 $
+	\[\begin{tikzcd}
+	0 \rar & \HH^i(G, \, Q) \rar\dar["\sigma_t = \id" description] & \HH^{i+1}(G, \, A) \rar\dar["\sigma_t"] & 0 \\
+	0 \rar & \HH^i(G, \, Q) \rar & \HH^{i+1}(G, \, A) \rar & 0,
+	\end{tikzcd}\]
+	da cui deduciamo la tesi in grado $ i+1 $.
+\end{proof}
 \newpage
 \section{Inflazione e Restrizione}
 
