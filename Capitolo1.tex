@@ -51,26 +51,20 @@ Questa proposizione, come molte altre proprietà dei funtori derivati, non verr�
 	Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i_G(\Z, \, \bullet\,) $.
 \end{remark}
 
-Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. Cominciamo però con una descrizione più esplicita dei nostri oggetti. \todo[questa è da sistemare]
+Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. \todo[questa è da sistemare]
 
 \section{Una presentazione esplicita}
+
 Vediamo ora la costruzione classica: quella omologica. Per costruire l'immagine di un $ G $ modulo $ A $ tramite $ R^i\mathcal{F} $, abbiamo bisogno di una risoluzione iniettiva
 \[ 0 \to A \to I^{\,0} \to I^{\,1} \to I^{\,2} \to \dots, \]
 che sappiamo sempre esistere in una categoria di moduli su un anello, come quella in cui troviamo. Applicando il funtore $ \mathcal{F} $, otteniamo il complesso
 \[ 0 \to \mathcal{F}\left(I^{\,0}\right) \to \mathcal{F}\left(I^{\,1}\right) \to \mathcal{F}\left(I^{\,2}\right) \to \dots, \]
 la cui omologia è, per definizione, $ R^i\mathcal{F}(A) = \HH^i(G, \, A) $. \\
 
-Possiamo quindi affermare ora, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
+Non è banale mostrare che la definizione è ben posta, ovvero che non dipende dalla scelta della risoluzione iniettiva, ma non ce ne occuperemo. Questo assodato possiamo affermare, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
 \begin{equation} \label{injban}
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
 \end{equation}
-
-Cosa ci abbiamo guadagnato?
-
-Lavorare con delle risoluzioni iniettive ci offre il vantaggio di poter costruire facilmente omomorfismi tra i gruppi di coomologia: mentre la funtorialità in $ A $ è  
-
-
-
 
 Affermiamo inoltre, in modo più ardito, che
 \begin{proposition} 
@@ -79,9 +73,10 @@ Affermiamo inoltre, in modo più ardito, che
 \end{proposition}
 \todo[definire i limiti iniettivi!]
 \todo[come si dimostra?]
+\todo[probabilmente esiste un posto migliore per questo lemma]
 
 
-Una possibile costruzione dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
+Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
 \[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
 dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
 \begin{align*}
@@ -110,7 +105,7 @@ Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavi
 Accettiamo il risultato come vagamente interessante e procediamo.
 
 \section{Funtorialità}
-I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione. Siamo ora interessati a capire che tipo di relazioni otteniamo al variare del gruppo $ G $ che agisce. Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.
+I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, ma cosa succede quando cambiamo il gruppo $ G $? Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.
 
 \begin{definition}
 	Dati due gruppi finiti $ G $ e $ G' $, un omomorfismo $ f \colon G' \to G $ e uno $ G $ modulo $ A $, chiamiamo $ f^\times A $ il gruppo abeliano $ A $ equipaggiato dell'azione
@@ -120,18 +115,18 @@ I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione. S
 A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ f^\times $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In queto particolare caso l'operazione è, in un qualche senso, parzialmente invertibile:
 
 \begin{definition}
-	Preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, chiamiamo modulo indotto il gruppo abeliano
-	\[ \Ind_H^G(A) := \{ f \colon G \to A \mid f(hg) = hf(g) \; \forall\, h \in H \} = \Hom_H(G, \, A), \]
+	Preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, definiamo il gruppo abeliano
+	\[ \Ind_H^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_H(G, \, A), \]
 	munito dell'azione 
 	\[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
-	
+	Chiamiamo modulo indotto un modulo che si possa scrivere nella forma $ \Ind_1^G(A) $.
 \end{definition}
 
-
+I moduli indotti sono oggetti degni di attenzione anche di per sè, noi siamo però interessati alla loro capacità di recuperare quanto il funtore di sopra si era dimenticato: 
 
 \begin{proposition}\label{aggiunzione}\todo[dimostrare, introdurre]
 	I due funtori
-	\[ f^\times \colon \Gmod \to \Gmod \qquad\text{ e }\qquad  \Ind_H^G \colon \Gmod \to \Gmod \]
+	\[ f^\times \colon \Gmod \to \mathsf{Mod}_\mathsf{H} \qquad\text{ e }\qquad  \Ind_H^G \colon \mathsf{Mod}_\mathsf{H} \to \Gmod \]
 	sono aggiunti. Ovvero, per ogni $ A \in \Gmod $ e $ B \in \Gmod $, soddisfano
 	\[ \Hom_G(A,\, \Ind_H^G(B)) = \Hom_H(f^\times A, \, B). \]
 \end{proposition}
@@ -156,7 +151,7 @@ Siamo ora pronti per affrontare il risultato principale, che ci permetterà di c
 	0 \rar & A^G \rar \dar & \left(I^{\,0}\right)^G \rar & \left(I^{\,1}\right)^G \rar & \left(I^{\,2}\right)^G \rar & \dots \\
 	0 \rar & \left(f^\times A\right)^{G'}  \rar & \left(f^\times I^{\,0}\right)^{G'} \rar & \left(f^\times I^{\,1}\right)^{G'} \rar & \left(I^{\, 2}\right)^{G'} \rar & \dots
 	\end{tikzcd} \]
-	Per definizione di modulo iniettivo otteniamo tutte le mappe successive \todo[la sto facendo più facile del dovuto?]
+	Applicando ripetutamente l'iniettività dei moduli riusciamo a estendere la mappa a tutta la risoluzione \todo[la sto facendo più facile del dovuto?]
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& A^G \dar \rar \arrow[dashed, "comp." description]{dr}
@@ -171,9 +166,9 @@ Siamo ora pronti per affrontare il risultato principale, che ci permetterà di c
 	& \left(f^\times I^{\,2}\right)^{G'} \rar
 	& \dots
 	\end{tikzcd} \]
-	e un morfismo di complessi tra risoluzioni iniettive passa al quoziente, fornendoci una mappa
+	e, osservando che un morfismo di complessi tra risoluzioni iniettive passa al quoziente, otteniamo una mappa in coomologia
 	\[ \HH^i(G, \, A) \to \HH^i(G', \, f^\times A) \qquad \forall i \geq 0. \]
-	Abbiamo già osservato che $ \HH^i $ è funtoriale nel secondo argomento, dunque otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
+	Abbiamo già osservato che $ \HH^i $ è funtoriale nel secondo argomento: otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
 \end{proof}
 
 Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo $ H $ un sottogruppo di $ G $.
@@ -201,6 +196,11 @@ Avendo sopra introdotto i moduli indotti, si sarebbe potuta fare un'altra scelta
 	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto coincidono.
 \end{proof}
 
+Segue immediatamente che
+\begin{corollary}
+	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
+\end{corollary}
+
 Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su se stesso per coniugio, fissato un elmento $ t \in G $ otteniamo un automorfismo interno $ f_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
 
 \begin{proposition}
@@ -226,7 +226,7 @@ Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su
 \newpage
 \section{Successione Spettrale di Hochschild-Serre}
 
-Questa sezione richiederà parecchio tempo, enuncio i due risultati
+Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 
 \begin{theorem}[Hochschild-Serre]
 	Associata ad $ H $ sottogruppo normale di $ G $, si ha una successione spettrale
@@ -255,14 +255,14 @@ Questa sezione richiederà parecchio tempo, enuncio i due risultati
 \end{corollary}
 
 \section{Corestrizione}
-Costruiamo ora un'interessante mappa che va nella direzione opposta rispetto alla restrione, ovvero che in qualche modo risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che il gruppo $ G $ sia finito, cosa che abbiamo comodamente assunto all'inizio del capitolo.
+Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrione, ovvero che in qualche modo risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che il gruppo $ G $ sia finito, cosa che abbiamo comodamente assunto all'inizio del capitolo.
 
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $ modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
 \[N_{G/H} \colon a \mapsto \sum_{x \in G/H} x \cdot a, \]
 che, oltre a essere ben definita, sia perché $ G/H $ è finito che perché l'azione di $ G $ su $ A^H $ coincide su ogni laterale di $ H $, ricorda in qualche modo l'omonimo operatore tra estensioni finite di campi.
 
-Per estendere la mappa a tutti i gradi, in memoria di quanto fatto l'ultima volta, prendiamo una risoluzione iniettiva di $ A $, prendiamo gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prendere l'omologia, applichiamo la norma per ottenere un morfismo di complessi \todo[perché è un morismo di complessi?]
+Per estendere la mappa a tutti i gradi partiamo da una risoluzione iniettiva di $ A $, prendiamone gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prenderene l'omologia, applichiamo la norma per ottenere un morfismo di complessi \todo[perché è un morismo di complessi?]
 \[\begin{tikzcd}
 0 \rar
 & \left(I^{\,0}\right)^H \rar \dar["N"]
@@ -281,7 +281,7 @@ e quindi una mappa in coomologia che chiamiamo \emph{corestrizione}:
 
 \end{definition}
 
-Naturalmente, la nostra prima preoccupazione è di controllare come la corestrizione rispetto alla restrizione: osserviamo che componendo le due mappe otteniamo un endomorfismo di, a seconda dell'ordine, $ \HH^i(G, \, A) $ oppure $ \HH^i(H, \, A) $. Esplicitando la definizione di entrambe riusciamo a descrivere questi omomorfismi esplicitamente.
+La nostra prima preoccupazione è controllare come la corestrizione si comporta rispetto alla restrizione: osserviamo che componendo le due mappe otteniamo un endomorfismo di, a seconda dell'ordine, $ \HH^i(G, \, A) $ oppure $ \HH^i(H, \, A) $. Esplicitando la definizione di entrambe riusciamo a descrivere questi omomorfismi esplicitamente.
 
 \begin{theorem}[della corestrizione]
 	Sia $ m = [G \,\colon H] $ l'indice di $ H $ in $ G $. La composizione
@@ -296,9 +296,9 @@ Naturalmente, la nostra prima preoccupazione è di controllare come la corestriz
 	A^G \rar["i"] & A^H \rar["N"] & A^G & \\
 	a \rar[mapsto] & a \rar[mapsto] & \displaystyle\sum_{x \in G/H} x \cdot a = ma.
 	\end{tikzcd}  \]
-	Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $ modulo. Preso ora un qualunque modulo $ A $, immergiamolo in modulo iniettivo $ I $:
+	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $ modulo. Preso un qualunque modulo $ A $, immergiamolo in modulo iniettivo $ I $:
 	\[ 0 \to A \to I \to Q \to 0. \]
-	Applicando $ \mathcal{F} $ otteniamo una successione esatta lunga (per \ref{fond}) costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
+	Applicando $ \mathcal{F} $ otteniamo una successione esatta lunga (per \ref{fond}) costellata di zeri ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar
 	& A^G \rar\dar["\cdot m" description]
@@ -321,7 +321,7 @@ Naturalmente, la nostra prima preoccupazione è di controllare come la corestriz
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 
-Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un meraviglioso ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di meravigliosi risultati; per esempio, prendedo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
+Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un meraviglioso ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
 \[\begin{tikzcd}
 \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) = 0 \rar["\Cor"] & \HH^i(G, \, A)
 \end{tikzcd}  \]
@@ -349,20 +349,20 @@ Consideriamo il funtore $ \mathcal{G} $ che preso un modulo, restituisce il più
 \mathcal{G} \colon \Gmod &\to \mathcal{A}b \\
 A &\mapsto A_G.
 \end{align*}
-Riusciamo a descrivere $ \mathcal{G} $ esplicitamente oservando che il nucleo della proiezione $ A \to A_G $ dev'essere il sottomodulo generato da $ \{ a - ga \mid a \in A, \, g \in G \} $, infatti quozientare per quest'ultimo corrisponde esattamante a imporre che l'azione sia banale. Nel caso dell'anello di gruppo otteniamo il cosidetto \emph{ideale di augemntazione}:
+Riusciamo a descrivere $ \mathcal{G} $ esplicitamente osservando che il nucleo della proiezione $ A \to A_G $ dev'essere il sottomodulo generato da $ \{ a - ga \mid a \in A, \, g \in G \} $, infatti quozientare per quest'ultimo corrisponde esattamente a imporre che l'azione sia banale. Nel caso dell'anello di gruppo otteniamo il cosiddetto \emph{ideale di augmentazione}:
 \[ 0 \to I_G \to \Z[G] \to \Z \to 0, \]
 che ci fornisce una descrizione semplice del funtore in analisi
 \[ \mathcal{G} \colon A \to A_G = A/I_GA = A \otimes_G \Z. \]
 Averlo descritto come tensore ci dice, in particolare, che $ \mathcal{G} $ è esatto a destra ma, in generale, non a destra. Possiamo quindi prenderne il derivato sinistro:
 
 \begin{definition}[Omologia di Gruppi]
-	Dato un grupo finito $ G $ e un intero $ i \geq 0 $, chiamiamo $ i $-esimo gruppo di omologia di $ G $ il funtore
+	Dato un gruppo finito $ G $ e un intero $ i \geq 0 $, chiamiamo $ i $-esimo gruppo di omologia di $ G $ il funtore
 	\[ \HH_i(G, \, \bullet \,) := L^i\mathcal{G}(\, \bullet \,) = \Tor_G(\Z, \, \bullet \, ). \]
 \end{definition}
 
-Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, inflazione e corestrizione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate, dunque non saremo così diligenti da risciverle: ci limitamo ad incoraggiare il lettore interessato a rileggerle, sostituendo "iniettivo" con "proiettivo" e guardando i diagrammi attraverso uno specchio. \todo[la faccenda del relativamente iniettivo] \\
+Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, inflazione e corestrizione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate: non saremo così diligenti da riscriverle, ci limitiamo ad incoraggiare il lettore interessato a rileggerle, sostituendo \textquotedblleft iniettivo" con \textquotedblleft proiettivo" e guardando i diagrammi attraverso uno specchio. \todo[la faccenda del relativamente iniettivo] \\
 
-Occupiamoci piuttosto del collegamento tra i due strumenti. L'obiettivo principale è quello di raccordare le due successioni esatte lunghe in una successione lunghissima, illimitata in entrambe le direzioni. L'unico problema che si presenta è che, al momento, entrambe le successioni terminano in una direzione, dovremo quindi modificare i primi elementi di ciascuna. Per fare questo iprendiamo la norma su $ A $ associata al sottogruppo banale
+Occupiamoci piuttosto del collegamento tra i due strumenti. L'obiettivo principale è quello di raccordare le due successioni esatte lunghe in una successione lunghissima, illimitata in entrambe le direzioni. L'unico problema che si presenta è che, al momento, entrambe le successioni terminano in una direzione, dovremo quindi modificare i primi elementi di ciascuna. Per fare questo prendiamo la norma su $ A $ associata al sottogruppo banale
 \begin{align*}
 N \colon A  & \to A^G \\
 a & \mapsto \sum_{g \in G} \, g \cdot a
@@ -374,19 +374,21 @@ e osserviamo che passa al quoziente $ N \colon A/I_G \to A^G $.
 	\[ \Hh^i(G, \, A) = \HH^i(G, \, A) \quad \forall\, i > 0, \qquad\quad\qquad \Hh^{-i}(G, \, A) = \HH_{i-1}(G, \, A) \quad \forall\, i > 1;
 	 \]
 	 definiamo invece i gruppi di Tate di grado $ i = -1, \, 0 $ come $ \ker $ e $ \coker $ della norma:
-	 \[ \begin{tikzcd}[column sep = small]
-	 0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0.
-	 \end{tikzcd} \]
+	 \begin{equation}
+	 	\begin{tikzcd}[column sep = small]
+	 	0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0.
+	 	\end{tikzcd}
+	 \end{equation}
 \end{definition}
 
 Sistemati i dettagli ad arte enunciamo il risultato principale.
 
-\begin{theorem}\label{fond} \todo[questa si può fare meglio]
+\begin{theorem}\label{fond2}
 	Data una successione esatta corta di $ G $ moduli
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & A \rar & B \rar & C \rar & 0,
 	\end{tikzcd}\]
-	si ha una successione esatta lunga di gruppi abeliani
+	si ha una successione esatta lunghissima di gruppi abeliani
 	\[\begin{tikzcd}[column sep = small, row sep = small]
 	\dots \rar & \Hh^{-2}(G, \, C) \rar &\Hh^{-1}(G, \, A) \rar & \Hh^{-1}(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \Hh^{-1}(G, \, C) \arrow[dll, 
 	rounded corners = 7 pt, 
@@ -432,7 +434,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	& \dots \\
 	&& \Hh^{0}(G, \, A) 
 	& \Hh^{0}(G, \, B)  
-	& \Hh^{0}(G, \, C)
+	& \Hh^{0}(G, \, C).
 	&&
 	\end{tikzcd}\]
 	I quadrati che si sono formati aggiungendo la norma commutano: la norma coincide con la moltiplicazione per l'elemento $ \sum_{g \in G} g $ di $ \Z[G] $ e il morfismo $ f \colon A \to B $ è $ \Z[G] $-lineare per ipotesi.
@@ -442,7 +444,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	A^G \rar["f^*"]
 	& B^G
 	\end{tikzcd}\]
-	Inoltre $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato sopra; $ f^* $ è iniettiva per esattezza della seconda riga, da cui il claim. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero spezza attraverso la mappa curva qua sotto:
+	Inoltre $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato sopra; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero spezza attraverso la mappa curva qua sotto:
 	\[\begin{tikzcd}[column sep = small]
 	& \Hh^{-1}(G, \, A) \dar
 	& \Hh^{-1}(G, \, B) \dar \\
@@ -457,13 +459,13 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	\[\begin{tikzcd}[column sep = small]
 	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
 	& \Hh^{-1}(G, \, B) \dar \rar[dashed]
-	& \Hh^{-1}(G, \, C) \dar \arrow[dddll, dashed]
+	& \Hh^{-1}(G, \, C) \dar \ar[out=0, in=180, looseness=1, dashed]{dddll} %\arrow[dddll, dashed]
 	&& \\
 	\dots \rar
 	& \Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
-	& A_G \rar \dar{N} 
-	& B_G \rar \arrow[d, "N"]
-	& C_G \rar \dar{N}
+	& A_G \rar \dar 
+	& B_G \rar \arrow[d]
+	& C_G \rar \dar
 	& 0 & \\
 	& 0 \rar
 	&A^G \rar\dar
@@ -473,9 +475,16 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	& \dots \\
 	&& \Hh^{0}(G, \, A) \rar[dashed]
 	& \Hh^{0}(G, \, B)  \rar[dashed]
-	& \Hh^{0}(G, \, C), \arrow[ur, dashed, bend right = 30]
+	& \Hh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
 	&&
 	\end{tikzcd}\]
-	Da cui la tesi.
+	Seguendo le mappe tratteggiate, otteniamo la tesi.
 \end{proof}
+
+Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime nonappena ci si accorge che le definizioni in grado di tutte queste mappe fattorizzano tramite la norma. Sottolineiamo il seguente lemma, in virtù della sua futura utilità:
+
+\begin{lemma}
+	I moduli relativamente iniettivi, ovvero addendi diretti di iniettivi, hanno tutti gli $ \Hh^i $ banali.
+\end{lemma}
+
 
