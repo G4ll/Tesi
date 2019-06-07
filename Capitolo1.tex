@@ -64,7 +64,7 @@ la cui omologia è, per definizione, $ R^i\mathcal{F}(A) = \HH^i(G, \, A) $. \\
 Non è banale mostrare che la definizione è ben posta, ovvero che non dipende dalla scelta della risoluzione iniettiva, ma non ce ne occuperemo. Questo assodato possiamo affermare, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
 \begin{equation} \label{injban}
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
-\end{equation}
+\end{equation} \todo[forse vogliamo parlare anche di risoluzioni proiettive?]
 
 Affermiamo inoltre, in modo più ardito, che
 \begin{proposition} 
@@ -151,7 +151,7 @@ Siamo ora pronti per affrontare il risultato principale, che ci permetterà di c
 	0 \rar & A^G \rar \dar & \left(I^{\,0}\right)^G \rar & \left(I^{\,1}\right)^G \rar & \left(I^{\,2}\right)^G \rar & \dots \\
 	0 \rar & \left(f^\times A\right)^{G'}  \rar & \left(f^\times I^{\,0}\right)^{G'} \rar & \left(f^\times I^{\,1}\right)^{G'} \rar & \left(I^{\, 2}\right)^{G'} \rar & \dots
 	\end{tikzcd} \]
-	Applicando ripetutamente l'iniettività dei moduli riusciamo a estendere la mappa a tutta la risoluzione \todo[la sto facendo più facile del dovuto?]
+	Applicando ripetutamente l'iniettività dei moduli riusciamo a estendere la mappa a tutta la risoluzione \todo[la sto facendo più facile del dovuto? è falso?]
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& A^G \dar \rar \arrow[dashed, "comp." description]{dr}
@@ -260,9 +260,9 @@ Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrione,
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $ modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
 \[N_{G/H} \colon a \mapsto \sum_{x \in G/H} x \cdot a, \]
-che, oltre a essere ben definita, sia perché $ G/H $ è finito che perché l'azione di $ G $ su $ A^H $ coincide su ogni laterale di $ H $, ricorda in qualche modo l'omonimo operatore tra estensioni finite di campi.
+che, oltre a essere ben definita, sia perché $ G/H $ è finito che perché l'azione di $ G $ su $ A^H $ coincide su ogni laterale di $ H $, ricorda in qualche modo l'omonimo operatore tra estensioni finite di campi. \\
 
-Per estendere la mappa a tutti i gradi partiamo da una risoluzione iniettiva di $ A $, prendiamone gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prenderene l'omologia, applichiamo la norma per ottenere un morfismo di complessi \todo[perché è un morismo di complessi?]
+Per estendere la mappa a tutti i gradi partiamo da una risoluzione iniettiva di $ A $, prendiamone gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prenderene l'omologia, applichiamo la norma per ottenere un morfismo di complessi
 \[\begin{tikzcd}
 0 \rar
 & \left(I^{\,0}\right)^H \rar \dar["N"]

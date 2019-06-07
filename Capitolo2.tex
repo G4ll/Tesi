@@ -1,7 +1,80 @@
-\chapter{Altro}
+\chapter{Primi risultati}
+In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le potenzialità e gettando delle solide basi sui cui poggeranno i calcoli successivi. Il primo obbiettivo sarà studiare la coomologia dei gruppi ciclici, che si rivelerà piuttosto semplice e di evidente importanza in tutto il seguito. Vorremmo poi capire come calcolare operativamente la coomologia di un gruppo, per esempio riconducendola a quella dei suoi Sylow. \\
 
-%%%% Cambio ?? %%%%
+Sistemati i giocattoli, sarà il momento di concentrarci sul vero obbiettivo del nostro lavoro: i gruppi di Galois. Per affrontare la Teoria di Galois avremo bisogno di rimuovere l'ipotesi di finitezza su cui abbiamo fondato la nostra teoria, in modo da comprendere quantomeno i gruppi profiniti.
+
 \section{Gruppi Ciclici}
+Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ e $ \sigma $ un generatore fissato. La coomologia di $ G $ è particolarmente semplice da descrivere: qualunque sia il modulo $ A $, i gruppi di Tate sono tutti uguali a $ \Hh^0(G, \, A) $ oppure a $ \Hh^1(G, \, A) $, per entrambi i quali conosciamo una descrizione esplicita! \todo[questa definizione dei gruppi di Tate mi sposta le righe! Sistemare!]
+
+\begin{theorem}[dei Gruppi Ciclici]\label{ciclici}
+	Per un gruppo ciclico finito $ G $ e un suo modulo $ A $, i gruppi di Tate sono 2-periodici nel grado:
+	\[ \Hh^{i+2}(G, \, A) = \Hh^{i}(G, \, A). \]
+\end{theorem}
+
+\begin{proof}
+	Siano $ N = 1 + \sigma + \sigma^2 + \dots + \sigma^{n-1} $ e $ D = 1 - \sigma $ due elementi di $ \Z[G] $. Il teorema si basa interamente sullo scrivere la risoluzione proiettiva
+	\[ \begin{tikzcd}[column sep = small]
+	\dots \rar["N"]
+	& \Z[G] \rar["D"]
+	& \Z[G] \rar["N"]
+	& \Z[G] \rar["D"]
+	& \Z[G] \rar
+	& \Z \rar & 0,
+	\end{tikzcd} \]
+	da cui segue la 2-periodicità sia in coomologia che in omologia. 
+	
+	\todo[finire: come ci appiccichiamo i gradi bassi?]
+\end{proof}
+
+Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due importanti invarianti: la cardinalità dei gruppi in grado pari e dei gruppi in grado dispari, che chiamiamo $ h_0(A) $ e $ h_1(A) $.
+
+\begin{definition}(Quoziente di Herbrand)
+	Se $ A $ ha gruppi di Tate finiti chiamiamo \emph{quoziente di Herbrand} il numero naturale
+	\[ {h}(A) := \frac{h_0(A)}{h_1(A)} = \frac{|\Hh^0(G, \, A)|}{|\Hh^1(G, \, A)|}. \]
+\end{definition}
+
+\begin{proposition}[Herbrand]
+	Alcune proprietà del quoziente:
+	\begin{enumerate}
+		\item Data una successione esatta corta
+		\[ 0 \to A \to B \to C \to 0, \]
+		se il quoziente $ h $ è definito per due moduli su tre, è definito anche per il terzo. In questo caso vale $ h(A)h(C) = h(B) $.
+		\item Se $ A $ è finito, $ h(A) = 1 $.
+		\item Se $ f \colon A \to B $ ha nucleo e conucleo finiti e uno tra $ h(A) $ e $h(B) $ è definito, allora lo è anche l'altro e sono uguali.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item La successione esatta lunghissima associata può essere ririassunta in una successione \leftquote esagonalmente esatta"
+		\[\begin{tikzcd}[column sep={1cm,between origins}, row sep={1.732050808cm,between origins}]
+			& \Hh^0(G, \, A) \arrow[rr] && \Hh^0(G, \, B) \arrow[rd] &  \\
+			\Hh^1(G, \, C) \arrow[ru]&  &&  & \Hh^0(G, \, C) \arrow[ld] \\				& \Hh^1(G, \, B) \arrow[lu] && \Hh^1(G, \, A) \arrow[ll], & 
+		\end{tikzcd}\]
+		che possiamo slacciare in un punto a piacere
+		\[ 0 \to Q \to \Hh^0(G, \, A) \to \Hh^0(G, \, B) \to \Hh^0(G, \, C) \to \Hh^1(G, \, A) \to \Hh^1(G, \, B) \to \Hh^1(G, \, C) \to Q \to 0, \]
+		aggiungendo un opportuno modulo $ Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right] $.
+		Dobbiamo pertanto avere, per esattezza, che
+		\[  h_0(B) h_1(A) h_1(C) \cdot |\,Q\,| = h_0(A) h_0(C) h_1(B) \cdot |\,Q\,|, \]			da cui la tesi.
+		
+		\item Per come abbiamo definito i gruppi di Tate abbiamo la successione esatta
+		\begin{equation*}			\begin{tikzcd}[column sep = small]
+			0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0,
+			\end{tikzcd}
+		\end{equation*}
+		da cui deduciamo che $ h_1(A) \cdot |\, A^G\, | =  h_0(A) \cdot |\, A_G\, | $; siccome il gruppo è ciclico siamo inoltre in grado di ottenere la desiderata relazione fra invarianti e co-invarianti:
+		\begin{equation*}
+		\begin{tikzcd}[column sep = small]
+			0 \rar& A_G \rar& A \rar["D"]& A \rar& A^G \rar& 0.
+			\end{tikzcd}
+		\end{equation*}
+		\item É sufficiente scrivere le ipotesi in forma di successioni esatte
+		\[ 0 \to \ker f \to A \to Q \to 0 \qquad\text{ e } \qquad 0 \to Q \to B \to \coker f \to 0, \]
+		applicare il primo punto per dedurre la finitezza dei gruppi di Tate, il secondo per ottenere l'uguaglianza desiderata.
+	\end{enumerate}
+\end{proof}
+
+L'ultimo punto della proposizione sembra, più che una proprietà elementare del quoziente di Herbrand, un lemma tecnico e particolarmente specifico: è così, ci servirà in una dimostrazione particolarmente impegnativa più avanti.
 
 \section{p - gruppi}
 
