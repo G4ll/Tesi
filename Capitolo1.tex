@@ -3,10 +3,10 @@
 
 L'obiettivo di questo primo capitolo è di introdurre la coomologia di gruppi, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
 
-Poniamoci nella dovuta generalità. Sia $ G $ un gruppo \emph{finito}, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $ moduli".
+Poniamoci nella dovuta generalità. Sia $ G $ un gruppo \emph{finito}, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $-moduli".
 Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su tutti i campi intermedi, rendendo sia i loro gruppo additivo che il loro gruppo moltiplicativo dei $ \Gal{L/K} $ moduli. \\
 
-Siamo ora interessati al funtore $ \mathcal{F} $ che, preso un modulo, restituisce il sottomodulo costituito dagli elementi invarianti rispetto all'azione del gruppo
+Siamo interessati al funtore $ \mathcal{F} $ che, preso un modulo, restituisce il sottomodulo costituito dagli elementi invarianti rispetto all'azione del gruppo
 \begin{align*} 
 \mathcal{F} \colon \Gmod &\to \mathcal{A}b \\
 A &\mapsto A^G = \{ a \in A \mid ga = a \; \forall \, g \in G \},
@@ -53,7 +53,7 @@ Questa proposizione, come molte altre proprietà dei funtori derivati, non verr�
 
 Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. \todo[questa è da sistemare]
 
-\section{Una presentazione esplicita}
+\section{Teoria Generale}
 Abbiamo due strade equivalenti per ottenere i gruppi $ \HH^i(G, \, A) $: possiamo partire da una risoluzione proiettiva di $ \Z $ come $ G $-modulo
 \[ \dots \to P_2 \to P_1 \to P_0 \to \Z \to 0, \]
 applicare il funtore controvariante $ \Hom_G(\, \bullet\,, \, A) $ per ottenere il complesso coomologico
@@ -64,48 +64,40 @@ applicare il funtore covariante $ \mathcal{F} = \Hom_G(\Z, \, \bullet \, ) $ per
 \[ 0 \to \mathcal{F}\left(I^{\,0}\right) \to \mathcal{F}\left(I^{\,1}\right) \to \mathcal{F}\left(I^{\,2}\right) \to \dots, \]
 e, ancora una volta, prenderne la coomoogia. \\
 
-Non è banale mostrare nè che le due definizioni non dipendono dalla risoluzione scelta e nè che sono equivalenti, ma per fortuna non ce ne occuperemo. Questo assodato affermiamo, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
+Non è banale mostrare nè che le due definizioni non dipendono dalla risoluzione scelta e nè che sono equivalenti, ma per fortuna non ce ne occuperemo. Questo assodato, affermiamo, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
 \begin{equation} \label{injban}
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
 \end{equation}
 
-Vorremmo ora dimostrare che
-\begin{proposition} 
-	Se $ (A_j) $ è un sistema induttivo di $ G $ moduli, indicizzato su un insieme filtrante, allora
-	\[ \HH^i(G, \, \lim_\rightarrow A_j) = \lim_\rightarrow \HH^i(G, \, A_j) \qquad \forall \, i \geq 0. \] 
-\end{proposition}
-\todo[definire i limiti iniettivi!]
-\todo[come si dimostra?]
-\todo[probabilmente esiste un posto migliore per questo lemma]
 
 %% tutto quello che sta qua sotto è cacca. Lo voglio togliere.
-Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
-\[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
-dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
-\begin{align*}
-	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
-\end{align*}
+%Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
+%\[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
+%dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
+%\begin{align*}
+%	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
+%\end{align*}
 
-Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
+%Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
 
-È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
-\begin{lemma}
-	Se sia $ G $ che $ A $ sono finiti, allora tutti i gruppi di coomologia $ \HH^i(G, \, A) $ sono finiti.
-\end{lemma}
+%È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
+%\begin{lemma}%
+%	Se sia $ G $ che $ A $ sono finiti, allora tutti i gruppi di coomologia $ \HH^i(G, \, A) $ sono finiti.
+%\end{lemma}
 
-Passiamo ora all'analisi della coomologia di grado basso: per definizione abbiamo
-$$  \HH^0(G, \, A) = \ker \delta^0 = \{ f \colon G^0 \to A \mid gf-f = 0 \quad \forall \, g \in G \},  $$
-identificando $ K^0(A) $ con $ A $, mandando $ f $ nell'unico elemento che compone la sua immagine, scopriamo che
-\[ \HH^0(G, \, A) = \{ a \in A \mid ga = a \quad \forall \, g \in G \} = A^G. \]
-Abbiamo ottenuto una descrizione piuttosto piacevole del gruppo di grado zero! Questo risultato è tutt'altro che inaspettato, è vero per ogni funtore derivato e si dimostra altrettanto facilmente andando a studiare la costruzione della risoluzione iniettiva di cui sopra. In grado uno il calcolo si fa appena più complesso: abbiamo bisogno di scriverci esplicitamente i cocicli
-\[ Z^1(A) = \ker \delta^1 = \{ f \colon G \to A \mid f(gh) = gf(h) + f(g) \}, \]
-poi i cobordi
-\[ B^1(A) = \im \delta^0 = \{ ga - a \mid g \in G, \, a \in A  \}, \]
-e infine il quoziente
-\[ \HH^1(G, \, A) = \frac{Z^1(A)}{B^1(A)} = \frac{\{ f(gh) = gf(h) + f(g) \}}{\{ ga - a\}}. \]
-Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavia, nel caso in cui l'azione di $ G $ su $ A $ sia banale otteniamo una più profonda comprensione dell'oggetto, infatti il denominatore scompare e scopriamo che
-\[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
-Accettiamo il risultato come vagamente interessante e procediamo.
+%Passiamo ora all'analisi della coomologia di grado basso: per definizione abbiamo
+%$$  \HH^0(G, \, A) = \ker \delta^0 = \{ f \colon G^0 \to A \mid gf-f = 0 \quad \forall \, g \in G \},  $$
+%identificando $ K^0(A) $ con $ A $, mandando $ f $ nell'unico elemento che compone la sua immagine, scopriamo che
+%\[ \HH^0(G, \, A) = \{ a \in A \mid ga = a \quad \forall \, g \in G \} = A^G. \]
+%Abbiamo ottenuto una descrizione piuttosto piacevole del gruppo di grado zero! Questo risultato è tutt'altro che inaspettato, è vero per ogni funtore derivato e si dimostra altrettanto facilmente andando a studiare la costruzione della risoluzione iniettiva di cui sopra. In grado uno il calcolo si fa appena più complesso: abbiamo bisogno di scriverci esplicitamente i cocicli
+%\[ Z^1(A) = \ker \delta^1 = \{ f \colon G \to A \mid f(gh) = gf(h) + f(g) \}, \]
+%poi i cobordi
+%\[ B^1(A) = \im \delta^0 = \{ ga - a \mid g \in G, \, a \in A  \}, \]
+%e infine il quoziente
+%\[ \HH^1(G, \, A) = \frac{Z^1(A)}{B^1(A)} = \frac{\{ f(gh) = gf(h) + f(g) \}}{\{ ga - a\}}. \]
+%Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavia, nel caso in cui l'azione di $ G $ su $ A $ sia banale otteniamo una più profonda comprensione dell'oggetto, infatti il denominatore scompare e scopriamo che
+%\[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
+%Accettiamo il risultato come vagamente interessante e procediamo.
 
 \section{Funtorialità}
 I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, ma cosa succede quando cambiamo il gruppo $ G $? Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.

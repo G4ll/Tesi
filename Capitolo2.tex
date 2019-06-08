@@ -183,5 +183,11 @@ Con ancora un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 \end{corollary}
 
 \section{Gruppi profiniti}
+Non tutti i gruppi in Teoria di Galois sono finiti. Per poterla affrontare avremo dunque bisogno di estendere le capacità del nostro linguaggio dai gruppi finiti a quelli profiniti. Una prima difficoltà è data dalla comparsa in scena della topologia: la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo possibile, ovvero che i $ G $-moduli siano muniti della topologia discreta. In queste nuove ipotesi si riesce a definire la coomologia per gruppi profiniti; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
+
+\begin{proposition}
+	Sia $ G $ un gruppo profinito che agisce su un modulo discreto $ A $, allora
+	\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U). \]
+\end{proposition}
 
 \section{dimensione coomologica}
