@@ -84,9 +84,9 @@ Lo studio della coomologia di un generico gruppo si fa troppo complessa per pote
 	$$  \HH^i(H, \, A) = 0 \qquad \forall \, i > 0, \quad  \forall \, H < G.  $$
 \end{definition}
 
-\begin{remark}
+\begin{example}
 	Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}).
-\end{remark}
+\end{example}
 
 Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbanondato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
 
@@ -116,7 +116,7 @@ cominciamo con un lemmino tecnico.
 
 Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato seguente: un criterio per stabilire la banalità dei moduli di $ p $-torsione.
 
-\begin{proposition}
+\begin{proposition} \label{ban2}
 	Sia $ A $ uno $ G_p $-modulo di $ p $-torsione. Se esiste un indice $ q $ per cui $ \Hh^q(G, \, A) = 0 $, allora $ A $ è indotto.
 \end{proposition}
 
@@ -164,7 +164,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 \end{proof}
 \todo[in realtà non mi dispiacerebbe mettere quest'ultima parte in un posto migliore]
 
-Con ancora un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
+Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 
 \begin{theorem}
 	Sia $ A $ uno $ G_p $-modulo. Se esiste un indice $ q $ per cui
@@ -173,8 +173,49 @@ Con ancora un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 \end{theorem}
 
 \begin{proof}
-	La dimostrazione è un grande trucco di prestidigitazione.
+	Vogliamo mostrare che $ A $ è proiettivo (??!). Esiste un modulo libero $ F $ per cui possiamo scrivere
+	\begin{equation}\label{projban3}
+		0 \to R \to F \to A \to 0,
+	\end{equation}
+	non ci resta che trovare una sezione.
+	Passando alla successione esatta lunghissima, una volta osservato che $ F $ è coomologicamente banale (??!), riusciamo a spostare l'ipotesi su $ R $:
+	\[ \Hh^q(G_p, \, R) = \Hh^{q+1}(G_p, \, R) = 0. \]
+	
+	Supponiamo per il momento che $ A $ sia un gruppo abeliano libero, ovvero libero come $ \Z $-modulo. In questo caso $ \Hom_\Z(A, \, \bullet) $ è esatto e ci restituisce quindi una successione esatta corta
+	\begin{equation}\label{homban3}
+		0 \to \Hom_\Z(A, \, R) \to \Hom_\Z(A, \, F) \to \Hom_\Z(A, \, A) \to 0.
+	\end{equation}
+	Mostriamo che sotto queste ipotesi, detto $ M = \Hom_\Z(A, R) $, si ha che $ \HH^1(G, \, M) = 0 $. \\
+	
+	Consideriamo la successione esatta
+	\begin{equation}\label{Rsux}
+		\begin{tikzcd}[column sep = small]
+		0 \rar & R \rar["\cdot p"] & R \rar & R/pR \rar & 0,
+		\end{tikzcd}
+	\end{equation}
+	e la successione esatta lunghissima associata; il conucleo $ R/pR $ è uno $ G_p $-modulo di $ p $-torsione per cui $ \Hh^{q}(G_p, R/pR) = 0 $ e pertanto è indotto, grazie alla proposizione precedente (\ref{ban2}). Quando applichiamo $ \Hom_\Z(A, \, \bullet) $ alla successione esatta \ref{Rsux} otteniamo
+	\begin{equation*}
+		\begin{tikzcd}[column sep = small]
+		0 \rar & M \rar["\cdot p"] & M \rar & \Hom_\Z(A, \, R/pR) \rar & 0,
+		\end{tikzcd}
+	\end{equation*}
+	nella cui successione esatta lunga, poiché $ \Hom_\Z(A, \, R/pR) $ è indotto per il solito lemma che siamo dimenticati di enunciare (??), troviamo
+	\[ \begin{tikzcd}[column sep = small]
+	\HH^1(G_p, \, M) \rar["\cdot p"] & \HH^1(G_p, \, M) \rar & 0.
+	\end{tikzcd}  \]
+	Se la moltiplicazione per $ p $ è suriettiva, il gruppo abeliano $ \HH^1(G_p, \, M) $ non può avere $ p $-torsione, nè tantomeno componente $ p $-primaria. Sapendo però che dev'essere un gruppo di $ |G_p | $-torsione (Corollario \ref{ntors}), siamo costretti a concludere che è nullo. \\
+	
+	Prendendo la successione esatta lunghissima associata alla $ \ref{homban3} $ scopriamo che
+	\[ \Hom_G(A, \, F) \to \Hom_G(A, \, A) \to 0, \]
+	ovvero che esiste una sezione dell'identità $ \id_A $.\\
+	
+	Nel caso $ A $ non sia uno $ \Z $-modulo libero, $ R $ lo è e soddisfa le stessi ipotesi. Per quanto appena mostrato, $ R $ è coomologicamente banale, da cui deduciamo che, prendendo la successione esatta lunga associata a \ref{projban3}, anche $ A $ dev'essere coomologicamente banale.
+	
 \end{proof}
+
+\begin{corollary}
+	Se $ A $ è coomologicamente banale, tutti gli $ \Hh^i(G, \, A) $ sono banali.
+\end{corollary}
 
 \begin{corollary}
 	Se $ A $ è coomologicamente banale, allora esistono $ F $ libero e $ P $ proiettivo per cui
@@ -182,12 +223,4 @@ Con ancora un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 	è esatta.
 \end{corollary}
 
-\section{Gruppi profiniti}
-Non tutti i gruppi in Teoria di Galois sono finiti. Per poterla affrontare avremo dunque bisogno di estendere le capacità del nostro linguaggio dai gruppi finiti a quelli profiniti. Una prima difficoltà è data dalla comparsa in scena della topologia: la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo possibile, ovvero che i $ G $-moduli siano muniti della topologia discreta. In queste nuove ipotesi si riesce a definire la coomologia per gruppi profiniti; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
-
-\begin{proposition}
-	Sia $ G $ un gruppo profinito che agisce su un modulo discreto $ A $, allora
-	\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U). \]
-\end{proposition}
-
-\section{dimensione coomologica}
+\section{Dimensione Coomologica}
