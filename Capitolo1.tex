@@ -6,7 +6,7 @@ L'obiettivo di questo primo capitolo è di introdurre la coomologia di gruppi, m
 Poniamoci nella dovuta generalità. Sia $ G $ un gruppo \emph{finito}, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $ moduli".
 Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su tutti i campi intermedi, rendendo sia i loro gruppo additivo che il loro gruppo moltiplicativo dei $ \Gal{L/K} $ moduli. \\
 
-Siamo ora interessati al funtore $ \mathcal{F} $ che, preso un modulo, restituisce il sottomodulo costituito dagli elementi fissi rispetto  all'azione del gruppo
+Siamo ora interessati al funtore $ \mathcal{F} $ che, preso un modulo, restituisce il sottomodulo costituito dagli elementi invarianti rispetto all'azione del gruppo
 \begin{align*} 
 \mathcal{F} \colon \Gmod &\to \mathcal{A}b \\
 A &\mapsto A^G = \{ a \in A \mid ga = a \; \forall \, g \in G \},
@@ -115,26 +115,21 @@ I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, m
 	\[ g' \cdot_{G'} A := f(g') \cdot_{G} A \qquad \forall\, g' \in G'. \]
 \end{definition}
 
-A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ f^\times $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In queto particolare caso l'operazione è, in un qualche senso, parzialmente invertibile:
+A cui diamo questo simpatico appellattivo perché nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ f^\times $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In queto particolare caso l'operazione è, in un qualche senso, parzialmente invertibile: preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, possiamo munire il gruppo abeliano
+\[ \Ind_H^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_H(\Z[G], \, A) \]
+di un'azione naturale di $ G $:
+\[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
 
-\begin{definition}
-	Preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, definiamo il gruppo abeliano
-	\[ \Ind_H^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_H(G, \, A), \]
-	munito dell'azione 
-	\[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
-	Chiamiamo modulo indotto un modulo che si possa scrivere nella forma $ \Ind_1^G(A) $.
-\end{definition}
+L'interesse verso questo funtore risiede interamente nella proposizione seguente:
 
-I moduli indotti sono oggetti degni di attenzione anche di per sè, noi siamo però interessati alla loro capacità di recuperare quanto il funtore di sopra si era dimenticato: 
-
-\begin{proposition}\label{aggiunzione}\todo[dimostrare, introdurre]
+\begin{proposition}\label{aggiunzione}\todo[dimostrare, introdurre, capire davvero in che modo ci dice che preserva gli iniettivi]
 	I due funtori
 	\[ f^\times \colon \Gmod \to \mathsf{Mod}_\mathsf{H} \qquad\text{ e }\qquad  \Ind_H^G \colon \mathsf{Mod}_\mathsf{H} \to \Gmod \]
 	sono aggiunti. Ovvero, per ogni $ A \in \Gmod $ e $ B \in \Gmod $, soddisfano
 	\[ \Hom_G(A,\, \Ind_H^G(B)) = \Hom_H(f^\times A, \, B). \]
 \end{proposition}
 
-Per rimanere in tema, ribadiamo che $ f^\times $ è un'operazione puramente formale che usiamo per sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella naturale con il quale è stato introdotto, dunque inizieremo presto a omettere il funtore per sempplificare la notazione.
+È bene ribadire che $ f^\times $ è un'operazione puramente formale, ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con il quale è stato introdotto; inizieremo presto a omettere il $ f^\times $, per semplificare la notazione, lasciando che sia il contesto a indicare la giusta azione.
 
 Siamo ora pronti per affrontare il risultato principale, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
 \begin{proposition}\label{funct}
@@ -151,22 +146,32 @@ Siamo ora pronti per affrontare il risultato principale, che ci permetterà di c
 	\[ 0 \to f^\times A \to f^\times I^{\,0} \to f^\times I^{\,1} \to f^\times I^{\,2} \to \dots \]
 	è una risoluzione iniettiva. Ci troviamo quindi nella seguente situazione:
 	\[\begin{tikzcd}[column sep = small]
-	0 \rar & A^G \rar \dar & \left(I^{\,0}\right)^G \rar & \left(I^{\,1}\right)^G \rar & \left(I^{\,2}\right)^G \rar & \dots \\
-	0 \rar & \left(f^\times A\right)^{G'}  \rar & \left(f^\times I^{\,0}\right)^{G'} \rar & \left(f^\times I^{\,1}\right)^{G'} \rar & \left(I^{\, 2}\right)^{G'} \rar & \dots
+	0 \rar
+	& A \rar \dar
+	& I^{\,0} \rar
+	& I^{\,1} \rar
+	& I^{\,2} \rar
+	& \dots \\
+	0 \rar
+	& f^\times A  \rar
+	& f^\times I^{\,0} \rar 
+	& f^\times I^{\,1} \rar 
+	& f^\times I^{\, 2} \rar
+	& \dots
 	\end{tikzcd} \]
 	Applicando ripetutamente l'iniettività dei moduli riusciamo a estendere la mappa a tutta la risoluzione \todo[la sto facendo più facile del dovuto? è falso?]
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
-	& A^G \dar \rar \arrow[dashed, "comp." description]{dr}
-	& \left(I^{\,0}\right)^G \rar \dar[dashed, "inj." description] \arrow[dashed, gray]{dr}
-	& \left(I^{\,1}\right)^{G} \rar \dar[dashed, gray] \arrow[dashed, gray!50]{dr}
-	& \left(I^{\, 2}\right)^{G} \dar[dashed, gray!50] \rar
+	& A \dar \rar \arrow[dashed, "comp." description]{dr}
+	& I^{\,0} \rar \dar[dashed, "inj." description] \arrow[dashed, gray]{dr}
+	& I^{\,1} \rar \dar[dashed, gray] \arrow[dashed, gray!50]{dr}
+	& I^{\,2} \dar[dashed, gray!50] \rar
 	& \dots \\
 	0 \rar
-	& \left(f^\times A\right)^{G'} \rar
-	& \left(f^\times I^{\,0}\right)^{G'} \rar
-	& \left(f^\times I^{\,1}\right)^{G'} \rar
-	& \left(f^\times I^{\,2}\right)^{G'} \rar
+	& f^\times A \rar
+	& f^\times I^{\,0} \rar
+	& f^\times I^{\,1} \rar
+	& f^\times I^{\,2} \rar
 	& \dots
 	\end{tikzcd} \]
 	e, osservando che un morfismo di complessi tra risoluzioni iniettive passa al quoziente, otteniamo una mappa in coomologia
@@ -187,24 +192,7 @@ Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei cas
 	indotto dalla proiezione natuarle $ \pi \colon G \to G/H $ e dall'inclusione $ u \colon A^H \to A $.
 \end{definition}
 
-Avendo sopra introdotto i moduli indotti, si sarebbe potuta fare un'altra scelta naturale nel tentativo di definire una mappa di restrizione, anch'essa di un certo interesse: abbiamo un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \] indotto dall'inclusione naturale $ i \colon H \to G $ e dal morfismo $ u \colon \Ind_H^G(B) \to B $ che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $. 
-\begin{proposition}[Lemma di Shapiro]
-	L'omomorfismo sopra definito
-	\[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \]
-	è un isomorfismo.
-\end{proposition}
-\begin{proof}
-	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ f^\times $ (\ref{aggiunzione}), abbiamo che
-	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
-	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto coincidono.
-\end{proof}
-
-Segue immediatamente che
-\begin{corollary}
-	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
-\end{corollary}
-
-Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su se stesso per coniugio, fissato un elmento $ t \in G $ otteniamo un automorfismo interno $ f_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
+Lasciamo agire $ G $ su se stesso per coniugio, fissato un elmento $ t \in G $ otteniamo un automorfismo interno $ \sigma_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
 
 \begin{proposition}
 	L'isomorfimo indotto dal coniugio per $ t $
@@ -226,7 +214,46 @@ Portiamo all'attenzione un'ultima rilevante costruzione: lasciamo agire $ G $ su
 	\end{tikzcd}\]
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
-\newpage
+
+\section{Moduli Indotti}
+Si sarebbe potuta fare un'altra scelta naturale nel tentativo di definire una mappa di restrizione: l'inclusione naturale $ i \colon H \to G $ e la mappa $ u \colon \Ind_H^G(B) \to B $ (che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $) inducono un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B), \]
+che però si scopre non aggiungere informazioni.
+
+\begin{lemma}[di Shapiro] \label{Shapiro}
+	L'omomorfismo sopra definito
+	\[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \]
+	è un isomorfismo.
+\end{lemma}
+\begin{proof}
+	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ f^\times $ (\ref{aggiunzione}), abbiamo che
+	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
+	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto coincidono.
+\end{proof}
+
+Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani senza struttura, perché è particolarmente semplice calcolarne la coomologia.
+
+\begin{definition}
+	Chiamiamo modulo indotto uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
+\end{definition}
+
+Classicamente, i moduli che abbiamo appena introdotto vengono chiamati \emph{coindotti}, mentre gli indotti si ottengono tensorizzando per l'anello di gruppo. Quando $ G $ è finito le due definizioni coincidono:
+	\[ \Hom_\Z(\Z[G], \, A)  = \Z[G] \otimes_\Z A. \]
+
+Segue immediatamente dal Lemma di Shapiro $ (\ref{Shapiro}) $ che
+\begin{corollary}\label{indotti}
+	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
+\end{corollary}
+
+Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque! Difatti, preso un modulo $ A $ possiamo immergerlo nel suo indotto
+\begin{align*}
+A &\hookrightarrow \Ind^G(A) \\
+a & \mapsto f_a \colon g \mapsto g \cdot a, \end{align*} 
+oppure proiettarci sopra l'indotto
+\begin{align*}
+\Ind^G(A) &\twoheadrightarrow A  \\
+f & \mapsto \sum g \cdot f(g^{-1}x).
+\end{align*}
+
 \section{Successione Spettrale di Hochschild-Serre}
 
 Questa sezione richiederà parecchio tempo, per enuncio i due risultati
@@ -345,7 +372,7 @@ Iniziamo ad avere qualche informazione importante su come sono fatti questi grup
 
 Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffinato del precedente, lo otteniamo restringendo la nostra attenzione a una componente $ p $-primaria.
 
-\begin{lemma}
+\begin{lemma}\label{injp}
 	Se $ p $ è un primo per cui $ m = [G \, \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
 \end{lemma}
 
@@ -353,6 +380,8 @@ Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe 
 
 \section{Gruppi di Tate}
 La coomologia di gruppi introdotta fino a questo momento è accompagnata, poco sorprendentemente, da una duale teoria omologica. I due strumenti si riescono a mettere in comunicazione fra loro e, modificati opportunamente, a riunire in un unico grande macchinario: i gruppi di coomologia di Tate, $ \Hh^i(G, \, A) $. \\
+
+\todo[Sistemare i Tate! Sforano]
 
 Consideriamo il funtore $ \mathcal{G} $ che preso un modulo, restituisce il più grande quoziente su cui $ G $ agisce banalmente, detto modulo dei co-invarianti:
 \begin{align*} 
@@ -424,7 +453,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	& C^G \rar["\delta^0"]
 	& \Hh^1(G, \, A) \rar
 	& \dots \end{tikzcd}\]
-	e colleghiamole provvisoriamente tramite la norma
+	e colleghiamole provvisoriamente tramite la norma, che funge da buon collante, perché già sappiamo produrre dei quadrati commutativi:
 	\[\begin{tikzcd}[column sep = small]
 	&& \Hh^{-1}(G, \, A) \dar 
 	& \Hh^{-1}(G, \, B) \dar 
@@ -447,7 +476,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	& \Hh^{0}(G, \, C).
 	&&
 	\end{tikzcd}\]
-	I quadrati che si sono formati aggiungendo la norma commutano; ne deduciamo che $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato sopra; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero spezza attraverso la mappa curva qua sotto:
+	Costruiamo ora le mappe di collegamento. Osserviamo che $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato sopra; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero spezza attraverso la mappa curva qua sotto:
 	\[\begin{tikzcd}[column sep = small]
 	& \Hh^{-1}(G, \, A) \dar
 	& \Hh^{-1}(G, \, B) \dar \\
@@ -458,7 +487,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	&A^G \rar["f^*"]
 	& B^G
 	\end{tikzcd}\]
-	Analogamente si trova una mappa $ \Hh^0(G, \, C) \to \Hh^1(G, \, A) $. Possiamo infine invocare lo Snake Lemma per costruire tutte le mappe di collegamento:
+	Analogamente si trova una mappa $ \Hh^0(G, \, C) \to \Hh^1(G, \, A) $. Possiamo infine invocare lo Snake Lemma per ottenere tutte le mappe mancanti:
 	\[\begin{tikzcd}[column sep = small]
 	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
 	& \Hh^{-1}(G, \, B) \dar \rar[dashed]
@@ -489,5 +518,7 @@ Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo
 \begin{lemma}
 	I moduli relativamente iniettivi, ovvero addendi diretti di iniettivi, hanno tutti gli $ \Hh^i $ banali.
 \end{lemma}
+
+\todo[questo è il posto giusto per dire che gli indotti sono ancora banalie  cotruire gli Ai]
 
 

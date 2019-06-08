@@ -51,7 +51,7 @@ Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due
 			& \Hh^0(G, \, A) \arrow[rr] && \Hh^0(G, \, B) \arrow[rd] &  \\
 			\Hh^1(G, \, C) \arrow[ru]&  &&  & \Hh^0(G, \, C) \arrow[ld] \\				& \Hh^1(G, \, B) \arrow[lu] && \Hh^1(G, \, A) \arrow[ll], & 
 		\end{tikzcd}\]
-		che possiamo slacciare in un punto a piacere
+		che possiamo slacciare in un punto a piacere \todo[su]
 		\[ 0 \to Q \to \Hh^0(G, \, A) \to \Hh^0(G, \, B) \to \Hh^0(G, \, C) \to \Hh^1(G, \, A) \to \Hh^1(G, \, B) \to \Hh^1(G, \, C) \to Q \to 0, \]
 		aggiungendo un opportuno modulo $ Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right] $.
 		Dobbiamo pertanto avere, per esattezza, che
@@ -76,7 +76,111 @@ Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due
 
 L'ultimo punto della proposizione sembra, più che una proprietà elementare del quoziente di Herbrand, un lemma tecnico e particolarmente specifico: è così, ci servirà in una dimostrazione particolarmente impegnativa più avanti.
 
-\section{p - gruppi}
+\section{Banalità}
+Lo studio della coomologia di un generico gruppo si fa troppo complessa per poter sperare di enunciare teoremi di portata analoga a quelli validi per i gruppi ciclici. Si riesce però, con non poca fatica, a dire qualcosa sui gruppi che hanno tutti i gruppi di coomologia banali.
+
+\begin{definition}
+	Diciamo che uno $ G $ modulo $ A $ è \emph{coomologicamente banale} se
+	$$  \HH^i(H, \, A) = 0 \qquad \forall \, i > 0, \quad  \forall \, H < G.  $$
+\end{definition}
+
+\begin{remark}
+	Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}).
+\end{remark}
+
+Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbanondato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
+
+Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ possiamo scegliere un $ p $-Sylow $ G_p $ di $ G $, il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow, poiché ogni mappa di coniugio $ \sigma_t $ che li permuta induce un isomorfismo in coomologia. Fissiamo dunque un Sylow $ G_p $ per ogni primo. Non è facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, il seguente risultato ci convincerà però a continuare lo studio sui Sylow.
+
+\begin{lemma}
+	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomoligcamente come $ G_p $-modulo per ogni $ p $ primo.
+\end{lemma}
+\begin{proof}
+	Supponiamo che $ A $ sia $ G_p $-coomologicamente banale per ogni $ p $ (l'altra implicazine è ovvia). Fissiamo un sottogruppo $ H < G $. Vogliamo mostrare che
+	$  \HH^i(H, \, A) = 0 $ per ogni $ i > 0 $. Scelto un primo $ p $, prendiamo un Sylow $ H_p < H $ che possiamo supporre, senza perdita di generalità, incluso in $ G_p $: per ipotesi $ \HH^i(H_p, \, A) $ è nullo.
+	Sapendo ora che l'omomofismo di restrizione $ \Res \colon \HH^i(H, \, A) \to \HH^i(H_p, A) $ è iniettivo sulla componente $ p $-primaria (lemma \ref{injp}), scopriamo che questa è nulla. La tesi segue dall'arbitrarietà di $ p $.
+	
+\end{proof}
+
+Covinti ora a studiare l'omologia dei $ p $-gruppi, 
+cominciamo con un lemmino tecnico.
+
+\begin{lemma}\label{ban1}
+	Sia $ G $ un $ p $-gruppo finito, ogni modulo $ A $ un di torsione $ p $-primario ha sottomodulo degli invarianti non banale. Detto altrimenti: se $ A^G = 0 $, allora $ A = 0 $.
+\end{lemma}
+\begin{proof}
+	Per ogni elemento $ a \in A $ consideriamo il sottomodulo finito $ M $ generato da $ a $, questo è spaccato dall'azione di $ G $ in orbite, fornendoci un'equazione di classe:
+	\[ |\,M\,| = |\, M^G\,| +\sum \frac{|\,G\,|}{|Stab(x)|},  \]
+	da cui concludiamo che, dividendo tutti gli altri addendi, $ p $ deve dividere anche $ |\, M^G \, | $.
+\end{proof}
+
+Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato seguente: un criterio per stabilire la banalità dei moduli di $ p $-torsione.
+
+\begin{proposition}
+	Sia $ A $ uno $ G_p $-modulo di $ p $-torsione. Se esiste un indice $ q $ per cui $ \Hh^q(G, \, A) = 0 $, allora $ A $ è indotto.
+\end{proposition}
+
+\begin{proof}
+	Dimostreremo che $ A $ è uno $ \F_p[G] $-modulo libero; è equivalente alla tesi perché $ \F_p[G] = \Z[G] \otimes \F_p $ è indotto. \\
+	
+	Cominciamo osservando che $ A^G $ è un $ \F_p $-modulo libero per ipotesi. Scelta una base base di $ A^G $, costruiamo $ F $ come l'$ \F_p[G] $-modulo libero generato sulla stessa base, per cui abbiamo un isomorfismo
+	\[ j \colon A^G \to F^G. \]
+	
+	Mostriamo che eiste un sollevamento di $ j $ a un isomorfismo tra $ F $ ed $ A $. Consideriamo la successione esatta
+	\[ 0 \to A^G \to A \to A/A^G \to 0 \]
+	e prendiamone gli $ \Hom_\Z(\, \bullet, \, F) $
+	\begin{equation}\label{homsucc1}
+		0 \to \Hom_\Z(A/A^G, \, F) \to \Hom_\Z(A, \, F) \to \Hom_\Z(A^G, \, F).
+	\end{equation}
+	Per un lemma mistico che ci siamo dimenticati di dimostrare, $ \Hom_Z(A/A^G) $ è indotto. \todo[dimostarre il lemma mistico nell'opportuna sezione] Nella la successione esatta lunga assocciata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
+	\[ \Hom_\Z(A, \, F)^G \to \Hom_\Z(A^G, \, F)^G \to 0, \]
+	che possiamo riscrivere più chiaramente come
+	\[ \Hom_G(A, \, F) \to \Hom_G(A^G, \, F^G) \to 0; \]
+	troviamo pertanto un sollevamento $ J \colon A \to F $.\\
+	
+	Non ci resta che mostrare che anche $ J $ è bigettivo. Supponiamo per il momento che $ q = 1 $, ovvero che $ \HH^1(G, \, A) = 0 $. L'iniettività è immediata: $ \ker J $ è uno $ G $ di modulo di $ p $-torsione senza invarianti, infatti
+	\[ (\ker J)^G = \ker j = 0, \]
+	dunque è banale per il Lemma \ref{ban1} appena mostrato. Rimaniamo con la successione esatta
+	\[ \begin{tikzcd}[column sep = small]
+	0 \rar& A \rar["J"]& F \rar& Q \rar& 0,
+	\end{tikzcd} \]
+	la cui successione esatta lunga associata comincia con
+	\[ \begin{tikzcd}[column sep = small]
+	0 \rar & A^G \rar["j"] & F^G \rar & Q^G \rar & 0,
+	\end{tikzcd} \]
+	da cui deduciamo che, essendo $ j $ un isomorfismo, $ Q^G \to 0 $ è iniettiva e la tesi segue dal Lemma \ref{ban1}.\\
+	
+	Se $ q \neq 1 $ abbiamo bisogno di ingegnarci altrimenti. Quando $ q > 1 $, definiamo $ A_1 $ come il conucleo dell'iniezione di $ A $ nel suo indotto:
+	\[ 0 \to A \to \Ind^G(A) \to A_1 \to 0. \]
+	Nella successione esatta lunghissima associata troviamo
+	\[ \Hh^{i-1}(G, \, \Ind^G(A)) \to \Hh^{i-1}(G, \, A_1) \to \Hh^{i}(G, \, A) \to \Hh^{i}(G, \, \Ind^G(A)),  \]
+	da cui deduciamo che $ \Hh^{i-1}(G, \, A_1) = \Hh^{i}(G, \, A) $ e, ragionando per induzione su $ r $, che
+	\[ \Hh^{i-r}(G, \, A_r) = \Hh^{i}(G, \, A). \] 
+	Abbiamo quindi la tesi per $ A_{q-1} $, che è pertanto coomologicamente banale e ci forza così l'ipotesi 
+	\[ \Hh^1(G, \, A) = \Hh^{2-q}(G, \, A_{q-1}) = 0 \]
+	di cui avevamo bisogno per concludere.
+	Analogamente, quando $ q < 1 $, consideriamo la successione esatta corta della proiezione:
+	\[ 0 \to A_{-1} \to \Ind^G(A) \to A \to 0. \]
+\end{proof}
+\todo[in realtà non mi dispiacerebbe mettere quest'ultima parte in un posto migliore]
+
+Con ancora un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
+
+\begin{theorem}
+	Sia $ A $ uno $ G_p $-modulo. Se esiste un indice $ q $ per cui
+	\[ \Hh^q(G_p, \, A) = \Hh^{q+1}(G_p, \, A) = 0, \]
+	allora $ A $ è coomologicamente banale.
+\end{theorem}
+
+\begin{proof}
+	La dimostrazione è un grande trucco di prestidigitazione.
+\end{proof}
+
+\begin{corollary}
+	Se $ A $ è coomologicamente banale, allora esistono $ F $ libero e $ P $ proiettivo per cui
+	\[ 0 \to P \to F \to A \to 0 \]
+	è esatta.
+\end{corollary}
 
 \section{Gruppi profiniti}
 
