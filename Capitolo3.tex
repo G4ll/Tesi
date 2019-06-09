@@ -1,0 +1,165 @@
+\chapter{Teoria del Corpo di Classe}
+In questo capitolo faremo fruttare tutto quello che è stato preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di Galois. Inizieremo con qualche risultato di carattere generale riguardo estensioni di Galois, per restringere poi la nostra attenzione ai campi locali.
+
+% Discorso su perché i campi locali.
+
+
+
+\section{Teoria di Galois}
+Sia $ \K $ un campo. Fissiamo una chiusura separabile $ \bar{\K} $. D'ora in avanti denoteremo
+\[ \HH^i(\K, \, A) := \HH^i(\Gal{\bar{\K} / \K}, \, A). \]
+Osserviamo che, presa una diversa chiusura separabile $ \bar{\K}' $ e un sollevamento di $ \id_{\K} $ a un isomorfismo $ f\colon \bar{\K} \to \bar{\K}' $, questo induce un isomorfismo in coomologia
+\[ f^* \colon \HH^i(\Gal{\bar{\K} / \K}, \, A) \to \HH^i(\Gal{\bar{\K}' / \K}, \, A) \]
+che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabile, i relativi gruppi di coomologia sono pertanto canonicamente isomorfi.\\
+
+% Hilbert 90 additivo
+\begin{theorem} \label{Hadd}
+	Sia $ L / \K $ un'estensione di Galois. Si ha
+	\[ \HH^i(\Gal{ L / \K}, \, L) = 0 \qquad \forall \, i > 0. \]
+	Ovvero $ L $ è coomologicamente banale.
+\end{theorem}
+\begin{proof}
+	Nel caso di estensioni finite, la tesi segue dal Teorema della Base Normale: questo afferma che $ L $ è un $ K[G] $ modulo libero. Per estensioni infinite è sufficiente passare al limite sulle sottoetensioni finite (grazie alla proposizione \ref{limite}).
+\end{proof}
+
+% Hilbert 90 moltiplicativo
+\begin{theorem}[Hilbert 90]\label{H90}
+	Sia $ L/\K $ un'estensione di Galois. Si ha
+	\[ \HH^1(\Gal{ L / \K}, \, L^\times) = 0. \]
+\end{theorem}
+\begin{proof}
+	Assumiamo, per il momento, che $ L/\K $ sia finita. Mostreremo che tutti i cocicli sono cobordi: prendiamo un cociclo $ a \colon G \to L^\times $, gli elementi di $ G $ sono linearmente indipendenti su $ L $, quindi troviamo $ x \in L^\times $ per cui
+	\[ y = \sum_{g \in G} a_g g(x) \neq 0. \]
+	Ma $ hy = a_h^{-1}y $ per ogni $ h \in G $, da cui la tesi.
+	Ancora una volta, passando al limite otteniamo la tesi anche per le estensioni infinite. \todo[bruttino]
+\end{proof}
+
+% Gruppo di Brauer
+\begin{definition}[Gruppo di Brauer]
+	Il gruppo di Brauer di $ \K $ è $$  \Br \K = \HH^2(\K, \, \bar{\K}^\times).  $$
+\end{definition}
+
+% mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace?
+
+% Metto un paio di proposizioni per stare tranquilli
+
+\begin{proposition}
+	Se $ L/\K $ è un'estensione finita di Galois
+	\[ \Br(L/\K) = \HH^2(\Gal{L/\K}, \, L^\times) = \ker  \left[\Br \K \to \Br L\right].  \]
+\end{proposition}
+\begin{proof}
+	Secondo corollario di H-S.
+\end{proof}
+
+\begin{lemma}
+	$ (\Br \K) [n] = \HH^2(\K, \mu_n) $.
+\end{lemma}
+
+% Verso il profinito
+\begin{profinite}
+	È incredibilmente rassicurante osservare che, nonostante sia indispensabile aver definito la coomologia per gruppi profiniti, tutto si riconduca senza problemi alla coomologia di gruppi finiti.
+\end{profinite}
+
+\section{Campi Locali}
+% struttura
+Restringeremo ora la nostra attenzione allo studio dei campi locali, ovvero completi per una valutazione discreta di rango 1. Questi sono, a meno di isomorfismo, estensioni dei $ p $-adici $ \Q_p $, se di caratteristica zero, o delle serie Laurent su un campo finito $ \F_p((t)) $, se di caratteristica $ p $. \\
+
+Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi su $ \K $ come gli elementi di valutazione positiva
+\[ \mathcal{O}_{\K} = \{ x \in \K \mid v(x)\geq 0 \}. \]
+Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiamiamo $ \kappa $ il campo residuo. Le unità di quest'anello sono il nucleo dell'omomorfismo di valutazione
+\begin{equation}\label{local1}
+	\begin{tikzcd}[column sep = small]
+	1 \rar
+	& \mathcal{O}_{\K}^\times \rar
+	& \K^\times \rar["v"]
+	& \Z \rar
+	& 0,
+	\end{tikzcd}
+\end{equation}
+che possiamo filtrare tramite il grado degli elementi: definiamo $ U_{\K}^i :=\{x \in \mathcal{O}_{\K}^\times \mid v(x-1) \geq i \} $, ottenendo così una filtrazione $ \mathcal{O}_{\K}^\times \supseteq U_{\K}^1 \supseteq U_{\K}^2 \supseteq \dots $ 
+i cui quozienti sono $ \kappa $; in particolare si può mostrare che l'omomorfismo $ U_{\K}^i \to \kappa $ che manda $ x \mapsto (x-1)/p^n $ è suriettivo e genera della successioni esatte corte
+\begin{equation}\label{local2}
+\begin{tikzcd}[column sep = small]
+1 \rar
+& U_k^{i+1} \rar
+& U_{\K}^i \rar
+& \kappa \rar
+& 0.
+\end{tikzcd}
+\end{equation}
+Infine, per il Lemma di Hensel, abbiamo che
+\begin{equation}\label{local3}
+	\begin{tikzcd}[column sep = small]
+	1 \rar
+	& U_k^{1} \rar
+	& \mathcal{O}_{\K}^\times \rar
+	& \kappa^\times \rar
+	&1.
+	\end{tikzcd}
+\end{equation}
+
+\todo[non sono completamente sicuro di quello che sto scrivendo]
+
+Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semplicità di questa struttura, ci fornisce qualche informazione aggiuntiva sulla coomologia delle estensioni di questi campi locali. Cominciamo dalle estensioni più facili da controllare: quelle non ramificate.
+
+% coomologia dei gruppi delle unità
+\begin{theorem}
+	Sia $ L/\K $ un'estensione di Galois, finita e non ramificata, di gruppo $ G $. I gruppi $ \mathcal{O}_{\K}^\times $ e $ U_L^1 $ sono coomologicamente banali.
+\end{theorem}
+\begin{proof}
+	Sia $ \lambda $ il campo residuo di $ L $. Aver assunto l'estensione non ramificata ci concede la comodità di poter identificare $ G = \Gal{L/\K} = \Gal{\lambda / \kappa} $. Poiché il gruppo additivo di $ \lambda $ è coomologicamente banale (teorema \ref{Hadd}), dalla successione esatta
+	\[\begin{tikzcd}[column sep = small]
+	1 \rar
+	& U_L^{i+1} \rar
+	& U_{L}^i \rar
+	& \lambda \rar
+	& 0
+	\end{tikzcd}\]
+	la stessa proprietà segue per tutti gli $ U^i_{L} / U^{i+1}_{L} $.
+	\todo[aggiungere nel capitolo 1 l'osservazione seguente]
+	Poiché la coomologia di un gruppo finito commuta con il prodotto diretto nel secondo argomento, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologiacamente banale. \\
+	
+	Per estendere la proprietà a tutto $ \mathcal{O}_{L}^\times $ riscriviamo la succession esatta \ref{local3}
+	\begin{equation*}
+	\begin{tikzcd}[column sep = small]
+	1 \rar
+	& U_L^{1} \rar
+	& \mathcal{O}_{L}^\times \rar
+	& \lambda^\times \rar
+	&1
+	\end{tikzcd}
+	\end{equation*}
+	e osserviamo che non solo $  U^1_L $ è coomologcamente banale, ma anche $ \lambda^\times $: infatti in grado $ i = 1 $ è banale per Hilbert 90 (\ref{H90}) e da lì in poi per quanto osservato sui campi locali (\todo[riferimento]). Segue la tesi prendendo la successione esatta lunga associata.
+\end{proof}
+
+% Assioma del corpo di classe
+Per estensioni ramificate la situazione non è così semplice, abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del riultato appena ottenuto
+
+\begin{lemma}[del sottomodulo banale]
+	Sia $ L/\K $ un'estensione finita di Galois di gruppo $ G $. Esiste un sottomodulo $ V \subseteq U_L^1 $ d'indice finito e coomologicamente banale.
+\end{lemma}
+
+\begin{theorem}[Assioma dei Campi di Classe] \todo[capire come si chiama davvero]
+	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hh^0(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
+\end{theorem}
+\begin{proof}
+	La prima asserzione segue da Hilbert 90. Applichiamo il lemma del sottomodulo banale e scriviamo la successione esatta 
+	\[ 1 \to V \to \mathcal{O}_L^\times \to \mathcal{O}_L^\times/V \to 1; \]
+	il primo gruppo è coomologicamente banale e pertanto il suo quoziente d'Herbrand è $ h(V) = 1 $, anche l'ultimo gruppo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
+	dove il seconodo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente d'Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla succession esatta $ \ref{local1} $
+	\[ \begin{tikzcd}[column sep = small]
+	1 \rar
+	& \mathcal{O}_{L}^\times \rar
+	& L^\times \rar["v"]
+	& \Z \rar
+	& 0,
+	\end{tikzcd} \]
+	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente d'Herbrand e l'Hilbert 90
+	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
+\end{proof}
+
+
+\section{Il Brauer}
+% Calcolo del BRKnr e mappa inv
+
+% BR(Knr/K) = Br(K)

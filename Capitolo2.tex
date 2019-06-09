@@ -132,7 +132,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 	\begin{equation}\label{homsucc1}
 		0 \to \Hom_\Z(A/A^G, \, F) \to \Hom_\Z(A, \, F) \to \Hom_\Z(A^G, \, F).
 	\end{equation}
-	Per un lemma mistico che ci siamo dimenticati di dimostrare, $ \Hom_Z(A/A^G) $ è indotto. \todo[dimostarre il lemma mistico nell'opportuna sezione] Nella la successione esatta lunga assocciata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
+	Per il lemma \ref{scappa}, $ \Hom_Z(A/A^G, \, F) $ è indotto. \todo[dimostarre il lemma mistico nell'opportuna sezione] Nella la successione esatta lunga assocciata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
 	\[ \Hom_\Z(A, \, F)^G \to \Hom_\Z(A^G, \, F)^G \to 0, \]
 	che possiamo riscrivere più chiaramente come
 	\[ \Hom_G(A, \, F) \to \Hom_G(A^G, \, F^G) \to 0; \]
@@ -199,7 +199,7 @@ Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 		0 \rar & M \rar["\cdot p"] & M \rar & \Hom_\Z(A, \, R/pR) \rar & 0,
 		\end{tikzcd}
 	\end{equation*}
-	nella cui successione esatta lunga, poiché $ \Hom_\Z(A, \, R/pR) $ è indotto per il solito lemma che siamo dimenticati di enunciare (??), troviamo
+	nella cui successione esatta lunga, poiché $ \Hom_\Z(A, \, R/pR) $ è indotto per il solito lemma \ref{scappa}, troviamo
 	\[ \begin{tikzcd}[column sep = small]
 	\HH^1(G_p, \, M) \rar["\cdot p"] & \HH^1(G_p, \, M) \rar & 0.
 	\end{tikzcd}  \]
@@ -209,13 +209,17 @@ Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 	\[ \Hom_G(A, \, F) \to \Hom_G(A, \, A) \to 0, \]
 	ovvero che esiste una sezione dell'identità $ \id_A $.\\
 	
-	Nel caso $ A $ non sia uno $ \Z $-modulo libero, $ R $ lo è e soddisfa le stessi ipotesi. Per quanto appena mostrato, $ R $ è coomologicamente banale, da cui deduciamo che, prendendo la successione esatta lunga associata a \ref{projban3}, anche $ A $ dev'essere coomologicamente banale.
+	Nel caso $ A $ non sia uno $ \Z $-modulo libero, $ R $ lo è e soddisfa le stessi ipotesi. $ R $ è dunque, per quanto appena mostrato, coomologicamente banale, da cui deduciamo che, prendendo la successione esatta lunga associata a \ref{projban3}, anche $ A $ dev'essere coomologicamente banale.
 	
 \end{proof}
+
+Segue immediatamente che:
 
 \begin{corollary}
 	Se $ A $ è coomologicamente banale, tutti gli $ \Hh^i(G, \, A) $ sono banali.
 \end{corollary}
+
+Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il seguente lemma, che ci tornerà untile in futuro.
 
 \begin{corollary}
 	Se $ A $ è coomologicamente banale, allora esistono $ F $ libero e $ P $ proiettivo per cui
@@ -224,3 +228,14 @@ Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 \end{corollary}
 
 \section{Dimensione Coomologica}
+La dimensione coomologica di un gruppo è un'indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo nel quale prendiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" si applica solo a gruppi infiniti.
+
+\begin{definition}[Dimensione coomologica]
+	Sia $ G $ un gruppo profinito e $ p $ un numero primo. La \emph{$ p $-dimensione coomologica} di $ G $ è il più piccolo intero $ n $ per cui: per ogni $ G $-modulo $ A $ di torsione, la componente $ p $-primaria di $ \HH^q(G, \, A) $ è nulla nonappena $ q > n $, volendo
+	\[ \cd_p(G) := \inf \{ n \in \N \; \mid T_p\HH^q(G, \, A)=0\quad \forall \, q > n, \quad \forall A \text{ di torsione} \}. \]
+	La \emph{dimensione coomologica} è definitia di conseguenza come $ \cd(G) := \sup_p \cd_p(G). $
+\end{definition}
+
+%% vorrei capire cosa mi serve a cosa mi serve prima di scrivere un sacco di roba inutile...
+
+%% Serve da qualche parte dire che i campi finiti hanno dimensione coomologica <= 1

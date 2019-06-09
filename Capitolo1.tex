@@ -71,16 +71,18 @@ Non è banale mostrare nè che le due definizioni non dipendono dalla risoluzion
 
 % Mettiamoci qui il discorso su finito / profinito!
 
+\begin{profinite}
 La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito.
-Dovremo però pagare questo vantaggio per estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti della topologia discreta e che tutte le mappe siano continue. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
+Dovremo però estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti della topologia discreta e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
 
 \begin{proposition}\label{limite}
 	Sia $ G $ un gruppo profinito che agisce su un modulo discreto $ A $, allora
 	\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U), \]
-	dove $ U $ varia tra i sottogruppi \emph{aperti} di $ G $.
+	dove $ U $ varia tra i sottogruppi normali \emph{aperti} di $ G $.
 \end{proposition}
 
 D'ora in avanti svilupperemo la teoria per gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
+\end{profinite}
 
 %% tutto quello che sta qua sotto è cacca. Lo voglio togliere.
 %Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
@@ -199,7 +201,7 @@ Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei cas
 
 Lasciamo agire $ G $ su se stesso per coniugio, fissato un elmento $ t \in G $ otteniamo un automorfismo interno $ \sigma_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
 
-\begin{proposition}
+\begin{proposition}\label{coniugio}
 	L'isomorfimo indotto dal coniugio per $ t $
 	\[ \sigma_t \colon \HH^i(G, \, A) \to \HH^i(G, \, A) \]
 	è l'identità.
@@ -220,9 +222,9 @@ Lasciamo agire $ G $ su se stesso per coniugio, fissato un elmento $ t \in G $ o
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 
-\begin{remark}
-	Tutti i risultati di questo capitolo si estendono senza problemi al caso di gruppi profiniti: tutte le argomentazioni parlando di omomorfismi tra gruppi discreti, che pertanto sono continue anche se nessuno se ne preoccupa.
-\end{remark}
+\begin{profinite}
+	Tutti i risultati di questo capitolo si estendono senza problemi al caso di gruppi profiniti: tutte le argomentazioni, parlando di omomorfismi tra gruppi discreti, sono automaticamente continue.
+\end{profinite}
 
 
 \section{Moduli Indotti}
@@ -264,6 +266,10 @@ oppure proiettarci sopra l'indotto
 f & \mapsto \sum g \cdot f(g^{-1}x).
 \end{align*}
 
+\begin{lemma}\label{scappa}
+	Dati due moduli $ A $ e $ B $, se $ B $ è indotto, pure $ \Hom_\Z(A, \, B) $ è indotto.
+\end{lemma}
+
 \section{Successione Spettrale di Hochschild-Serre}
 
 Questa sezione richiederà parecchio tempo, per enuncio i due risultati
@@ -293,13 +299,13 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 	\end{tikzcd} \qquad  \]
 \end{corollary}
 
-\begin{remark}
+\begin{profinite}
 	La successione spettrale di Hochschild-Serre è ben definita anche per $ G $ profinito, una volta assunto che $ H $ sia un sottogruppo normale \emph{chiuso} di $ G $. Seguono dunque i suoi corollari. \todo[ah si? perche?]
-\end{remark}
+\end{profinite}
 
 
 \section{Corestrizione}
-Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrione, ovvero che in qualche modo risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che il gruppo $ G $ sia finito.
+Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrione, ovvero che in qualche modo risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che l'indice $ [G \, \colon H] $ sia finito, cosa che accade sicuramente supponendo $ G $ finito.
 
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $ modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
@@ -392,9 +398,9 @@ Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffi
 
 Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe ad una mappa iniettiva, dunque la mappa più interna, la restrizione, dev'essere iniettiva a sua volta.
 
-\begin{remark}
-	Possiamo estendere la corestrizione ai gruppi profiniti per passaggio al limite diretto. I risultati in cui compare esplicitamente l'ordine del gruppo perdono di significato; quelli in cui si parla solo di indice di sottogruppi e coprimalità si riescono a estendere, una volta ampliate opportunamente le relative definizioni. \todo[vogliamo spiegarci meglio?]
-\end{remark}
+\begin{profinite}
+	La norma, e di conseguenza la restrizione, è ben definita per ogni $ H $ sottogruppo d'indice finite e chiuso di $ G $. Dal corollario \ref{ntors}, passando al limite (\ref{limite}), scopriamo che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
+\end{profinite}
 
 \section{Gruppi di Tate}
 La coomologia di gruppi introdotta fino a questo momento è accompagnata, poco sorprendentemente, da una duale teoria omologica. I due strumenti si riescono a mettere in comunicazione fra loro e, modificati opportunamente, a riunire in un unico grande macchinario: i gruppi di coomologia di Tate, $ \Hh^i(G, \, A) $. \\
@@ -539,6 +545,6 @@ Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo
 
 \todo[questo è il posto giusto per dire che gli indotti sono ancora banalie  cotruire gli Ai]
 
-\begin{remark}
+\begin{profinite}
 	Nonostante sia possibile estendere i gruppi di Tate anche a gruppi profiniti, non faremo questo sforzo, limitandoci a non usarli.
-\end{remark}
+\end{profinite}
