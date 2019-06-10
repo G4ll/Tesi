@@ -10,19 +10,23 @@ Sia $ \K $ un campo. Fissiamo una chiusura separabile $ \bar{\K} $. D'ora in ava
 \[ \HH^i(\K, \, A) := \HH^i(\Gal{\bar{\K} / \K}, \, A). \]
 Osserviamo che, presa una diversa chiusura separabile $ \bar{\K}' $ e un sollevamento di $ \id_{\K} $ a un isomorfismo $ f\colon \bar{\K} \to \bar{\K}' $, questo induce un isomorfismo in coomologia
 \[ f^* \colon \HH^i(\Gal{\bar{\K} / \K}, \, A) \to \HH^i(\Gal{\bar{\K}' / \K}, \, A) \]
-che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabile, i relativi gruppi di coomologia sono pertanto canonicamente isomorfi.\\
+che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi.\\
+
 
 % Hilbert 90 additivo
+Fissiamo un'estensione di Galois $ L/\K $ e cominciamo ad analizzare la coomologia del modulo più naturale del relativo gruppo $ \Gal{L/\K} $: il campo $ L $. Il gruppo di Galois è composto dagli automorfismi del campo, per definizione, quindi è ben definita un'azione tanto sul gruppo additivo $ L $, quanto sul gruppo moltiplicativo $ L^\times $.
+
 \begin{theorem} \label{Hadd}
 	Sia $ L / \K $ un'estensione di Galois. Si ha
 	\[ \HH^i(\Gal{ L / \K}, \, L) = 0 \qquad \forall \, i > 0. \]
-	Ovvero $ L $ è coomologicamente banale.
 \end{theorem}
 \begin{proof}
-	Nel caso di estensioni finite, la tesi segue dal Teorema della Base Normale: questo afferma che $ L $ è un $ K[G] $ modulo libero. Per estensioni infinite è sufficiente passare al limite sulle sottoetensioni finite (grazie alla proposizione \ref{limite}).
+	Nel caso di estensioni finite, la tesi segue dal Teorema della Base Normale: questo afferma che $ L $ è un $ K[G] $ modulo libero. Per estensioni infinite è sufficiente passare al limite sulle sottoestensioni finite (tramite la solita proposizione \ref{limite}).
 \end{proof}
 
 % Hilbert 90 moltiplicativo
+Non potevamo chiedere niente di meglio. La coomologia del gruppo moltiplicativo non è altrettanto semplice: lo studio di quest'ultima è effettivamente il cuore della Teoria. La banalità del primo di gruppo di coomologia è già parecchio interessante, si tratta infatti di una riscrittura del Teorema di Indipendenza dei Caratteri di Artin nel nostro linguaggio:
+
 \begin{theorem}[Hilbert 90]\label{H90}
 	Sia $ L/\K $ un'estensione di Galois. Si ha
 	\[ \HH^1(\Gal{ L / \K}, \, L^\times) = 0. \]
@@ -35,22 +39,27 @@ che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ 
 \end{proof}
 
 % Gruppo di Brauer
+Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome proprio.
 \begin{definition}[Gruppo di Brauer]
 	Il gruppo di Brauer di $ \K $ è $$  \Br \K = \HH^2(\K, \, \bar{\K}^\times).  $$
 \end{definition}
 
-% mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace?
+% mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace? Sì dai!
+
 
 % Metto un paio di proposizioni per stare tranquilli
 
-\begin{proposition}
+\begin{lemma}\label{stronzetto}
 	Se $ L/\K $ è un'estensione finita di Galois
 	\[ \Br(L/\K) = \HH^2(\Gal{L/\K}, \, L^\times) = \ker  \left[\Br \K \to \Br L\right].  \]
-\end{proposition}
+\end{lemma}
 \begin{proof}
-	Secondo corollario di H-S.
+	Possiamo riscrivere la tesi come
+	\[ 0 \to \HH^2(\Gal{L/\K}, \, L^\times) \to \HH^2(\Gal{\bar{\K}, \, \K}, \, L^\times) \to \HH^2(\Gal{\bar{\K}, \, L}, \, L^\times), \]
+	la cui esattezza segue da una delle successioni di termini di grado basso della successione spettrale di Hoschild-Serre (corollario \ref{boo2}).
 \end{proof}
 
+%Questo lemma ci serve?
 \begin{lemma}
 	$ (\Br \K) [n] = \HH^2(\K, \mu_n) $.
 \end{lemma}
@@ -62,7 +71,7 @@ che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ 
 
 \section{Campi Locali}
 % struttura
-Restringeremo ora la nostra attenzione allo studio dei campi locali, ovvero completi per una valutazione discreta di rango 1. Questi sono, a meno di isomorfismo, estensioni dei $ p $-adici $ \Q_p $, se di caratteristica zero, o delle serie Laurent su un campo finito $ \F_p((t)) $, se di caratteristica $ p $. \\
+Restringeremo ora la nostra attenzione allo studio dei campi locali, ovvero completi per una valutazione discreta di rango 1. Questi sono, a meno di isomorfismo, estensioni dei $ p $-adici $ \Q_p $, se di caratteristica zero, o delle serie Laurent $ \F_p((t)) $, se di caratteristica positiva. \\
 
 Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi su $ \K $ come gli elementi di valutazione positiva
 \[ \mathcal{O}_{\K} = \{ x \in \K \mid v(x)\geq 0 \}. \]
@@ -117,9 +126,9 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 	\end{tikzcd}\]
 	la stessa proprietà segue per tutti gli $ U^i_{L} / U^{i+1}_{L} $.
 	\todo[aggiungere nel capitolo 1 l'osservazione seguente]
-	Poiché la coomologia di un gruppo finito commuta con il prodotto diretto nel secondo argomento, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologiacamente banale. \\
+	Poiché la coomologia di un gruppo finito commuta con il prodotto diretto nel secondo argomento, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologicamente banale. \\
 	
-	Per estendere la proprietà a tutto $ \mathcal{O}_{L}^\times $ riscriviamo la succession esatta \ref{local3}
+	Per estendere la proprietà a tutto $ \mathcal{O}_{L}^\times $ riscriviamo la successione esatta \ref{local3}
 	\begin{equation*}
 	\begin{tikzcd}[column sep = small]
 	1 \rar
@@ -129,11 +138,11 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 	&1
 	\end{tikzcd}
 	\end{equation*}
-	e osserviamo che non solo $  U^1_L $ è coomologcamente banale, ma anche $ \lambda^\times $: infatti in grado $ i = 1 $ è banale per Hilbert 90 (\ref{H90}) e da lì in poi per quanto osservato sui campi locali (\todo[riferimento]). Segue la tesi prendendo la successione esatta lunga associata.
+	e osserviamo che non solo $  U^1_L $ è coomologicamente banale, ma anche $ \lambda^\times $: infatti in grado $ i = 1 $ è banale per Hilbert 90, in grado $ i = 2 $ pure perché sottogruppo di $ \Br \kappa $ (volendo per \ref{stronzetto}), che è nullo perché $ \hat{\Z} $ ha dimensione coomologica 1, e il gruppo $ G $ è ciclico. Segue la tesi prendendo la successione esatta lunga associata.
 \end{proof}
 
 % Assioma del corpo di classe
-Per estensioni ramificate la situazione non è così semplice, abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del riultato appena ottenuto
+Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
 
 \begin{lemma}[del sottomodulo banale]
 	Sia $ L/\K $ un'estensione finita di Galois di gruppo $ G $. Esiste un sottomodulo $ V \subseteq U_L^1 $ d'indice finito e coomologicamente banale.
@@ -145,8 +154,8 @@ Per estensioni ramificate la situazione non è così semplice, abbiamo bisogno d
 \begin{proof}
 	La prima asserzione segue da Hilbert 90. Applichiamo il lemma del sottomodulo banale e scriviamo la successione esatta 
 	\[ 1 \to V \to \mathcal{O}_L^\times \to \mathcal{O}_L^\times/V \to 1; \]
-	il primo gruppo è coomologicamente banale e pertanto il suo quoziente d'Herbrand è $ h(V) = 1 $, anche l'ultimo gruppo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
-	dove il seconodo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente d'Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla succession esatta $ \ref{local1} $
+	il primo gruppo è coomologicamente banale e pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, anche l'ultimo gruppo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
+	dove il secondo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente di Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla successione esatta $ \ref{local1} $
 	\[ \begin{tikzcd}[column sep = small]
 	1 \rar
 	& \mathcal{O}_{L}^\times \rar
@@ -154,12 +163,13 @@ Per estensioni ramificate la situazione non è così semplice, abbiamo bisogno d
 	& \Z \rar
 	& 0,
 	\end{tikzcd} \]
-	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente d'Herbrand e l'Hilbert 90
+	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e l'Hilbert 90
 	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
 \end{proof}
 
 
 \section{Il Brauer}
 % Calcolo del BRKnr e mappa inv
+
 
 % BR(Knr/K) = Br(K)

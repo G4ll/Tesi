@@ -46,7 +46,7 @@ Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due
 
 \begin{proof}
 	\begin{enumerate}
-		\item La successione esatta lunghissima associata può essere ririassunta in una successione \leftquote esagonalmente esatta"
+		\item La successione esatta lunghissima associata può essere riassunta in una successione \leftquote esagonalmente esatta"
 		\[\begin{tikzcd}[column sep={1cm,between origins}, row sep={1.732050808cm,between origins}]
 			& \Hh^0(G, \, A) \arrow[rr] && \Hh^0(G, \, B) \arrow[rd] &  \\
 			\Hh^1(G, \, C) \arrow[ru]&  &&  & \Hh^0(G, \, C) \arrow[ld] \\				& \Hh^1(G, \, B) \arrow[lu] && \Hh^1(G, \, A) \arrow[ll], & 
@@ -88,21 +88,21 @@ Lo studio della coomologia di un generico gruppo si fa troppo complessa per pote
 	Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}).
 \end{example}
 
-Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbanondato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
+Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbandonato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
 
 Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ possiamo scegliere un $ p $-Sylow $ G_p $ di $ G $, il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow, poiché ogni mappa di coniugio $ \sigma_t $ che li permuta induce un isomorfismo in coomologia. Fissiamo dunque un Sylow $ G_p $ per ogni primo. Non è facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, il seguente risultato ci convincerà però a continuare lo studio sui Sylow.
 
 \begin{lemma}
-	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomoligcamente come $ G_p $-modulo per ogni $ p $ primo.
+	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomologicamente come $ G_p $-modulo per ogni $ p $ primo.
 \end{lemma}
 \begin{proof}
-	Supponiamo che $ A $ sia $ G_p $-coomologicamente banale per ogni $ p $ (l'altra implicazine è ovvia). Fissiamo un sottogruppo $ H < G $. Vogliamo mostrare che
+	Supponiamo che $ A $ sia $ G_p $-coomologicamente banale per ogni $ p $ (l'altra implicazione è ovvia). Fissiamo un sottogruppo $ H < G $. Vogliamo mostrare che
 	$  \HH^i(H, \, A) = 0 $ per ogni $ i > 0 $. Scelto un primo $ p $, prendiamo un Sylow $ H_p < H $ che possiamo supporre, senza perdita di generalità, incluso in $ G_p $: per ipotesi $ \HH^i(H_p, \, A) $ è nullo.
-	Sapendo ora che l'omomofismo di restrizione $ \Res \colon \HH^i(H, \, A) \to \HH^i(H_p, A) $ è iniettivo sulla componente $ p $-primaria (lemma \ref{injp}), scopriamo che questa è nulla. La tesi segue dall'arbitrarietà di $ p $.
+	Sapendo ora che l'omomorfismo di restrizione $ \Res \colon \HH^i(H, \, A) \to \HH^i(H_p, A) $ è iniettivo sulla componente $ p $-primaria (lemma \ref{injp}), scopriamo che questa è nulla. La tesi segue dall'arbitrarietà di $ p $.
 	
 \end{proof}
 
-Covinti ora a studiare l'omologia dei $ p $-gruppi, 
+Conviti ora a studiare l'omologia dei $ p $-gruppi, 
 cominciamo con un lemmino tecnico.
 
 \begin{lemma}\label{ban1}
@@ -126,19 +126,19 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 	Cominciamo osservando che $ A^G $ è un $ \F_p $-modulo libero per ipotesi. Scelta una base base di $ A^G $, costruiamo $ F $ come l'$ \F_p[G] $-modulo libero generato sulla stessa base, per cui abbiamo un isomorfismo
 	\[ j \colon A^G \to F^G. \]
 	
-	Mostriamo che eiste un sollevamento di $ j $ a un isomorfismo tra $ F $ ed $ A $. Consideriamo la successione esatta
+	Mostriamo che esiste un sollevamento di $ j $ a un isomorfismo tra $ F $ ed $ A $. Consideriamo la successione esatta
 	\[ 0 \to A^G \to A \to A/A^G \to 0 \]
 	e prendiamone gli $ \Hom_\Z(\, \bullet, \, F) $
 	\begin{equation}\label{homsucc1}
 		0 \to \Hom_\Z(A/A^G, \, F) \to \Hom_\Z(A, \, F) \to \Hom_\Z(A^G, \, F).
 	\end{equation}
-	Per il lemma \ref{scappa}, $ \Hom_Z(A/A^G, \, F) $ è indotto. \todo[dimostarre il lemma mistico nell'opportuna sezione] Nella la successione esatta lunga assocciata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
+	Per il lemma \ref{scappa}, $ \Hom_Z(A/A^G, \, F) $ è indotto. \todo[dimostarre il lemma mistico nell'opportuna sezione] Nella la successione esatta lunga associata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
 	\[ \Hom_\Z(A, \, F)^G \to \Hom_\Z(A^G, \, F)^G \to 0, \]
 	che possiamo riscrivere più chiaramente come
 	\[ \Hom_G(A, \, F) \to \Hom_G(A^G, \, F^G) \to 0; \]
 	troviamo pertanto un sollevamento $ J \colon A \to F $.\\
 	
-	Non ci resta che mostrare che anche $ J $ è bigettivo. Supponiamo per il momento che $ q = 1 $, ovvero che $ \HH^1(G, \, A) = 0 $. L'iniettività è immediata: $ \ker J $ è uno $ G $ di modulo di $ p $-torsione senza invarianti, infatti
+	Non ci resta che mostrare che anche $ J $ è biettivo. Supponiamo per il momento che $ q = 1 $, ovvero che $ \HH^1(G, \, A) = 0 $. L'iniettività è immediata: $ \ker J $ è uno $ G $ di modulo di $ p $-torsione senza invarianti, infatti
 	\[ (\ker J)^G = \ker j = 0, \]
 	dunque è banale per il Lemma \ref{ban1} appena mostrato. Rimaniamo con la successione esatta
 	\[ \begin{tikzcd}[column sep = small]
@@ -203,7 +203,7 @@ Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
 	\[ \begin{tikzcd}[column sep = small]
 	\HH^1(G_p, \, M) \rar["\cdot p"] & \HH^1(G_p, \, M) \rar & 0.
 	\end{tikzcd}  \]
-	Se la moltiplicazione per $ p $ è suriettiva, il gruppo abeliano $ \HH^1(G_p, \, M) $ non può avere $ p $-torsione, nè tantomeno componente $ p $-primaria. Sapendo però che dev'essere un gruppo di $ |G_p | $-torsione (Corollario \ref{ntors}), siamo costretti a concludere che è nullo. \\
+	Se la moltiplicazione per $ p $ è suriettiva, il gruppo abeliano $ \HH^1(G_p, \, M) $ non può avere $ p $-torsione, ne tanto meno componente $ p $-primaria. Sapendo però che dev'essere un gruppo di $ |G_p | $-torsione (Corollario \ref{ntors}), siamo costretti a concludere che è nullo. \\
 	
 	Prendendo la successione esatta lunghissima associata alla $ \ref{homban3} $ scopriamo che
 	\[ \Hom_G(A, \, F) \to \Hom_G(A, \, A) \to 0, \]
@@ -219,7 +219,7 @@ Segue immediatamente che:
 	Se $ A $ è coomologicamente banale, tutti gli $ \Hh^i(G, \, A) $ sono banali.
 \end{corollary}
 
-Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il seguente lemma, che ci tornerà untile in futuro.
+Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il seguente lemma, che ci tornerà utile in futuro.
 
 \begin{corollary}
 	Se $ A $ è coomologicamente banale, allora esistono $ F $ libero e $ P $ proiettivo per cui
@@ -228,12 +228,12 @@ Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il segu
 \end{corollary}
 
 \section{Dimensione Coomologica}
-La dimensione coomologica di un gruppo è un'indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo nel quale prendiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" si applica solo a gruppi infiniti.
+La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo nel quale prendiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" si applica solo a gruppi infiniti.
 
 \begin{definition}[Dimensione coomologica]
-	Sia $ G $ un gruppo profinito e $ p $ un numero primo. La \emph{$ p $-dimensione coomologica} di $ G $ è il più piccolo intero $ n $ per cui: per ogni $ G $-modulo $ A $ di torsione, la componente $ p $-primaria di $ \HH^q(G, \, A) $ è nulla nonappena $ q > n $, volendo
+	Sia $ G $ un gruppo profinito e $ p $ un numero primo. La \emph{$ p $-dimensione coomologica} di $ G $ è il più piccolo intero $ n $ per cui: per ogni $ G $-modulo $ A $ di torsione, la componente $ p $-primaria di $ \HH^q(G, \, A) $ è nulla non appena $ q > n $, volendo
 	\[ \cd_p(G) := \inf \{ n \in \N \; \mid T_p\HH^q(G, \, A)=0\quad \forall \, q > n, \quad \forall A \text{ di torsione} \}. \]
-	La \emph{dimensione coomologica} è definitia di conseguenza come $ \cd(G) := \sup_p \cd_p(G). $
+	La \emph{dimensione coomologica} è definita di conseguenza come $ \cd(G) := \sup_p \cd_p(G). $
 \end{definition}
 
 %% vorrei capire cosa mi serve a cosa mi serve prima di scrivere un sacco di roba inutile...
