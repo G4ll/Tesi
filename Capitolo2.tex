@@ -228,7 +228,7 @@ Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il segu
 \end{corollary}
 
 \section{Dimensione Coomologica}
-La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo nel quale prendiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" si applica solo a gruppi infiniti.
+La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo nel quale prendiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" è di un qualche interesse solo per gruppi infiniti.
 
 \begin{definition}[Dimensione coomologica]
 	Sia $ G $ un gruppo profinito e $ p $ un numero primo. La \emph{$ p $-dimensione coomologica} di $ G $ è il più piccolo intero $ n $ per cui: per ogni $ G $-modulo $ A $ di torsione, la componente $ p $-primaria di $ \HH^q(G, \, A) $ è nulla non appena $ q > n $, volendo
@@ -236,6 +236,34 @@ La dimensione coomologica di un gruppo è un indice di complessità: è il numer
 	La \emph{dimensione coomologica} è definita di conseguenza come $ \cd(G) := \sup_p \cd_p(G). $
 \end{definition}
 
+È necessaria una certa attenzione nel maneggiare la definizione di dimensione coomologica: abbiamo richiesto che $ A $ fosse un modulo \emph{di torsione}, rimuovendo questa ipotesi si finisce a parlare di dimensione coomologica stretta, che è tutta un'altra storia (anzi, ancora peggio, una storia leggermente diversa). Per di più, è stato introdotto sottobanco un nuovo pezzettino di notazione: $ T_p M $ sarà da qui in poi la componente $ p $-primaria del gruppo abeliamo $ M $. \\
+
 %% vorrei capire cosa mi serve a cosa mi serve prima di scrivere un sacco di roba inutile...
 
+Ancora una volta, il calcolo è più semplice sui $ p $-gruppi.
+
+\begin{proposition}
+	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $.
+\end{proposition}
+
+Questa proposizione ci permette per esempio di calcolare la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di pasaggio al limite, si ha infatti che 
+\[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim_n \HH^2(\Z/p^n\Z, \, \Z/p\Z) = \varinjlim_n \Hh^0(\Z/p^n\Z, \, \Z/p\Z). \]
+I gruppi di Tate di grado zero li conosciamo eplicitamente: per definizione sono $ \Z/p\Z $ quozientato per l'immagine della norma, ma essendo l'azione banale, la norma coincide con la moltiplicazione per l'ordine del gruppo $ p^n $ ed è quindi la mappa nulla. Le mappe di collegamento sono invece indotte dalla proiezione naturale e quindi coincidono con l'inflazione, che in grado zero è proprio la norma! Essendo tutte le mappe nulle
+\[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim_n \Z/p^n\Z = 0. \]
+Per la proposizione appena dimostrata $ \cd_p(\Z_p) \leq 1 $; otteniamo l'altra uguaglianza calcolando esplicitamente $$  \HH^1(\Z_p , \, \Z/p\Z) = \Hom(\Z_p , \, \Z/p\Z) = \Z/p\Z \neq 0.  $$
+
+\begin{proposition}
+	Sia $ G $ un gruppo profinito e $ H $ un suo sottogruppo chiuso. Per ogni primo $ p $ si ha
+	\[ \cd_p(H) \leq \cd_p(G). \]
+	Se per di più l'indice $ [G\,\colon H] $ è coprimo con $ p $, si ha uguaglianza.
+\end{proposition}
+\begin{proof}
+	Se $ A $ è un $ H $-modulo $ p $-primario, allora anche $ \Ind_H^G(A) $ è $ p $-primario. Per il Lemma di Shapiro si ha per ogni indice $ q $ che
+	\[ \HH^q(H, \, A) = \HH^q(G, \, \Ind_H^G(A)),  \]
+	da cui la tesi. Se l'indice $ [G\,\colon H] $ è coprimo con $ p $, per ogni modulo la restrizione fornisce una mappa nella direzione opposta iniettiva (per il lemma \ref{injp}).
+\end{proof}
+
+Quest'ultima proposizione ci permette di ricondurre il calcolo della dimensione di un gruppo a quella dei suoi Sylow. L'esempio per eccellenza è $ \hat{\Z} = \varprojlim_n \Z/n\Z $, dei cui Sylow $ \Z_p$ conosciamo già la dimensione: per ogni primo $ p $ si ha
+\[ \cd_p(\hat{\Z}) = \cd_p(\Z_p) = 1, \]
+da cui $ \cd(\hat{\Z})=1 $.
 %% Serve da qualche parte dire che i campi finiti hanno dimensione coomologica <= 1

@@ -69,49 +69,51 @@ Non è banale mostrare né che le due definizioni non dipendono dalla risoluzion
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
 \end{equation}
 
+%% tutto quello che sta qua sotto è cacca. Lo voglio togliere.
+Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
+\[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
+dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
+\begin{align*}
+	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
+\end{align*}
+
+Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
+
+È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
+\begin{lemma}%
+	Se sia $ G $ che $ A $ sono finiti, allora tutti i gruppi di coomologia $ \HH^i(G, \, A) $ sono finiti.
+\end{lemma}
+
+Passiamo ora all'analisi della coomologia di grado basso: per definizione abbiamo
+$$  \HH^0(G, \, A) = \ker \delta^0 = \{ f \colon G^0 \to A \mid gf-f = 0 \quad \forall \, g \in G \},  $$
+identificando $ K^0(A) $ con $ A $, mandando $ f $ nell'unico elemento che compone la sua immagine, scopriamo che
+\[ \HH^0(G, \, A) = \{ a \in A \mid ga = a \quad \forall \, g \in G \} = A^G. \]
+Abbiamo ottenuto una descrizione piuttosto piacevole del gruppo di grado zero! Questo risultato è tutt'altro che inaspettato, è vero per ogni funtore derivato e si dimostra altrettanto facilmente andando a studiare la costruzione della risoluzione iniettiva di cui sopra. In grado uno il calcolo si fa appena più complesso: abbiamo bisogno di scriverci esplicitamente i cocicli
+\[ Z^1(A) = \ker \delta^1 = \{ f \colon G \to A \mid f(gh) = gf(h) + f(g) \}, \]
+poi i cobordi
+\[ B^1(A) = \im \delta^0 = \{ ga - a \mid g \in G, \, a \in A  \}, \]
+e infine il quoziente
+\[ \HH^1(G, \, A) = \frac{Z^1(A)}{B^1(A)} = \frac{\{ f(gh) = gf(h) + f(g) \}}{\{ ga - a\}}. \]
+Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavia, nel caso in cui l'azione di $ G $ su $ A $ sia banale otteniamo una più profonda comprensione dell'oggetto, infatti il denominatore scompare e scopriamo che
+\[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
+Accettiamo il risultato come vagamente interessante e procediamo.
+
 % Mettiamoci qui il discorso su finito / profinito!
 
 \begin{profinite}
-La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito.
-Dovremo però estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
-
-\begin{proposition}\label{limite}
-	Sia $ G $ un gruppo profinito che agisce su un modulo $ A $, allora
-	\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U), \]
-	dove $ U $ varia tra i sottogruppi normali \emph{aperti} di $ G $.
-\end{proposition}
-
-D'ora in avanti svilupperemo la teoria per gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
+	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito.
+	Dovremo però estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
+	
+	\begin{proposition}\label{limite}
+		Sia $ G $ un gruppo profinito che agisce su un modulo $ A $, allora
+		\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U), \]
+		dove $ U $ varia tra i sottogruppi normali \emph{aperti} di $ G $.
+	\end{proposition}
+	
+	D'ora in avanti svilupperemo la teoria per gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
+	
+	\todo[ma chi sono le mappe nel limite? le definisco sotto!!]
 \end{profinite}
-
-%% tutto quello che sta qua sotto è cacca. Lo voglio togliere.
-%Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
-%\[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
-%dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
-%\begin{align*}
-%	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
-%\end{align*}
-
-%Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
-
-%È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
-%\begin{lemma}%
-%	Se sia $ G $ che $ A $ sono finiti, allora tutti i gruppi di coomologia $ \HH^i(G, \, A) $ sono finiti.
-%\end{lemma}
-
-%Passiamo ora all'analisi della coomologia di grado basso: per definizione abbiamo
-%$$  \HH^0(G, \, A) = \ker \delta^0 = \{ f \colon G^0 \to A \mid gf-f = 0 \quad \forall \, g \in G \},  $$
-%identificando $ K^0(A) $ con $ A $, mandando $ f $ nell'unico elemento che compone la sua immagine, scopriamo che
-%\[ \HH^0(G, \, A) = \{ a \in A \mid ga = a \quad \forall \, g \in G \} = A^G. \]
-%Abbiamo ottenuto una descrizione piuttosto piacevole del gruppo di grado zero! Questo risultato è tutt'altro che inaspettato, è vero per ogni funtore derivato e si dimostra altrettanto facilmente andando a studiare la costruzione della risoluzione iniettiva di cui sopra. In grado uno il calcolo si fa appena più complesso: abbiamo bisogno di scriverci esplicitamente i cocicli
-%\[ Z^1(A) = \ker \delta^1 = \{ f \colon G \to A \mid f(gh) = gf(h) + f(g) \}, \]
-%poi i cobordi
-%\[ B^1(A) = \im \delta^0 = \{ ga - a \mid g \in G, \, a \in A  \}, \]
-%e infine il quoziente
-%\[ \HH^1(G, \, A) = \frac{Z^1(A)}{B^1(A)} = \frac{\{ f(gh) = gf(h) + f(g) \}}{\{ ga - a\}}. \]
-%Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavia, nel caso in cui l'azione di $ G $ su $ A $ sia banale otteniamo una più profonda comprensione dell'oggetto, infatti il denominatore scompare e scopriamo che
-%\[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
-%Accettiamo il risultato come vagamente interessante e procediamo.
 
 \section{Funtorialità}
 I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, ma cosa succede quando cambiamo il gruppo $ G $? Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.
