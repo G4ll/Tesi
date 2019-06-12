@@ -1,5 +1,5 @@
 \chapter{Teoria del Corpo di Classe}
-In questo capitolo faremo fruttare tutto quello che è stato preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di Galois. Inizieremo con qualche risultato di carattere generale riguardo estensioni di Galois, per restringere poi la nostra attenzione ai campi locali.
+In questo capitolo faremo fruttare tutto quello che è stato preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di Galois. Inizieremo con qualche risultato di carattere generale riguardo le estensioni di Galois, per restringere poi la nostra attenzione ai campi locali.
 
 % Discorso su perché i campi locali.
 
@@ -47,7 +47,7 @@ Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome pr
 % mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace? Sì dai!
 
 
-% Metto un paio di proposizioni per stare tranquilli
+% Metto un paio di proposizioni per stare tranquilli; è importante dire che possiamo pensare al Brauer come contenete i sottobrauerini, che direi essere il lemma qua sotto
 
 \begin{lemma}\label{stronzetto}
 	Se $ L/\K $ è un'estensione finita di Galois
@@ -55,7 +55,7 @@ Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome pr
 \end{lemma}
 \begin{proof}
 	Possiamo riscrivere la tesi come
-	\[ 0 \to \HH^2(\Gal{L/\K}, \, L^\times) \to \HH^2(\Gal{\bar{\K}, \, \K}, \, L^\times) \to \HH^2(\Gal{\bar{\K}, \, L}, \, L^\times), \]
+	\[ 0 \to \HH^2(\Gal{L/\K}, \, L^\times) \to \HH^2(\Gal{\bar{\K}, \, \K}, \, \bar{\K}^\times) \to \HH^2(\Gal{\bar{\K}, \, L}, \, \bar{\K}^\times), \]
 	la cui esattezza segue da una delle successioni di termini di grado basso della successione spettrale di Hoschild-Serre (corollario \ref{boo2}).
 \end{proof}
 
@@ -73,9 +73,9 @@ Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome pr
 % struttura
 Restringeremo ora la nostra attenzione allo studio dei campi locali, ovvero completi per una valutazione discreta di rango 1. Questi sono, a meno di isomorfismo, estensioni dei $ p $-adici $ \Q_p $, se di caratteristica zero, o delle serie Laurent $ \F_p((t)) $, se di caratteristica positiva. \\
 
-Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi su $ \K $ come gli elementi di valutazione positiva
+Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi di $ \K $ come gli elementi di valutazione non negativa
 \[ \mathcal{O}_{\K} = \{ x \in \K \mid v(x)\geq 0 \}. \]
-Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiamiamo $ \kappa $ il campo residuo. Le unità di quest'anello sono il nucleo dell'omomorfismo di valutazione
+Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiamiamo $ \pi $ il generatore dell'ideale primo e $ \kappa = \mathcal{O}_{\K}/(\pi) $ il campo residuo. Le unità di quest'anello sono il nucleo dell'omomorfismo di valutazione
 \begin{equation}\label{local1}
 	\begin{tikzcd}[column sep = small]
 	1 \rar
@@ -85,8 +85,7 @@ Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiami
 	& 0,
 	\end{tikzcd}
 \end{equation}
-che possiamo filtrare tramite il grado degli elementi: definiamo $ U_{\K}^i :=\{x \in \mathcal{O}_{\K}^\times \mid v(x-1) \geq i \} $, ottenendo così una filtrazione $ \mathcal{O}_{\K}^\times \supseteq U_{\K}^1 \supseteq U_{\K}^2 \supseteq \dots $ 
-i cui quozienti sono $ \kappa $; in particolare si può mostrare che l'omomorfismo $ U_{\K}^i \to \kappa $ che manda $ x \mapsto (x-1)/p^n $ è suriettivo e genera della successioni esatte corte
+per le quali il grado fornisce una piacevole filtrazione: le unità devono essere nella forma $ x = \pi^k +1 $, il che ci permette di ditinguerle in classi  $$  U_{\K}^i :=\{x \in \mathcal{O}_{\K}^\times \mid v(x-1) \geq i \}.  $$ Si può mostrare che l'omomorfismo $ U_{\K}^i \to \kappa $ che manda $ x \mapsto (x-1)/p^n $ è suriettivo e genera della successioni esatte corte
 \begin{equation}\label{local2}
 \begin{tikzcd}[column sep = small]
 1 \rar
@@ -96,6 +95,8 @@ i cui quozienti sono $ \kappa $; in particolare si può mostrare che l'omomorfis
 & 0.
 \end{tikzcd}
 \end{equation}
+Abbiamo così ottenuto una filtrazione $ \mathcal{O}_{\K}^\times \supseteq U_{\K}^1 \supseteq U_{\K}^2 \supseteq \dots $ 
+i cui quozienti $ U_{\K}^i / U_{\K}^{i+1} $ sono tutti isomorfi a $ \kappa $.
 Infine, per il Lemma di Hensel, abbiamo che
 \begin{equation}\label{local3}
 	\begin{tikzcd}[column sep = small]
@@ -126,7 +127,7 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 	\end{tikzcd}\]
 	la stessa proprietà segue per tutti gli $ U^i_{L} / U^{i+1}_{L} $.
 	\todo[aggiungere nel capitolo 1 l'osservazione seguente]
-	Poiché la coomologia di un gruppo finito commuta con il prodotto diretto nel secondo argomento, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologicamente banale. \\
+	Poiché la coomologia di un gruppo finito commuta con il limite proiettivo nel secondo argomento, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologicamente banale. \\
 	
 	Per estendere la proprietà a tutto $ \mathcal{O}_{L}^\times $ riscriviamo la successione esatta \ref{local3}
 	\begin{equation*}
@@ -142,19 +143,19 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 \end{proof}
 
 % Assioma del corpo di classe
-Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
+Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; tant'è che abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
 
 \begin{lemma}[del sottomodulo banale]
 	Sia $ L/\K $ un'estensione finita di Galois di gruppo $ G $. Esiste un sottomodulo $ V \subseteq U_L^1 $ d'indice finito e coomologicamente banale.
 \end{lemma}
 
-\begin{theorem}[Assioma dei Campi di Classe] \todo[capire come si chiama davvero]
+\begin{theorem}[Assioma dei Campi di Classe] \label{assioma} \todo[capire come si chiama davvero]
 	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hh^0(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
 \end{theorem}
 \begin{proof}
 	La prima asserzione segue da Hilbert 90. Applichiamo il lemma del sottomodulo banale e scriviamo la successione esatta 
 	\[ 1 \to V \to \mathcal{O}_L^\times \to \mathcal{O}_L^\times/V \to 1; \]
-	il primo gruppo è coomologicamente banale e pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, anche l'ultimo gruppo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
+	il primo modulo è coomologicamente banale per costruzione, pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, e anche l'ultimo modulo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
 	dove il secondo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente di Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla successione esatta $ \ref{local1} $
 	\[ \begin{tikzcd}[column sep = small]
 	1 \rar
@@ -169,7 +170,114 @@ Per estensioni ramificate la situazione non è così semplice, anche rimanendo i
 
 
 \section{Il Brauer}
-% Calcolo del BRKnr e mappa inv
+In questo paragrafo calcoleremo il secondo gruppo di coomologia di $ \K $. Lo faremo in due passi: prima calcoleremo il gruppo di Brauer relativo alla massima estensione non ramificata $ \knr $ e poi mostreremo che coincide con il gruppo di Brauer del campo. Sottolineiamo subito che ogni passo della dimostrazione userà pesantemente la struttura di campo locale.  \\
 
+% Calcolo del BRKnr e mappa inv
+Ogni campo locale ha esattamente un'estensione non ramificata per ogni grado $ \knr $, il cui gruppo di Galois coincide con la corrispondente estensione del campo residuo dello stesso grado: $ \Gal{\K^n_\texttt{nr} / \K} = \Gal{\kappa^n / \kappa} = \Z / n\Z $. Ne segue che la massima estensione non ramificata $ \knr = \varinjlim \K^n_\texttt{nr} $ ha gruppo di Galois
+\[ G = \Gal{\knr / \K} = \Gal{\bar{\kappa} / \kappa} = \hat{\Z}. \]
+Siamo interessati a calcolare $ \HH^2(\Gamma, \, \knr^\times) $. Dalla successione esatta corta
+\[ \begin{tikzcd}[column sep = small]
+1 \rar
+& \mathcal{O}_{\knr}^\times \rar
+& \knr^\times \rar["v"]
+& \Z \rar
+& 0,
+\end{tikzcd} \]
+ricordando che $ \mathcal{O}_{\knr}^\times $ è coomologicamente banale, otteniamo un isomorfismo
+\[ v^* \colon \HH^2(G, \, \knr^\times) \to \HH^2(G, \, \Z). \]
+Un po' a sorpresa, ripetiamo il ragionamento sulla successione esatta
+\[ 0 \to \Z \to \Q \to \Q/\Z \to 0, \]
+in cui troviamo $ \Q $ iniettivo, per ottenere un secondo isomorfismo
+\[ \delta \colon \HH^2(G, \, \Z) \to \HH^1(G, \, \Q/\Z). \]
+Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a calcolare $ \Hom(G, \, \Q/\Z) $, che ovviamente coincidono con le possibili immagini del generatore topologico $ 1 $ di $ G = \hat{\Z} $: abbiamo un'identificazione formale $ \gamma \colon \HH^1(G, \, \Q/\Z) \to \Q/\Z.  $
+
+\begin{definition}
+	Chiamiamo ?? l'isomorfismo che otteniamo componendo le tre mappe di sopra
+	\[ \begin{tikzcd}[column sep = small]
+	\inv_\K \colon  \rar["v^*"]
+	& \HH^2(G, \, \Z) \rar["\delta"]
+	& \HH^1(G, \, \Q/\Z) \rar["\gamma"]
+	& \Q/\Z.
+	\end{tikzcd} \]
+\end{definition}
+
+\begin{proposition}
+	Sia $ L/\K $ un'estensione finita di grado $ n = [L\, \colon \K] $. Il seguente diagramma commuta
+	\[ \begin{tikzcd}
+	\HH^2(G_\K, \, \knr^\times) \rar["\inv_\K"] \dar["\Res"]
+	& \Q/\Z \dar["\cdot n"] \\
+	\HH^2(G_L, \, \knr^\times) \rar["\inv_L"]
+	& \Q/\Z.
+	\end{tikzcd} \]
+\end{proposition}
+\begin{proof}
+	Analizziamo come commuta la $ \Res $ con i singoli isomorfimi di cui è composto $ \inv $. Siano $ e $ l'indice di ramificazione e $ f $ l'indice d'inerzia dell'estensione. Quando c'è ramificazione abbiamo che $ v_L = e \cdot v_\K $, dunque
+	\[ \Res v_L^* = e \cdot \Res v_\K^* = e \cdot v_\K^* \Res, \]
+	poiché $ \Res $ è un morfismo di complessi per costruzione. 
+	Analogamente, la restrizione commuta anche con l'omomorfismo di collegamento $ \delta $. L'indice $ f $ coincide con il grado della relativa estensione del campo residuo, che dunque è proprio il generatore di $ G_L = f\hat{\Z} < \hat{\Z} = G_\K $; abbiamo così, ricordando che $ \gamma $ coincide con la valutazione nel generatore, che
+	$$  \gamma(\Res h) = (\Res h)(1) = h(\Res(1)) = h(f) = f\cdot h(1) = f \cdot  \gamma(h).  $$
+	Componendo i tre risultati, si ottiene la tesi.
+	\[ \begin{tikzcd}
+	\HH^2(G_\K, \, \knr^\times) \rar["v_\K^*"] \dar["\Res"]
+	& \HH^2(G_\K, \, \Z) \dar["\cdot e\Res"] \rar["\delta"]
+	& \HH^1(G_\K, \, \Q/\Z) \rar["\gamma"] \dar["\cdot e\Res"]
+	& \Q/\Z \dar["\cdot ef"] \\
+	\HH^2(G_L, \, \knr^\times) \rar["v_L^*"]
+	& \HH^2(G_L, \, \Z) \rar["\delta"]
+	& \HH^1(G_L, \, \Q/\Z) \rar["\gamma"]
+	& \Q/\Z.
+	\end{tikzcd} \]
+\end{proof}
 
 % BR(Knr/K) = Br(K)
+Siamo ora pronti per dimostrare che il gruppo di Brauer relativo all'estensione non ramificata massimale è in realtà già tutto $ \Br \K $.
+
+\begin{theorem}
+	$ \Br \K = \Q/\Z $.
+\end{theorem}
+
+\begin{proof}
+Dimostreremo che il gruppo di Brauer relativo ad ogni estensione di Galois di grado $ n $ coincide, come sottogruppo di $ \Br \K $, con il Brauer relativo all'unica estensione non ramificata di grado $ n $: $ \K_\mathtt{nr}^n $. È conveniente rompere la dimostrazione in due lemmi;
+fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e gruppo $ G $.
+
+\begin{lemma}\label{Br1}
+	La cardinalità del gruppo $ \HH^2(G,\, L^\times ) $ divide $ n $.
+\end{lemma}
+
+\begin{proof}
+	Arriveremo alla tesi per approssimazione. % fuck yeah
+	Il caso in cui $ G $ sia ciclico segue immediateente dall'Assioma del Campo di Classe (\ref{assioma}). Affrontiamo ora il problema per $ G $ $ p $-gruppo: grazie alla formula delle classi sappiamo che il centro è non banale, questo è abeliano e ha partanto un ottogruppo normale di ordine $ p $ che chiamiamo $ H $, il quale, essendo un sottogruppo normale di un gruppo caratteristico, è normale in $ G $. A questo gruppo sarà associata un'estensione intermedia $ L^H $, anch'essa di Galois. Dalla successione spettrale di Hoschild-Serre, o meglio per quanto dice il corollario \ref{boo2}, ricaviamo la successione esatta
+	\[\begin{tikzcd}[column sep = small]
+	0 \rar & \HH^q(G/H, \, {L^H}^\times) \rar["\Inf"]
+	& \HH^q(G, \, L^\times) \rar["\Res"]
+	& \HH^q(H, \, L^\times),
+	\end{tikzcd} \qquad  \]
+	da cui deduciamo la tesi per induzione. Segue immediatamente il caso generale: se per ogni primo $ p $ scegliamo un Sylow, la restrizione produce degli omomorfismi iniettivi
+	\[ T_p\HH^2(G, \, L^\times) \to \HH^2(G_p, L^\times), \]
+	da cui appunto, invocando il risultato sull'estensione $ L/L^{G_p} $, segue la tesi.
+\end{proof}
+
+\begin{lemma}
+	$ \HH^2(G,\, L^\times ) $ e $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ sono lo stesso sottogruppo di $ \Br \K $.
+\end{lemma}
+
+\begin{proof}
+	La cardinalità di $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ è esattamente $ n $: per la cilcicità del gruppo di Galois è la stessa del gruppo di Tate in grado zero, che è quella voluta per l'Assioma del Corpo di Classe. È quindi sufficiente mostrare che $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ è un sottogruppo di $ \HH^2(G,\, L^\times ) $, grazie al risultato sulla cardinalità appena stabilito.
+	Prendiamo un elemento $ x \in \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) < \Br \knr < \Br \K $. Questo vive in un gruppo di $ n $-torsione e pertanto viene mandato in $ 0 $ dalla restrizione
+	\[ \begin{tikzcd}
+	\Br \K \rar["\Res"]
+	& \Br L \\
+	\HH^2(G_\K, \, \knr^\times) \rar["\Res"] \dar["\inv_\K"] \arrow[hook]{u}
+	& \HH^2(G_L, \, \knr^\times) \dar["\inv_L"] \arrow[hook]{u} \\
+	\Q/\Z \rar["\cdot n"]
+	& \Q/\Z,
+	\end{tikzcd} \]
+	il cui nucleo è proprio
+	\[ 0 \to \HH^2(G, \, L^\times) \to \Br \K \to \Br L \]
+	per la solita successione esatta dei Brauer relativi (\ref{stronzetto}).
+\end{proof}
+
+Torniamo ora alla dimostrazione del teorema. Per il classico lemma di passaggio al limite, sappiamo che $ \Br \K = \HH^2(\Gal{\bar{\K}/\K}, \, \bar{\K}^\times) $ è limite induttivo sulle sottoestensioni finite, che per il secondo lemma possiamo calcolare sulle sole estensioni non ramificate:
+\[ \Br \K = \varinjlim_{L/K} \HH^2(G, \, L^\times) = \varinjlim_{n} \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) = \Br (\knr /\K) = \Q/\Z. \]
+
+\end{proof}

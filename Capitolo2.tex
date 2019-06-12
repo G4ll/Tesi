@@ -4,7 +4,7 @@ In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le pot
 Sistemati i giocattoli, sarà il momento di concentrarci sul vero obbiettivo del nostro lavoro: i gruppi di Galois. Per affrontare la Teoria di Galois avremo bisogno di rimuovere l'ipotesi di finitezza su cui abbiamo fondato la nostra teoria, in modo da comprendere quantomeno i gruppi profiniti.
 
 \section{Gruppi Ciclici}
-Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ e $ \sigma $ un generatore fissato. La coomologia di $ G $ è particolarmente semplice da descrivere: qualunque sia il modulo $ A $, i gruppi di Tate sono tutti uguali a $ \Hh^0(G, \, A) $ oppure a $ \Hh^1(G, \, A) $, per entrambi i quali conosciamo una descrizione esplicita! \todo[questa definizione dei gruppi di Tate mi sposta le righe! Sistemare!]
+Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ di cui fissiamo un generatore $ \sigma $. La coomologia di $ G $ è particolarmente semplice da descrivere: qualunque sia il modulo $ A $, per conoscere tutti i gruppi di Tate è sufficiente calcolare quelli in grado $ i = 0, \, -1 $, che abbiamo già descritto esplicitamente.
 
 \begin{theorem}[dei Gruppi Ciclici]\label{ciclici}
 	Per un gruppo ciclico finito $ G $ e un suo modulo $ A $, i gruppi di Tate sono 2-periodici nel grado:
@@ -53,7 +53,7 @@ Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due
 		\end{tikzcd}\]
 		che possiamo slacciare in un punto a piacere \todo[su]
 		\[ 0 \to Q \to \Hh^0(G, \, A) \to \Hh^0(G, \, B) \to \Hh^0(G, \, C) \to \Hh^1(G, \, A) \to \Hh^1(G, \, B) \to \Hh^1(G, \, C) \to Q \to 0, \]
-		aggiungendo un opportuno modulo $ Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right] $.
+		aggiungendo un opportuno modulo $$  Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \coker\left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right].  $$
 		Dobbiamo pertanto avere, per esattezza, che
 		\[  h_0(B) h_1(A) h_1(C) \cdot |\,Q\,| = h_0(A) h_0(C) h_1(B) \cdot |\,Q\,|, \]			da cui la tesi.
 		
@@ -68,7 +68,7 @@ Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due
 			0 \rar& A_G \rar& A \rar["D"]& A \rar& A^G \rar& 0.
 			\end{tikzcd}
 		\end{equation*}
-		\item É sufficiente scrivere le ipotesi in forma di successioni esatte
+		\item È\ sufficiente scrivere le ipotesi in forma di successioni esatte
 		\[ 0 \to \ker f \to A \to Q \to 0 \qquad\text{ e } \qquad 0 \to Q \to B \to \coker f \to 0, \]
 		applicare il primo punto per dedurre la finitezza dei gruppi di Tate, il secondo per ottenere l'uguaglianza desiderata.
 	\end{enumerate}
@@ -77,7 +77,7 @@ Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due
 L'ultimo punto della proposizione sembra, più che una proprietà elementare del quoziente di Herbrand, un lemma tecnico e particolarmente specifico: è così, ci servirà in una dimostrazione particolarmente impegnativa più avanti.
 
 \section{Banalità}
-Lo studio della coomologia di un generico gruppo si fa troppo complessa per poter sperare di enunciare teoremi di portata analoga a quelli validi per i gruppi ciclici. Si riesce però, con non poca fatica, a dire qualcosa sui gruppi che hanno tutti i gruppi di coomologia banali.
+Lo studio della coomologia di un generico gruppo si fa troppo complessa per poter sperare di enunciare teoremi di portata analoga a quelli validi per i gruppi ciclici. Si riesce però, con non poca fatica, a dire qualcosa sui moduli che hanno tutti i gruppi di coomologia banali.
 
 \begin{definition}
 	Diciamo che uno $ G $ modulo $ A $ è \emph{coomologicamente banale} se
@@ -90,10 +90,10 @@ Lo studio della coomologia di un generico gruppo si fa troppo complessa per pote
 
 Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbandonato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
 
-Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ possiamo scegliere un $ p $-Sylow $ G_p $ di $ G $, il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow, poiché ogni mappa di coniugio $ \sigma_t $ che li permuta induce un isomorfismo in coomologia. Fissiamo dunque un Sylow $ G_p $ per ogni primo. Non è facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, il seguente risultato ci convincerà però a continuare lo studio sui Sylow.
+Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ possiamo scegliere un $ p $-Sylow $ G_p $ di $ G $; il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow, poiché ogni mappa di coniugio $ \sigma_t $ che li permuta induce un isomorfismo in coomologia. Fissiamo dunque un Sylow $ G_p $ per ogni primo. Non è facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, il seguente risultato ci convincerà però a continuare lo studio sui Sylow.
 
 \begin{lemma}
-	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomologicamente come $ G_p $-modulo per ogni $ p $ primo.
+	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomologicamente banale come $ G_p $-modulo per ogni $ p $ primo.
 \end{lemma}
 \begin{proof}
 	Supponiamo che $ A $ sia $ G_p $-coomologicamente banale per ogni $ p $ (l'altra implicazione è ovvia). Fissiamo un sottogruppo $ H < G $. Vogliamo mostrare che
@@ -103,15 +103,15 @@ Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è
 \end{proof}
 
 Conviti ora a studiare l'omologia dei $ p $-gruppi, 
-cominciamo con un lemmino tecnico.
+cominciamo con un lemma tecnico.
 
 \begin{lemma}\label{ban1}
-	Sia $ G $ un $ p $-gruppo finito, ogni modulo $ A $ un di torsione $ p $-primario ha sottomodulo degli invarianti non banale. Detto altrimenti: se $ A^G = 0 $, allora $ A = 0 $.
+	Sia $ G $ un $ p $-gruppo finito, ogni modulo $ A $ di torsione $ p $-primario ha sottomodulo degli invarianti non banale. Detto altrimenti: se $ A^G = 0 $, allora $ A = 0 $.
 \end{lemma}
 \begin{proof}
-	Per ogni elemento $ a \in A $ consideriamo il sottomodulo finito $ M $ generato da $ a $, questo è spaccato dall'azione di $ G $ in orbite, fornendoci un'equazione di classe:
-	\[ |\,M\,| = |\, M^G\,| +\sum \frac{|\,G\,|}{|Stab(x)|},  \]
-	da cui concludiamo che, dividendo tutti gli altri addendi, $ p $ deve dividere anche $ |\, M^G \, | $.
+	Per ogni elemento $ a \in A $ consideriamo il sottomodulo finito $ M $ generato da $ a $, questo viene partizionato dall'azione di $ G $ in orbite, che possiamo separare in banali e non per scrivere un'equazione di classe:
+	\[ |\,M\,| = |\, M^G\,| +\sum_{x \in R} \frac{|\,G\,|}{|Stab(x)|},  \]
+	dove $ R $ è un opportuno sistema di rappresentanti. Concludiamo che, dividendo tutti gli altri addendi, $ p $ deve dividere anche $ |\, M^G \, | $.
 \end{proof}
 
 Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato seguente: un criterio per stabilire la banalità dei moduli di $ p $-torsione.
@@ -132,7 +132,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 	\begin{equation}\label{homsucc1}
 		0 \to \Hom_\Z(A/A^G, \, F) \to \Hom_\Z(A, \, F) \to \Hom_\Z(A^G, \, F).
 	\end{equation}
-	Per il lemma \ref{scappa}, $ \Hom_Z(A/A^G, \, F) $ è indotto. \todo[dimostarre il lemma mistico nell'opportuna sezione] Nella la successione esatta lunga associata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
+	Per una proprietà degli indotti (\ref{indotti}), anche $ \Hom_\Z(A/A^G, \, F) $ è indotto. Nella successione esatta lunga associata alla $ \ref{homsucc1} $, poiché $ \HH^1(G, \, \Hom_\Z(A/A^G, \, F)) = 0 $, troviamo dunque la suriezione
 	\[ \Hom_\Z(A, \, F)^G \to \Hom_\Z(A^G, \, F)^G \to 0, \]
 	che possiamo riscrivere più chiaramente come
 	\[ \Hom_G(A, \, F) \to \Hom_G(A^G, \, F^G) \to 0; \]
