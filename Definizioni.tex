@@ -1,4 +1,3 @@
-
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{amsmath}%
 \usepackage{amsfonts}%
@@ -67,6 +66,7 @@
 \addtolength{\textheight}{0.5in}
 
 %Comandi specifici
+\newcommand{\leftquote}{\textquotedblleft}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -74,15 +74,18 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\F}{\mathbb{F}}
 
-\newcommand{\K}{k}
+% Galois
+\newcommand{\K}{K}
+\newcommand{\knr}{K_\mathtt{nr}}
+\newcommand{\f}{f^\times}
+\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+
+\DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\Br}{Br}
 
-\newcommand{\f}{f^*}
-
-\newcommand{\leftquote}{\textquotedblleft}
-
+% Omologica
 \newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
-\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+
 \DeclareMathOperator{\Hom}{Hom}
 
 \DeclareMathOperator{\HH}{H}
@@ -95,9 +98,6 @@
 
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}
-
-\newcommand{\knr}{K_\mathtt{nr}}
-\DeclareMathOperator{\inv}{inv}
 
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\id}{id}

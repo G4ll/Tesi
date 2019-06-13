@@ -69,7 +69,7 @@ Non è banale mostrare né che le due definizioni non dipendono dalla risoluzion
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
 \end{equation}
 
-%% tutto quello che sta qua sotto è cacca. Lo voglio togliere.
+%% Cotruzione esplicita e cocatene
 Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
 \[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
 dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
@@ -101,89 +101,60 @@ Accettiamo il risultato come vagamente interessante e procediamo.
 % Mettiamoci qui il discorso su finito / profinito!
 
 \begin{profinite}
-	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito.
-	Dovremo però estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi; per nostra fortuna, questa si riconduce subito a quella per gruppi finiti:
-	
-	\begin{proposition}\label{limite}
-		Sia $ G $ un gruppo profinito che agisce su un modulo $ A $, allora
-		\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U), \]
-		dove $ U $ varia tra i sottogruppi normali \emph{aperti} di $ G $.
-	\end{proposition}
-	
-	D'ora in avanti svilupperemo la teoria per gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
-	
-	\todo[ma chi sono le mappe nel limite? le definisco sotto!!]
+	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito. Avremo però bisogno di estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi: questa ha infatti abbastanza iniettivi; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
 \end{profinite}
 
 \section{Funtorialità}
 I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, ma cosa succede quando cambiamo il gruppo $ G $? Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.
 
 \begin{definition}
-	Dati due gruppi $ G $ e $ G' $, un omomorfismo $ f \colon G' \to G $ e uno $ G $-modulo $ A $, chiamiamo $ \f A $ il gruppo abeliano $ A $ equipaggiato dell'azione
-	\[ g' \cdot_{G'} A := f(g') \cdot_{G} A \qquad \forall\, g' \in G'. \]
+	Dati due gruppi $ G $ e $ H $, un omomorfismo $ f \colon H \to G $ e uno $ G $-modulo $ A $, chiamiamo $ \f A $ il gruppo abeliano $ A $ equipaggiato dell'azione
+	\[ h \cdot_{H} A := f(h) \cdot_{G} A \qquad \forall\, h \in H. \]
 \end{definition}
 
-Nel caso a cui saremo principalmente interessati, ovvero passare da $ G $ a un suo sottogruppo $ H $ tramite l'immersione naturale $ i \colon H \to G $, il funtore $ \f $ semplicemente \textquotedblleft dimentica" come gli elementi fuori da $ H $ agiscono sul modulo in questione. In questo particolare caso l'operazione è, in un qualche senso, parzialmente invertibile: preso un sottogruppo $ H < G $ e un $ H $-modulo $ A $, possiamo munire il gruppo abeliano
-\[ \Ind_H^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_H(\Z[G], \, A) \]
+È bene ribadire che $ \f $ è un'operazione puramente formale, ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con il quale è stato introdotto; inizieremo presto a omettere il $ \f $, per semplificare la notazione, lasciando che sia il contesto a indicare la giusta azione. Osserviamo inoltre che l'operazione è, in un qualche senso, parzialmente invertibile: possiamo munire il gruppo abeliano
+\[ \Ind_{H}^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_{H}(\Z[G], \, A) \]
 di un'azione naturale di $ G $:
 \[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
 
-L'interesse verso questo funtore risiede interamente nella proposizione seguente:
-\label{aggiunzione}\todo[dimostrare, introdurre, capire davvero in che modo ci dice che preserva gli iniettivi]
+Che recupera quanto dimenticato nel seguente senso:
 
-\begin{proposition}
+\begin{proposition}\label{aggiunzione}
 	I due funtori
 	\[ \f \colon \Gmod \to \mathsf{Mod}_\mathsf{H} \qquad\text{ e }\qquad  \Ind_H^G \colon \mathsf{Mod}_\mathsf{H} \to \Gmod \]
 	sono aggiunti. Ovvero, per ogni $ A \in \Gmod $ e $ B \in \Gmod $, soddisfano
 	\[ \Hom_G(A,\, \Ind_H^G(B)) = \Hom_H(\f A, \, B). \]
 \end{proposition}
 
-È bene ribadire che $ \f $ è un'operazione puramente formale, ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con il quale è stato introdotto; inizieremo presto a omettere il $ \f $, per semplificare la notazione, lasciando che sia il contesto a indicare la giusta azione.
-
-Siamo ora pronti per affrontare il risultato principale, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
+Classicamente, i moduli che abbiamo appena introdotto vengono chiamati \emph{coindotti}, mentre gli indotti si ottengono tensorizzando per l'anello di gruppo. Quando $ G $ ed $ H $ sono finiti le due definizioni coincidono:
+\[ \Hom_H(\Z[G], \, A)  = \Z[G] \otimes_H A. \]
+Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e che, di conseguenza, $ \f $ preserva i proiettivi. Siamo finalmente pronti per affrontare il risultato principale del capitolo, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
 \begin{proposition}\label{funct}
-	Siano  $ A $ uno $ G $ modulo e $ A' $ uno $ G' $ modulo. Dati $ f \colon G' \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omorfismo $ G' $-equivariante, otteniamo una mappa in coomologia
-	\[ \HH^i(G, \, A) \to \HH^i(G', \, A') \qquad\forall i \geq 0. \]
+	Siano  $ A $ uno $ G $ modulo e $ A' $ un $ H $ modulo. Dati $ f \colon H \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omorfismo $ H $-equivariante, otteniamo una mappa in coomologia
+	\[ \HH^i(G, \, A) \to \HH^i(H, \, A') \qquad\forall i \geq 0. \]
 \end{proposition}
 
 \begin{proof}
-	Osserviamo che, per definizione di $ \f A $, abbiamo un'inclusione
-	\[ A^G \hookrightarrow \left(\f A\right)^{G'} \]
-	che vogliamo estendere a un morfismo tra risoluzioni iniettive. Presa una risoluzione iniettiva di $ A $
-	\[ 0 \to A \to I^{\,0} \to I^{\,1} \to I^{\,2} \to \dots, \]
-	poiché il funtore $ \f $ preserva gli iniettivi, anche
-	\[ 0 \to \f A \to \f I^{\,0} \to \f I^{\,1} \to \f I^{\,2} \to \dots \]
-	è una risoluzione iniettiva. Ci troviamo quindi nella seguente situazione:
+	Presa una risoluzione proiettiva di $ \Z $ nella categoria degli $ G $-moudli
+	\[ \dots \to P_2 \to P_1 \to P_0 \to \Z \to 0 \]
+	e osserviamo che, poiché il funtore $ \f $ preserva i proiettivi, anche
+	\[ \dots \to \f P_2 \to  \f P_1 \to \f P_0 \to \Z \to 0 \]
+	è una risoluzione proiettiva, ora di $ H $-moduli. Ci troviamo quindi nella seguente situazione:
 	\[\begin{tikzcd}[column sep = small]
-	0 \rar
-	& A \rar \dar
-	& I^{\,0} \rar
-	& I^{\,1} \rar
-	& I^{\,2} \rar
-	& \dots \\
-	0 \rar
-	& \f A  \rar
-	& \f I^{\,0} \rar 
-	& \f I^{\,1} \rar 
-	& \f I^{\, 2} \rar
-	& \dots
+	\dots \rar
+	& \f P_2 \rar \dar["\id"]
+	& \f P_1 \rar \dar["\id"]
+	& \f P_0 \rar \dar["\id"]
+	& \f \Z \rar \dar["\id"]
+	& 0 \\
+	\dots \rar
+	& P_2 \rar
+	& P_1 \rar
+	& P_0 \rar
+	& \Z \rar
+	& 0
 	\end{tikzcd} \]
-	Applicando ripetutamente l'iniettività dei moduli riusciamo a estendere la mappa a tutta la risoluzione \todo[la sto facendo più facile del dovuto? è falso?]
-	\[\begin{tikzcd}[column sep = small]
-	0 \rar
-	& A \dar \rar \arrow[dashed, "comp." description]{dr}
-	& I^{\,0} \rar \dar[dashed, "inj." description] \arrow[dashed, gray]{dr}
-	& I^{\,1} \rar \dar[dashed, gray] \arrow[dashed, gray!50]{dr}
-	& I^{\,2} \dar[dashed, gray!50] \rar
-	& \dots \\
-	0 \rar
-	& \f A \rar
-	& \f I^{\,0} \rar
-	& \f I^{\,1} \rar
-	& \f I^{\,2} \rar
-	& \dots
-	\end{tikzcd} \]
-	e, osservando che un morfismo di complessi tra risoluzioni iniettive passa al quoziente, otteniamo una mappa in coomologia
+	Possiamo ora prendere $ \Hom_H(\,\bullet\, ,\, \f A) $ della prima riga e $ \Hom_G(\,\bullet\, ,\, A) $ della seconda; per funtorialità di $ \f $ otteniamo un morfismo di complessi che in coomologia è
 	\[ \HH^i(G, \, A) \to \HH^i(G', \, \f A) \qquad \forall i \geq 0. \]
 	Abbiamo già osservato che $ \HH^i $ è funtoriale nel secondo argomento: otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
 \end{proof}
@@ -191,7 +162,7 @@ Siamo ora pronti per affrontare il risultato principale, che ci permetterà di c
 Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo $ H $ un sottogruppo di $ G $.
 \begin{definition}[Restrizione]
 	Chiamiamo mappa di restrizione l'omomorfismo
-	\[ \Res \colon \HH^i(G, \, A) \to \HH^i(H, \, \iota^* A) \]
+	\[ \Res \colon \HH^i(G, \, A) \to \HH^i(H, \, \iota^\times A) \]
 	indotto dall'inclusione naturale $ \iota \colon H \to G $.
 \end{definition}
 
@@ -225,7 +196,15 @@ Lasciamo agire $ G $ su se stesso per coniugio e, fissato un elemento $ t \in G 
 \end{proof}
 
 \begin{profinite}
-	Tutti i risultati di questo capitolo si estendono senza problemi al caso di gruppi profiniti: tutte le argomentazioni, parlando di omomorfismi tra gruppi discreti, sono automaticamente continue. \todo[sistemare!]
+Possiamo ora enunciare il risultato grazie al quale siamo riusciti a cofinare questa discussione in queste piccole parentesi: la coomologia dei gruppi profiniti si riconduce a quella dei gruppi finiti.
+
+\begin{proposition}\label{limite}
+	Sia $ G $ un gruppo profinito che agisce su un modulo $ A $, allora
+	\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U), \]
+	dove $ U $ varia tra i sottogruppi normali \emph{aperti} di $ G $.
+\end{proposition}
+
+
 \end{profinite}
 
 
@@ -239,7 +218,7 @@ che però si scopre non aggiungere informazioni.
 	è un isomorfismo.
 \end{lemma}
 \begin{proof}
-	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ f^* $ (\ref{aggiunzione}), abbiamo che
+	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ \f $ (\ref{aggiunzione}), abbiamo che
 	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
 	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto coincidono.
 \end{proof}
@@ -249,9 +228,6 @@ Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani s
 \begin{definition}
 	Chiamiamo modulo indotto uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
 \end{definition}
-
-Classicamente, i moduli che abbiamo appena introdotto vengono chiamati \emph{coindotti}, mentre gli indotti si ottengono tensorizzando per l'anello di gruppo. Quando $ G $ è finito le due definizioni coincidono:
-	\[ \Hom_\Z(\Z[G], \, A)  = \Z[G] \otimes_\Z A. \]
 
 Segue immediatamente dal Lemma di Shapiro $ (\ref{Shapiro}) $ che
 \begin{corollary}\label{indotti}
