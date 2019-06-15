@@ -1,4 +1,4 @@
-\chapter{Lo Strumento}
+\chapter{Coomologia di Gruppi}
 
 
 L'obiettivo di questo primo capitolo è di introdurre la coomologia di gruppi, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
@@ -101,7 +101,7 @@ Accettiamo il risultato come vagamente interessante e procediamo.
 % Mettiamoci qui il discorso su finito / profinito!
 
 \begin{profinite}
-	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito. Avremo però bisogno di estendere il nostro linguaggio ai gruppi profiniti: la difficoltà che si pone è la comparsa in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi: questa ha infatti abbastanza iniettivi; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
+	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito. Avremo però bisogno di estendere il nostro linguaggio in modo da comprendere anche i gruppi profiniti: la difficoltà che si pone è l'entrata in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi: questa ha infatti abbastanza iniettivi; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
 \end{profinite}
 
 \section{Funtorialità}
@@ -135,31 +135,30 @@ Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e che, di conse
 \end{proposition}
 
 \begin{proof}
-	Presa una risoluzione proiettiva di $ \Z $ nella categoria degli $ G $-moudli
+	Prendiamo una risoluzione proiettiva di $ \Z $ nella categoria dei $ G $-moudli
 	\[ \dots \to P_2 \to P_1 \to P_0 \to \Z \to 0 \]
 	e osserviamo che, poiché il funtore $ \f $ preserva i proiettivi, anche
 	\[ \dots \to \f P_2 \to  \f P_1 \to \f P_0 \to \Z \to 0 \]
-	è una risoluzione proiettiva, ora di $ H $-moduli. Ci troviamo quindi nella seguente situazione:
+	è una risoluzione proiettiva, ora di $ H $-moduli.
+	Applichiamo $ \Hom_H(\,\bullet\, ,\, \f A) $ alla prima risoluzione e $ \Hom_G(\,\bullet\, ,\, A) $ alla seconda; osserviamo che per funtorialità di $ \f $ abbiamo degli omomorfismi naturali $ \Hom_{G}(P, \, A) \to \Hom_{H}(\f P, \,\f A) $, che producono un morfismo di complessi di gruppi abeliani
 	\[\begin{tikzcd}[column sep = small]
-	\dots \rar
-	& \f P_2 \rar \dar["\id"]
-	& \f P_1 \rar \dar["\id"]
-	& \f P_0 \rar \dar["\id"]
-	& \f \Z \rar \dar["\id"]
-	& 0 \\
-	\dots \rar
-	& P_2 \rar
-	& P_1 \rar
-	& P_0 \rar
-	& \Z \rar
-	& 0
+	0 \rar
+	& \Hom_{G}(P_0, \, A) \rar \dar
+	& \Hom_{G}(P_1, \, A) \rar \dar
+	& \Hom_{G}(P_2, \, A) \rar \dar
+	& \dots \\
+	0 \rar
+	& \Hom_{H}(P_0, \,\f A) \rar
+	& \Hom_{H}(P_1, \,\f A) \rar
+	& \Hom_{H}(P_2, \,\f A) \rar
+	& \dots	\, .
 	\end{tikzcd} \]
-	Possiamo ora prendere $ \Hom_H(\,\bullet\, ,\, \f A) $ della prima riga e $ \Hom_G(\,\bullet\, ,\, A) $ della seconda; per funtorialità di $ \f $ otteniamo un morfismo di complessi che in coomologia è
+	Questo è sufficiente per passare in coomologia, dove otteniamo
 	\[ \HH^i(G, \, A) \to \HH^i(G', \, \f A) \qquad \forall i \geq 0. \]
-	Abbiamo già osservato che $ \HH^i $ è funtoriale nel secondo argomento: otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
+	Dalla funtorialità di $ \HH^i $ nel secondo argomento, otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
 \end{proof}
 
-Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo $ H $ un sottogruppo di $ G $.
+Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo un sottogruppo $ H $ di $ G $. Daremo la dignità di un nome alle mappe più naturali da proporre e, al contempo, più rilevanti nello studio dei gruppi di coomologia.
 \begin{definition}[Restrizione]
 	Chiamiamo mappa di restrizione l'omomorfismo
 	\[ \Res \colon \HH^i(G, \, A) \to \HH^i(H, \, \iota^\times A) \]
@@ -172,7 +171,7 @@ Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei cas
 	indotto dalla proiezione natuarle $ \pi \colon G \to G/H $ e dall'inclusione $ u \colon A^H \to A $.
 \end{definition}
 
-Lasciamo agire $ G $ su se stesso per coniugio e, fissato un elemento $ t \in G $, consideriamo il relativo automorfismo interno $ \sigma_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
+Un'altra mappa che si incontra spontaneamente in natura è quella indotta dal coniugio: lasciamo agire $ G $ su se stesso per coniugio e, fissato un elemento $ t \in G $, consideriamo il relativo automorfismo interno $ \sigma_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
 
 \begin{proposition}\label{coniugio}
 	L'isomorfsimo indotto dal coniugio per $ t $
@@ -180,9 +179,9 @@ Lasciamo agire $ G $ su se stesso per coniugio e, fissato un elemento $ t \in G 
 	è l'identità.
 \end{proposition}
 \begin{proof}
-	Dimostriamo il risultato per induzione su $ i $: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $-modulo. Preso ora un qualunque modulo $ A $, immergiamolo in un modulo iniettivo $ I $:
+	Dimostriamo il risultato per decalage: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $-modulo. Preso ora un qualunque modulo $ A $, immergiamolo in un modulo iniettivo $ I $:
 	\[ 0 \to A \to I \to Q \to 0. \]
-	Applicando $ \mathcal{F} $ otteniamo una successione esatta lunga (per \ref{fond}) costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
+	La succession esatta lunga associata (per \ref{fond}) è costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar & A^G \rar\dar["\sigma_t = \id" description] & I^G \rar\dar["\sigma_t = \id" description] & Q^G \rar\dar["\sigma_t = \id" description] & \HH^1(G, \, A) \rar\dar["\sigma_t"] & 0 \\
 	0 \rar & A^G \rar & I^G \rar & Q^G \rar & \HH^1(G, \, A) \rar & 0
@@ -196,7 +195,7 @@ Lasciamo agire $ G $ su se stesso per coniugio e, fissato un elemento $ t \in G 
 \end{proof}
 
 \begin{profinite}
-Possiamo ora enunciare il risultato grazie al quale siamo riusciti a cofinare questa discussione in queste piccole parentesi: la coomologia dei gruppi profiniti si riconduce a quella dei gruppi finiti.
+Possiamo ora enunciare il risultato che ci ha permesso di confinare i gruppi profiniti in queste piccole parentesi: la coomologia dei gruppi profiniti si riconduce a quella dei gruppi finiti.
 
 \begin{proposition}\label{limite}
 	Sia $ G $ un gruppo profinito che agisce su un modulo $ A $, allora
@@ -205,12 +204,14 @@ Possiamo ora enunciare il risultato grazie al quale siamo riusciti a cofinare qu
 \end{proposition}
 
 
+
+
 \end{profinite}
 
 
 \section{Moduli Indotti}
-Si sarebbe potuta fare un'altra scelta naturale nel tentativo di definire una mappa di restrizione: l'inclusione naturale $ i \colon H \to G $ e la mappa $ u \colon \Ind_H^G(B) \to B $ (che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $) inducono un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B), \]
-che però si scopre non aggiungere informazioni.
+L'inclusione naturale $ i \colon H \to G $ e la mappa $ u \colon \Ind_H^G(B) \to B $ (che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $) inducono un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B), \]
+che risulta interessante per tutt'altra ragione.
 
 \begin{lemma}[di Shapiro] \label{Shapiro}
 	L'omomorfismo sopra definito
@@ -226,23 +227,26 @@ che però si scopre non aggiungere informazioni.
 Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani senza struttura, perché è particolarmente semplice calcolarne la coomologia.
 
 \begin{definition}
-	Chiamiamo modulo indotto uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
+	Chiamiamo \emph{modulo indotto} uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
 \end{definition}
 
+Osserviamo che i moduli liberi sono indotti: abbiamo infatti che, preso un modulo libero $ F = \bigoplus_n \Z[G] $, questo si scrive come
+$ F = \left(\bigoplus_n\Z\,\right) \otimes_\Z \Z[G],  $ che è indotto per definizione.
 Segue immediatamente dal Lemma di Shapiro $ (\ref{Shapiro}) $ che
 \begin{corollary}\label{indotti}
 	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
 \end{corollary}
 
-Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque! Difatti, preso un modulo $ A $ possiamo immergerlo nel suo indotto
+Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque. Preso un modulo $ A $, possiamo immergerlo nel suo indotto
 \begin{align*}
 A &\hookrightarrow \Ind_1^G(A) \\
 a & \mapsto f_a \colon g \mapsto g \cdot a, \end{align*} 
 oppure proiettarci sopra l'indotto
 \begin{align*}
 \Ind_1^G(A) &\twoheadrightarrow A  \\
-f & \mapsto \sum g \cdot f(g^{-1}x).
+f & \mapsto \sum g \cdot f(g^{-1}x),
 \end{align*}
+in modo da avere sempre delle successioni esatte corte pronte per soddisfare un improvviso bisogno dimostrazioni per decalage.
 
 \begin{lemma}\label{scappa}
 	Dati due moduli $ A $ e $ B $, se $ B $ è indotto, pure $ \Hom_\Z(A, \, B) $ è indotto.
@@ -288,7 +292,7 @@ Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrizion
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $-modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
 \[N_{G/H} \colon a \mapsto \sum_{x \in G/H} x \cdot a, \]
-che coincide con la moltiplicazione per l'elemento $ N = \sum_{g \in R} \, g $ di $ \Z[G] $. Vale la pena di osservare subito che, proprio perché si identifica con la moltiplicazione per $ N $, tutti i diagrammi che induce commutano: preso un morfismo $ f \colon A \to B $ il diagramma
+che coincide con la moltiplicazione per l'elemento $ N = \sum_{g \in R} \, g $ di $ \Z[G] $, somma di rapresentati delle classi laterali di $ H $. Vale la pena di osservare subito che, proprio perché si identifica con la moltiplicazione per $ N $, tutti i diagrammi che induce commutano: preso un morfismo $ f \colon A \to B $ il diagramma
 \[\begin{tikzcd}
 A^H \rar["f"] \dar{N} 
 & B^H \arrow[d, "N"]\\
@@ -326,14 +330,14 @@ La nostra prima preoccupazione è controllare come la corestrizione si comporta 
 	coincide con la moltiplicazione per $ m $.
 \end{theorem}
 \begin{proof}
-	La dimostrazione è per induzione sul grado: in $ i = 0 $ ritroviamo l'azione della norma su elementi fissati dall'azione di $ G $
+	La dimostrazione è per decalage: in $ i = 0 $ ritroviamo l'azione della norma su elementi fissati dall'azione di $ G $
 	\[\begin{tikzcd}
 	A^G \rar["i"] & A^H \rar["N"] & A^G & \\
 	a \rar[mapsto] & a \rar[mapsto] & \displaystyle\sum_{x \in G/H} x \cdot a = ma.
 	\end{tikzcd}  \]
-	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $ modulo. Preso un qualunque modulo $ A $, immergiamolo in modulo iniettivo $ I $:
-	\[ 0 \to A \to I \to Q \to 0. \]
-	Applicando $ \mathcal{F} $ otteniamo una successione esatta lunga (per \ref{fond}) costellata di zeri ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
+	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $-modulo. Immergiamo $ A $ nel suo indotto per ottenere una succession esatta corta
+	\[ 0 \to A \to \Ind_1^G(A) \to Q \to 0, \]
+	la cui successione esatta lunga associata (per \ref{fond}) è costellata di zeri ovunque si prenda la coomologia dell'indotto (per \ref{indotti}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar
 	& A^G \rar\dar["\cdot m" description]
@@ -356,7 +360,7 @@ La nostra prima preoccupazione è controllare come la corestrizione si comporta 
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 
-Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un meraviglioso ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
+Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
 \[\begin{tikzcd}
 \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) = 0 \rar["\Cor"] & \HH^i(G, \, A)
 \end{tikzcd}  \]
@@ -368,7 +372,7 @@ Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarme
 
 Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Se per esempio sapessimo che $ A $ è finitamente generato e di conseguenza $ \HH^i(G, \, A) $ è finitamente generato (per la descrizione esplicita in cocatene, per dire), scopriremmo dunque che dev'essere finito: perché finitamente generato e di torsione. \\
 
-Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffinato del precedente, lo otteniamo restringendo la nostra attenzione a una componente $ p $-primaria.
+Tra le meraviglie che ci porge l'artimetica, troviamo il seguente risultato, tanto più raffinato del precedente quanto della meno chiara utilità. Si tratta di un primo passo verso la decomposizione dello studio dei gruppi di coomologia nello studio delle singole componenti primarie e si rivelerà fondamentale quando affronteremo il discorso più dettagliatamente.
 
 \begin{lemma}\label{injp}
 	Se $ p $ è un primo per cui $ m = [G \, \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
@@ -377,7 +381,7 @@ Un secondo risultato che riusciamo a ricavare dall'aritmetica, appena più raffi
 Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe ad una mappa iniettiva, dunque la mappa più interna, la restrizione, dev'essere iniettiva a sua volta.
 
 \begin{profinite}
-	La norma, e di conseguenza la corestrizione, è ben definita per ogni sottogruppo d'indice finito $ U $ e chiuso di $ G $. Poiché i sottogruppi sono aperti se e solo se chiusi e d'inidice finito, possiamo applicare il corollario \ref{ntors}, per passare al limite (come nella proposizione \ref{limite}) e scoprire che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
+	La norma, e di conseguenza la corestrizione, è ben definita per ogni sottogruppo $ U $ d'indice finito e chiuso di $ G $. Poiché i sottogruppi sono aperti se e solo se chiusi e d'inidice finito, possiamo applicare il corollario \ref{ntors}, per passare al limite (come nella proposizione \ref{limite}) e scoprire che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
 \end{profinite}
 
 \section{Gruppi di Tate}
@@ -401,7 +405,7 @@ Averlo descritto come tensore ci dice, in particolare, che $ \mathcal{G} $ è es
 	\[ \HH_i(G, \, \bullet \,) := L^i\mathcal{G}(\, \bullet \,) = \Tor_G(\Z, \, \bullet \, ). \]
 \end{definition}
 
-Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, inflazione e corestrizione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate: non saremo così diligenti da riscriverle, ci limitiamo ad incoraggiare il lettore interessato a rileggerle, sostituendo \textquotedblleft iniettivo" con \textquotedblleft proiettivo" e guardando i diagrammi attraverso uno specchio. \todo[la faccenda del relativamente iniettivo] \\
+Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, inflazione e corestrizione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate: non saremo così diligenti da riscriverle, ci limitiamo ad incoraggiare il lettore interessato a rileggerle, sostituendo \textquotedblleft iniettivo" con \textquotedblleft proiettivo" e guardando i diagrammi attraverso uno specchio. \\
 
 Occupiamoci piuttosto del collegamento tra i due strumenti. L'obiettivo principale è quello di raccordare le due successioni esatte lunghe in una successione lunghissima, illimitata in entrambe le direzioni. L'unico problema che si presenta è che, al momento, entrambe le successioni terminano in una direzione: dovremo quindi modificare i primi elementi di ciascuna. Per fare questo prendiamo la norma su $ A $ associata al sottogruppo banale
 \begin{align*}
@@ -422,7 +426,7 @@ e osserviamo che passa al quoziente $ N \colon A/I_G \to A^G $.
 	 \end{equation}
 \end{definition}
 
-Sistemati i dettagli ad arte enunciamo il risultato principale.
+Sistemati i dettagli ad arte, enunciamo il risultato che ricomponesa i nostri sforzi.
 
 \begin{theorem}\label{fond2}
 	Data una successione esatta corta di $ G $ moduli
@@ -441,7 +445,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	 & \Hh^1(G, \, A) \rar & \dots \end{tikzcd}\]
 \end{theorem}
 \begin{proof}
-	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo attaccare
+	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare
 	\[\begin{tikzcd}[column sep = small, row sep = small]
 	\dots \rar
 	& \Hh^{-2}(G, \, C) \rar["\delta_0"]
@@ -478,17 +482,19 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	& \Hh^{0}(G, \, C).
 	&&
 	\end{tikzcd}\]
-	Costruiamo ora le mappe di collegamento. Osserviamo che $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato sopra; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero spezza attraverso la mappa curva qua sotto:
-	\[\begin{tikzcd}[column sep = small]
-	& \Hh^{-1}(G, \, A) \dar
-	& \Hh^{-1}(G, \, B) \dar \\
-	\Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
-	& A_G \rar["f_*"] \dar{N} 
-	& B_G \arrow[d, "N"]\\
-	0 \rar
-	&A^G \rar["f^*"]
-	& B^G
-	\end{tikzcd}\]
+	Costruiamo ora le mappe di collegamento. Osserviamo che $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato qua sotto \eqref{ponteggio}; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero che spezza attraverso la mappa curva qua sotto:
+	\begin{equation} \label{ponteggio}
+		\begin{tikzcd}[column sep = small]
+		& \Hh^{-1}(G, \, A) \dar
+		& \Hh^{-1}(G, \, B) \dar \\
+		\Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
+		& A_G \rar["f_*"] \dar{N} 
+		& B_G \arrow[d, "N"]\\
+		0 \rar
+		&A^G \rar["f^*"]
+		& B^G
+		\end{tikzcd}
+	\end{equation}
 	Analogamente si trova una mappa $ \Hh^0(G, \, C) \to \Hh^1(G, \, A) $. Possiamo infine invocare lo Snake Lemma per ottenere tutte le mappe mancanti:
 	\[\begin{tikzcd}[column sep = small]
 	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
@@ -515,11 +521,7 @@ Sistemati i dettagli ad arte enunciamo il risultato principale.
 	Seguendo le mappe tratteggiate, otteniamo la tesi.
 \end{proof}
 
-Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime nonappena ci si accorge che le definizioni in grado $ i = 0,\, -1 $ fattorizzano tramite la norma. Sottolineiamo il seguente lemma, in virtù della sua futura utilità:
-
-\begin{lemma}
-	I moduli relativamente iniettivi, ovvero addendi diretti di iniettivi, hanno tutti gli $ \Hh^i $ banali.
-\end{lemma}
+Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime nonappena ci si accorge che le definizioni in grado $ i = 0,\, -1 $ fattorizzano tramite la norma.
 
 \todo[questo è il posto giusto per dire che gli indotti sono ancora banalie  cotruire gli Ai]
 

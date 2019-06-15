@@ -1,10 +1,10 @@
 \chapter{Primi risultati}
 In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le potenzialità e gettando delle solide basi sui cui poggeranno i calcoli successivi. Il primo obbiettivo sarà studiare la coomologia dei gruppi ciclici, che si rivelerà piuttosto semplice e di evidente importanza in tutto il seguito. Vorremmo poi capire come calcolare operativamente la coomologia di un gruppo, per esempio riconducendola a quella dei suoi Sylow. \\
 
-Sistemati i giocattoli, sarà il momento di concentrarci sul vero obbiettivo del nostro lavoro: i gruppi di Galois. Per affrontare la Teoria di Galois avremo bisogno di rimuovere l'ipotesi di finitezza su cui abbiamo fondato la nostra teoria, in modo da comprendere quantomeno i gruppi profiniti.
+Sistemati i giocattoli, sarà il momento di concentrarci sul vero obbiettivo del nostro lavoro: i gruppi di Galois. Per affrontare la Teoria di Galois avremo bisogno di abbandonare l'ipotesi di finitezza, producendo qualche risultato anche per gruppi profiniti. Introdurremo dunque la nozione di dimensione coomologica, come indice di complessità di un gruppo, di particolare interesse nella caratterizzazione dei gruppi infiniti.
 
 \section{Gruppi Ciclici}
-Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ di cui fissiamo un generatore $ \sigma $. La coomologia di $ G $ è particolarmente semplice da descrivere: qualunque sia il modulo $ A $, per conoscere tutti i gruppi di Tate è sufficiente calcolare quelli in grado $ i = 0, \, -1 $, che abbiamo già descritto esplicitamente.
+Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ di cui fissiamo un generatore $ \sigma $. La coomologia di $ G $ è particolarmente semplice da descrivere: qualunque sia il modulo $ A $, per conoscerne tutti i gruppi di Tate è sufficiente calcolare quelli in grado $ i = 0, \, -1 $.
 
 \begin{theorem}[dei Gruppi Ciclici]\label{ciclici}
 	Per un gruppo ciclico finito $ G $ e un suo modulo $ A $, i gruppi di Tate sono 2-periodici nel grado:
@@ -26,55 +26,63 @@ Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ di cui fissiamo un gener
 	\todo[finire: come ci appiccichiamo i gradi bassi?]
 \end{proof}
 
-Per i moduli i cui gruppi di Tate sono finitamente generati abbiamo scoperto due importanti invarianti: la cardinalità dei gruppi in grado pari e dei gruppi in grado dispari, che chiamiamo $ h_0(A) $ e $ h_1(A) $.
+Per i moduli i cui gruppi di Tate sono finiti abbiamo scoperto due importanti invarianti: la cardinalità dei gruppi in grado pari e dei gruppi in grado dispari, che chiamiamo $ h_0(A) $ e $ h_1(A) $.
 
 \begin{definition}(Quoziente di Herbrand)
 	Se $ A $ ha gruppi di Tate finiti chiamiamo \emph{quoziente di Herbrand} il numero naturale
 	\[ {h}(A) := \frac{h_0(A)}{h_1(A)} = \frac{|\Hh^0(G, \, A)|}{|\Hh^1(G, \, A)|}. \]
 \end{definition}
 
-\begin{proposition}[Herbrand]
-	Alcune proprietà del quoziente:
-	\begin{enumerate}
-		\item Data una successione esatta corta
-		\[ 0 \to A \to B \to C \to 0, \]
-		se il quoziente $ h $ è definito per due moduli su tre, è definito anche per il terzo. In questo caso vale $ h(A)h(C) = h(B) $.
-		\item Se $ A $ è finito, $ h(A) = 1 $.
-		\item Se $ f \colon A \to B $ ha nucleo e conucleo finiti e uno tra $ h(A) $ e $h(B) $ è definito, allora lo è anche l'altro e sono uguali.
-	\end{enumerate}
-\end{proposition}
+Enunciamo ora alcune piacevoli proprietà
 
+\begin{lemma}\label{Herb1}
+	Data una successione esatta corta
+	\[ 0 \to A \to B \to C \to 0, \]
+	se il quoziente $ h $ è definito per due moduli su tre, è definito anche per il terzo. In questo caso vale $ h(A)h(C) = h(B) $.
+\end{lemma}
 \begin{proof}
-	\begin{enumerate}
-		\item La successione esatta lunghissima associata può essere riassunta in una successione \leftquote esagonalmente esatta"
-		\[\begin{tikzcd}[column sep={1cm,between origins}, row sep={1.732050808cm,between origins}]
-			& \Hh^0(G, \, A) \arrow[rr] && \Hh^0(G, \, B) \arrow[rd] &  \\
-			\Hh^1(G, \, C) \arrow[ru]&  &&  & \Hh^0(G, \, C) \arrow[ld] \\				& \Hh^1(G, \, B) \arrow[lu] && \Hh^1(G, \, A) \arrow[ll], & 
-		\end{tikzcd}\]
-		che possiamo slacciare in un punto a piacere \todo[su]
-		\[ 0 \to Q \to \Hh^0(G, \, A) \to \Hh^0(G, \, B) \to \Hh^0(G, \, C) \to \Hh^1(G, \, A) \to \Hh^1(G, \, B) \to \Hh^1(G, \, C) \to Q \to 0, \]
-		aggiungendo un opportuno modulo $$  Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \coker\left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right].  $$
-		Dobbiamo pertanto avere, per esattezza, che
-		\[  h_0(B) h_1(A) h_1(C) \cdot |\,Q\,| = h_0(A) h_0(C) h_1(B) \cdot |\,Q\,|, \]			da cui la tesi.
-		
-		\item Per come abbiamo definito i gruppi di Tate abbiamo la successione esatta
-		\begin{equation*}			\begin{tikzcd}[column sep = small]
-			0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0,
-			\end{tikzcd}
-		\end{equation*}
-		da cui deduciamo che $ h_1(A) \cdot |\, A^G\, | =  h_0(A) \cdot |\, A_G\, | $; siccome il gruppo è ciclico siamo inoltre in grado di ottenere la desiderata relazione fra invarianti e co-invarianti:
-		\begin{equation*}
-		\begin{tikzcd}[column sep = small]
-			0 \rar& A_G \rar& A \rar["D"]& A \rar& A^G \rar& 0.
-			\end{tikzcd}
-		\end{equation*}
-		\item È\ sufficiente scrivere le ipotesi in forma di successioni esatte
-		\[ 0 \to \ker f \to A \to Q \to 0 \qquad\text{ e } \qquad 0 \to Q \to B \to \coker f \to 0, \]
-		applicare il primo punto per dedurre la finitezza dei gruppi di Tate, il secondo per ottenere l'uguaglianza desiderata.
-	\end{enumerate}
+	La successione esatta lunghissima associata può essere riassunta in una successione \leftquote esagonalmente esatta"
+	\[\begin{tikzcd}[column sep={1cm,between origins}, row sep={1.732050808cm,between origins}]
+	& \Hh^0(G, \, A) \arrow[rr] && \Hh^0(G, \, B) \arrow[rd] &  \\
+	\Hh^1(G, \, C) \arrow[ru]&  &&  & \Hh^0(G, \, C) \arrow[ld] \\				& \Hh^1(G, \, B) \arrow[lu] && \Hh^1(G, \, A) \arrow[ll], & 
+	\end{tikzcd}\]
+	che possiamo slacciare in un punto a piacere
+	\[ 0 \to Q \to \Hh^0(G, \, A) \to \Hh^0(G, \, B) \to \dots \to \Hh^1(G, \, C) \to Q \to 0, \]
+	aggiungendo un opportuno modulo $$  Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \coker\left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right].  $$
+	Dobbiamo pertanto avere, per esattezza, che
+	\[  h_0(B) h_1(A) h_1(C) \cdot |\,Q\,| = h_0(A) h_0(C) h_1(B) \cdot |\,Q\,|, \]			da cui la tesi.
 \end{proof}
 
-L'ultimo punto della proposizione sembra, più che una proprietà elementare del quoziente di Herbrand, un lemma tecnico e particolarmente specifico: è così, ci servirà in una dimostrazione particolarmente impegnativa più avanti.
+\begin{lemma}\label{Herb2}
+	Se $ A $ è finito, $ h(A) = 1 $.
+\end{lemma}
+\begin{proof}
+	Per come abbiamo definito i gruppi di Tate abbiamo la successione esatta
+	\begin{equation*}			\begin{tikzcd}[column sep = small]
+	0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0,
+	\end{tikzcd}
+	\end{equation*}
+	da cui deduciamo che $ h_1(A) \cdot |\, A^G\, | =  h_0(A) \cdot |\, A_G\, | $; siccome il gruppo è ciclico siamo inoltre in grado di ottenere la desiderata relazione fra invarianti e co-invarianti:
+	\begin{equation*}
+	\begin{tikzcd}[column sep = small]
+	0 \rar& A_G \rar& A \rar["D"]& A \rar& A^G \rar& 0.
+	\end{tikzcd}
+	\end{equation*}
+\end{proof}
+
+Quest'ultimo lemma sembra, più che una proprietà elementare del quoziente di Herbrand, un risutato tecnico e particolarmente specifico: è così, ci servirà più avanti in una dimostrazione particolarmente impegnativa.
+
+\begin{lemma}\label{Herb3}
+	Se $ f \colon A \to B $ ha nucleo e conucleo finiti e uno tra $ h(A) $ e $h(B) $ è definito, allora lo è anche l'altro e sono uguali.
+\end{lemma}
+
+\begin{proof}
+	È\ sufficiente scrivere le ipotesi in forma di successioni esatte
+	\[ 0 \to \ker f \to A \to Q \to 0 \qquad\text{ e } \qquad 0 \to Q \to B \to \coker f \to 0, \]
+	applicare il primo punto per dedurre la finitezza dei gruppi di Tate, il secondo per ottenere l'uguaglianza desiderata.
+\end{proof}
+
+
 
 \section{Banalità}
 Lo studio della coomologia di un generico gruppo si fa troppo complessa per poter sperare di enunciare teoremi di portata analoga a quelli validi per i gruppi ciclici. Si riesce però, con non poca fatica, a dire qualcosa sui moduli che hanno tutti i gruppi di coomologia banali.
@@ -84,9 +92,8 @@ Lo studio della coomologia di un generico gruppo si fa troppo complessa per pote
 	$$  \HH^i(H, \, A) = 0 \qquad \forall \, i > 0, \quad  \forall \, H < G.  $$
 \end{definition}
 
-\begin{example}
-	Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}).
-\end{example}
+
+Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}). In particolare i moduli liberi sono coomologicamente banali e, di conseguenza, i moduli proiettivi (ragionando per decalage). Anche i moduli iniettivi sono coomologicamnete banali, per come abbiamo costruito i gruppi di coomologia. \\
 
 Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbandonato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
 
@@ -164,7 +171,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 \end{proof}
 \todo[in realtà non mi dispiacerebbe mettere quest'ultima parte in un posto migliore]
 
-Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione.
+Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione, ottenendo un magnifico criterio per la banalità di un modulo. Per quanto osservato a inizio capitolo, continuiamo a enunciare i teoremi per gruppi di torsione sottolineando però la facilità con cui si estendono al caso generale.
 
 \begin{theorem}
 	Sia $ A $ uno $ G_p $-modulo. Se esiste un indice $ q $ per cui
@@ -228,7 +235,7 @@ Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il segu
 \end{corollary}
 
 \section{Dimensione Coomologica}
-La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo nel quale prendiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" è di un qualche interesse solo per gruppi infiniti.
+La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo dal quale peschiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" è di qualche interesse solo per gruppi infiniti.
 
 \begin{definition}[Dimensione coomologica]
 	Sia $ G $ un gruppo profinito e $ p $ un numero primo. La \emph{$ p $-dimensione coomologica} di $ G $ è il più piccolo intero $ n $ per cui: per ogni $ G $-modulo $ A $ di torsione, la componente $ p $-primaria di $ \HH^q(G, \, A) $ è nulla non appena $ q > n $, volendo
@@ -240,7 +247,7 @@ La dimensione coomologica di un gruppo è un indice di complessità: è il numer
 
 %% vorrei capire cosa mi serve a cosa mi serve prima di scrivere un sacco di roba inutile...
 
-Ancora una volta, il calcolo è più semplice sui $ p $-gruppi.
+Ancora una volta, si riesce a ridurre il calcolo ai moduli di $ p $-torsione.
 
 \begin{proposition}
 	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $.
