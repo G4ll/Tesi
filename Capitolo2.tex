@@ -273,4 +273,12 @@ Per la proposizione appena dimostrata $ \cd_p(\Z_p) \leq 1 $; otteniamo l'altra 
 Quest'ultima proposizione ci permette di ricondurre il calcolo della dimensione di un gruppo a quella dei suoi Sylow. L'esempio per eccellenza è $ \hat{\Z} = \varprojlim_n \Z/n\Z $, dei cui Sylow $ \Z_p$ conosciamo già la dimensione: per ogni primo $ p $ si ha
 \[ \cd_p(\hat{\Z}) = \cd_p(\Z_p) = 1, \]
 da cui $ \cd(\hat{\Z})=1 $.
-%% Serve da qualche parte dire che i campi finiti hanno dimensione coomologica <= 1
+
+% Mi serve il lemma che lega sottogruppi e quozienti
+\begin{proposition}\label{quozienti}
+	Sia $ H $ un sottogruppo chiuso e normale di $ G $. Allora, per ogni numero primo $ p $, si ha che
+	\[ \cd_p(G) \geq \cd_p(H) + \cd_p(G/H). \]
+\end{proposition}
+\begin{proof}
+	Segue direttamente dalla successione spettrale di Hoschild Serre! \todo[come?]
+\end{proof}
