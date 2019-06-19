@@ -95,7 +95,7 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 
 Sia $ G = \Gal{\bar{\K}/ \K} $ il gruppo di Galois assoluto di $ \K $. Fissiamo un gruppo abeliano $ A $, finito e munito della topologia discreta; scegliendo un omomorfismo continuo
 \[ \varphi \colon \Gal{\bar{\K}/ \K} \to A, \]
-produciamo come nucleo $ \ker \varphi $ un sottogruppo chiuso e normale del gruppo di Galois assoluto. Per il teorema di corrispondenza di Galois, otteniamo un'estensione $ L $ di gruppo
+produciamo come nucleo un sottogruppo chiuso e normale del gruppo di Galois assoluto. Per il teorema di corrispondenza di Galois, otteniamo un'estensione $ L $ di gruppo
 \[ \Gal{L/K} = \frac{\Gal{\bar{\K}/ \K}}{\ker \varphi} \hookrightarrow A. \]
 Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfimi $ \Hom_{\textsf{Gr}}(G, \, A) $, in realtà a meno della relazione che identifica due omomorfimi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(G, \, A) = \Hom_{\textsf{Gr}}(G, \, A) $. Possiamo quindi sfoggiare il notro arsenale per produrre un risultato piacevole.
 
@@ -103,7 +103,7 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	Sia $ \K $ un campo e $ p $ un numero primo. Supponiamo che $ \K $ contenga le radici $ p $-esime dell'unità $ \mu_p $. In questo caso, c'è una corrispondenza tra le estensioni cicliche di gruppo $ \Z/p\Z $ (o banale) e $ \K^\times / {\K^\times}^p $.
 \end{theorem}
 \begin{proof}
-	Calcoleremo $ \HH^1(G, \, \Z/p\Z) $, dove $ G $ è come al solito il gruppo di Galois assoluto del campo $ \K $. Prendere la $ p $-esima potenza $ x \mapsto x^p $ è un'operazione suriettiva nella chiusura algebrica, da cui l'esattezza di
+	Calcoleremo $ \HH^1(G, \, \Z/p\Z) $, detto $ G $ il gruppo di Galois assoluto del campo $ \K $. Prendere la $ p $-esima potenza $ x \mapsto x^p $ è un'operazione suriettiva nella chiusura algebrica, da cui l'esattezza di
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& \mu_p \rar
@@ -255,11 +255,11 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 % Assioma del corpo di classe
 Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; tant'è che abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
 
-\begin{lemma}[del sottomodulo banale]
+\begin{lemma}[del sottomodulo banale] \todo[dimostrare]
 	Sia $ L/\K $ un'estensione finita di Galois di gruppo $ G $. Esiste un sottomodulo $ V \subseteq U_L^1 $ d'indice finito e coomologicamente banale.
 \end{lemma}
 
-\begin{theorem}[Assioma del Campo di Classe] \label{assioma} \todo[capire come si chiama davvero]
+\begin{theorem}[Assioma del Campo di Classe] \label{assioma}
 	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hh^0(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
 \end{theorem}
 \begin{proof}
