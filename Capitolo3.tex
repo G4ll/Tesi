@@ -46,7 +46,7 @@ Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome pr
 \end{definition}
 
 % mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace? Sì dai!
-Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore che ne avesse sentito parlare a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava più che altro una buona intuzione dei risultati.
+Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore che ne avesse sentito parlare a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava più che altro una buona intuizione dei risultati.
 
 % Metto un paio di proposizioni per stare tranquilli; è importante dire che possiamo pensare al Brauer come contenete i sottobrauerini, che direi essere il lemma qua sotto
 Nel seguito sarà comoda avere della notazione per indicare $ \HH^2(\Gal{L/k}, \, L^\times) $, che possiamo pensare come il gruppo di Brauer relativo all'estensione $ L/k $: lo chiameremo $ \Br(L/\K) $.
@@ -87,7 +87,7 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 
 % Verso il profinito
 \begin{profinite}
-	È incredibilmente rassicurante osservare che, nonostante sia indispensabile aver definito la coomologia per gruppi profiniti, tutto si riconduca senza problemi alla coomologia di gruppi finiti. Tiriamo un sospirio di sollievo e procediamo con serenità
+	È incredibilmente rassicurante osservare che, nonostante sia indispensabile aver definito la coomologia per gruppi profiniti, tutto si riconduca senza problemi alla coomologia di gruppi finiti. Tiriamo un sospiro di sollievo e procediamo con serenità
 \end{profinite}
 
 \section{Teoria di Kummer}
@@ -97,7 +97,7 @@ Sia $ G = \Gal{\bar{\K}/ \K} $ il gruppo di Galois assoluto di $ \K $. Fissiamo 
 \[ \varphi \colon \Gal{\bar{\K}/ \K} \to A, \]
 produciamo come nucleo un sottogruppo chiuso e normale del gruppo di Galois assoluto. Per il teorema di corrispondenza di Galois, otteniamo un'estensione $ L $ di gruppo
 \[ \Gal{L/K} = \frac{\Gal{\bar{\K}/ \K}}{\ker \varphi} \hookrightarrow A. \]
-Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfimi $ \Hom_{\textsf{Gr}}(G, \, A) $, in realtà a meno della relazione che identifica due omomorfimi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(G, \, A) = \Hom_{\textsf{Gr}}(G, \, A) $. Possiamo quindi sfoggiare il notro arsenale per produrre un risultato piacevole.
+Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfismi $ \Hom_{\textsf{Gr}}(G, \, A) $, in realtà a meno della relazione che identifica due omomorfismi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(G, \, A) = \Hom_{\textsf{Gr}}(G, \, A) $. Possiamo quindi sfoggiare il nostro arsenale per produrre un risultato piacevole.
 
 \begin{theorem}[di Kummer]
 	Sia $ \K $ un campo e $ p $ un numero primo. Supponiamo che $ \K $ contenga le radici $ p $-esime dell'unità $ \mu_p $. In questo caso, c'è una corrispondenza tra le estensioni cicliche di gruppo $ \Z/p\Z $ (o banale) e $ \K^\times / {\K^\times}^p $.
@@ -111,7 +111,7 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	& \bar{\K}^\times \rar
 	& 0.
 	\end{tikzcd}  \]
-	La successine esatta lunga associata comincia, applicando Hilbert 90, con
+	La successione esatta lunga associata comincia, applicando Hilbert 90, con
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& \mu_p \rar
@@ -124,7 +124,7 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	\[ \HH^1(G, \, \Z/p\Z) = \HH^1(G, \, \mu_p) =\K^\times / {\K^\times}^p . \]
 \end{proof}
 
-\section{Il gruppo di Brauer di un Campe Locale}
+\section{Il gruppo di Brauer di un Campo Locale}
 % struttura
 Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi di $ \K $ come gli elementi di valutazione non negativa
 \[ \mathcal{O}_{\K} = \{ x \in \K \mid v(x)\geq 0 \}. \]
@@ -138,7 +138,7 @@ Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiami
 	& 0,
 	\end{tikzcd}
 \end{equation}
-per le quali il grado fornisce una piacevole filtrazione: le unità devono essere nella forma $ x = \pi^k +1 $, il che ci permette di ditinguerle in classi  $$  U_{\K}^i :=\{x \in \mathcal{O}_{\K}^\times \mid v(x-1) \geq i \}.  $$ Si può mostrare che l'omomorfismo $ U_{\K}^i \to \kappa $ che manda $ x \mapsto (x-1)/p^n $ è suriettivo e genera della successioni esatte corte
+per le quali il grado fornisce una piacevole filtrazione: le unità devono essere nella forma $ x = \pi^k +1 $, il che ci permette di distinguerle in classi  $$  U_{\K}^i :=\{x \in \mathcal{O}_{\K}^\times \mid v(x-1) \geq i \}.  $$ Si può mostrare che l'omomorfismo $ U_{\K}^i \to \kappa $ che manda $ x \mapsto (x-1)/p^n $ è suriettivo e genera della successioni esatte corte
 \begin{equation}\label{local2}
 \begin{tikzcd}[column sep = small]
 1 \rar
@@ -234,7 +234,7 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 	\end{tikzcd} \]
 \end{proposition}
 \begin{proof}
-	Analizziamo come commuta la $ \Res $ con i singoli isomorfimi di cui è composto $ \inv $. Siano $ e $ l'indice di ramificazione e $ f $ l'indice d'inerzia dell'estensione. Quando c'è ramificazione abbiamo che $ v_L = e \cdot v_\K $, dunque
+	Analizziamo come commuta la $ \Res $ con i singoli isomorfismi di cui è composto $ \inv $. Siano $ e $ l'indice di ramificazione e $ f $ l'indice d'inerzia dell'estensione. Quando c'è ramificazione abbiamo che $ v_L = e \cdot v_\K $, dunque
 	\[ \Res v_L^* = e \cdot \Res v_\K^* = e \cdot v_\K^* \Res, \]
 	poiché $ \Res $ è un morfismo di complessi per costruzione. 
 	Analogamente, la restrizione commuta anche con l'omomorfismo di collegamento $ \delta $. L'indice $ f $ coincide con il grado della relativa estensione del campo residuo, che dunque è proprio il generatore di $ G_L = f\hat{\Z} < \hat{\Z} = G_\K $; abbiamo così, ricordando che $ \gamma $ coincide con la valutazione nel generatore, che
@@ -274,7 +274,7 @@ Per estensioni ramificate la situazione non è così semplice, anche rimanendo i
 	& \Z \rar
 	& 0,
 	\end{tikzcd} \]
-	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e l'Hilbert 90
+	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e Hilbert 90
 	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
 \end{proof}
 
@@ -296,7 +296,7 @@ fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e grup
 
 \begin{proof}
 	Arriveremo alla tesi per approssimazione. % fuck yeah
-	Il caso in cui $ G $ sia ciclico segue immediateente dall'Assioma del Campo di Classe (\ref{assioma}). Affrontiamo ora il problema per $ G $ $ p $-gruppo: grazie alla formula delle classi sappiamo che il centro è non banale, questo è abeliano e ha partanto un ottogruppo normale di ordine $ p $ che chiamiamo $ H $, il quale, essendo un sottogruppo normale di un gruppo caratteristico, è normale in $ G $. A questo gruppo sarà associata un'estensione intermedia $ L^H $, anch'essa di Galois. Dalla successione spettrale di Hoschild-Serre, o meglio per quanto dice il corollario \ref{boo2}, ricaviamo la successione esatta
+	Il caso in cui $ G $ sia ciclico segue immediatamente dall'Assioma del Campo di Classe (\ref{assioma}). Affrontiamo ora il problema per $ G $ $ p $-gruppo: grazie alla formula delle classi sappiamo che il centro è non banale, questo è abeliano e ha pertanto un sottogruppo normale di ordine $ p $ che chiamiamo $ H $, il quale, essendo un sottogruppo normale di un gruppo caratteristico, è normale in $ G $. A questo gruppo sarà associata un'estensione intermedia $ L^H $, anch'essa di Galois. Dalla successione spettrale di Hoschild-Serre, o meglio per quanto dice il corollario \ref{boo2}, ricaviamo la successione esatta
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & \HH^q(G/H, \, {L^H}^\times) \rar["\Inf"]
 	& \HH^q(G, \, L^\times) \rar["\Res"]
@@ -312,7 +312,7 @@ fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e grup
 \end{lemma}
 
 \begin{proof}
-	La cardinalità di $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ è esattamente $ n $: per la cilcicità del gruppo di Galois è la stessa del gruppo di Tate in grado zero, che è quella voluta per l'Assioma del Corpo di Classe. È quindi sufficiente mostrare che $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ è un sottogruppo di $ \HH^2(G,\, L^\times ) $, grazie al risultato sulla cardinalità appena stabilito.
+	La cardinalità di $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ è esattamente $ n $: per la ciclicità del gruppo di Galois è la stessa del gruppo di Tate in grado zero, che è quella voluta per l'Assioma del Corpo di Classe. È quindi sufficiente mostrare che $ \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) $ è un sottogruppo di $ \HH^2(G,\, L^\times ) $, grazie al risultato sulla cardinalità appena stabilito.
 	Prendiamo un elemento $ x \in \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) < \Br \knr < \Br \K $. Questo vive in un gruppo di $ n $-torsione e pertanto viene mandato in $ 0 $ dalla restrizione
 	\[ \begin{tikzcd}
 	\Br \K \rar["\Res"]
@@ -333,7 +333,7 @@ Torniamo ora alla dimostrazione del teorema. Per il classico lemma di passaggio 
 \end{proof}
 
 \section{Tutto il resto}
-In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un campo locale, mostrando che questo ha dimensione coomoogica 2: tutto i gruppi di coomologia rimanenti saranno dunque nulli. Quasi. Ad essere precisi, solo quelli con coefficienti in moduli di torsione.
+In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un campo locale, mostrando che questo ha dimensione coomologica 2: tutto i gruppi di coomologia rimanenti saranno dunque nulli. Quasi. Ad essere precisi, solo quelli con coefficienti in moduli di torsione.
 
 \begin{lemma}
 	Sia $ k $ un campo e $ p $ un numero primo. I seguenti sono equivalenti:
@@ -345,7 +345,7 @@ In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un cam
 \end{lemma}
 
 \begin{proof}
-	Asuumiamo 1. La $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
+	Assumiamo 1. La $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
 	\[ (\Br L) [p] = \HH^2(L, \, \mu_p) = 0. \]
 	È evidente che 2 implica 3. Assumiamo dunque 3. Sia $ G_p $ un $ p $-Sylow di $ \Gal{\bar{k}/k} $ e $ L $ il sottocampo corrispondente. $ L $ contiene le radici dell'unità $ \mu_p $: infatti l'indice $ [L(\mu_p)\,\colon L] $ deve dividere sia $ p-1 $, perché campo di spezzamento di $ x^p-1 $, che $ p $, per costruzione. Ne segue che
 	\[ \HH^2(L, \, \Z/p\Z) = \HH^2(L, \, \mu_p) = (\Br L)[p] = 0, \]
@@ -363,7 +363,7 @@ In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un cam
 	\Br F \rar["\inv_F"]
 	& \Q/\Z.
 	\end{tikzcd} \]
-	Riusciamo ad ottenere l'etensione $ F $ richiesta, per esempio, componendo $ E $ con un'estensione di $ K $ non ramificiata del giusto grado.\\
+	Riusciamo ad ottenere l'estensione $ F $ richiesta, per esempio, componendo $ E $ con un'estensione di $ K $ non ramificata del giusto grado.\\
 	
 	Possiamo ora concludere: l'estensione non ramificata massimale ha gruppo di Galois $ \hat{\Z} $, che è un sottogruppo di $ \Gal{\bar{\K}/K} $, il cui quoziente abbiamo appena mostrato avere dimensione coomologica 1; per il lemma \ref{quozienti}, concludiamo che 
 	$$  \cd(K) \leq \cd(\knr) + \cd(\hat{\Z}).  $$

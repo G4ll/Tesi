@@ -62,14 +62,14 @@ e infine prenderne la coomologia; oppure partire da una risoluzione iniettiva di
 \[ 0 \to A \to I^{\,0} \to I^{\,1} \to I^{\,2} \to \dots, \]
 applicare il funtore covariante $ \mathcal{F} = \Hom_G(\Z, \, \bullet \, ) $ per ottenere il complesso coomologico
 \[ 0 \to \mathcal{F}\left(I^{\,0}\right) \to \mathcal{F}\left(I^{\,1}\right) \to \mathcal{F}\left(I^{\,2}\right) \to \dots, \]
-e, ancora una volta, prenderne la coomoogia. \\
+e, ancora una volta, prenderne la coomologia. \\
 
 Non è banale mostrare né che le due definizioni non dipendono dalla risoluzione scelta e né che sono equivalenti, ma per fortuna non ce ne occuperemo. Questo assodato, affermiamo, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
 \begin{equation} \label{injban}
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
 \end{equation}
 
-%% Cotruzione esplicita e cocatene
+%% Costruzione esplicita e cocatene
 Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
 \[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
 dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
@@ -130,12 +130,12 @@ Classicamente, i moduli che abbiamo appena introdotto vengono chiamati \emph{coi
 \[ \Hom_H(\Z[G], \, A)  = \Z[G] \otimes_H A. \]
 Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e che, di conseguenza, $ \f $ preserva i proiettivi. Siamo finalmente pronti per affrontare il risultato principale del capitolo, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
 \begin{proposition}\label{funct}
-	Siano  $ A $ uno $ G $ modulo e $ A' $ un $ H $ modulo. Dati $ f \colon H \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omorfismo $ H $-equivariante, otteniamo una mappa in coomologia
+	Siano  $ A $ uno $ G $ modulo e $ A' $ un $ H $ modulo. Dati $ f \colon H \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omomorfismo $ H $-equivariante, otteniamo una mappa in coomologia
 	\[ \HH^i(G, \, A) \to \HH^i(H, \, A') \qquad\forall i \geq 0. \]
 \end{proposition}
 
 \begin{proof}
-	Prendiamo una risoluzione proiettiva di $ \Z $ nella categoria dei $ G $-moudli
+	Prendiamo una risoluzione proiettiva di $ \Z $ nella categoria dei $ G $-moduli
 	\[ \dots \to P_2 \to P_1 \to P_0 \to \Z \to 0 \]
 	e osserviamo che, poiché il funtore $ \f $ preserva i proiettivi, anche
 	\[ \dots \to \f P_2 \to  \f P_1 \to \f P_0 \to \Z \to 0 \]
@@ -168,20 +168,20 @@ Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei cas
 \begin{definition}[Inflazione]
 	Chiamiamo mappa d'inflazione l'omomorfismo
 	\[ \Inf \colon \HH^i(G/H, \, A^H) \to \HH^i(G, \, A) \]
-	indotto dalla proiezione natuarle $ \pi \colon G \to G/H $ e dall'inclusione $ u \colon A^H \to A $.
+	indotto dalla proiezione naturale $ \pi \colon G \to G/H $ e dall'inclusione $ u \colon A^H \to A $.
 \end{definition}
 
 Un'altra mappa che si incontra spontaneamente in natura è quella indotta dal coniugio: lasciamo agire $ G $ su se stesso per coniugio e, fissato un elemento $ t \in G $, consideriamo il relativo automorfismo interno $ \sigma_t \colon G \to G $. Questo induce un automorfismo di $ \HH^i(G, \, A) $ che riusciamo a descrivere esplicitamente.
 
 \begin{proposition}\label{coniugio}
-	L'isomorfsimo indotto dal coniugio per $ t $
+	L'isomorfismo indotto dal coniugio per $ t $
 	\[ \sigma_t \colon \HH^i(G, \, A) \to \HH^i(G, \, A) \]
 	è l'identità.
 \end{proposition}
 \begin{proof}
-	Dimostriamo il risultato per decalage: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $-modulo. Preso ora un qualunque modulo $ A $, immergiamolo in un modulo iniettivo $ I $:
+	Dimostriamo il risultato per décalage: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $-modulo. Preso ora un qualunque modulo $ A $, immergiamolo in un modulo iniettivo $ I $:
 	\[ 0 \to A \to I \to Q \to 0. \]
-	La succession esatta lunga associata (per \ref{fond}) è costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
+	La successione esatta lunga associata (per \ref{fond}) è costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar & A^G \rar\dar["\sigma_t = \id" description] & I^G \rar\dar["\sigma_t = \id" description] & Q^G \rar\dar["\sigma_t = \id" description] & \HH^1(G, \, A) \rar\dar["\sigma_t"] & 0 \\
 	0 \rar & A^G \rar & I^G \rar & Q^G \rar & \HH^1(G, \, A) \rar & 0
@@ -246,7 +246,7 @@ oppure proiettarci sopra l'indotto
 \Ind_1^G(A) &\twoheadrightarrow A  \\
 f & \mapsto \sum g \cdot f(g^{-1}x),
 \end{align*}
-in modo da avere sempre delle successioni esatte corte pronte per soddisfare un improvviso bisogno dimostrazioni per decalage.
+in modo da avere sempre delle successioni esatte corte pronte per soddisfare un improvviso bisogno dimostrazioni per décalage.
 
 \begin{lemma}\label{scappa}
 	Dati due moduli $ A $ e $ B $, se $ B $ è indotto, pure $ \Hom_\Z(A, \, B) $ è indotto.
@@ -261,7 +261,7 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 	\[ E^{pq}_2 = \HH^p(G/H, \, \HH^q(H, \, A)) \;\Rightarrow\; \HH^{p+q}(G, \, A). \]
 \end{theorem}
 
-\begin{corollary}[Succesione Restrizione-Inflazione]\label{boo1}
+\begin{corollary}[Successione Restrizione-Inflazione]\label{boo1}
 	Associata ad $ H $ sottogruppo normale di $ G $, si ha una successione esatta
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & \HH^1(G/H, \, A^H) \rar["\Inf"]
@@ -272,7 +272,7 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 	\end{tikzcd} \]
 \end{corollary}
 
-\begin{corollary}[Succesione Restrizione-Inflazione]\label{boo2}
+\begin{corollary}[Successione Restrizione-Inflazione]\label{boo2}
 	Associata ad $ H $, sottogruppo normale di $ G $ per cui $ \HH^i(H, \, A ) = 0 $ per ogni $ 1 \leq i < q $, si ha la successione esatta
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & \HH^q(G/H, \, A^H) \rar["\Inf"]
@@ -292,7 +292,7 @@ Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrizion
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $-modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
 \[N_{G/H} \colon a \mapsto \sum_{x \in G/H} x \cdot a, \]
-che coincide con la moltiplicazione per l'elemento $ N = \sum_{g \in R} \, g $ di $ \Z[G] $, somma di rapresentati delle classi laterali di $ H $. Vale la pena di osservare subito che, proprio perché si identifica con la moltiplicazione per $ N $, tutti i diagrammi che induce commutano: preso un morfismo $ f \colon A \to B $ il diagramma
+che coincide con la moltiplicazione per l'elemento $ N = \sum_{g \in R} \, g $ di $ \Z[G] $, somma di rappresentati delle classi laterali di $ H $. Vale la pena di osservare subito che, proprio perché si identifica con la moltiplicazione per $ N $, tutti i diagrammi che induce commutano: preso un morfismo $ f \colon A \to B $ il diagramma
 \[\begin{tikzcd}
 A^H \rar["f"] \dar{N} 
 & B^H \arrow[d, "N"]\\
@@ -301,7 +301,7 @@ A^G \rar["f"]
 \end{tikzcd}\] 
 commuta, perché, per definizione, la mappa $ f $ è $ \Z[G] $-lineare. \todo[sistemare] \\
 
-Per estendere la mappa a tutti i gradi possiamo quindi partire da una risoluzione iniettiva di $ A $, prenderne gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prenderene l'omologia, applicare la norma per ottenere un morfismo di complessi
+Per estendere la mappa a tutti i gradi possiamo quindi partire da una risoluzione iniettiva di $ A $, prenderne gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prenderne l'omologia, applicare la norma per ottenere un morfismo di complessi
 \[\begin{tikzcd}
 0 \rar
 & \left(I^{\,0}\right)^H \rar \dar["N"]
@@ -330,12 +330,12 @@ La nostra prima preoccupazione è controllare come la corestrizione si comporta 
 	coincide con la moltiplicazione per $ m $.
 \end{theorem}
 \begin{proof}
-	La dimostrazione è per decalage: in $ i = 0 $ ritroviamo l'azione della norma su elementi fissati dall'azione di $ G $
+	La dimostrazione è per décalage: in $ i = 0 $ ritroviamo l'azione della norma su elementi fissati dall'azione di $ G $
 	\[\begin{tikzcd}
 	A^G \rar["i"] & A^H \rar["N"] & A^G & \\
 	a \rar[mapsto] & a \rar[mapsto] & \displaystyle\sum_{x \in G/H} x \cdot a = ma.
 	\end{tikzcd}  \]
-	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $-modulo. Immergiamo $ A $ nel suo indotto per ottenere una succession esatta corta
+	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $-modulo. Immergiamo $ A $ nel suo indotto per ottenere una successione esatta corta
 	\[ 0 \to A \to \Ind_1^G(A) \to Q \to 0, \]
 	la cui successione esatta lunga associata (per \ref{fond}) è costellata di zeri ovunque si prenda la coomologia dell'indotto (per \ref{indotti}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
@@ -360,7 +360,7 @@ La nostra prima preoccupazione è controllare come la corestrizione si comporta 
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 
-Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un ponte tra l'algebra omologica e l'artimetica, che possiamo attaversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
+Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un ponte tra l'algebra omologica e l'aritmetica, che possiamo attraversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
 \[\begin{tikzcd}
 \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) = 0 \rar["\Cor"] & \HH^i(G, \, A)
 \end{tikzcd}  \]
@@ -372,7 +372,7 @@ Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarme
 
 Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Se per esempio sapessimo che $ A $ è finitamente generato e di conseguenza $ \HH^i(G, \, A) $ è finitamente generato (per la descrizione esplicita in cocatene, per dire), scopriremmo dunque che dev'essere finito: perché finitamente generato e di torsione. \\
 
-Tra le meraviglie che ci porge l'artimetica, troviamo il seguente risultato, tanto più raffinato del precedente quanto della meno chiara utilità. Si tratta di un primo passo verso la decomposizione dello studio dei gruppi di coomologia nello studio delle singole componenti primarie e si rivelerà fondamentale quando affronteremo il discorso più dettagliatamente.
+Tra le meraviglie che ci porge l'aritmetica, troviamo il seguente risultato, tanto più raffinato del precedente quanto della meno chiara utilità. Si tratta di un primo passo verso la decomposizione dello studio dei gruppi di coomologia nello studio delle singole componenti primarie e si rivelerà fondamentale quando affronteremo il discorso più dettagliatamente.
 
 \begin{lemma}\label{injp}
 	Se $ p $ è un primo per cui $ m = [G \, \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
@@ -381,7 +381,7 @@ Tra le meraviglie che ci porge l'artimetica, troviamo il seguente risultato, tan
 Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe ad una mappa iniettiva, dunque la mappa più interna, la restrizione, dev'essere iniettiva a sua volta.
 
 \begin{profinite}
-	La norma, e di conseguenza la corestrizione, è ben definita per ogni sottogruppo $ U $ d'indice finito e chiuso di $ G $. Poiché i sottogruppi sono aperti se e solo se chiusi e d'inidice finito, possiamo applicare il corollario \ref{ntors}, per passare al limite (come nella proposizione \ref{limite}) e scoprire che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
+	La norma, e di conseguenza la corestrizione, è ben definita per ogni sottogruppo $ U $ d'indice finito e chiuso di $ G $. Poiché i sottogruppi sono aperti se e solo se chiusi e d'indice finito, possiamo applicare il corollario \ref{ntors}, per passare al limite (come nella proposizione \ref{limite}) e scoprire che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
 \end{profinite}
 
 \section{Gruppi di Tate}
@@ -426,7 +426,7 @@ e osserviamo che passa al quoziente $ N \colon A/I_G \to A^G $.
 	 \end{equation}
 \end{definition}
 
-Sistemati i dettagli ad arte, enunciamo il risultato che ricomponesa i nostri sforzi.
+Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sforzi.
 
 \begin{theorem}\label{fond2}
 	Data una successione esatta corta di $ G $ moduli
@@ -521,7 +521,7 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricomponesa i nostri sf
 	Seguendo le mappe tratteggiate, otteniamo la tesi.
 \end{proof}
 
-Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime nonappena ci si accorge che le definizioni in grado $ i = 0,\, -1 $ fattorizzano tramite la norma.
+Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime non appena ci si accorge che le definizioni in grado $ i = 0,\, -1 $ fattorizzano tramite la norma.
 
 \todo[questo è il posto giusto per dire che gli indotti sono ancora banalie  cotruire gli Ai]
 
