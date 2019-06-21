@@ -16,16 +16,16 @@ si comporta bene con i differenziali
 permettendoci di passare in coomologia.
 
 \begin{definition}[Tazza prodotto]
-	Chiamiamo tazza prodotto l'applicazione $ \Z $-bilineare indotta da dal prodotto appena definito
+	Chiamiamo tazza-prodotto l'applicazione $ \Z $-bilineare indotta da dal prodotto appena definito
 	\[ \cup \colon \HH^p(G, \, A) \times \HH^q(G, \, B) \to \HH^{p+q}(G, \, A \otimes B)  \]
 \end{definition}
 
 Il prodotto è ovviamente compatibilità con le successioni esatte lunghe:
 
-\begin{proposition}
+\begin{proposition}\label{cup1}
 	Se entrambe le successioni
 	\[ 0 \to A \to A' \to A'' \to 0, \qquad 0 \to A \otimes B \to A'\otimes B \to A''\otimes B \to 0 \]
-	sono esatte, allora il tazza prodotto, fissato $ \beta \in \HH^q(G, \, B) $, in induce un morfismo di complessi
+	sono esatte, allora il tazza-prodotto, fissato $ \beta \in \HH^q(G, \, B) $, in induce un morfismo di complessi
 	\[\begin{tikzcd}[column sep = small]
 	\dots \rar
 	& \Hh^{p}(G, \, A') \dar["\cup\beta"] \rar 
@@ -39,9 +39,9 @@ Il prodotto è ovviamente compatibilità con le successioni esatte lunghe:
 	equivalentemente $ (\delta\alpha'') \cup \beta = \delta (\alpha'' \cup \beta) $.
 \end{proposition}
 
-Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B \to C $, componendo all'omomorfismo $ \varphi\colon A \otimes B \to C  $ con il tazza prodotto otteniamo qualunque sorta di prodotto in coomologia. Dalla proposizione di compatibilità precedente possiamo dedurne una versione appena più generale, che ci tornerà utile in futuro.
+Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B \to C $, componendo all'omomorfismo $ \varphi\colon A \otimes B \to C  $ con il tazza-prodotto otteniamo qualunque sorta di prodotto in coomologia. Dalla proposizione di compatibilità precedente possiamo dedurne una versione appena più generale, che ci tornerà utile in futuro.
 
-\begin{lemma}
+\begin{lemma}\label{cup2}
 	Date due successioni esatte
 	\[ 0 \to A' \to A \to A'' \to 0, \qquad 0 \to B' \to B \to B'' \to 0 \]
 	e un'applicazione bilineare $  \varphi\colon A \times B \to C $ nulla su $ A'\times B' $. Troviamo due applicazioni bilineari
@@ -92,10 +92,10 @@ La tesi è assolutamente sopraffacente. È utile pensare al risultato prima nell
 	& \Ind_1^G(B) \rar
 	& 0 \end{tikzcd} \]
 	in degli isomorfismi
-	\[ \Hh^n(H, \, C \otimes D ) = \Hh^n(H, \, \left(C \oplus \Ind_1^G(B)\right) \otimes D ). \]
+	\[ \Hh^n(H, \, C \otimes D ) = \Hh^n \left(H, \, \left(C \oplus \Ind_1^G(B)\right) \otimes D \right). \]
 \end{proof}
 
-Ripreso il fiato, concessoci il tempo di capire quanto attentamente abbiamo scelto le ipotesi, procediamo verso una generalizzazione ancora più spinta. Vorremmo un risultato analogo per mappe indotte dal tazza-prodotto, che producono come unica differenza un cambio di dimensione.
+Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state scelte le ipotesi, procediamo verso una generalizzazione ancora più spinta. Vorremmo un risultato analogo per mappe indotte dal tazza-prodotto, che come unica differenza producono un cambio di dimensione in arrivo.
 
 \begin{proposition}
 	Sia $ \varphi \colon A \times B \to C $ una mappa bilineare tra $ G $ moduli; fissiamo un elemento $ a \in \HH^q(G, \, A) $. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui l'omomorfismo indotto dal tazza prodotto per $ \Res a $
@@ -104,12 +104,17 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente abbiamo scel
 	\HH^{n_p+1}(G_p,\, B) &\to \HH^{n_p+q+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
 	\HH^{n_p+2}(G_p,\, B) &\hookrightarrow \HH^{n_p+q+2}(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
-	Possiamo allora concludere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tazza prodotto per $ \Res a $
+	Possiamo allora concludere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tazza-prodotto per $ \Res a $
 	\[ \Hh^n(H, \, B \otimes D) \to \Hh^{n+q}(H, \,  C\otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
 \end{proposition}
 
 \begin{proof}
-	Giocando a trovare le differenze con la proposizione precedente, si scopre che queste coincidono assumendo $ a \in \HH^0(G, \, A) $, ovvero $ q = 0. $ Per concludere è pertanto sufficiente mostrare che ci si può ricondurre al caso precedente. Il modo naturale di farlo è il metodo dei quozienti \todo[scrivere questa parte]
+	Giocando a trovare le differenze con la proposizione precedente, si scopre che queste coincidono quando $ a \in \HH^0(G, \, A) $, ovvero assumendo $ q = 0. $ Per concludere è pertanto sufficiente mostrare che ci si può ricondurre al caso precedente. Il modo naturale di farlo è passare ai moduli con coomologia traslata: sostituendo $ A, \, C $ con $ A_1 ,\,  C_1 $, otteniamo un'applicazione bilineare $ \varphi_1\colon A_1 \times B \to C_1 $.
+	\[ \begin{tikzcd}
+	content
+	\end{tikzcd} \]
+	
+	 \todo[scrivere questa parte]
 \end{proof}
 
 Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare le particolari ipotesi in una forma più accessibile, se non proprio comprensibile.
@@ -133,42 +138,32 @@ Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare
 	\end{align*}
 \end{proof}
 
+\section{Reciprocità Locale}
+
+
 % Costruzione della Reciprocità e... poco altro?
-Continuando nella nostra discesa dall'astrazione verso la Teoria di Galois, applichiamo subito il teorema al caso dei campi locali: siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $. Poniamo $ A = L^\times $ e $ G $ il gruppo di Galois dell'estensione. Per Hilbert 90 l'ipotesi 1 del teorema di Tate-Nakayama è soddisfatta e, grazie al nostro studio del gruppo di Brauer, anche l'ipotesi 2: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, L^\times) $ coincide con il sottogruppo di $ n $-torsione di $ \Br K = \Q/\Z $, possiamo pertanto scegliere $ u \in \HH^2(G, \, L^\times) $ per cui $ \inv_K(a) = \frac{1}{n} $. Il teorema produce allora un isomorfismo
+Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo subito il teorema al caso dei campi locali: siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $. Poniamo $ A = L^\times $ e $ G $ il gruppo di Galois dell'estensione. Per Hilbert 90 l'ipotesi 1 del teorema di Tate-Nakayama è soddisfatta e, grazie al nostro studio del gruppo di Brauer, anche l'ipotesi 2: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, L^\times) $ coincide con il sottogruppo di $ n $-torsione di $ \Br K = \Q/\Z $, possiamo pertanto scegliere $ u \in \HH^2(G, \, L^\times) $ per cui $ \inv_K(u) = \frac{1}{n} $. Il teorema produce allora un isomorfismo
 \[ \theta\colon \Hh^{-2}(G, \, \Z) \to \Hh^{0}(G, \,  L^\times), \]
 che coincide con il tazza-prodotto per $ u. $
 
 \begin{theorem}[Reciprocità Locale]
 	Per ogni estensione finita abeliana $ L/K $, abbiamo un isomorfismo
-	\[ \omega_L\colon \frac{K^\times}{NL^\times} \to \Gal{L/K} \]
+	\[ \omega_L\colon \frac{K^\times}{NL^\times} \to \Gal{L/K}, \]
+	noto come \emph{isomorfismo di reciprocità}.
 \end{theorem}
 
 \begin{proof}
-	Consideriamo la mappa inversa all'isomorfismo $ \theta $ e calcoliamo i due gruppi di coomologia coinvolti. Per definizione
+	Consideriamo l'isomorfismo mappa $ \theta^{-1} $ definito sopra e calcoliamo i due gruppi di coomologia coinvolti. Per definizione
 	\[ \Hh^{0}(G, \,  L^\times) = K^\times / NL^\times. \]
 	Il primo gruppo di omologia $ \Hh^{-2}(G, \, \Z) = \HH_1(G, \, \Z) $ è l'abelianizzato di $ G $: la successione esatta corta
 	\[ 0 \to I_G \to \Z[G] \to \Z \to 0 \]
 	produce in omologia, poiché $ \Z[G] $ è indotto, la successione esatta
 	\[ 0 \to \HH_1(G,\, \Z) \to I_G/I_G^2 \to \Z \to \Z \to 0. \]
+	Da cui deduciamo che $ \HH_1(G,\, \Z) = I_G/I_G^2 = G^\mathtt{ab} $.
 \end{proof}
 
-% Dimostrare
-Riprendendo l'isomorfismo di sopra nel caso di estensione abeliana e aggiungendovi la descrizione esplicita dei due gruppi che vi appaiono, otteniamo una mappa
 
-nota come isomorfismo di \emph{reciprocità locale}. Questa mappa fornisce una descrizione, in qualche senso esplicita, di tutti i gruppi di Galois di estensioni abeliane, fornendo uno strumento dalla evidente importanza. \\
+Questa mappa fornisce una descrizione, in qualche senso esplicita, di tutti i gruppi di Galois di estensioni abeliane, fornendo uno strumento dalla evidente importanza che conclude in un qualche senso lo studio delle estensioni abeliane. L'ultimo obiettivo rimane riassumere tutto in un unico risultato: il calcolo del gruppo di Galois della massima estensione abeliana, ovvero l'abelianizzato del gruppo di Galois assoluto $ \Gamma_K $. Passando al limite l'isomorfismo di reciprocità, sulle sottoestensioni finite, otteniamo una mappa
+\[ \omega\colon K^\times \to \Gamma_K^{\texttt{ab}}, \]
+detta \emph{applicazione di reciprocità}, che è un isomorfismo sul quoziente $ \varprojlim_L K^\times/NL^\times $.
 
-Non contenti del risultato, potremmo prendere il limite inverso sulle estensioni abeliane finite, ottenendo così un isomorfismo
-\[ \omega\colon \varprojlim_L \frac{K^\times}{NL^\times} \to \Gamma_K^{\texttt{ab}} . \]
-
-
-\section{Dualità di Tate}
-
-% MIsteriosa esistenza del mdulo dualizzante
-
-% Lemmino
-
-% Trovare il dualizzante
-
-% Dualità di Tate
-
-% Calcolo del gruppo di Galois assoluto

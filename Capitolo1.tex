@@ -202,55 +202,8 @@ Possiamo ora enunciare il risultato che ci ha permesso di confinare i gruppi pro
 	\[ \HH^n \left(G, \, A \right)  = \varinjlim_{U < G} \HH^n(G/U, \, A^U), \]
 	dove $ U $ varia tra i sottogruppi normali \emph{aperti} di $ G $.
 \end{proposition}
-
-
-
-
 \end{profinite}
 
-
-\section{Moduli Indotti}
-L'inclusione naturale $ i \colon H \to G $ e la mappa $ u \colon \Ind_H^G(B) \to B $ (che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $) inducono un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B), \]
-che risulta interessante per tutt'altra ragione.
-
-\begin{lemma}[di Shapiro] \label{Shapiro}
-	L'omomorfismo sopra definito
-	\[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \]
-	è un isomorfismo.
-\end{lemma}
-\begin{proof}
-	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ \f $ (\ref{aggiunzione}), abbiamo che
-	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
-	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto coincidono.
-\end{proof}
-
-Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani senza struttura, perché è particolarmente semplice calcolarne la coomologia.
-
-\begin{definition}
-	Chiamiamo \emph{modulo indotto} uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
-\end{definition}
-
-Osserviamo che i moduli liberi sono indotti: abbiamo infatti che, preso un modulo libero $ F = \bigoplus_n \Z[G] $, questo si scrive come
-$ F = \left(\bigoplus_n\Z\,\right) \otimes_\Z \Z[G],  $ che è indotto per definizione.
-Segue immediatamente dal Lemma di Shapiro $ (\ref{Shapiro}) $ che
-\begin{corollary}\label{indotti}
-	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
-\end{corollary}
-
-Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque. Preso un modulo $ A $, possiamo immergerlo nel suo indotto
-\begin{align*}
-A &\hookrightarrow \Ind_1^G(A) \\
-a & \mapsto f_a \colon g \mapsto g \cdot a, \end{align*} 
-oppure proiettarci sopra l'indotto
-\begin{align*}
-\Ind_1^G(A) &\twoheadrightarrow A  \\
-f & \mapsto \sum g \cdot f(g^{-1}x),
-\end{align*}
-in modo da avere sempre delle successioni esatte corte pronte per soddisfare un improvviso bisogno dimostrazioni per décalage.
-
-\begin{lemma}\label{scappa}
-	Dati due moduli $ A $ e $ B $, se $ B $ è indotto, pure $ \Hom_\Z(A, \, B) $ è indotto.
-\end{lemma}
 
 \section{Successione Spettrale di Hochschild-Serre}
 
@@ -521,10 +474,70 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 	Seguendo le mappe tratteggiate, otteniamo la tesi.
 \end{proof}
 
-Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime non appena ci si accorge che le definizioni in grado $ i = 0,\, -1 $ fattorizzano tramite la norma.
-
-\todo[questo è il posto giusto per dire che gli indotti sono ancora banalie  cotruire gli Ai]
+Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime non appena ci si accorge che le loro definizioni classiche in grado $ i = 0,\, -1 $ fattorizzano tramite la norma.\\
 
 \begin{profinite}
 	Nonostante sia possibile estendere i gruppi di Tate anche a gruppi profiniti, non faremo questo sforzo, limitandoci a non usarli.
 \end{profinite}
+
+\section{Moduli Indotti}
+L'inclusione naturale $ i \colon H \to G $ e la mappa $ u \colon \Ind_H^G(B) \to B $ (che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $) inducono un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B). \]
+
+\begin{lemma}[di Shapiro] \label{Shapiro}
+	L'omomorfismo sopra definito
+	\[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \]
+	è un isomorfismo.
+\end{lemma}
+\begin{proof}
+	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ \f $ (\ref{aggiunzione}), abbiamo che
+	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
+	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto che coincidono.
+\end{proof}
+
+Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani senza struttura, perché è particolarmente semplice calcolarne la coomologia.
+
+\begin{definition}
+	Chiamiamo \emph{modulo indotto} uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
+\end{definition}
+
+Per esempio, i moduli liberi sono indotti: abbiamo infatti che, preso un modulo libero $ F = \bigoplus_n \Z[G] $, questo si scrive come
+$ F = \left(\bigoplus_n\Z\,\right) \otimes_\Z \Z[G],  $ che è indotto per definizione.
+Segue immediatamente dal Lemma di Shapiro $ (\ref{Shapiro}) $ che
+\begin{corollary}\label{indotti} \todo[potenziare]
+	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
+\end{corollary}
+
+Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque. Preso un modulo $ A $, possiamo immergerlo nel suo indotto
+\begin{align*}
+	A &\hookrightarrow \Ind_1^G(A) \\
+	a & \mapsto f_a \colon g \mapsto g \cdot a, \end{align*} 
+oppure proiettarci sopra l'indotto
+\begin{align*}
+	\Ind_1^G(A) &\twoheadrightarrow A  \\
+	f & \mapsto \sum g \cdot f(g^{-1}x),
+\end{align*}
+in modo da avere sempre delle successioni esatte corte pronte per soddisfare un improvviso bisogno dimostrazioni per décalage. Possiamo infatti sfruttare la banalità degli indotti per costruire dei moduli con coomologia \leftquote traslata": scriviamo esplicitamente la successione indotta dall'inclusione
+\[ 0 \to A \to \Ind_1^G \to A_1 \to 0; \]
+questa produce una successione esatta lunghissima che contiene degli isomorfismi
+$ \Hh^{i}(G, \, A_1) = \Hh^{i+1}(G, \, A). $
+Analogamente possiamo fare esplicitando la successione associata alla proiezione:
+\[ 0 \to A_{-1} \to \Ind_1^G(A) \to A \to 0. \]
+Riassumiamo il tutto donando a questi moduli, nei quali risiede l'intera idea di décalage, la dignità di un nome.
+
+\begin{definition} \todo[brutto!]
+	Sia $ A $ uno $ G $-modulo. Chiamiamo \emph{moduli di coomologia traslata} $ A_0 = A $, $ A_1 $ e $ A_{-1} $ definiti come sopra. Definiamo ricorsivamente
+	\begin{align*}
+		A_r & = (A_{r-1})_1 & \text{per  }  r > 1, \\
+		A_r & = (A_{r+1})_{-1} &\text{per  } r < -1.
+	\end{align*}
+\end{definition}
+
+Per questi, in effetti, vale che
+\begin{equation}\label{traslati}
+\Hh^{i}(G, \, A_r) = \Hh^{i+r}(G, \, A).
+\end{equation}
+
+
+\begin{lemma}\label{scappa} \todo[muori!]
+	Dati due moduli $ A $ e $ B $, se $ B $ è indotto, pure $ \Hom_\Z(A, \, B) $ è indotto.
+\end{lemma}

@@ -8,32 +8,31 @@ Per campo locale intendiamo un campo completo rispetto a una valutazione discret
 
 
 \section{Teoria di Galois}
-Sia $ \K $ un campo. Fissiamo una chiusura separabile $ \bar{\K} $. D'ora in avanti denoteremo
-\[ \HH^i(\K, \, A) := \HH^i(\Gal{\bar{\K} / \K}, \, A). \]
-Osserviamo che, presa una diversa chiusura separabile $ \bar{\K}' $ e un sollevamento di $ \id_{\K} $ a un isomorfismo $ f\colon \bar{\K} \to \bar{\K}' $, questo induce un isomorfismo in coomologia
+Sia $ k $ un campo. Fissiamo una chiusura separabile $ \bar{k} $. D'ora in avanti denoteremo, per brevità, con $ \Gamma_k $ il gruppo di Galois assoluto $ \Gal{\bar{k} / k} $, che comunque sostituiremo ovunque con $ k $. in questo senso parlaremo impropriamente di coomologia di $ k $, per esempio scrivendo
+\[ \HH^i(k, \, A) := \HH^i(\Gamma_k, \, A). \]
+Osserviamo che, presa una diversa chiusura separabile $ k' $ e un sollevamento di $ \id_{k} $ a un isomorfismo $ f\colon \bar{k} \to \bar{k}' $, questo induce un isomorfismo in coomologia
 \[ f^* \colon \HH^i(\Gal{\bar{\K} / \K}, \, A) \to \HH^i(\Gal{\bar{\K}' / \K}, \, A) \]
-che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi.\\
-
+che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi. Possiamo quindi parlare senza remore della \leftquote coomologia di $ k $". \\
 
 % Hilbert 90 additivo
-Fissiamo un'estensione di Galois $ L/\K $ e cominciamo ad analizzare la coomologia del modulo più naturale del relativo gruppo $ \Gal{L/\K} $: il campo $ L $. Il gruppo di Galois è composto dagli automorfismi del campo, per definizione, quindi è ben definita un'azione tanto sul gruppo additivo $ L $, quanto sul gruppo moltiplicativo $ L^\times $.
+Fissiamo un'estensione di Galois $ L/k $ e cominciamo ad analizzare la coomologia del modulo più naturale del relativo gruppo $ \Gal{L/k} $: il campo $ L $. Il gruppo di Galois è composto dagli automorfismi del campo, per definizione, quindi è ben definita un'azione tanto sul gruppo additivo $ L $, quanto sul gruppo moltiplicativo $ L^\times $.
 
 \begin{theorem} \label{Hadd}
-	Sia $ L / \K $ un'estensione di Galois. Il gruppo additivo di $ L $ è coomologicamente banale.
+	Sia $ L / k $ un'estensione di Galois. Il gruppo additivo di $ L $ è coomologicamente banale.
 \end{theorem}
 \begin{proof}
-	Nel caso di estensioni finite, la tesi segue dal Teorema della Base Normale: questo afferma che $ L $ è un $ K[G] $ modulo libero. Per estensioni infinite è sufficiente passare al limite sulle sottoestensioni finite (tramite la solita proposizione \ref{limite}).
+	Nel caso di estensioni finite, la tesi segue dal Teorema della Base Normale: questo afferma che $ L $ è un $ k[G] $ modulo libero. Per estensioni infinite è sufficiente passare al limite sulle sottoestensioni finite (tramite la solita proposizione \ref{limite}).
 \end{proof}
 
 % Hilbert 90 moltiplicativo
 Non potevamo chiedere niente di meglio. La coomologia del gruppo moltiplicativo non è altrettanto semplice: lo studio di quest'ultima è il cuore della Teoria. La banalità del primo di gruppo di coomologia è già parecchio interessante, si tratta infatti di una riscrittura del Teorema di Indipendenza dei Caratteri di Artin nel nostro linguaggio:
 
 \begin{theorem}[Hilbert 90]\label{H90}
-	Sia $ L/\K $ un'estensione di Galois. Si ha
-	\[ \HH^1(\Gal{ L / \K}, \, L^\times) = 0. \]
+	Sia $ L/k $ un'estensione di Galois. Si ha
+	\[ \HH^1(\Gal{ L / k}, \, L^\times) = 0. \]
 \end{theorem}
 \begin{proof}
-	Assumiamo, per il momento, che $ L/\K $ sia finita. Mostreremo che tutti i cocicli sono cobordi: prendiamo un cociclo $ a \colon G \to L^\times $, gli elementi di $ G $ sono linearmente indipendenti su $ L $, quindi troviamo $ x \in L^\times $ per cui
+	Assumiamo, per il momento, che $ L/k $ sia finita. Mostreremo che tutti i cocicli sono cobordi: prendiamo un cociclo $ a \colon G \to L^\times $, gli elementi di $ G $ sono linearmente indipendenti su $ L $, quindi troviamo $ x \in L^\times $ per cui
 	\[ y = \sum_{g \in G} a_g g(x) \neq 0. \]
 	Ma $ hy = a_h^{-1}y $ per ogni $ h \in G $, da cui la tesi.
 	Ancora una volta, passando al limite otteniamo la tesi anche per le estensioni infinite. \todo[bruttino]
@@ -42,14 +41,14 @@ Non potevamo chiedere niente di meglio. La coomologia del gruppo moltiplicativo 
 % Gruppo di Brauer
 Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome proprio.
 \begin{definition}[Gruppo di Brauer]
-	Il gruppo di Brauer di $ \K $ è $$  \Br \K = \HH^2(\K, \, \bar{\K}^\times).  $$
+	Il gruppo di Brauer di $ k $ è $$  \Br k = \HH^2(k, \, \bar{k}^\times).  $$
 \end{definition}
 
 % mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace? Sì dai!
 Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore che ne avesse sentito parlare a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava più che altro una buona intuizione dei risultati.
 
 % Metto un paio di proposizioni per stare tranquilli; è importante dire che possiamo pensare al Brauer come contenete i sottobrauerini, che direi essere il lemma qua sotto
-Nel seguito sarà comoda avere della notazione per indicare $ \HH^2(\Gal{L/k}, \, L^\times) $, che possiamo pensare come il gruppo di Brauer relativo all'estensione $ L/k $: lo chiameremo $ \Br(L/\K) $.
+Nel seguito sarà comoda avere della notazione per indicare $ \HH^2(\Gal{L/k}, \, L^\times) $, che possiamo pensare come il gruppo di Brauer relativo all'estensione $ L/k $: lo chiameremo $ \Br(L/k) $.
 
 \begin{lemma}\label{stronzetto}
 	Se $ L/k $ è un'estensione finita di Galois
@@ -93,17 +92,17 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 \section{Teoria di Kummer}
 
 
-Sia $ G = \Gal{\bar{\K}/ \K} $ il gruppo di Galois assoluto di $ \K $. Fissiamo un gruppo abeliano $ A $, finito e munito della topologia discreta; scegliendo un omomorfismo continuo
-\[ \varphi \colon \Gal{\bar{\K}/ \K} \to A, \]
-produciamo come nucleo un sottogruppo chiuso e normale del gruppo di Galois assoluto. Per il teorema di corrispondenza di Galois, otteniamo un'estensione $ L $ di gruppo
-\[ \Gal{L/K} = \frac{\Gal{\bar{\K}/ \K}}{\ker \varphi} \hookrightarrow A. \]
-Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfismi $ \Hom_{\textsf{Gr}}(G, \, A) $, in realtà a meno della relazione che identifica due omomorfismi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(G, \, A) = \Hom_{\textsf{Gr}}(G, \, A) $. Possiamo quindi sfoggiare il nostro arsenale per produrre un risultato piacevole.
+Sia $ \Gamma_k = \Gal{\bar{k}/ k} $ il gruppo di Galois assoluto di $ k $. Fissiamo un gruppo abeliano $ A $, finito e munito della topologia discreta; scegliendo un omomorfismo continuo
+\[ \varphi \colon \Gamma_k \to A, \]
+produciamo come nucleo un sottogruppo chiuso e normale. Per il teorema di corrispondenza di Galois, otteniamo un'estensione $ L $ di gruppo
+\[ \Gal{L/k} = \frac{\Gal{\bar{k}/ k}}{\ker \varphi} \hookrightarrow A. \]
+Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfismi $ \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $, in realtà a meno della relazione che identifica due omomorfismi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(\Gamma_k, \, A) = \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $. Possiamo quindi sfoggiare il nostro arsenale per produrre un risultato piacevole.
 
 \begin{theorem}[di Kummer]
 	Sia $ \K $ un campo e $ p $ un numero primo. Supponiamo che $ \K $ contenga le radici $ p $-esime dell'unità $ \mu_p $. In questo caso, c'è una corrispondenza tra le estensioni cicliche di gruppo $ \Z/p\Z $ (o banale) e $ \K^\times / {\K^\times}^p $.
 \end{theorem}
 \begin{proof}
-	Calcoleremo $ \HH^1(G, \, \Z/p\Z) $, detto $ G $ il gruppo di Galois assoluto del campo $ \K $. Prendere la $ p $-esima potenza $ x \mapsto x^p $ è un'operazione suriettiva nella chiusura algebrica, da cui l'esattezza di
+	Calcoleremo $ \HH^1(\Gamma_k, \, \Z/p\Z) $. Prendere la $ p $-esima potenza $ x \mapsto x^p $ è un'operazione suriettiva nella chiusura algebrica, da cui l'esattezza di
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& \mu_p \rar
@@ -117,14 +116,14 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	& \mu_p \rar
 	& \K^\times \rar["\cdot p"]
 	& \K^\times \rar
-	& \HH^1(G, \, \mu_p) \rar
+	& \HH^1(\Gamma_k, \, \mu_p) \rar
 	& 0;
 	\end{tikzcd}  \]
-	che è proprio quello che cercavamo: poiché le radici $ p $-esime dell'unità vivono in $ \K $ per ipotesi, $ G $ vi agisce banalmente e pertanto
-	\[ \HH^1(G, \, \Z/p\Z) = \HH^1(G, \, \mu_p) =\K^\times / {\K^\times}^p . \]
+	che è proprio quello che cercavamo: poiché le radici $ p $-esime dell'unità vivono in $ k $ per ipotesi, $ \Gamma_k $ vi agisce banalmente e pertanto
+	\[ \HH^1(\Gamma_k, \, \Z/p\Z) = \HH^1(\Gamma_k, \, \mu_p) =\K^\times / {\K^\times}^p . \]
 \end{proof}
 
-\section{Il gruppo di Brauer di un Campo Locale}
+\section{Struttura di un Campo Locale}
 % struttura
 Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi di $ \K $ come gli elementi di valutazione non negativa
 \[ \mathcal{O}_{\K} = \{ x \in \K \mid v(x)\geq 0 \}. \]
@@ -195,6 +194,46 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 	e osserviamo che non solo $  U^1_L $ è coomologicamente banale, ma anche $ \lambda^\times $: infatti in grado $ i = 1 $ è banale per Hilbert 90, in grado $ i = 2 $ banale perché sottogruppo di $ \Br \kappa $ (volendo per \ref{stronzetto}), che è nullo perché $ \hat{\Z} $ ha dimensione coomologica 1, e il gruppo $ G $ è ciclico. Segue la tesi prendendo la successione esatta lunga associata.
 \end{proof}
 
+
+
+% Assioma del corpo di classe
+Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; tant'è che abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
+
+\begin{lemma}[del sottomodulo banale]
+	Sia $ L/\K $ un'estensione finita di Galois di gruppo $ G $. Esiste un sottomodulo $ V \subseteq U_L^1 $ d'indice finito e coomologicamente banale.
+\end{lemma}
+
+\begin{proof}
+	Per il teorema della Base Normale esiste un elemento $ \alpha \in L $ per cui $ \{ g\alpha \mid g \in G \} $ sia una base di $ L $ come spazio vettoriale su $ K $. Poiché l'estensione è finita, troviamo un elemento $ a \in K^\times $ di valutazione abbastanza grande da far cadere tutti i $ a (g\alpha) $ negli interi $ \mathcal{O}_L $: chiamiamo $ M $ l'$ \mathcal{O}_K $-sottomodulo di $ \mathcal{O}_L $ generato da questi elementi; osserviamo che $ M $ è isomorfo a $ \mathcal{O}_K[G] $ per costruzione.  
+	Per di più, è un sottogruppo aperto di $ \mathcal{O}_L $ (che, equipaggiato con la topologia indotta da $ L $, è un gruppo additivo profinito): dette $ p_i $ le proiezioni sulle componenti, otteniamo infatti $ M $ come intersezione di aperti della forma $ \{ x \in \mathcal{O}_L \mid v_K p_i (x) \geq m_i\} $, per opportuni interi $ m_i $. Ne segue che $ M $ è un sottogruppo di indice finito e dunque che esiste un intero $ M $ per cui
+	\[  \pi^m\mathcal{O}_L\subseteq M \subseteq \mathcal{O}_L. \]
+	Costruiamo allora una serie di sottomoduli di $ U_L^1 $
+	\[ V_i = 1 + \pi^{m+i}M, \]
+	con la piacevole proprietà di filtrare $ V_1 $, presentando quozienti coomologicamente banali: abbiamo infatti un isomorfismo $ V_i/V_{i+1} \to M/\pi M $ dato da $$  v_i \mapsto \pi^{-m-i}(v_i-1) \; +\pi M,  $$ che possiamo riassumere in diverse successioni esatte corte
+	\[ 0 \to V_{i+1} \to V_i \to \kappa [G] \to 0; \]
+	da cui deduciamo, analogamente a quanto fatto nella proposizione precedente, che il sottomodulo $ V= V_1 $, di indice finito in $ U_L^1 $ per costruzione, è anch'esso coomologicamente banale ed è quindi il modulo desiderato.
+\end{proof}
+
+\begin{theorem}[Assioma del Campo di Classe] \label{assioma}
+	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hh^0(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
+\end{theorem}
+\begin{proof}
+	La prima asserzione segue da Hilbert 90. Applichiamo il lemma del sottomodulo banale e scriviamo la successione esatta 
+	\[ 1 \to V \to \mathcal{O}_L^\times \to \mathcal{O}_L^\times/V \to 1; \]
+	il primo modulo è coomologicamente banale per costruzione, pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, e anche l'ultimo modulo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
+	dove il secondo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente di Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla successione esatta $ \ref{local1} $
+	\[ \begin{tikzcd}[column sep = small]
+	1 \rar
+	& \mathcal{O}_{L}^\times \rar
+	& L^\times \rar["v"]
+	& \Z \rar
+	& 0,
+	\end{tikzcd} \]
+	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e Hilbert 90
+	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
+\end{proof}
+
+\section{Gruppo di Brauer}
 % Calcolo del BRKnr e mappa inv
 Ogni campo locale ha esattamente un'estensione non ramificata per ogni grado $ \knr $, il cui gruppo di Galois coincide con la corrispondente estensione del campo residuo dello stesso grado: $ \Gal{\K^n_\texttt{nr} / \K} = \Gal{\kappa^n / \kappa} = \Z / n\Z $. Ne segue che la massima estensione non ramificata $ \knr = \varinjlim \K^n_\texttt{nr} $ ha gruppo di Galois
 \[ G = \Gal{\knr / \K} = \Gal{\bar{\kappa} / \kappa} = \hat{\Z}. \]
@@ -252,33 +291,6 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 	\end{tikzcd} \]
 \end{proof}
 
-% Assioma del corpo di classe
-Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; tant'è che abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
-
-\begin{lemma}[del sottomodulo banale] \todo[dimostrare]
-	Sia $ L/\K $ un'estensione finita di Galois di gruppo $ G $. Esiste un sottomodulo $ V \subseteq U_L^1 $ d'indice finito e coomologicamente banale.
-\end{lemma}
-
-\begin{theorem}[Assioma del Campo di Classe] \label{assioma}
-	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hh^0(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
-\end{theorem}
-\begin{proof}
-	La prima asserzione segue da Hilbert 90. Applichiamo il lemma del sottomodulo banale e scriviamo la successione esatta 
-	\[ 1 \to V \to \mathcal{O}_L^\times \to \mathcal{O}_L^\times/V \to 1; \]
-	il primo modulo è coomologicamente banale per costruzione, pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, e anche l'ultimo modulo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
-	dove il secondo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente di Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla successione esatta $ \ref{local1} $
-	\[ \begin{tikzcd}[column sep = small]
-	1 \rar
-	& \mathcal{O}_{L}^\times \rar
-	& L^\times \rar["v"]
-	& \Z \rar
-	& 0,
-	\end{tikzcd} \]
-	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e Hilbert 90
-	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
-\end{proof}
-
-
 % BR(Knr/K) = Br(K)
 Siamo ora pronti per dimostrare che il gruppo di Brauer relativo all'estensione non ramificata massimale è in realtà già tutto $ \Br \K $.
 
@@ -333,7 +345,7 @@ Torniamo ora alla dimostrazione del teorema. Per il classico lemma di passaggio 
 \end{proof}
 
 \section{Tutto il resto}
-In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un campo locale, mostrando che questo ha dimensione coomologica 2: tutto i gruppi di coomologia rimanenti saranno dunque nulli. Quasi. Ad essere precisi, solo quelli con coefficienti in moduli di torsione.
+In questa sezione concluderemo lo studio della coomologia di $ \Gamma_K $, mostrando che questo ha dimensione coomologica 2: tutto i gruppi di coomologia rimanenti saranno dunque nulli. Quasi. Ad essere precisi, solo quelli con coefficienti in moduli di torsione.
 
 \begin{lemma}
 	Sia $ k $ un campo e $ p $ un numero primo. I seguenti sono equivalenti:
@@ -345,18 +357,18 @@ In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un cam
 \end{lemma}
 
 \begin{proof}
-	Assumiamo 1. La $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
-	\[ (\Br L) [p] = \HH^2(L, \, \mu_p) = 0. \]
+	Assumiamo 1. Per ogni $ L $, la $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
+	\[ (\Br L) [p] = \HH^2(L, \, \mu_p) = 0. \] \todo[definire le quadre]
 	È evidente che 2 implica 3. Assumiamo dunque 3. Sia $ G_p $ un $ p $-Sylow di $ \Gal{\bar{k}/k} $ e $ L $ il sottocampo corrispondente. $ L $ contiene le radici dell'unità $ \mu_p $: infatti l'indice $ [L(\mu_p)\,\colon L] $ deve dividere sia $ p-1 $, perché campo di spezzamento di $ x^p-1 $, che $ p $, per costruzione. Ne segue che
 	\[ \HH^2(L, \, \Z/p\Z) = \HH^2(L, \, \mu_p) = (\Br L)[p] = 0, \]
 	per ipotesi; da cui $ \cd_p(k) \leq \cd_p(L) = 1 $.
 \end{proof}
 
 \begin{theorem}
-	Ogni campo locale $ \K $ ha dimensione coomologica $ \cd(K) = 2 $.
+	Ogni campo locale $ \K $ ha dimensione coomologica $ \cd(K) = 2 $. \todo[sembra che ci sia qualche problema se la caratteristica è non zero]
 \end{theorem}
 \begin{proof}
-	Mostreremo preliminarmente che l'estensione non ramificata massimale $ \knr $ ha dimensione coomologica $ 1 $. Per il lemma appena enunciato sarà sufficiente dimostrare che, per ogni primo $ p $ e ogni estensione finita e separabile $ L/\knr $, il gruppo di Brauer $ \Br L $ non ha componente $ p $-primaria: questo gruppo è limite diretto dei gruppi di Brauer $ \Br E $ delle estensioni intermedie finite $ K \subseteq E \subseteq L $, per il solito teorema di passaggio al limite (\ref{limite}); mostreremo pertanto che ogni elemento di $ p^\alpha $-torsione viene eventualmente ucciso dalle mappe di transizione (che ricordiamo essere restrizioni). Nel sistema induttivo si trova infatti, sopra $ E $, un'estensione $ F $ per cui l'indice $ [F \,\colon E] = p^\alpha $, che produce la mappa assassina che cercavamo:
+	Mostreremo preliminarmente che il gruppo di Galois assoluto $ \Gal{\bar{K}/\knr} $ dell'estensione non ramificata massimale $ \knr $ ha dimensione coomologica $ 1 $. Per il lemma appena enunciato sarà sufficiente dimostrare che, per ogni primo $ p $ e ogni estensione finita e separabile $ L/\knr $, il gruppo di Brauer $ \Br L $ non ha componente $ p $-primaria: questo gruppo è limite diretto dei gruppi di Brauer $ \Br E $ delle estensioni intermedie finite $ K \subseteq E \subseteq L $, per il solito teorema di passaggio al limite (\ref{limite}); mostreremo pertanto che ogni elemento di $ p^\alpha $-torsione viene eventualmente ucciso dalle mappe del sistema induttivo (che ricordiamo essere restrizioni). Nel sistema induttivo si trova infatti, sopra $ E $, un'estensione $ F $ per cui l'indice $ [F \,\colon E] = p^\alpha $, che produce la mappa assassina che cercavamo:
 	\[ \begin{tikzcd}
 	\Br E \rar["\inv_E"] \dar["\Res"]
 	& \Q/\Z \dar["\cdot p^\alpha"] \\
@@ -365,6 +377,7 @@ In questa sezione concluderemo lo studio del gruppo di Galois assoluto di un cam
 	\end{tikzcd} \]
 	Riusciamo ad ottenere l'estensione $ F $ richiesta, per esempio, componendo $ E $ con un'estensione di $ K $ non ramificata del giusto grado.\\
 	
-	Possiamo ora concludere: l'estensione non ramificata massimale ha gruppo di Galois $ \hat{\Z} $, che è un sottogruppo di $ \Gal{\bar{\K}/K} $, il cui quoziente abbiamo appena mostrato avere dimensione coomologica 1; per il lemma \ref{quozienti}, concludiamo che 
-	$$  \cd(K) \leq \cd(\knr) + \cd(\hat{\Z}).  $$
+	Possiamo ora concludere: l'estensione $ \knr /K $ non ramificata massimale ha gruppo di Galois $ \hat{\Z} $, che è un sottogruppo di $ \Gal{\bar{\K}/K} $, il cui quoziente abbiamo appena mostrato avere dimensione coomologica 1; per il lemma \ref{quozienti}, concludiamo che 
+	$$  \cd(K) \leq \cd(\knr) + \cd(\hat{\Z}) \leq 2.  $$
+	Osserviamo infine che, per un primo $ p $ eventualmente diverso dalla caratteristica di $ K $, il gruppo $ \HH^2(K, \, \mu_p) = (\Br K)[p] $ non è nullo; ottenendo la disuguaglianza opposta.
 \end{proof}

@@ -92,10 +92,11 @@ Lo studio della coomologia di un generico gruppo si fa troppo complessa per pote
 	$$  \HH^i(H, \, A) = 0 \qquad \forall \, i > 0, \quad  \forall \, H < G.  $$
 \end{definition}
 
-
-Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}). In particolare i moduli liberi sono coomologicamente banali e, di conseguenza, i moduli proiettivi (ragionando per décalage). Anche i moduli iniettivi sono coomologicamente banali, per come abbiamo costruito i gruppi di coomologia. \\
-
 Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbandonato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
+
+Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}). In particolare i moduli liberi sono coomologicamente banali e, di conseguenza, i moduli proiettivi (ragionando per décalage). Anche i moduli iniettivi sono coomologicamente banali, per come abbiamo costruito i gruppi di coomologia. Questo, unito alle osservazioni sui capitoli 
+
+
 
 Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ possiamo scegliere un $ p $-Sylow $ G_p $ di $ G $; il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow, poiché ogni mappa di coniugio $ \sigma_t $ che li permuta induce un isomorfismo in coomologia. Fissiamo dunque un Sylow $ G_p $ per ogni primo. Non è facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, il seguente risultato ci convincerà però a continuare lo studio sui Sylow.
 
@@ -157,19 +158,10 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 	\end{tikzcd} \]
 	da cui deduciamo che, essendo $ j $ un isomorfismo, $ Q^G \to 0 $ è iniettiva e la tesi segue dal Lemma \ref{ban1}.\\
 	
-	Se $ q \neq 1 $ abbiamo bisogno di ingegnarci altrimenti. Quando $ q > 1 $, definiamo $ A_1 $ come il conucleo dell'iniezione di $ A $ nel suo indotto:
-	\[ 0 \to A \to \Ind^G(A) \to A_1 \to 0. \]
-	Nella successione esatta lunghissima associata troviamo
-	\[ \Hh^{i-1}(G, \, \Ind^G(A)) \to \Hh^{i-1}(G, \, A_1) \to \Hh^{i}(G, \, A) \to \Hh^{i}(G, \, \Ind^G(A)),  \]
-	da cui deduciamo che $ \Hh^{i-1}(G, \, A_1) = \Hh^{i}(G, \, A) $ e, ragionando per induzione su $ r $, che
-	\[ \Hh^{i-r}(G, \, A_r) = \Hh^{i}(G, \, A). \] 
-	Abbiamo quindi la tesi per $ A_{q-1} $, che è pertanto coomologicamente banale e ci forza così l'ipotesi 
+	Se $ q \neq 1 $ abbiamo bisogno di ingegnarci altrimenti: dobbiamo traslare l'ipotesi. Osserviamo che il modulo di coomologia traslata $ A_{q-1} $ ricade nelle ipotesi corretta. Abbiamo quindi la tesi per $ A_{q-1} $, che è pertanto coomologicamente banale e ci forza così l'ipotesi 
 	\[ \Hh^1(G, \, A) = \Hh^{2-q}(G, \, A_{q-1}) = 0 \]
 	di cui avevamo bisogno per concludere.
-	Analogamente, quando $ q < 1 $, consideriamo la successione esatta corta della proiezione:
-	\[ 0 \to A_{-1} \to \Ind^G(A) \to A \to 0. \]
 \end{proof}
-\todo[in realtà non mi dispiacerebbe mettere quest'ultima parte in un posto migliore]
 
 Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione, ottenendo un magnifico criterio per la banalità di un modulo. Per quanto osservato a inizio capitolo, continuiamo a enunciare i teoremi per $ p $-gruppi sottolineando però la facilità con cui si estendono al caso generale.
 
@@ -255,7 +247,7 @@ La dimensione coomologica di un gruppo è un indice di complessità: è il numer
 Ancora una volta, si riesce a ridurre il calcolo ai moduli di $ p $-torsione.
 
 \begin{proposition}
-	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $.
+	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $. \todo[dimostrare]
 \end{proposition}
 
 Questa proposizione ci permette per esempio di calcolare la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite, si ha infatti che 
@@ -282,8 +274,8 @@ da cui $ \cd(\hat{\Z})=1 $.
 % Mi serve il lemma che lega sottogruppi e quozienti
 \begin{proposition}\label{quozienti}
 	Sia $ H $ un sottogruppo chiuso e normale di $ G $. Allora, per ogni numero primo $ p $, si ha che
-	\[ \cd_p(G) \geq \cd_p(H) + \cd_p(G/H). \]
+	\[ \cd_p(G) \leq \cd_p(H) + \cd_p(G/H). \]
 \end{proposition}
 \begin{proof}
-	Segue direttamente dalla successione spettrale di Hoschild Serre! \todo[come?]
+	Segue dall'esistenza successione spettrale di Hoschild Serre: per ogni modulo di $ A $ di torsione, la successione ci dona una filtrazione di $ \HH^n(G, \, A) $ i cui quozienti sono, partendo dalla descrizione della seconda pagina, sottoquozienti di $ \HH^i(G/H, \, \HH^j(H, \, A)) $ per $ i+j = n $. Osserviamo che $ \HH^j(H, \, A) $ sarà nullo non appena $ j > \cd_p(H) $ e che, essendo $ \HH^j(H, \, A) $ di $ p $-torsione (\ref{ntors}), anche $ \HH^i(G/H, \, \HH^j(H, \, A)) $ sarà nullo non appena $ i > \cd_p(G/H) $; da cui la disuguaglianza voluta.
 \end{proof}
