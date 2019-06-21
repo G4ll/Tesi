@@ -1,4 +1,5 @@
 \chapter{Dualità}
+Ci addentreremo ora 
 
 \section{Tazza Prodotto}
 Costruiremo ora un'applicazione bilineare tra i gruppi di coomologia, donando al nostro strumento un prodotto e, dunque, una struttura di algebra. La costruzione del \leftquote tazza-prodotto", così come la presentazione delle relative proprietà, è fondamentalmente una boriosa, lunghissima, verifica: dovremo riesumare la presentazione in cocatene. Come ogni buon libro di algebra, presenteramo dettagliatamente la costruzione del prodotto e la lista delle proprietà che useremo in seguito, lasciando decidere al lettore se fidarsi ciecamente di quanto presentato oppure dedicare un paio di pomeriggi alla verifica diretta. \\
@@ -54,47 +55,96 @@ Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B 
 \end{lemma}
 
 \section{Dualità di Tate-Nakayama}
-
-Questo lemma è difficile da digerire tutto assieme, ma sta fondamnetalmente usando il lemma di coomologia banale per generare isomorfismi. Già che c'è, usa tutta la potenza per mescolare tensori e sottogruppi.
+Ci addentreremo ora nell'argomento più tecnico di tutta la tesi: il teorema di dualità id Tate-Nakayama sarà preceduto da alcuni risultati di natura puramente algebrica e carattere incredibilmente generale, per questo difficili da digerire. L'obbiettivo dei risultati seguenti è di trasformare i criteri di banalità, introdotti qualche pagine indietro, in strumenti per costruire isomorfismi tra gruppi di coomologia con coefficienti diversi. Per fare questo assumeremo delle ipotesi ad hoc, della cui ragionevolezza ci occuperemo solo in futuro. 
 
 \begin{proposition}
 	Sia $ f \colon B \to C $ una mappa tra $ G $ moduli. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui
 	\begin{align*}
-		\HH^{n_p-1}(G_p,\, B) &\twoheadrightarrow \HH^{n_p-1}(G_p,\, C) & \text{ sia suriettivo,} \\
-		\HH^{n_p}(G_p,\, B) &\to \HH^{n_p}(G_p,\, C) & \text{ sia un isomorfismo,} \\
-		\HH^{n_p+1}(G_p,\, B) &\hookrightarrow \HH^{n_p+1}(G_p,\, C) & \text{ sia iniettivo.}
+		\HH^{n_p}(G_p,\, B) &\twoheadrightarrow \HH^{n_p}(G_p,\, C) & \text{ sia suriettivo,} \\
+		\HH^{n_p+1}(G_p,\, B) &\to \HH^{n_p+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
+		\HH^{n_p+2}(G_p,\, B) &\hookrightarrow \HH^{n_p+2}(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
 	Possiamo allora conlcudere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tensore
 	\[ \Hh^n(H, \, B \otimes D) \to \Hh^n(H, \, C \otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
 \end{proposition}
 
-Ora vogliamo metterci il prodotto, che è tipo la stessa cosa, ma aggiunge uno shift degli indici!! Non è sorprendente pensare che andremo d decalage...
+La tesi è assolutamente sopraffacente. È utile pensare al risultato prima nella forma più semplice, con $ H=G $ e $ D = \Z $, seguito da due piccole aggiunte che, essendo gratuite, abbiamo deciso di includere per completezza: che sia valida per ogni sottogruppo non è sorprendente, data la definizione di \leftquote coomologicamente banale"; che si possano estendere i coefficienti, segue invece dal fatto che i moduli piatti preservano gli indotti. 
+
+\begin{proof}
+	Le ipotesi sono scelte in modo da funzionare magnificamente una volta assunto $ f $ iniettiva: in questo caso otteniamo una successione esatte corta
+	\[ \begin{tikzcd}[column sep = small]
+	0 \rar
+	& B \rar["f"]
+	& C \rar
+	& Q \rar
+	& 0 \end{tikzcd} \]
+	la cui successione esatta lunga associata, per ogni primo $ p $, restituisce
+	\[ \Hh^{n_p}(G_p, \, Q) = \Hh^{n_p+1}(G_p, \, Q), \]
+	da cui, per il criterio di banalità $ (\ref{ban2}) $, deduciamo che $ Q $ è coomologicamente banale. Abbiamo già osservato che $ Q \otimes D $ rimane tale, da cui la tesi. \\
+	
+	Per concludere è pertanto sufficiente mostrare che è ci si può ricondurre al caso precedente. Per fare questo consideriamo la classica immersione di $ B $ nel suo modulo indotto $ j \colon B \to \Ind_1^G(B) $ e dunque la mappa iniettiva
+	\[ (f, j)\colon B \to C \oplus \Ind_1^G(B), \]
+	la tesi segue dunque dalla banalità dell'indotto, che trasforma la successione esatta corta
+	\[ \begin{tikzcd}[column sep = small]
+	0 \rar
+	& C \rar["f"]
+	& C \oplus \Ind_1^G(B) \rar
+	& \Ind_1^G(B) \rar
+	& 0 \end{tikzcd} \]
+	in degli isomorfismi
+	\[ \Hh^n(H, \, C \otimes D ) = \Hh^n(H, \, \left(C \oplus \Ind_1^G(B)\right) \otimes D ). \]
+\end{proof}
+
+Ripreso il fiato, concessoci il tempo di capire quanto attentamente abbiamo scelto le ipotesi, procediamo verso una generalizzazione ancora più spinta. Vorremmo un risultato analogo per mappe indotte dal tazza-prodotto, che producono come unica differenza un cambio di dimensione.
 
 \begin{proposition}
 	Sia $ \varphi \colon A \times B \to C $ una mappa bilineare tra $ G $ moduli; fissiamo un elemento $ a \in \HH^q(G, \, A) $. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui l'omomorfismo indotto dal tazza prodotto per $ \Res a $
 	\begin{align*}
-	\HH^{n_p-1}(G_p,\, B) &\twoheadrightarrow \HH^{n_p+q-1}(G_p,\, C) & \text{ sia suriettivo,} \\
-	\HH^{n_p}(G_p,\, B) &\to \HH^{n_p+q}(G_p,\, C) & \text{ sia un isomorfismo,} \\
-	\HH^{n_p+1}(G_p,\, B) &\hookrightarrow \HH^{n_p+q+1}(G_p,\, C) & \text{ sia iniettivo.}
+	\HH^{n_p}(G_p,\, B) &\twoheadrightarrow \HH^{n_p+q}(G_p,\, C) & \text{ sia suriettivo,} \\
+	\HH^{n_p+1}(G_p,\, B) &\to \HH^{n_p+q+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
+	\HH^{n_p+2}(G_p,\, B) &\hookrightarrow \HH^{n_p+q+2}(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
 	Possiamo allora conlcudere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tazza prodotto per $ \Res a $
 	\[ \Hh^n(H, \, B \otimes D) \to \Hh^{n+q}(H, \,  C\otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
 \end{proposition}
 
+\begin{proof}
+	Giocando a trovare le differenze con la proposizione precedente, si scopre che queste coincidono assumendo $ a \in \HH^0(G, \, A) $, ovvero $ q = 0. $ Per concludere è pertanto sufficiente mostrare che ci si può ricondurre al caso precedente. Il modo naturale di farlo è il metodo dei quozienti \todo[scrivere questa parte]
+\end{proof}
+
+Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare le particolarti ipotesi in una forma più accessibile, se non proprio comprensibile.
+
 \begin{theorem}[Dualità di Tate-Nakayama]
-	Sia $ A $ un $ G $-modulo. Fissiamo un elemento $ a \in A $. Supponiamo di sapere , per ogni numero primo $ p $, ch
+	Sia $ A $ un $ G $-modulo. Fissiamo un elemento $ a \in \HH^2(G, \, A) $. Supponiamo di sapere , per ogni numero primo $ p $, che
 	\begin{enumerate}
 		\item $ \HH^1(G_p, \, A) = 0 $;
-		\item il gruppo $ \HH^2(G_p, \, A) $ ha la stessa cardinalità di $ G_p $ ed è generato da $ \Res a $.
+		\item il gruppo $ \HH^2(G_p, \, A) $ ha la stessa cardinalità di $ G_p $, diciamo $ m_p $, ed è generato da $ \Res a $.
 	\end{enumerate}
-	Possiamo allora concludere che l'omomorfismo indotto dal tazza prodotto con $ \Res a $ induce, per ogni sottogruppo $ H < G $, un isomorfismo
+	Possiamo allora concludere che l'omomorfismo indotto dal tazza-prodotto con $ \Res a $ induce, per ogni sottogruppo $ H < G $, un isomorfismo
 	\[ \Hh^n(H, \, \Z) \to \Hh^{n+2}(H, \,  A) \qquad \text{ per ogni } n.\]
 \end{theorem}
 
-
-\section{Applicazione di reciprocità locale}
+\begin{proof}
+	Applichiamo la proposizione precedente con $ B = \Z $, $ C = A $ e $ D = \Z $. Verifichiamo che le ipotesi siano verificate per $ n_p = -1 $:
+	\begin{align*}
+		\Hh^{-1}(G_p,\, \Z) &\twoheadrightarrow \Hh^{1}(G_p,\, A) = 0, \\
+		\Z/m_p\Z=\Hh^{0}(G_p,\, \Z) &\to \Hh^{2}(G_p,\, A) = \Z/m_p\Z, \\
+		0 = \Hh^{1}(G_p,\, \Z) &\hookrightarrow \Hh^{3}(G_p,\, A).
+	\end{align*}
+\end{proof}
 
 % Costruzione della Reciprocità e... poco altro?
+Continuando nella nostra discesa dall'astrazione verso la Teoria di Galois, applichiamo subito il teorema al caso dei campi locali: riusciremo a ottenere una descrizione esplicita di tutti i gruppi di estensioni di Galois abeliane. Siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $. Poniamo $ A = L^\times $ e $ G $ il gruppo di Galois dell'estensione. Per Hilbert 90 l'ipotesi 1 del teorema di Tate-Nakayama è soddisfatta e, grazie al nostro studio del gruppo di Brauer, anche l'ipotesi 2: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, A) $ coincide con il sottogruppo corrispondente all'etensione non ramificata dello stesso grado $ n $, dunque con il sottogruppo di $ \Q/\Z $ generato da $ 1/n $; analogamete si argomenta per i sottogruppi di Sylow. Per Tate-Nakayama troviamo allora un isomorfismo
+\[ \Hh^{-2}(G, \, \Z) \to \Hh^{0}(G, \,  L^\times). \]
+Il gruppo $ \Hh^{-2}(G, \, \Z) = \HH_1(G, \, \Z) $ è l'abelianizzato di $ G $.
+% Dimostrare
+Riprendendo l'isomorfismo di sopra nel caso di estensione abeliana e aggiungendovi la descrizione esplicita dei due gruppi che vi appaiono, otteniamo una mappa
+\[ \omega_L\colon \frac{K^\times}{NL^\times} \to \Gal{L/K}, \]
+nota come isomorfismo di \emph{reciprocità locale}. Questa mappa fornisce una descrizione, in qualche senso esplcita, di tutti i gruppi di Galois di estensioni abeliane, fornendo uno strumento dalla evidente importanza. \\
+
+Non contenti del risultaro, potremmo prendere il limite inverso sulle estensioni abeliane finite, ottenenendo così un isomorfismo
+\[ \omega\colon \varprojlim_L \frac{K^\times}{NL^\times} \to \Gamma_K^{\texttt{ab}} . \]
+
 
 \section{Dualità di Tate}
 
@@ -107,5 +157,3 @@ Ora vogliamo metterci il prodotto, che è tipo la stessa cosa, ma aggiunge uno s
 % Dualità di Tate
 
 % Calcolo del gruppo di Galois assoluto
-
-

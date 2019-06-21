@@ -171,7 +171,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 \end{proof}
 \todo[in realtà non mi dispiacerebbe mettere quest'ultima parte in un posto migliore]
 
-Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione, ottenendo un magnifico criterio per la banalità di un modulo. Per quanto osservato a inizio capitolo, continuiamo a enunciare i teoremi per gruppi di torsione sottolineando però la facilità con cui si estendono al caso generale.
+Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione, ottenendo un magnifico criterio per la banalità di un modulo. Per quanto osservato a inizio capitolo, continuiamo a enunciare i teoremi per $ p $-gruppi sottolineando però la facilità con cui si estendono al caso generale.
 
 \begin{theorem}
 	Sia $ A $ uno $ G_p $-modulo. Se esiste un indice $ q $ per cui
@@ -226,13 +226,18 @@ Segue immediatamente che:
 	Se $ A $ è coomologicamente banale, tutti gli $ \Hh^i(G, \, A) $ sono banali.
 \end{corollary}
 
-Ripercorrendo l'idea principale della dimostrazione riusciamo a estrarre il seguente lemma, che ci tornerà utile in futuro.
+Estendendo i coefficienti in modo opportuno, preserviamo la banalità:
 
-\begin{corollary}
-	Se $ A $ è coomologicamente banale, allora esistono $ F $ libero e $ P $ proiettivo per cui
-	\[ 0 \to P \to F \to A \to 0 \]
-	è esatta.
+\begin{corollary}\label{tensor magic}
+	Sia $ A $ un modulo coomologicamente banale e $ D $ un modulo piatto. L'estensione per scalari $ A \otimes D $ è coomologicamente banale.
 \end{corollary}
+\begin{proof}
+	Ripercorrendo l'idea principale della dimostrazione riusciamo a mostrare che se $ A $ è coomologicamente banale, allora esistono $ F $ libero e $ P $ proiettivo per cui
+	\[ 0 \to P \to F \to A \to 0 \]
+	è esatta. Per piattezza anche la successione
+	\[ 0 \to P \otimes D \to F\otimes D \to A\otimes D \to 0 \]
+	è esatta. Poiché $ F \otimes D $ rimane indotto e $ P \otimes D $ rimane addendo diretto di un indotto, $ A \times D $ rimane coomologicamente banale.
+\end{proof}
 
 \section{Dimensione Coomologica}
 La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo dal quale peschiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" è di qualche interesse solo per gruppi infiniti.
