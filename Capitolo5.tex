@@ -5,19 +5,32 @@
 
 \begin{definition}[Duale di Pontryagin]
 	Per ogni gruppo $ G $, definiamo il duale secondo Pontryagin come
-	\[ G^* = \Hom(G, \, \Q/\Z). \]
+	\[ G^\vee = \Hom(G, \, \Q/\Z). \]
 \end{definition}
+
+\begin{proposition}
+	Il biduale di un gruppo profinito è canonicamnete isomorfo all'abelianizzato del gruppo stesso. 
+\end{proposition}
 
 \begin{definition}[Duale di Cartier]
 	Per ogni $ G $-modulo $ A $, definiamo il duale secondo Cartier come
 	\[ A^* = \Hom_G(A, \, \mu_\infty). \]
 \end{definition}
 
+\begin{proposition}
+	Il biduale di un modulo finito è canonicamente isomorfo al modulo stesso.
+\end{proposition}
+
 % Misteriosa esistenza del modulo dualizzante
 \begin{proposition}
-	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = n $. Se ogni modulo $ A $ ha $ n $-esimo gruppo di coomologia $ \HH^n(G, \, A) $ finito, allora il funtore $ \HH^n(G,\, \bullet\,)^* $ è rappresentabile: esiste un modulo $ I $ di torsione per cui
-	\[ \HH^n(G, \, \bullet \, )^* = \Hom_G(\,\bullet\, \, I). \]
+	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = n $. Se ogni modulo $ A $ ha $ n $-esimo gruppo di coomologia $ \HH^n(G, \, A) $ finito, allora il funtore $ \HH^n(G,\, \bullet\,)^\vee $ è rappresentabile: esiste un modulo $ I $ di torsione per cui
+	\[ \HH^n(G, \, \bullet \, )^\vee = \Hom_G(\,\bullet\, \, I). \]
 \end{proposition}
+
+% Lemmino dei p-adici
+\begin{lemma}
+	Sia $ K $ un campo $ p $-adico e $ \mu_n $ le radici $ n $-esime dell'unità. I gruppi $ \HH^1(K, \, \mu_n) = K^\times / {K^\times}^n $ sono finiti.
+\end{lemma}
 
 % Lemmino
 \begin{lemma}
@@ -25,7 +38,7 @@
 \end{lemma}
 \begin{proof}
 	Il risultato segue immediatamente dal Lemma di Shapiro (\ref{Shapiro}), per cui
-	\[ \HH^n(U, \, A)^* = \HH^n(G, \, \Ind_U^G(A))^* = \Hom_G(\Ind_U^G(A), \, I) = \Hom_U(A, \, \f I). \]
+	\[ \HH^n(U, \, A)^\vee = \HH^n(G, \, \Ind_U^G(A))^\vee = \Hom_G(\Ind_U^G(A), \, I) = \Hom_U(A, \, \f I). \]
 \end{proof}
 
 % Trovare il dualizzante
@@ -35,9 +48,27 @@
 
 % Dualità di Tate
 \begin{theorem}[Dualità di Tate]
-	
+	Sia $ K $ un campo $ p $-adico e $ M $ un $ \Gamma_K $-modulo finito. Il tazza-prodotto induce un accoppiamento di dualità
+	\[ \HH^i(\Gamma_K, \, M) \times \HH^{2-i}(\Gamma_K, \, M^*) \to \HH^2(\Gamma_K, \, \bar{K}^\times) = \Q / \Z \]
+	per $ i = 0, \, 1, \, 2 $.
 \end{theorem}
 
 % Calcolo del gruppo di Galois assoluto
+
+\begin{corollary}
+	$ \Gamma^\mathtt{ab} $ è isomorfo al completamento profinito $ \hat{K}^\times = \varprojlim_n K^\times/ {K^\times}^n $.
+\end{corollary}
+\begin{proof}
+	\begin{align*}
+		\Gamma^\mathtt{ab}
+		& = \Hom_\Z(\Gamma,\, \Q/\Z)^\vee & \text{per dualità di Pontryagin} \\
+		& = \Hom_\Z(\Gamma,\, \varinjlim_n \Z/n\Z)^\vee & \text{per ricondursi a moduli finiti}\\ 
+		& = \varprojlim_n \Hom_\Z(\Gamma,\, \Z/n\Z)^\vee & \text{per abstract nonsense} \\
+		& = \varprojlim_n \HH^1(\Gamma,\, \Z/n\Z)^\vee & \text{perché l'azione è banale} \\
+		& = \varprojlim_n \HH^1(\Gamma,\, \mu_n) & \text{per dualità di Tate} \\
+		& = \varprojlim_n \K^\times / {\K^\times}^n & \text{dalla successione esatta lunga} \\
+		& = \hat{K}^\times. 
+	\end{align*}
+\end{proof}
 
 \section{Kronecker-Weber}

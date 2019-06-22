@@ -28,14 +28,14 @@ Il prodotto è ovviamente compatibilità con le successioni esatte lunghe:
 	sono esatte, allora il tazza-prodotto, fissato $ \beta \in \HH^q(G, \, B) $, in induce un morfismo di complessi
 	\[\begin{tikzcd}[column sep = small]
 	\dots \rar
-	& \Hh^{p}(G, \, A') \dar["\cup\beta"] \rar 
-	& \Hh^{p}(G, \, A'') \rar["\delta"] \dar["\cup\beta"]
-	& \Hh^{p+1}(G, \, A) \rar \dar["\cup\beta"]
+	& \HH^{p}(G, \, A') \dar["\cup\beta"] \rar 
+	& \HH^{p}(G, \, A'') \rar["\delta"] \dar["\cup\beta"]
+	& \HH^{p+1}(G, \, A) \rar \dar["\cup\beta"]
 	&\dots  \\
 	\dots \rar
-	& \Hh^{p+q}(G, \, A'\otimes B) \rar
-	& \Hh^{p+q}(G, \, A''\otimes B) \rar["\delta"]
-	& \Hh^{p+q+1}(G, \, A\otimes B) \rar &\dots \, , \end{tikzcd}\]
+	& \HH^{p+q}(G, \, A'\otimes B) \rar
+	& \HH^{p+q}(G, \, A''\otimes B) \rar["\delta"]
+	& \HH^{p+q+1}(G, \, A\otimes B) \rar &\dots \, , \end{tikzcd}\]
 	equivalentemente $ (\delta\alpha'') \cup \beta = \delta (\alpha'' \cup \beta) $.
 \end{proposition}
 
@@ -44,7 +44,7 @@ Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B 
 \begin{lemma}\label{cup2}
 	Date due successioni esatte
 	\[ 0 \to A' \to A \to A'' \to 0, \qquad 0 \to B' \to B \to B'' \to 0 \]
-	e un'applicazione bilineare $  \varphi\colon A \times B \to C $ nulla su $ A'\times B' $. Troviamo due applicazioni bilineari
+	e un'applicazione bilineare $  \varphi\colon A \times B \to C $ nulla su $ A'\times B' $. Troviamo allora due accoppiamenti
 	\[ \varphi'\colon A' \times B'' \to C, \qquad \varphi''\colon A'' \times B' \to C, \]
 	che inducono prodotti in omologia
 	\begin{align*}
@@ -60,9 +60,9 @@ Ci addentreremo ora nell'argomento più tecnico di tutta la tesi: il teorema di 
 \begin{proposition}
 	Sia $ f \colon B \to C $ una mappa tra $ G $ moduli. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui
 	\begin{align*}
-		\HH^{n_p}(G_p,\, B) &\twoheadrightarrow \HH^{n_p}(G_p,\, C) & \text{ sia suriettivo,} \\
-		\HH^{n_p+1}(G_p,\, B) &\to \HH^{n_p+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
-		\HH^{n_p+2}(G_p,\, B) &\hookrightarrow \HH^{n_p+2}(G_p,\, C) & \text{ sia iniettivo.}
+		\Hh^{n_p}(G_p,\, B) &\twoheadrightarrow \Hh^{n_p}(G_p,\, C) & \text{ sia suriettivo,} \\
+		\Hh^{n_p+1}(G_p,\, B) &\to \Hh^{n_p+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
+		\Hh^{n_p+2}(G_p,\, B) &\hookrightarrow \Hh^{n_p+2}(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
 	Possiamo allora concludere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tensore
 	\[ \Hh^n(H, \, B \otimes D) \to \Hh^n(H, \, C \otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
@@ -80,7 +80,7 @@ La tesi è assolutamente sopraffacente. È utile pensare al risultato prima nell
 	& 0 \end{tikzcd} \]
 	la cui successione esatta lunga associata, per ogni primo $ p $, restituisce
 	\[ \Hh^{n_p}(G_p, \, Q) = \Hh^{n_p+1}(G_p, \, Q), \]
-	da cui, per il criterio di banalità $ (\ref{ban2}) $, deduciamo che $ Q $ è coomologicamente banale. Abbiamo già osservato che $ Q \otimes D $ rimane tale, da cui la tesi. \\
+	da cui, per il criterio di banalità $ (\ref{ban2}) $, deduciamo che $ Q $ è coomologicamente banale. Abbiamo già osservato che $ Q \otimes D $ rimane tale (\ref{tensor magic}), da cui la tesi. \\
 	
 	Per concludere è pertanto sufficiente mostrare che è ci si può ricondurre al caso precedente. Per fare questo consideriamo la classica immersione di $ B $ nel suo modulo indotto $ j \colon B \to \Ind_1^G(B) $ e dunque la mappa iniettiva
 	\[ (f, j)\colon B \to C \oplus \Ind_1^G(B), \]
@@ -100,9 +100,9 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state s
 \begin{proposition}
 	Sia $ \varphi \colon A \times B \to C $ una mappa bilineare tra $ G $ moduli; fissiamo un elemento $ a \in \HH^q(G, \, A) $. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui l'omomorfismo indotto dal tazza prodotto per $ \Res a $
 	\begin{align*}
-	\HH^{n_p}(G_p,\, B) &\twoheadrightarrow \HH^{n_p+q}(G_p,\, C) & \text{ sia suriettivo,} \\
-	\HH^{n_p+1}(G_p,\, B) &\to \HH^{n_p+q+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
-	\HH^{n_p+2}(G_p,\, B) &\hookrightarrow \HH^{n_p+q+2}(G_p,\, C) & \text{ sia iniettivo.}
+	\Hh^{n_p}(G_p,\, B) &\twoheadrightarrow \Hh^{n_p+q}(G_p,\, C) & \text{ sia suriettivo,} \\
+	\Hh^{n_p+1}(G_p,\, B) &\to \Hh^{n_p+q+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
+	\Hh^{n_p+2}(G_p,\, B) &\hookrightarrow \Hh^{n_p+q+2}(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
 	Possiamo allora concludere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tazza-prodotto per $ \Res a $
 	\[ \Hh^n(H, \, B \otimes D) \to \Hh^{n+q}(H, \,  C\otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
