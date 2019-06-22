@@ -1,10 +1,11 @@
 \chapter{Teoria del Campo di Classe}
-In questo capitolo faremo fruttare tutto quello che è stato preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di Galois. Inizieremo con qualche risultato di carattere generale riguardo le estensioni di Galois, dalle nozioni di base alla teoria di Kummer, per restringere poi la nostra attenzione ai campi locali. \\
+In questo capitolo faremo fruttare quanto preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di Galois. Inizieremo con qualche risultato di carattere generale riguardo le estensioni di Galois, dalle nozioni di base alla teoria di Kummer, per restringere poi la nostra attenzione ai campi locali. \\
 
 % Discorso su perché i campi locali.
-Per campo locale intendiamo un campo completo rispetto a una valutazione discreta di rango 1. Si può pensare, senza perdita di generalità, a estensioni dei $ p $-adici $ \Q_p $ o delle serie Laurent su campi finiti $ \F_p((t)) $. Studiamo questi campi per almeno due buone ragioni; in primis, perché presentano una struttura relativamente semplice: i relativi anelli degli interi sono locali (da cui il nome) e le unità sono di facile descrizione; in secondo luogo, perché sono un ottimo punto di partenza per dedurre risultati analoghi anche nel caso globale.
+Per campo locale intendiamo un campo completo rispetto a una valutazione discreta di rango 1. Si può pensare, senza perdita di generalità, a estensioni dei $ p $-adici $ \Q_p $ o delle serie Laurent su campi finiti $ \F_p((t)) $. Studiamo questi campi per almeno due buone ragioni; in primis, perché presentano una struttura relativamente semplice: i relativi anelli degli interi sono locali (da cui il nome) e le unità sono di facile descrizione; in secondo luogo, perché sono un ottimo punto di partenza per dedurre risultati analoghi anche nel caso globale. \\
 
 % Cos'è la Class Field Theory?
+Il capitolo sarà dunque rivolto a calcolare la coomologia dei moduli naturali di un campo locale: mostreremo che in grado uno è sempre nulla, la calcoleremo il grado due e mostreremo che dal grado tre in poi torna a essere nulla.
 
 
 \section{Teoria di Galois}
@@ -12,7 +13,7 @@ Sia $ k $ un campo. Fissiamo una chiusura separabile $ \bar{k} $. D'ora in avant
 \[ \HH^i(k, \, A) := \HH^i(\Gamma_k, \, A). \]
 Osserviamo che, presa una diversa chiusura separabile $ k' $ e un sollevamento di $ \id_{k} $ a un isomorfismo $ f\colon \bar{k} \to \bar{k}' $, questo induce un isomorfismo in coomologia
 \[ f^* \colon \HH^i(\Gal{\bar{\K} / \K}, \, A) \to \HH^i(\Gal{\bar{\K}' / \K}, \, A) \]
-che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi. Possiamo quindi parlare senza remore della \leftquote coomologia di $ k $". \\
+che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi. Possiamo quindi parlare senza remore della \leftquote coomologia di $ k $" e della sua dimensione coomologica. \\
 
 % Hilbert 90 additivo
 Fissiamo un'estensione di Galois $ L/k $ e cominciamo ad analizzare la coomologia del modulo più naturale del relativo gruppo $ \Gal{L/k} $: il campo $ L $. Il gruppo di Galois è composto dagli automorfismi del campo, per definizione, quindi è ben definita un'azione tanto sul gruppo additivo $ L $, quanto sul gruppo moltiplicativo $ L^\times $.
@@ -45,7 +46,7 @@ Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome pr
 \end{definition}
 
 % mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace? Sì dai!
-Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore che ne avesse sentito parlare a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava più che altro una buona intuizione dei risultati.
+Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore che ne avesse sentito parlare a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava più che altro una buona intuizione dei risultati.\\
 
 % Metto un paio di proposizioni per stare tranquilli; è importante dire che possiamo pensare al Brauer come contenete i sottobrauerini, che direi essere il lemma qua sotto
 Nel seguito sarà comoda avere della notazione per indicare $ \HH^2(\Gal{L/k}, \, L^\times) $, che possiamo pensare come il gruppo di Brauer relativo all'estensione $ L/k $: lo chiameremo $ \Br(L/k) $.
@@ -94,7 +95,7 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 
 Sia $ \Gamma_k = \Gal{\bar{k}/ k} $ il gruppo di Galois assoluto di $ k $. Fissiamo un gruppo abeliano $ A $, finito e munito della topologia discreta; scegliendo un omomorfismo continuo
 \[ \varphi \colon \Gamma_k \to A, \]
-produciamo come nucleo un sottogruppo chiuso e normale. Per il teorema di corrispondenza di Galois, otteniamo un'estensione $ L $ di gruppo
+produciamo come nucleo un sottogruppo chiuso e normale. Per il teorema di corrispondenza di Galois, vi è associata un'estensione $ L $ di gruppo
 \[ \Gal{L/k} = \frac{\Gal{\bar{k}/ k}}{\ker \varphi} \hookrightarrow A. \]
 Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfismi $ \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $, in realtà a meno della relazione che identifica due omomorfismi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(\Gamma_k, \, A) = \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $. Possiamo quindi sfoggiare il nostro arsenale per produrre un risultato piacevole.
 
@@ -122,6 +123,12 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	che è proprio quello che cercavamo: poiché le radici $ p $-esime dell'unità vivono in $ k $ per ipotesi, $ \Gamma_k $ vi agisce banalmente e pertanto
 	\[ \HH^1(\Gamma_k, \, \Z/p\Z) = \HH^1(\Gamma_k, \, \mu_p) =\K^\times / {\K^\times}^p . \]
 \end{proof}
+
+Il Teorema di Kummer si colloca appena all'inizio di una teoria più ampia, piuttosto che esserne il culmine. La dimostrazione mostra la potenza e la comodità del linguaggio coomologico per affrontate lo studio delle estensioni di campi: in poche righe siamo riusciti a smontare un teorema per nulla banale, avendo costruito in precedenza tutta la rete di mappe e isomorfismi che questa dimostrazione avrebbe altrimenti richiesto di esplicitare. A titolo informativo presentiamo il seguente risultato, che permette sia di chiarire quanto esplicita si possa rendere la corrispondenza di Kummer e, al contempo, di mostrare che tipo di risultati si può sperare di ottenere procedendo in questa direzione.
+
+\begin{proposition}
+	Sia $K/\mathbb{Q}$ un'estensione ciclica di grado 3. Allora $ K $ è il campo di spezzamento di un polinomio della forma $$ x^3-3x-\frac{(2(a^2-3b^2))}{(a^2+3b^2)} $$ per certi $ a,\, b $ razionali. Viceversa, ogni tale polinomio o è riducibile o ha gruppo di Galois ciclico.
+\end{proposition} 
 
 \section{Struttura di un Campo Locale}
 % struttura
@@ -233,7 +240,9 @@ Per estensioni ramificate la situazione non è così semplice, anche rimanendo i
 	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
 \end{proof}
 
-\section{Gruppo di Brauer}
+Questi due risultati, fondamentalmente, traducono nel linguaggio coomologico le proprietà della struttura di un campo locale. Non c'è bisogno di aggiungere che non c'è speranza di ottenere risultati analoghi per campi globali. Nel prossimo paragrafo sfrutteremo quanto appena scoperto per calcolare la coomologia in grado 2.
+
+\section{Calcolo del gruppo di Brauer}
 % Calcolo del BRKnr e mappa inv
 Ogni campo locale ha esattamente un'estensione non ramificata per ogni grado $ \knr $, il cui gruppo di Galois coincide con la corrispondente estensione del campo residuo dello stesso grado: $ \Gal{\K^n_\texttt{nr} / \K} = \Gal{\kappa^n / \kappa} = \Z / n\Z $. Ne segue che la massima estensione non ramificata $ \knr = \varinjlim \K^n_\texttt{nr} $ ha gruppo di Galois
 \[ G = \Gal{\knr / \K} = \Gal{\bar{\kappa} / \kappa} = \hat{\Z}. \]
@@ -263,7 +272,7 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 	\end{tikzcd} \]
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{inv}
 	Sia $ L/\K $ un'estensione finita di grado $ n = [L\, \colon \K] $. Il seguente diagramma commuta
 	\[ \begin{tikzcd}
 	\HH^2(G_\K, \, \knr^\times) \rar["\inv_\K"] \dar["\Res"]
@@ -295,7 +304,7 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 Siamo ora pronti per dimostrare che il gruppo di Brauer relativo all'estensione non ramificata massimale è in realtà già tutto $ \Br \K $.
 
 \begin{theorem}
-	$ \Br \K = \Q/\Z $.
+	Il gruppo $ \Br \K $ coincide in realtà con il sottogruppo $ \Br (\knr/K)$.
 \end{theorem}
 
 \begin{proof}
@@ -339,7 +348,7 @@ fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e grup
 	per la solita successione esatta dei Brauer relativi (\ref{stronzetto}).
 \end{proof}
 
-Torniamo ora alla dimostrazione del teorema. Per il classico lemma di passaggio al limite, sappiamo che $ \Br \K = \HH^2(\Gal{\bar{\K}/\K}, \, \bar{\K}^\times) $ è limite induttivo sulle sottoestensioni di Galois finite, che per il secondo lemma possiamo calcolare sulle sole estensioni non ramificate:
+Torniamo ora alla dimostrazione del teorema. Per il classico lemma di passaggio al limite, sappiamo che $ \Br \K = \HH^2(\Gamma_K, \, \bar{\K}^\times) $ è limite induttivo sulle sottoestensioni di Galois finite, che per il secondo lemma possiamo calcolare sulle sole estensioni non ramificate:
 \[ \Br \K = \varinjlim_{L/K} \HH^2(G, \, L^\times) = \varinjlim_{n} \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) = \Br (\knr /\K) = \Q/\Z. \]
 
 \end{proof}
@@ -349,22 +358,23 @@ In questa sezione concluderemo lo studio della coomologia di $ \Gamma_K $, mostr
 
 \begin{lemma}
 	Sia $ k $ un campo e $ p $ un numero primo. I seguenti sono equivalenti:
-	\begin{enumerate}
+	\begin{enumerate}[label= \roman*.]
 		\item La $ p $-dimensione coomologica $ \cd_p(k) \leq 1 $.
-		\item Per ogni estensione algebrica separabile $ L/k $, la $ p $-torsione del Brauer è nulla: $ p \Br L = 0. $
-		\item Per ogni estensione finita separabile $ L/k $, la $ p $-torsione del Brauer è nulla: $ p \Br L = 0. $
+		\item Per ogni estensione finita separabile $ L/k $, la $ p $-torsione del Brauer è nulla.
 	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-	Assumiamo 1. Per ogni $ L $, la $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
-	\[ (\Br L) [p] = \HH^2(L, \, \mu_p) = 0. \] \todo[definire le quadre]
-	È evidente che 2 implica 3. Assumiamo dunque 3. Sia $ G_p $ un $ p $-Sylow di $ \Gal{\bar{k}/k} $ e $ L $ il sottocampo corrispondente. $ L $ contiene le radici dell'unità $ \mu_p $: infatti l'indice $ [L(\mu_p)\,\colon L] $ deve dividere sia $ p-1 $, perché campo di spezzamento di $ x^p-1 $, che $ p $, per costruzione. Ne segue che
-	\[ \HH^2(L, \, \Z/p\Z) = \HH^2(L, \, \mu_p) = (\Br L)[p] = 0, \]
-	per ipotesi; da cui $ \cd_p(k) \leq \cd_p(L) = 1 $.
+	Assumiamo $ i $. Per ogni $ L $, la $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
+	\[ (\Br L) [\, p \,] = \HH^2(L, \, \mu_p) = 0. \] \todo[definire le quadre]
+	Assumiamo dunque $ ii $. Sia $ G_p $ un $ p $-Sylow di $ \Gal{\bar{k}/k} $ e $ L $ il sottocampo corrispondente. $ L $ contiene le radici dell'unità $ \mu_p $: infatti l'indice $ [L(\mu_p)\,\colon L] $ deve dividere sia $ p-1 $, perché campo di spezzamento di $ x^p-1 $, che $ p $, per costruzione. Ne segue che
+	\[ \HH^2(L, \, \Z/p\Z) = \HH^2(L, \, \mu_p) = (\Br L)[\, p\,], \]
+	che è nullo per ipotesi; da cui, sfoderando tutti i teoremi sulla dimensione coomologica a nostra conoscenza, $ \cd_p(k) \leq \cd_p(L) = 1 $.
 \end{proof}
 
-\begin{theorem}
+La $ p $-torsione è, per definizione, il nucleo della moltiplicazione per $ p $ e non l'intera componente $ p $-primaria: si proceda con attenzione; denoteremo la $ p $-torsione con delle parentesi quadre $ (\Br K)[\, p \, ]. $
+
+\begin{theorem}\label{cdim2}
 	Ogni campo locale $ \K $ ha dimensione coomologica $ \cd(K) = 2 $. \todo[sembra che ci sia qualche problema se la caratteristica è non zero]
 \end{theorem}
 \begin{proof}
@@ -379,5 +389,8 @@ In questa sezione concluderemo lo studio della coomologia di $ \Gamma_K $, mostr
 	
 	Possiamo ora concludere: l'estensione $ \knr /K $ non ramificata massimale ha gruppo di Galois $ \hat{\Z} $, che è un sottogruppo di $ \Gal{\bar{\K}/K} $, il cui quoziente abbiamo appena mostrato avere dimensione coomologica 1; per il lemma \ref{quozienti}, concludiamo che 
 	$$  \cd(K) \leq \cd(\knr) + \cd(\hat{\Z}) \leq 2.  $$
-	Osserviamo infine che, per un primo $ p $ eventualmente diverso dalla caratteristica di $ K $, il gruppo $ \HH^2(K, \, \mu_p) = (\Br K)[p] $ non è nullo; ottenendo la disuguaglianza opposta.
+	Osserviamo infine che, per un primo $ p $ eventualmente diverso dalla caratteristica di $ K $, il gruppo $ \HH^2(K, \, \mu_p) = (\Br K)[\, p\, ] $ non è nullo; ottenendo la disuguaglianza opposta.
 \end{proof}
+
+% Sarebbe ragionevole avere un'intuzione di cosa signifa e cosa ce ne facciamo... in particolare ci stiamo per lanciare in un capitolo follemente tecnico.
+Questo teorema conclude il calcolo della coomologia di un campo locale, ma abbiamo tutt'altro che concluso lo studio. Che cosa ce ne facciamo di aver calcolato questi misteriosi gruppi di Tate? Ne ricaviamo qualcosa di comprensibile a livello di estensioni di campi? Il prossimo capitolo sarà dedicato all'interpretazione, o meglio alla decifrazione, di quanto calcolato in questo.

@@ -1,19 +1,39 @@
 \chapter{i $ p $-adici}
 
+% Lemmino dei p-adici
+\begin{proposition}
+	Sia $ K $ un campo $ p $-adico e $ \mu_n $ le radici $ n $-esime dell'unità. I gruppi $ \HH^1(K, \, \mu_n) = K^\times / {K^\times}^n $ sono finiti.
+\end{proposition}
+
+\begin{corollary} \label{finiti}
+	Sia $ A $ un $ \Gamma $-modulo finito. I gruppi $ \HH^i(K, \, A) $ sono finiti per ogni $ i > 0 $.
+\end{corollary}
 
 \section{Dualità di Tate}
+Prima di poter enunciare il teorema di dualità di Tate, dobbiamo introdurre una serie di dualità diverse ma dallo stesso sapore: una per i gruppi, classica, e una meno nota per i moduli.
 
 \begin{definition}[Duale di Pontryagin]
 	Per ogni gruppo $ G $, definiamo il duale secondo Pontryagin come
-	\[ G^\vee = \Hom(G, \, \Q/\Z). \]
+	\[ G^\vee = \Hom_\Z(G, \, \Q/\Z). \]
 \end{definition}
 
+Osserviamo innanzitutto che, in analogia alla classica dualità tra spazi vettoriali, la dualità tra due gruppi abeliani finiti $ A, \, B $ è equivalente all'esistenza di un accoppiamento
+\[ A \times B \to \Q/\Z, \]
+ovvero una mappa bilineare non degenere.
+
 \begin{proposition}
-	Il biduale di un gruppo profinito è canonicamnete isomorfo all'abelianizzato del gruppo stesso. 
+	Il biduale di un gruppo profinito è canonicamente isomorfo all'abelianizzato del gruppo stesso. 
 \end{proposition}
+\begin{proof}
+	Il risultato è evidente per i gruppi ciclici
+	\[ \Hom_\Z(\Z/n\Z, \, \Q/n\Z) = \Z/n\Z;  \]
+	segue il caso finito per il teorema di struttura. Passando al limite raggiungiamo tutti i gruppi profiniti.
+\end{proof}
+
+Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso modo, ma abbiamo bisogno quantomeno di una topologia su $ \Q/\Z $. Poiché la scelta non è univoca, ci limitiamo a farlo in un caso in cui è quantomeno naturale: quando il gruppo in questione è un gruppo di Galois $ \Gamma $, pensiamo $ \Q/\Z $ come al gruppo di tutte le radici dell'unità $ \mu_\infty < \bar{K}^\times $.
 
 \begin{definition}[Duale di Cartier]
-	Per ogni $ G $-modulo $ A $, definiamo il duale secondo Cartier come
+	Per ogni $ \Gamma $-modulo $ A $, definiamo il duale secondo Cartier come
 	\[ A^* = \Hom_G(A, \, \mu_\infty). \]
 \end{definition}
 
@@ -22,17 +42,26 @@
 \end{proposition}
 
 % Misteriosa esistenza del modulo dualizzante
+Presentiamo ora un risultato generale di algebra omologica, che non dimostreremo. I dettagli si trovano qui \todo[ref].
 \begin{proposition}
-	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = n $. Se ogni modulo $ A $ ha $ n $-esimo gruppo di coomologia $ \HH^n(G, \, A) $ finito, allora il funtore $ \HH^n(G,\, \bullet\,)^\vee $ è rappresentabile: esiste un modulo $ I $ di torsione per cui
-	\[ \HH^n(G, \, \bullet \, )^\vee = \Hom_G(\,\bullet\, \, I). \]
+	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = d $. Se ogni modulo $ A $ finito ha $ n $-esimo gruppo di coomologia $ \HH^d(G, \, A) $ finito, allora il funtore $ \HH^d(G,\, \bullet\,)^\vee $ è rappresentabile sulla sottocategoria dei moduli finti: esiste un modulo $ I $ di torsione per cui
+	\[ \HH^d(G, \, \bullet \, )^\vee = \Hom_G(\,\bullet\, , \, I). \]
 \end{proposition}
 
-% Lemmino dei p-adici
-\begin{lemma}
-	Sia $ K $ un campo $ p $-adico e $ \mu_n $ le radici $ n $-esime dell'unità. I gruppi $ \HH^1(K, \, \mu_n) = K^\times / {K^\times}^n $ sono finiti.
-\end{lemma}
+\begin{definition}
+	Non contenti della quantità di dualità introdotto finora, chiamiamo il modulo $ I $ della proposizione precedete \emph{modulo dualizzante} di $ G $.
+\end{definition}
+
+% Dire che possiamo passare au moduli di torsione con passaggio al limite, dire che su Hom c'è una topologia!
+\todo[discorso su quelli di torsione]
+
+% Intro
+Fissiamo ora un campo $ p $-adico $ K $ e il suo gruppo di Galois assoluto $ \Gamma $. Abbiamo calcolato, un paio di capitoli fa, che la dimensione coomologica di $ \Gamma $ è 2 (\ref{cdim2}): troviamo quindi un modulo dualizzante $ I $ per cui 
+\[ \HH^d(G, \, \bullet \, )^\vee = \Hom_G(\,\bullet\, , \, I). \]
 
 % Lemmino
+
+
 \begin{lemma}
 	Sia $ G $ un gruppo di dimensione coomologica $ n $. Detto $ I $ un suo modulo dualizzante, questo è dualizzante per ogni sottogruppo $ U < G $ aperto.
 \end{lemma}
@@ -41,17 +70,68 @@
 	\[ \HH^n(U, \, A)^\vee = \HH^n(G, \, \Ind_U^G(A))^\vee = \Hom_G(\Ind_U^G(A), \, I) = \Hom_U(A, \, \f I). \]
 \end{proof}
 
+% Dire che iniziamo a lavorare coi p-adici
+
 % Trovare il dualizzante
 \begin{proposition}
-	Il modulo dualizzante di $ \Gamma_K $ è canonicamente isomorfo al modulo di tutte le radici dell'unità $ \mu_\infty $.
+	Il modulo dualizzante di $ \Gamma $ è canonicamente isomorfo al modulo di tutte le radici dell'unità $ \mu_\infty $.
 \end{proposition}
+\begin{proof}
+	Sia $ I $ un modulo dualizzante e $ I_n $ il sottomodulo di $ n $-torsione, nucleo della moltiplicazione per $ n $:
+	\[ \begin{tikzcd}[column sep = small]
+	0 \rar & I_n \rar & I \rar["\cdot n"] & I \rar & 0.
+	\end{tikzcd} \]
+	Per definizione di modulo dualizzante, essendo $ I $ dualizzante per ogni sottgruppo aperto $ U $ di $ \Gamma $, abbiamo un isomorfismo
+	\begin{equation}\label{dualiz}
+		 \Hom_U(\mu_n, \, I) \to \HH^2(U, \, \mu_n)^\vee;
+	\end{equation}
+	avendo impiegato un'intero capitolo per calcolarlo, conosciamo ora il gruppo di Brauer dell'estensione finita relativa a $ U $ e sappiamo dunque che $$  \HH^2(U, \, \mu_n) = (\Br \bar{K}^U)[n] = \Z/n\Z.  $$
+	Osservando infine che essendo $ \mu_n $ di $ n $-torsione così sarà la sua immagine, possiamo riscrivere l'isomorfismo \eqref{dualiz} di sopra come
+	\[ \Hom_U(\mu_n, \, I_n) \to \Hom_U(\mu_n, \, I) \to \HH^2(U, \, \mu_n)^\vee \to \Z/n\Z. \]
+	Scoprendo così che l'azione di $ \Gamma $ su $ \Hom_\Z(\mu_n, \, I_n) $ è sempre banale: se così non fosse lo stabilizzatore di un qualche elemento sarebbe un sottogruppo aperto $ U $, per il quale non varrebbe l'isomorfismo appena scritto. Ne segue che un isomorfismo di gruppi $ \mu_n \to I_n $ è automaticamente $ \Gamma $ equivariante: possiamo prendere, per esempio, l'isomorfismo $ f_n \in \Hom_U(\mu_n, \, I_n) $ che corrisponde a $ 1 $ in $ \Z/n\Z $ (è chiaro che sia un isomorfismo non appena ci si dimentica della struttura di modulo su $ \mu_n $ e $ I_n $). Infine, costruiamo l'isomorfismo
+	\[ \left(f = \bigcup f_n\right) \colon \left(\mu_\infty = \bigcup \mu_n\right) \to \left(I = \bigcup I_n\right).  \]
+	 
+\end{proof}
 
 % Dualità di Tate
 \begin{theorem}[Dualità di Tate]
-	Sia $ K $ un campo $ p $-adico e $ M $ un $ \Gamma_K $-modulo finito. Il tazza-prodotto induce un accoppiamento di dualità
-	\[ \HH^i(\Gamma_K, \, M) \times \HH^{2-i}(\Gamma_K, \, M^*) \to \HH^2(\Gamma_K, \, \bar{K}^\times) = \Q / \Z \]
+	Sia $ K $ un campo $ p $-adico e $ M $ un $ \Gamma $-modulo finito. Il tazza-prodotto induce un accoppiamento di dualità tra gruppi finti
+	\[ \HH^i(\Gamma, \, A) \times \HH^{2-i}(\Gamma, \, A^*) \to \HH^2(\Gamma, \, \bar{K}^\times) = \Q / \Z \]
 	per $ i = 0, \, 1, \, 2 $.
 \end{theorem}
+\begin{proof}
+	Cominciamo osservando che, a rigore, l'immagine del tazza-prodotto dovrebbe avere i coefficienti in $ A \otimes A^* $, che però identifichiamo come sottogruppo di $ \bar{K}^\times $ tramite la dualità di Cartier:
+	\[ A \otimes \Hom(A,\, \mu_\infty) \to \mu_\infty. \]
+	Partiamo dal caso $ i = 0 $, da cui segue $ i = 2 $ per simmetria. Tutto il lavoro necessario è in realtà contenuto nella proposizione precedente, otteniamo infatti la tesi da
+	\begin{align*}
+		\HH^2(\Gamma, \, A)^\vee & = \Hom_\Gamma(A, \, \mu_\infty) & \text{per via del dualizzante,} \\
+		& = \Hom_\Z(A, \, \mu_\infty)^\Gamma & \text{per definizione,} \\
+		& = \HH^0(\Gamma, \, A^*) & \text{per definizione.}
+	\end{align*}
+	Affrontiamo ora il caso $ i = 1 $. Essendo i gruppi in questione finiti, per quanto visto a inizio capitolo (\ref{finiti}), è sufficiente mostrare che l'omomorfismo di dualità
+	\[ \HH^1(\Gamma, \, A) \to \HH^1(\Gamma, \, A^*)^\vee \]
+	è iniettivo: per simmetria lo sarà anche nell'altra direzione. Abbiamo bisogno di applicare una delle misteriose proposizioni del tazza-prodotto: la \ref{cup2}, in particolare. Le ipotesi sono facilmente verificate avendo, per iniettività di $ \f\mu_\infty $, due successioni esatte corte
+	\[ 0 \to A \to \Ind_1^\Gamma(A) \to A_1 \to 0, \qquad 0 \to A_1^* \to \Ind_1^\Gamma(A)^* \to A^* \to 0 \]
+	sui cui moduli iniziali il tazza-prodotto è evidentemente nullo:
+	\[ A \otimes A_1^* = A \otimes \Hom(\Ind_1^\Gamma(A)/A, \, \mu_\infty) = 0. \]
+	Otteniamo dunque due accoppiamenti di dualità 
+	\begin{align*}
+		\HH^{1}(\Gamma, \, A_1) \times \HH^{1}(\Gamma, \, A_1^*) &\to \HH^{2}(\Gamma, \, \bar{K}^\times),\\
+		\HH^{0}(\Gamma, \, A) \times \HH^{2}(G, \, A^*) &\to \HH^{2}(\Gamma, \, \bar{K}^\times)
+	\end{align*}
+	compatibili con le mappe di transizione, che quindi possiamo incastrare nel diagramma commutativo
+	\[\begin{tikzcd}[column sep = small]
+	\HH^0(\Gamma, \, \Ind_1^\Gamma(A)) \rar\dar
+	& \HH^0(\Gamma, \, A_1) \rar\dar
+	& \HH^1(\Gamma, \, A) \rar\dar
+	& 0 \\
+	\HH^2(\Gamma, \, \Ind_1^\Gamma(A)^*)^\vee \rar
+	& \HH^2(\Gamma, \, A_1^*)^\vee \rar
+	& \HH^1(\Gamma, \, A^*)^\vee,
+	&
+	\end{tikzcd}  \]
+	in cui le mappe orizzontali sono parte delle solite successioni esatte lunghe associate alle due corte riportate sopra (quella sotto, dualizzata), mentre le mappe verticali sono i morfismi di dualità indotti dal tazza-prodotto; per la parte di teorema già dimostrata, i primi due omomorfismi verticali sono isomorfismi: se i due moduli in questione fossero finiti, potremmo comunque estendere l'isomorfismo passando al limite, essendo i due duali di torsione. Segue la tesi per diagram-chasing.
+\end{proof}
 
 % Calcolo del gruppo di Galois assoluto
 

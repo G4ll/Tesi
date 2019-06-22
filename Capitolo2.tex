@@ -1,5 +1,5 @@
 \chapter{Primi risultati}
-In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le potenzialità e gettando delle solide basi sui cui poggeranno i calcoli successivi. Il primo obbiettivo sarà studiare la coomologia dei gruppi ciclici, che si rivelerà piuttosto semplice e di evidente importanza in tutto il seguito. Vorremmo poi capire come calcolare operativamente la coomologia di un gruppo, per esempio riconducendola a quella dei suoi Sylow. \\
+In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le potenzialità e gettando delle solide basi sui cui poggeranno i calcoli successivi. Il primo obbiettivo sarà studiare la coomologia dei gruppi ciclici, che si rivelerà piuttosto semplice e di evidente importanza in tutto il seguito. Segue immediatamente un tentativo di studiare i gruppi per approssimazione: partendo da quelli ciclici, passando per i $ p $-gruppi, per poi affrontare gruppi arbitrari. Sarà dunque importante capire come ricondurre il calco operativo della coomologia di un gruppo a quello dei suoi Sylow. \\
 
 Sistemati i giocattoli, sarà il momento di concentrarci sul vero obbiettivo del nostro lavoro: i gruppi di Galois. Per affrontare la Teoria di Galois avremo bisogno di abbandonare l'ipotesi di finitezza, producendo qualche risultato anche per gruppi profiniti. Introdurremo dunque la nozione di dimensione coomologica, come indice di complessità di un gruppo, di particolare interesse nella caratterizzazione dei gruppi infiniti.
 
@@ -21,9 +21,7 @@ Sia nel seguito $ G $ un gruppo ciclico di ordine $ n $ di cui fissiamo un gener
 	& \Z[G] \rar
 	& \Z \rar & 0,
 	\end{tikzcd} \]
-	da cui segue la 2-periodicità sia in coomologia che in omologia. 
-	
-	\todo[finire: come ci appiccichiamo i gradi bassi?]
+	da cui segue la 2-periodicità sia in coomologia che in omologia. Un elegante soluzione per estendere la periodicità ai gradi $ i = 0, \, -1 $ è considerare i moduli di coomologia traslata: possiamo così spostare i gruppi problematici, per dire, in grado positivo. 
 \end{proof}
 
 Per i moduli i cui gruppi di Tate sono finiti abbiamo scoperto due importanti invarianti: la cardinalità dei gruppi in grado pari e dei gruppi in grado dispari, che chiamiamo $ h_0(A) $ e $ h_1(A) $.
@@ -33,7 +31,7 @@ Per i moduli i cui gruppi di Tate sono finiti abbiamo scoperto due importanti in
 	\[ {h}(A) := \frac{h_0(A)}{h_1(A)} = \frac{|\Hh^0(G, \, A)|}{|\Hh^1(G, \, A)|}. \]
 \end{definition}
 
-Enunciamo ora alcune piacevoli proprietà
+Enunciamo ora alcune piacevoli proprietà.
 
 \begin{lemma}\label{Herb1}
 	Data una successione esatta corta
@@ -57,17 +55,18 @@ Enunciamo ora alcune piacevoli proprietà
 	Se $ A $ è finito, $ h(A) = 1 $.
 \end{lemma}
 \begin{proof}
-	Per come abbiamo definito i gruppi di Tate abbiamo la successione esatta
+	Nella definizione di gruppi di Tate compariva la successione esatta
 	\begin{equation*}			\begin{tikzcd}[column sep = small]
 	0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0,
 	\end{tikzcd}
 	\end{equation*}
-	da cui deduciamo che $ h_1(A) \cdot |\, A^G\, | =  h_0(A) \cdot |\, A_G\, | $; siccome il gruppo è ciclico siamo inoltre in grado di ottenere la desiderata relazione fra invarianti e co-invarianti:
+	da cui deduciamo che $ h_1(A) \cdot |\, A^G\, | =  h_0(A) \cdot |\, A_G\, | $; siccome il gruppo è ciclico, abbiamo anche la desiderata relazione fra invarianti e co-invarianti:
 	\begin{equation*}
 	\begin{tikzcd}[column sep = small]
 	0 \rar& A_G \rar& A \rar["D"]& A \rar& A^G \rar& 0.
 	\end{tikzcd}
 	\end{equation*}
+	Grazie alle cui relazioni sugli ordini dei gruppi concludiamo.
 \end{proof}
 
 Quest'ultimo lemma sembra, più che una proprietà elementare del quoziente di Herbrand, un risultato tecnico e particolarmente specifico: è così, ci servirà più avanti in una dimostrazione particolarmente impegnativa.
@@ -94,13 +93,11 @@ Lo studio della coomologia di un generico gruppo si fa troppo complessa per pote
 
 Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, dopo i generosi risultati dei capitoli precedenti, abbiamo abbandonato i gruppi di Tate? Scopriremo nel seguito che le due definizioni sono equivalenti. \\
 
-Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}). In particolare i moduli liberi sono coomologicamente banali e, di conseguenza, i moduli proiettivi (ragionando per décalage). Anche i moduli iniettivi sono coomologicamente banali, per come abbiamo costruito i gruppi di coomologia. Questo, unito alle osservazioni sui capitoli 
+Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}). In particolare i moduli liberi sono coomologicamente banali e, di conseguenza, i moduli proiettivi (ragionando per décalage). Anche i moduli iniettivi sono coomologicamente banali, per come abbiamo costruito i gruppi di coomologia. \\
 
+Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ fissiamo un $ p $-Sylow $ G_p $ di $ G $ e studiamone la coomologia; sceglierne uno in particolare non intacca la generalità dello studio, infatti il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow: ogni automorfismo interno $ \sigma_t $ di $ G $ che li permuta induce infatti un isomorfismo in coomologia. Nonostante non sia facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, cominciamo a raccogliere qualche indizio di essere sulla buona strada.
 
-
-Una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che possiamo spezzarne lo studio in parti più semplici. Per ogni primo $ p $ possiamo scegliere un $ p $-Sylow $ G_p $ di $ G $; il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow, poiché ogni mappa di coniugio $ \sigma_t $ che li permuta induce un isomorfismo in coomologia. Fissiamo dunque un Sylow $ G_p $ per ogni primo. Non è facile, in generale, risalire dalla coomologia dei Sylow a quella del gruppo originario, il seguente risultato ci convincerà però a continuare lo studio sui Sylow.
-
-\begin{lemma}
+\begin{lemma}\label{banSylow}
 	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomologicamente banale come $ G_p $-modulo per ogni $ p $ primo.
 \end{lemma}
 \begin{proof}
@@ -129,9 +126,9 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 \end{proposition}
 
 \begin{proof}
-	Dimostreremo che $ A $ è uno $ \F_p[G] $-modulo libero; è equivalente alla tesi perché $ \F_p[G] = \Z[G] \otimes \F_p $ è indotto. \\
+	Dimostreremo che $ A $ è uno $ \F_p[G] $-modulo libero; il che è equivalente alla tesi perché $ \F_p[G] = \Z[G] \otimes \F_p $ è indotto. \\
 	
-	Cominciamo osservando che $ A^G $ è un $ \F_p $-modulo libero per ipotesi. Scelta una base base di $ A^G $, costruiamo $ F $ come l'$ \F_p[G] $-modulo libero generato sulla stessa base, per cui abbiamo un isomorfismo
+	Cominciamo osservando che $ A^G $ è un $ \F_p $-modulo libero per ipotesi. Scelta una base di $ A^G $, sia $ F $ il $ \F_p[G] $-modulo libero generato sulla stessa base, per cui abbiamo un isomorfismo
 	\[ j \colon A^G \to F^G. \]
 	
 	Mostriamo che esiste un sollevamento di $ j $ a un isomorfismo tra $ F $ ed $ A $. Consideriamo la successione esatta
@@ -158,26 +155,26 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 	\end{tikzcd} \]
 	da cui deduciamo che, essendo $ j $ un isomorfismo, $ Q^G \to 0 $ è iniettiva e la tesi segue dal Lemma \ref{ban1}.\\
 	
-	Se $ q \neq 1 $ abbiamo bisogno di ingegnarci altrimenti: dobbiamo traslare l'ipotesi. Osserviamo che il modulo di coomologia traslata $ A_{q-1} $ ricade nelle ipotesi corretta. Abbiamo quindi la tesi per $ A_{q-1} $, che è pertanto coomologicamente banale e ci forza così l'ipotesi 
+	Se $ q \neq 1 $ abbiamo bisogno di ingegnarci altrimenti: dobbiamo traslare l'ipotesi. Osserviamo che il modulo con coomologia traslata $ A_{q-1} $ ricade nelle ipotesi del caso precedente. Abbiamo quindi la tesi per $ A_{q-1} $, che è pertanto coomologicamente banale e ci forza così l'ipotesi 
 	\[ \Hh^1(G, \, A) = \Hh^{2-q}(G, \, A_{q-1}) = 0 \]
 	di cui avevamo bisogno per concludere.
 \end{proof}
 
-Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione, ottenendo un magnifico criterio per la banalità di un modulo. Per quanto osservato a inizio capitolo, continuiamo a enunciare i teoremi per $ p $-gruppi sottolineando però la facilità con cui si estendono al caso generale.
+Con un piccolo sforzo riusciamo a rimuovere l'ipotesi di $ p $-torsione, ottenendo un magnifico criterio per la banalità di un modulo. Per quanto osservato a inizio capitolo (\ref{banSylow}), continuiamo a enunciare i teoremi per $ p $-gruppi sottolineando però la facilità con cui si estendono al caso generale.
 
-\begin{theorem}
+\begin{theorem} \label{CriterioBanalita}
 	Sia $ A $ uno $ G_p $-modulo. Se esiste un indice $ q $ per cui
 	\[ \Hh^q(G_p, \, A) = \Hh^{q+1}(G_p, \, A) = 0, \]
 	allora $ A $ è coomologicamente banale.
 \end{theorem}
 
 \begin{proof}
-	Vogliamo mostrare che $ A $ è proiettivo (??!). Esiste un modulo libero $ F $ per cui possiamo scrivere
+	Vogliamo mostrare che $ A $ è proiettivo. Esiste un modulo libero $ F $ per cui possiamo scrivere
 	\begin{equation}\label{projban3}
 		0 \to R \to F \to A \to 0,
 	\end{equation}
 	non ci resta che trovare una sezione.
-	Passando alla successione esatta lunghissima, una volta osservato che $ F $ è coomologicamente banale (??!), riusciamo a spostare l'ipotesi su $ R $:
+	Passando alla successione esatta lunghissima, una volta osservato che $ F $ è coomologicamente banale, riusciamo a spostare l'ipotesi su $ R $:
 	\[ \Hh^q(G_p, \, R) = \Hh^{q+1}(G_p, \, R) = 0. \]
 	
 	Supponiamo per il momento che $ A $ sia un gruppo abeliano libero, ovvero libero come $ \Z $-modulo. In questo caso $ \Hom_\Z(A, \, \bullet) $ è esatto e ci restituisce quindi una successione esatta corta
@@ -218,7 +215,7 @@ Segue immediatamente che:
 	Se $ A $ è coomologicamente banale, tutti gli $ \Hh^i(G, \, A) $ sono banali.
 \end{corollary}
 
-Estendendo i coefficienti in modo opportuno, preserviamo la banalità:
+Osserviamo, in modo improvviso e forse addirittura inopportuno, che estendendo i coefficienti di un modulo ne preserviamo la banalità.
 
 \begin{corollary}\label{tensor magic}
 	Sia $ A $ un modulo coomologicamente banale e $ D $ un modulo piatto. L'estensione per scalari $ A \otimes D $ è coomologicamente banale.
@@ -228,11 +225,11 @@ Estendendo i coefficienti in modo opportuno, preserviamo la banalità:
 	\[ 0 \to P \to F \to A \to 0 \]
 	è esatta. Per piattezza anche la successione
 	\[ 0 \to P \otimes D \to F\otimes D \to A\otimes D \to 0 \]
-	è esatta. Poiché $ F \otimes D $ rimane indotto e $ P \otimes D $ rimane addendo diretto di un indotto, $ A \times D $ rimane coomologicamente banale.
+	è esatta. Poiché $ F \otimes D $ rimane indotto e $ P \otimes D $ rimane addendo diretto di un indotto, nella successione esatta lunghissima associata troviamo i gruppi di coomologia con coefficienti in $ A \otimes D $ immersi in un mare di zeri; concludiamo che $ A \otimes D $ dev'essere coomologicamente banale.
 \end{proof}
 
 \section{Dimensione Coomologica}
-La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo dal quale peschiamo i coefficienti. Come abbiamo già visto, i gruppi ciclici, che non sembrano particolarmente complessi, hanno coomologia non banale in tutti i gradi: questa idea di \leftquote misurare la complessità del gruppo" è di qualche interesse solo per gruppi infiniti.
+La dimensione coomologica di un gruppo è un indice di complessità: è il numero di gruppi di coomologia non nulli che ci aspettiamo di trovare, più o meno indipendentemente dal modulo dal quale peschiamo i coefficienti. Questo tipo di studio risulta interessante per lo più per gruppi infiniti; è giunto il momento di abbandonare l'ipotesi di finitezza per procede verso il profinito e oltre.
 
 \begin{definition}[Dimensione coomologica]
 	Sia $ G $ un gruppo profinito e $ p $ un numero primo. La \emph{$ p $-dimensione coomologica} di $ G $ è il più piccolo intero $ n $ per cui: per ogni $ G $-modulo $ A $ di torsione, la componente $ p $-primaria di $ \HH^q(G, \, A) $ è nulla non appena $ q > n $, volendo
@@ -243,18 +240,19 @@ La dimensione coomologica di un gruppo è un indice di complessità: è il numer
 È necessaria una certa attenzione nel maneggiare la definizione di dimensione coomologica: abbiamo richiesto che $ A $ fosse un modulo \emph{di torsione}, rimuovendo questa ipotesi si finisce a parlare di dimensione coomologica stretta, che è tutta un'altra storia (anzi, ancora peggio, una storia leggermente diversa). Per di più, è stato introdotto sottobanco un nuovo pezzettino di notazione: $ T_p M $ sarà da qui in poi la componente $ p $-primaria del gruppo abeliano $ M $. \\
 
 %% vorrei capire cosa mi serve a cosa mi serve prima di scrivere un sacco di roba inutile...
-
-Ancora una volta, si riesce a ridurre il calcolo ai moduli di $ p $-torsione.
+Anche lo studio della dimensione coomologica si riesce a proseguire per approssimazione, questa volta dei moduli piuttosto che dei gruppi.
 
 \begin{proposition}
 	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $. \todo[dimostrare]
 \end{proposition}
 
-Questa proposizione ci permette per esempio di calcolare la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite, si ha infatti che 
+Calcoliamo la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite, si ha infatti che 
 \[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim_n \HH^2(\Z/p^n\Z, \, \Z/p\Z) = \varinjlim_n \Hh^0(\Z/p^n\Z, \, \Z/p\Z). \]
-I gruppi di Tate di grado zero li conosciamo esplicitamente: per definizione sono $ \Z/p\Z $ quozientato per l'immagine della norma, ma essendo l'azione banale, la norma coincide con la moltiplicazione per l'ordine del gruppo $ p^n $ ed è quindi la mappa nulla. Le mappe di collegamento sono invece indotte dalla proiezione naturale e quindi coincidono con l'inflazione, che in grado zero è proprio la norma! Essendo tutte le mappe nulle
+I gruppi di Tate di grado zero li conosciamo esplicitamente: per definizione sono $ \Z/p\Z $ quozientato per l'immagine della norma, ma essendo l'azione banale, la norma coincide con la moltiplicazione per l'ordine del gruppo $ p^n $ ed è quindi la mappa nulla. Le mappe di collegamento sono indotte dalla proiezione naturale e coincidono quindi con l'inflazione, che in grado zero è, poco originalmente, la norma. Poiché tutte le mappe sono nulle
 \[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim_n \Z/p^n\Z = 0. \]
 Per la proposizione appena dimostrata $ \cd_p(\Z_p) \leq 1 $; otteniamo l'altra uguaglianza calcolando esplicitamente $$  \HH^1(\Z_p , \, \Z/p\Z) = \Hom(\Z_p , \, \Z/p\Z) = \Z/p\Z \neq 0.  $$
+
+Riprendiamo lo studio della dimensione coomologica, mostrando in che modo è legata la dimensione di un gruppo con quella dei sottogruppi
 
 \begin{proposition}
 	Sia $ G $ un gruppo profinito e $ H $ un suo sottogruppo chiuso. Per ogni primo $ p $ si ha
@@ -269,9 +267,10 @@ Per la proposizione appena dimostrata $ \cd_p(\Z_p) \leq 1 $; otteniamo l'altra 
 
 Quest'ultima proposizione ci permette di ricondurre il calcolo della dimensione di un gruppo a quella dei suoi Sylow. L'esempio per eccellenza è $ \hat{\Z} = \varprojlim_n \Z/n\Z $, dei cui Sylow $ \Z_p$ conosciamo già la dimensione: per ogni primo $ p $ si ha
 \[ \cd_p(\hat{\Z}) = \cd_p(\Z_p) = 1, \]
-da cui $ \cd(\hat{\Z})=1 $.
+da cui $ \cd(\hat{\Z})=1 $.\\
 
 % Mi serve il lemma che lega sottogruppi e quozienti
+Non possiamo sperare in un risultato analogo al precedente per i quozienti: per esempio $ \Z_p $ ha dimensione coomologica finita, mentre i suoi quozienti finiti o, per essere concreti, anche solo $ \Z/p\Z $, essendo ciclici hanno gruppi non nulli di indice arbitrariamente grande. Troviamo infatti solo una disuguaglianza della direzione opposta.
 \begin{proposition}\label{quozienti}
 	Sia $ H $ un sottogruppo chiuso e normale di $ G $. Allora, per ogni numero primo $ p $, si ha che
 	\[ \cd_p(G) \leq \cd_p(H) + \cd_p(G/H). \]
