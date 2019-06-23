@@ -5,7 +5,7 @@ Il grande vantaggio di una teoria coomologica è che possiamo definirci sopra un
 
 Seguirà la dimostrazione del teorema di dualità di Tate-Nakayama, risultato che, tramite il prodotto appena definito (dunque in maniera piuttosto oscura), mette in comunicazione gruppi di coomologia con coefficienti in moduli diversi. Questo ci permetterà di reinterpretare la coomologia di un campo spostando i coefficienti su moduli più semplici, $ \Z $ per esempio, e ricavare qualche informazione sul gruppo di Galois in questione. \\
 
-L'ultimo paragrafo sarà il momento in cui tutti i nostri sforzi saranno ripagati: otterremo una descrizione del gruppo di Galois della massima estensione abeliana di un campo locale, l'applicazione di reciprocità.
+L'ultimo paragrafo sarà il momento in cui tutti i nostri sforzi saranno ripagati: otterremo una descrizione del gruppo di Galois della massima estensione abeliana di un campo locale in termini della struttura del campo stesso, l'applicazione di reciprocità locale.
 
 \section{Tazza Prodotto}
 Costruiremo ora un'applicazione bilineare tra i gruppi di coomologia, donando al nostro strumento un prodotto e, dunque, una struttura di algebra. La costruzione del \leftquote tazza-prodotto", così come la presentazione delle relative proprietà, è fondamentalmente una boriosa, lunghissima, verifica: preannuncio solo che dovremo riesumare la descrizione in cocatene. Come ogni buon libro di algebra, presenteremo dettagliatamente la costruzione del prodotto e la lista delle proprietà che useremo in seguito, lasciando decidere al lettore se fidarsi ciecamente di quanto presentato oppure dedicare un paio di pomeriggi alla verifica diretta. \\
@@ -150,7 +150,7 @@ Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare
 
 
 % Costruzione della Reciprocità e... poco altro?
-Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo subito il teorema di dualità al caso dei campi locali: siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $. Poniamo $ A = L^\times $ e $ G $ il gruppo di Galois dell'estensione. Per Hilbert 90 l'ipotesi $ i $ del teorema di Tate-Nakayama è soddisfatta 
+Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo il teorema di dualità di Tate-Nakayama al caso dei campi locali: ne otterremo una descrizione dei gruppi di Galois in funzione della struttura del campo stesso; siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $. Poniamo $ A = L^\times $ e $ G $ il gruppo di Galois dell'estensione. Per Hilbert 90 l'ipotesi $ i $ del teorema di Tate-Nakayama è soddisfatta 
 \[ i. \; \HH^1(G_p,\, L^\times) = 0 \]
 e, grazie al nostro studio del gruppo di Brauer, anche l'ipotesi $ ii $: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, L^\times) $ coincide con il sottogruppo di $ n $-torsione di $ \Br K = \Q/\Z $, possiamo pertanto scegliere l'unico elemento $ u \in \HH^2(G, \, L^\times) $ per cui $ \inv_K(u) = \frac{1}{n} $; per il lemma di compatibilità tra invarianti e restrizione (\ref{inv}), si ha che
 \[ ii. \; \HH^2(G_p, \, L^\times) = T_p \Br(L/K) \;\text{ è generato da } \Res u. \]
@@ -175,8 +175,11 @@ che coincide con il tazza-prodotto per $ u. $
 \end{proof}
 
 
-Questa mappa fornisce una descrizione, in qualche senso esplicita, di tutti i gruppi di Galois di estensioni abeliane, fornendo uno strumento dall'evidente importanza. Questo conclude in un qualche senso lo studio delle estensioni abeliane di un campo locale. Possiamo riassumere il tutto in un unico risultato: il calcolo del gruppo di Galois della massima estensione abeliana, ovvero l'abelianizzato del gruppo di Galois assoluto $ \Gamma_K $. Prendendo il limite inverso di $ \omega_L $ sulle abeliane finite, otteniamo una mappa
+Questa mappa fornisce un primo importante collegamento tra il gruppo di Galois di un'estensione abeliana e gli elementi del campo stesso. Questo conclude in un qualche senso lo studio delle estensioni abeliane di un campo locale, per esempio possiamo annunciare trionfanti di essere riusciti a calcolare il gruppo di Galois della massima estensione abeliana, ovvero l'abelianizzato del gruppo di Galois assoluto $ \Gamma_K $: prendendo il limite inverso di $ \omega_L $ sulle estensioni abeliane finite, otteniamo una mappa
 \[ \omega\colon K^\times \to \Gamma_K^{\texttt{ab}}, \]
-detta \emph{applicazione di reciprocità}, che è un isomorfismo sul quoziente $ \varprojlim_L K^\times / NL^\times  $.
-
+detta \emph{applicazione di reciprocità}, che sul quoziente $ \varprojlim_L K^\times / NL^\times  $ è un isomorfismo:
+\[ \Gamma_K^{\texttt{ab}} = \varprojlim_L \frac{K^\times}{NL^\times}. \]
 % Mi piacerebbe dire qualcosa qua, ma temo che non mi sia chiarissimo a cosa ci serve dove siamo arrivati e perché.
+Tornando con i piedi per terra, soffermiamoci su quella fastidiosa $ N $ al numeratore: come speriamo di calcolare esplicitamente questo gruppo? Come si calcola l'immagine tramite la norma di una data estensione? Studiando più approfonditamente l'applicazione di reciprocità è possibile raffinare il risultato in modo da aggirare questo problema: mostreremo nel capitolo successivo che il limite in questione è in realtà più maneggevole di come siamo riusciti a presentarlo; scopiremo infatti che si tratta del completamento profinito del gruppo moltiplicativo $ \K^\times $:
+\[ \varprojlim_L \frac{K^\times}{NL^\times} = \varprojlim_n \frac{K^\times}{{K^\times}^n} = \hat{K}. \]
+% assicurarsi della presenza dell'applicazione di reciprocità nella dualità di Tate
