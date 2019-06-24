@@ -28,7 +28,7 @@ permettendoci di passare in coomologia.
 
 Il prodotto è ovviamente compatibile con le successioni esatte lunghe:
 
-\begin{proposition}\label{cup1}
+\begin{proposition}\label{cup1} \todo[rendere utilizzabile!]
 	Se entrambe le successioni
 	\[ 0 \to A \to A' \to A'' \to 0, \qquad 0 \to A \otimes B \to A'\otimes B \to A''\otimes B \to 0 \]
 	sono esatte, allora il tazza-prodotto, fissato $ \beta \in \HH^q(G, \, B) $, in induce un morfismo di complessi
@@ -115,12 +115,23 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state s
 \end{proposition}
 
 \begin{proof}
-	Giocando a trovare le differenze con la proposizione precedente, si scopre che queste coincidono quando $ a \in \HH^0(G, \, A) $, ovvero assumendo $ q = 0. $ Per concludere è pertanto sufficiente mostrare che ci si può ricondurre al caso precedente. Il modo naturale di farlo è passare ai moduli con coomologia traslata: sostituendo $ A, \, C $ con $ A_1 ,\,  C_1 $, otteniamo un'applicazione bilineare $ \varphi_1\colon A_1 \times B \to C_1 $.
-	\[ \begin{tikzcd}
-	content
-	\end{tikzcd} \]
-	
-	 \todo[scrivere questa parte]
+	Giocando a trovare le differenze con la proposizione precedente, si scopre che queste coincidono quando $ a \in \HH^0(G, \, A) $, ovvero assumendo $ q = 0. $ Per concludere è pertanto sufficiente mostrare che ci si può ricondurre al caso precedente. Il modo naturale di farlo è passare ai moduli con coomologia traslata: cominciamo dal caso $ q = 1 $. Sostituendo $ A, \, C $ con $ A_1 ,\,  C_1 $, otteniamo un'applicazione bilineare $ \varphi_1\colon A_1 \times B \to C_1 $ abbastanza naturalmente
+	\[ \begin{tikzcd}[column sep = small]
+	0 \rar
+	& A \rar \dar["\cdot_\varphi\beta"]
+	& \Ind_1^G(A) \rar \dar["\cdot_\varphi\beta"]
+	& A_1 \rar \dar["\cdot_{\varphi_1}\beta", dashed]
+	& 0\\
+	0 \rar & C \rar & \Ind_1^G(C) \rar & C_1 \rar & 0.  \end{tikzcd} \]
+	Prendialmo l'elemento $ a_1 \in \Hh^0(G, \, A_1) $ corrispondente ad $ a $: l'unico per cui $ \delta(a_1) = a $. La tesi è vera per il prodotto indotto da $ \varphi_1 $ e l'elemento $ a_1 $: abbiamo dei meravigliosi isomorfismi
+	\[ \begin{tikzcd}[column sep = small]
+	\Hh^n(H, \, B \otimes D) \rar["a_1\cup"] & \Hh^{n}(H, \,  C_1 \otimes D)
+	\end{tikzcd}  \]
+	a cui possiamo aggiungere il classico isomorfismo
+	\[ \begin{tikzcd}[column sep = small]
+	\Hh^n(H, \, B \otimes D) \rar["a_1\cup"] & \Hh^{n}(H, \,  C_1 \otimes D) \rar["\delta"] & \Hh^{n+1}(G, \, C \otimes D).
+	\end{tikzcd}  \]
+	Deduciamo la tesi grazie al risultato di compatibilità del tazza-prodotto (\ref{cup1}): l'isomorfsimo trovato è infatti $$  \beta \mapsto \delta(a_1 \cup x) = \delta(a_1) \cup x = a \cup x.  $$ La dimostrazione è analoga per ogni $ q $.
 \end{proof}
 
 Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare le particolari ipotesi in una forma più accessibile, se non proprio comprensibile.

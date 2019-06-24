@@ -240,11 +240,30 @@ La dimensione coomologica di un gruppo è un indice di complessità: è il numer
 È necessaria una certa attenzione nel maneggiare la definizione di dimensione coomologica: abbiamo richiesto che $ A $ fosse un modulo \emph{di torsione}, rimuovendo questa ipotesi si finisce a parlare di dimensione coomologica stretta, che è tutta un'altra storia (anzi, ancora peggio, una storia leggermente diversa). Per di più, è stato introdotto sottobanco un nuovo pezzettino di notazione: $ T_p M $ sarà da qui in poi la componente $ p $-primaria del gruppo abeliano $ M $. \\
 
 %% vorrei capire cosa mi serve a cosa mi serve prima di scrivere un sacco di roba inutile...
-Anche lo studio della dimensione coomologica si riesce a proseguire per approssimazione, questa volta dei moduli piuttosto che dei gruppi.
+Siamo in grado di formulare un criterio per il calcolo della dimensione coomologica, riducendo i moduli su cui dobbiamo calcolare la coomologia a solamente quelli semplici.
 
 \begin{proposition}
-	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $. \todo[dimostrare]
+	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $. 
 \end{proposition}
+
+\begin{proof}
+	Il risultato è vagamente intutivo e la dimostrazione accomoderà questa sensazione: la componente di $ p $-torsione si può calcolare senza perdita di generalità sui moduli $ p $-primari, che a loro volta potremo spezzare in sottomoduli semplici, riducendo il calcolo all'unico modulo semplice di $ p $-torsione che esiste, $ \Z/p\Z $. Procediamo con ordine. \\
+	
+	Mostriamo che l'unico $ G $-modulo semplice di $ p $-torsione è $ \Z/p\Z $ (con l'azione banale!). Un modulo di questo tipo dev'essere, ovviamente, finito; nell'intersezione degli stablizzatori dei vari elementi, che ricordiamo essere aperti, troviamo un sottogruppo $ U < G $ aperto e normale per cui $ A $ è un $ G/U $-modulo semplice, riportandoci a dimostrare il risultato per un gruppo $ G $ finito, per cui la tesi è chiara. \\
+	
+	Se $ \HH^{n+1}(G_p, \, \Z/p\Z) $ è nullo, allora $ \HH^{n+1}(G_p, \, A) $ è nullo per ogni modulo $ A $ finito di $ p $-torsione: In questo caso possiamo infatti scrivere una serie di decomposizione
+	\[ 0 = A^m \hookrightarrow A^{m-1} \hookrightarrow \dots \hookrightarrow A^1 \hookrightarrow A^0 = A, \]
+	i cui quozienti sono tutti semplici, ovvero, per quanto appena mostrato, si trovano in successioni esatte corte della forma
+	\[ 0 \to A^{i+1} \to A^i \to \Z/p\Z \to 0. \]
+	La collezione di successioni esatte lunghe associate restituisce una catena di mappe suriettive in grado $ n+1 $, per ipotesi,
+	\[ 0 = \HH^{n+1}(G, \, A^0) \twoheadrightarrow \HH^{n+1}(G, \, A^1) \twoheadrightarrow \dots \twoheadrightarrow \HH^{n+1}(G, \, A), \]
+	da cui segue la banalità di tutti i gruppi coinvolti. Rimuoviamo facilmente l'ipotesi di finitezza, sfruttando il solito risultato di passaggio al limite \ref{limite}, una volta scritto $ A $ come unione (o, per farla difficile, limite induttivo) dei suoi sottomoduli finiti. \\
+	
+	Per concludere, dimostriamo per décalage che i gruppi di coomologia di gradi maggiori $ q > n+1 $, per ogni modulo $ A $ di $ p $-torsione, sono anch'essi nulli. È sufficiente scrivere il modulo di coomologia traslata $ A_{r} $, osservare che anch'esso è di $ p $-torsione (perché l'indotto $ \Ind_1^G(A) $ è composto da mappe che per essere continue devono essere localmente costanti, dunque con immagine finita), e concludere dunque che	
+	\begin{equation*}
+	 \Hh^{n+1+r}(G, \, A) = \Hh^{n+1}(G, \, A_r) = 0.
+	\end{equation*}
+\end{proof}
 
 Calcoliamo la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite, si ha infatti che 
 \[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim_n \HH^2(\Z/p^n\Z, \, \Z/p\Z) = \varinjlim_n \Hh^0(\Z/p^n\Z, \, \Z/p\Z). \]
@@ -276,5 +295,5 @@ Non possiamo sperare in un risultato analogo al precedente per i quozienti: per 
 	\[ \cd_p(G) \leq \cd_p(H) + \cd_p(G/H). \]
 \end{proposition}
 \begin{proof}
-	Segue dall'esistenza successione spettrale di Hoschild Serre: per ogni modulo di $ A $ di torsione, la successione ci dona una filtrazione di $ \HH^n(G, \, A) $ i cui quozienti sono, partendo dalla descrizione della seconda pagina, sottoquozienti di $ \HH^i(G/H, \, \HH^j(H, \, A)) $ per $ i+j = n $. Osserviamo che $ \HH^j(H, \, A) $ sarà nullo non appena $ j > \cd_p(H) $ e che, essendo $ \HH^j(H, \, A) $ di $ p $-torsione (\ref{ntors}), anche $ \HH^i(G/H, \, \HH^j(H, \, A)) $ sarà nullo non appena $ i > \cd_p(G/H) $; da cui la disuguaglianza voluta.
+	Segue dall'esistenza successione spettrale di Hoschild Serre: per ogni modulo di $ A $ di torsione, la successione ci dona una filtrazione di $ \HH^n(G, \, A) $ i cui quozienti sono, partendo dalla descrizione della seconda pagina, sottoquozienti di $ \HH^i(G/H, \, \HH^j(H, \, A)) $ per $ i+j = n $. Osserviamo che $ \HH^j(H, \, A) $ sarà nullo non appena $ j > \cd_p(H) $ e che, essendo $ \HH^j(H, \, A) $ di torsione a sua volta (\ref{ntors}), anche $ \HH^i(G/H, \, \HH^j(H, \, A)) $ sarà nullo non appena $ i > \cd_p(G/H) $; da cui la disuguaglianza voluta.
 \end{proof}
