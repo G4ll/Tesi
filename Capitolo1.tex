@@ -51,7 +51,7 @@ Questa proposizione, come molte altre proprietà dei funtori derivati, non verr�
 	Indichiamo con $ \Z $, da qui in avanti, il gruppo additivo degli interi munito dell'azione banale.  Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i_G(\Z, \, \bullet\,) $.
 \end{remark}
 
-Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo. \todo[questa è da sistemare]
+Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo.
 
 \section{Teoria Generale}
 Ci sono due strade equivalenti per ottenere i gruppi $ \HH^i(G, \, A) $: possiamo partire da una risoluzione proiettiva di $ \Z $ come $ G $-modulo
@@ -471,6 +471,35 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 	& \Hh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
 	&&
 	\end{tikzcd}\]
+	
+%	\[\begin{tikzcd}[column sep = small]
+%	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
+%	& \Hh^{-1}(G, \, B) \dar \rar[dashed]
+%	& \Hh^{-1}(G, \, C) \dar \arrow[dddll, out=0, in=0, dashed, rounded corners = 10pt,
+%	to path={ --([xshift=3ex]\tikztostart.east)
+%		|- (C)[near end]\tikztonodes
+%		-- (B)[near end]\tikztonodes
+%		-- (A)[near end]\tikztonodes
+%		-| ([xshift=-3ex]\tikztotarget.west)
+%		-- (\tikztotarget)}]
+%	&& \\
+%	\dots \rar
+%	& \Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
+%	& A_G \rar \dar[""{coordinate, name=A}] 
+%	& B_G \rar \dar[""{coordinate, name=B}]
+%	& C_G \rar \dar[""{coordinate, name=C}]
+%	& 0 & \\
+%	& 0 \rar
+%	&A^G \rar\dar
+%	& B^G \rar\dar
+%	& C^G \rar["\delta^0"]\dar
+%	& \Hh^1(G, \, A) \rar
+%	& \dots \\
+%	&& \Hh^{0}(G, \, A) \rar[dashed]
+%	& \Hh^{0}(G, \, B)  \rar[dashed]
+%	& \Hh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
+%	&&
+%	\end{tikzcd}\]
 	Seguendo le mappe tratteggiate, otteniamo la tesi.
 \end{proof}
 
