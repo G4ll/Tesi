@@ -1,0 +1,135 @@
+\documentclass[a4paper]{article}
+
+\makeatletter
+\title{Teoria del campo di classe locale}\let\Title\@title
+\author{Andrea Gallese}\let\Author\@author
+\date{\today}\let\Date\@date
+
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+
+% pack matematici
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{faktor}
+\usepackage{wasysym}
+\usepackage{thmtools}
+
+\usepackage[margin=3.5cm]{geometry}
+\usepackage[position=top]{subfig}
+\usepackage{multirow}
+
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{mdframed}
+\usepackage{enumitem}
+
+% Comando Intitolante
+\newcommand{\Intitola}{\begin{center}
+		\vspace*{0,5 cm}
+		{\huge \textsc{\Title}} \\
+		\vspace{0,5 cm}
+		\texttt{\Author} \hspace{0.5cm} - \hspace{0.5cm} \texttt{\Date}
+		\thispagestyle{empty}
+		\vspace{0,7 cm}
+\end{center}}
+
+% magia
+\iffalse
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\fi
+
+% Frontespizio e piè di pagina
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textsf{\Author}}
+\chead{\textbf{\textsf{\Title}}}
+\lhead{\textsf{\today}}
+\cfoot{\thepage}
+
+% multicols
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+\setlength{\columnseprule}{0,5pt}
+
+% indentazione
+\setlength{\parindent}{0pt}
+
+% Crea una nuova pagina per ogni sottosezione
+\newcommand{\subsectionbreak}{\clearpage}
+
+% Per avere le sezioni con le lettere
+\renewcommand{\thesection}{\Alph{section}}
+
+% Bullet delle liste puntate
+\renewcommand\labelitemi{$ \blacktriangleright $}
+
+% Per disegnare diagrammi commuatativi
+\usepackage{tikz-cd}
+\usepackage{tikz}
+
+% Formato Teoremi, Dimostrazioni, Definizioni
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Osservazione}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definizione}
+\renewcommand\qedsymbol{$\clubsuit$}
+
+% Comandi matematici del caso
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\C}{\mathbb{C}}
+
+\renewcommand{\S}{\mathcal{S}}
+
+% Comandi di Algebra
+\newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
+\newcommand{\Int}[1]{\mathrm{Int}\left( #1 \right)}
+\newcommand{\Orb}[1]{\mathcal{O}rb\left( #1 \right)}
+\newcommand{\Stab}[1]{\mathcal{S}tab\left( #1 \right)}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+
+\newcommand{\LR}{\quad\Leftrightarrow\quad}
+\newcommand{\RR}{\quad\Rightarrow\quad}
+
+% Questo è un po' triste
+\newcommand{\fun}[5]{
+	\begin{align*}
+	#1 \colon #2 &\to #3 \\
+	#4 &\mapsto #5
+	\end{align*}
+}
+
+% formattazione titoli sezioni
+\titleformat{\section}
+{\normalfont\scshape\center\Large}{\thesection}{1em}{}
+
+\begin{document}
+\Intitola
+
+La teoria del campo di classe è lo studio delle estensioni abeliane di un campo $ K $ globale o, come nel nostro caso, locale. L'obiettivo principale di questa teoria è la descrizione del gruppo di Galois relativo alla massima estensione abeliana di $K$ in termini di struttura aritmetica e topologica del campo stesso. In particolare, dimostreremo che questo gruppo è, nel caso $p$-adico, il completamento profinito del gruppo moltiplicativo del campo. \\
+
+Affronteremo lo studio di questa teoria secondo gli approcci più moderni: introdurremo la coomologia di gruppi come il derivato del funtore che \textquotedblleft prende gli invarianti" e dedicheremo i primi due capitoli a raffinare questo linguaggio, così da essere sicuri di avere tutti i vocaboli necessari per discutere della teoria di Galois. Mostreremo che la riformulazione di alcuni risultati classici in teoria dei campi, attraverso il nostro strumento, risulta piacevole, elegante e sintetica: procederemo dunque ad una minuziosa opera di traduzione delle proprietà aritmetiche dei campi locali in termini coomologici. \\
+
+I campi locali presentano una struttura aritmetica relativamente semplice, della quale ci serviremo per calcolare la coomologia del gruppo di Galois assoluto. In particolare, uno studio dettagliato dell'estensione non ramificata massimale di $K$ ci permetterà di dedurre numerose proprietà coomologiche del gruppo di Galois assoluto di $K$. Questi risultati ci permetteranno di produrre gli isomorfismi necessari a calcolare il gruppo di Brauer e la dimensione coomologica di un campo locale. \\
+
+Conclusi i preparativi, presenteremo il prodotto naturale della teoria coomologica in esame. Questo permette di costruire degli interessanti isomorfismi tra gruppi di coomologia con coefficienti diversi, che possiamo raggruppare sotto due celebri teoremi di dualità, dovuti rispettivamente a Tate-Nakayama e a Tate. Interpretando opportunamente la prima di queste dualità, riusciremo a costruire un isomorfismo esplicito tra i gruppi di Galois delle estensioni abeliane e alcuni quozienti del gruppo  moltiplicativo del campo, l'applicazione di reciprocità locale; sfrutteremo invece la dualità di Tate per calcolare l'abelianizzato del gruppo di Galois assoluto di un campo $ p $-adico, concludendo in bellezza lo studio della teoria del campo di classe locale. \\
+
+\end{document}

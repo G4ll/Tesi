@@ -65,10 +65,10 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 
 
 \begin{lemma} \label{torsione del brauer}
-	$ (\Br k) [n] = \HH^2(k, \mu_n) $.
+	Il sottogruppo di $ n $-torsione $ (\Br k) [n] $ coincide con $ \HH^2(k, \mu_n) $.
 \end{lemma}
 \begin{proof}
-	Segue immediatamente osservando che la successione esatta lunga associata a 
+	La successione esatta lunga associata a 
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& \mu_p \rar
@@ -156,18 +156,17 @@ per le quali il grado fornisce una piacevole filtrazione: le unità devono esser
 \end{equation}
 Abbiamo così ottenuto una filtrazione $ \mathcal{O}_{\K}^\times \supseteq U_{\K}^1 \supseteq U_{\K}^2 \supseteq \dots $ 
 i cui quozienti $ U_{\K}^i / U_{\K}^{i+1} $ sono tutti isomorfi a $ \kappa $.
-Infine, per il Lemma di Hensel, abbiamo che
+Infine troviamo, a collegare la prima successione \eqref{local1} con quelle sottostanti, 
 \begin{equation}\label{local3}
 	\begin{tikzcd}[column sep = small]
 	1 \rar
 	& U_k^{1} \rar
 	& \mathcal{O}_{\K}^\times \rar
 	& \kappa^\times \rar
-	&1.
+	&1,
 	\end{tikzcd}
 \end{equation}
-
-\todo[non sono completamente sicuro di quello che sto scrivendo]
+che, per il Lemma di Hensel, spezza.\\
 
 Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semplicità di questa struttura, ci fornisce qualche informazione aggiuntiva sulla coomologia delle estensioni di questi campi locali. Cominciamo dalle estensioni più facili da controllare: quelle non ramificate.
 
@@ -364,6 +363,9 @@ In questa sezione concluderemo lo studio della coomologia di $ \Gamma_K $, mostr
 	\end{enumerate}
 \end{lemma}
 
+La $ p $-torsione è, per definizione, il nucleo della moltiplicazione per $ p $ e non l'intera componente $ p $-primaria: si proceda con attenzione; denoteremo la $ p $-torsione con delle parentesi quadre $ (\Br K)[\, p \, ]. $
+
+
 \begin{proof}
 	Assumiamo $ i $. Per ogni $ L $, la $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
 	\[ (\Br L) [\, p \,] = \HH^2(L, \, \mu_p) = 0. \] \todo[definire le quadre]
@@ -372,7 +374,6 @@ In questa sezione concluderemo lo studio della coomologia di $ \Gamma_K $, mostr
 	che è nullo per ipotesi; da cui, sfoderando tutti i teoremi sulla dimensione coomologica a nostra conoscenza, $ \cd_p(k) \leq \cd_p(L) = 1 $.
 \end{proof}
 
-La $ p $-torsione è, per definizione, il nucleo della moltiplicazione per $ p $ e non l'intera componente $ p $-primaria: si proceda con attenzione; denoteremo la $ p $-torsione con delle parentesi quadre $ (\Br K)[\, p \, ]. $
 
 \begin{theorem}\label{cdim2}
 	La dimensione coomologica di un campo locale è 2. \todo[sembra che ci sia qualche problema se la caratteristica è non zero]

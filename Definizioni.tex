@@ -11,8 +11,14 @@
 \usepackage{array}
 \usepackage{rotating}
 \usepackage{multirow}
-%\usepackage{geometry}
+%\usepackage[inner=0cm,outer=5cm]{geometry}
 \usepackage{enumitem}
+\usepackage[normalem]{ulem}
+
+
+\usepackage{titlesec}
+\usepackage{titling}
+%\usepackage{fontspec}
 
 \usepackage{xcolor}
 
@@ -32,6 +38,24 @@
     linkcolor=black,
     urlcolor=black
 }
+
+% Comando folle
+%\renewcommand{\textbf}{\bfseries\textsf}
+
+
+% Titolo dei capitoli
+%\renewcommand*{\chaptitlefont}{\textsf\HUGE\bfseries\sffamily}
+
+% Specify different font for section headings
+%\titleformat*{\section}{\LARGE\textsf\bfseries}
+%\titleformat*{\subsection}{\Large\textsf}
+%\titleformat*{\subsubsection}{\large\textsf}
+
+%\makeheadrule{headings}{\textwidth}{0.3pt}
+
+%\copypagestyle{fnsizeheadings}{headings}
+%\makeevenhead{fnsizeheadings}{\thepage}{}{\footnotesize\slshape\leftmark}
+%\makeoddhead{fnsizeheadings}{\footnotesize\slshape\rightmark}{}{\thepage}
 
 %-------------------------------------------
 \newtheorem{theorem}{$ \blacksquare $ Teorema}[section]
@@ -107,3 +131,20 @@
 
 % Cose da decidere
 \newcommand{\Gmod}{\mathsf{Mod}_\mathsf{G}}
+
+%\newcommand{\MyTo}[1]{\mathbin{\,\tikz[baseline] \draw[-stealth,line width=.4pt] (0ex,1.3ex) -- (#1,1.3ex);}}
+%\newcommand{\MyToo}[1]{\mathbin{\,\tikz[baseline] \draw[-stealth,line width=.4pt] (0ex,1.3ex) -- (-#1,1.3ex);}}
+%\renewcommand{\varinjlim}{%
+	%\mathchoice
+	%{\lim_{\MyTo{3.0ex}}}% \displaystyle
+	%{\lim_{\MyTo{2.5ex}}}% \textstyle
+	%{\lim_{\MyTo{2.0ex}}}% \scriptstyle
+	%\lim_{\MyTo{2.0ex}}}% \scriptscriptstyle
+%}
+%\renewcommand{\varprojlim}{%
+%	\mathchoice
+%	{\lim_{\MyToo{3.0ex}}}% \displaystyle
+%	{\lim_{\MyToo{2.5ex}}}% \textstyle
+%	{\lim_{\MyToo{2.0ex}}}% \scriptstyle
+%	{\lim_{\MyToo{2.0ex}}}% \scriptscriptstyle
+%}
