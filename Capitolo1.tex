@@ -4,7 +4,7 @@
 L'obiettivo di questo primo capitolo è di introdurre la coomologia di gruppi, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
 
 Poniamoci nella dovuta generalità. Sia $ G $ un gruppo, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $-moduli".
-Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su $ L $ e di conseguenza su tutti i campi intermedi normali, rendendo sia il loro gruppo additivo che il loro gruppo moltiplicativo dei $ \Gal{L/K} $ moduli. \\
+Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su $ L $ e di conseguenza su tutti i campi intermedi normali, rendendo sia il loro gruppo additivo che il loro gruppo moltiplicativo dei $ \Gal{L/K} $-moduli. \\
 
 Siamo interessati al funtore $ \mathcal{F} $ che, preso un modulo, restituisce il sottomodulo costituito dagli elementi invarianti rispetto all'azione del gruppo
 \begin{align*} 
@@ -18,34 +18,41 @@ di evidente importanza in Teoria di Galois. Questo funtore è esatto a sinistra 
 	\[ \HH^i(G, \, \bullet\,) : = R^i\mathcal{F}(\,\bullet\,). \]
 \end{definition}
 
-Attraverso questa definizione e la magia occulta dei funtori derivati, l'algebra omologica ci permette di assegnare a un $ G $-modulo $ A $ un'intera famiglia di invarianti $ \HH^i(G, \, A) $, il cui studio ci permetterà di descrivere meglio sia il modulo che il gruppo in questione. 
+Con questa definizione, grazie alla magia occulta dei funtori derivati, assegniamo a uno $ G $-modulo $ A $ un'intera famiglia di invarianti $ \HH^i(G, \, A) $, il cui studio ci permetterà di descrivere meglio sia il modulo che il gruppo in questione. 
 
 Dall'altro lato la definizione appena data sembra, al momento, un cambio di notazione completamente arbitrario: perché non continuare a chiamare i nostri oggetti funtori derivati per il resto della tesi? Limitiamoci ad osservare che la presentazione scelta mette in evidenza la proprietà fondamentale di questi oggetti.
 
-\begin{theorem}\label{fond} \todo[questa si può fare meglio]
+\begin{theorem}\label{fond}
 	Data una successione esatta corta di $ G $ moduli
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & A \rar & B \rar & C \rar & 0,
 	\end{tikzcd}\]
 	si ha una successione esatta lunga di gruppi abeliani
 	\[\begin{tikzcd}[column sep = small, row sep = small]
-	0 \rar & A^G \rar & B^G \arrow[d,phantom, ""{coordinate, name=Z}] \rar & C^G \arrow[dll, 
-	rounded corners = 6 pt, 
+	0 \rar
+	&A^G \rar\arrow[d,phantom, ""{coordinate, name=A, near end}]
+	& B^G \arrow[d,phantom, ""{coordinate, name=B}] \rar
+	& C^G \arrow[dll, 
+	rounded corners = 5 pt, 
 	to path={ --([xshift=3ex]\tikztostart.east)
-		|- (Z)[near end]\tikztonodes
-		-| ([xshift=-3ex]\tikztotarget.west)
-		-- (\tikztotarget)}] \\
-	\qquad \quad &\HH^1(G, \, A) \rar & \HH^1(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \HH^1(G, \, C) \arrow[dll, 
-	rounded corners = 6 pt, 
-	to path={ --([xshift=3ex]\tikztostart.east)
-		|- (W)[near end]\tikztonodes
+		|- (A)\tikztonodes
 		-| ([xshift=-3ex]\tikztotarget.west)
 		-- (\tikztotarget)}]  \\
-	&\HH^2(G, \, A) \rar & \dots \, .
-	& \end{tikzcd}\]
+	\qquad \quad
+	&\HH^1(G, \, A)  \arrow[d,phantom, ""{coordinate, name=X}] \rar 
+	& \HH^1(G, \, B) \arrow[d,phantom, ""{coordinate, name=Y}] \rar
+	& \HH^1(G, \, C) \arrow[d,phantom, ""{coordinate, name=Z}] \arrow[dll, 
+	rounded corners = 5 pt, 
+	to path={ --([xshift=3ex]\tikztostart.east)
+		|- (X)\tikztonodes
+		-| ([xshift=-3ex]\tikztotarget.west)
+		-- (\tikztotarget)}]  \\
+	&\HH^2(G, \, A) \rar
+	& \dots
+	& \qquad \end{tikzcd}\]
 \end{theorem}
 
-Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo al corso di Istituzioni di Algebra il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente rassicurazione:
+Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo a un buon libro di algebra \cite{Weibel} il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente rassicurazione:
 
 \begin{remark}
 	Indichiamo con $ \Z $, da qui in avanti, il gruppo additivo degli interi munito dell'azione banale.  Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i_G(\Z, \, \bullet\,) $.
@@ -53,7 +60,7 @@ Questa proposizione, come molte altre proprietà dei funtori derivati, non verr�
 
 Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo.
 
-\section{Teoria Generale}
+\section{Costruzione}
 Ci sono due strade equivalenti per ottenere i gruppi $ \HH^i(G, \, A) $: possiamo partire da una risoluzione proiettiva di $ \Z $ come $ G $-modulo
 \[ \dots \to P_2 \to P_1 \to P_0 \to \Z \to 0, \]
 applicare il funtore controvariante $ \Hom_G(\, \bullet\,, \, A) $ per ottenere il complesso coomologico
@@ -64,44 +71,43 @@ applicare il funtore covariante $ \mathcal{F} = \Hom_G(\Z, \, \bullet \, ) $ per
 \[ 0 \to \mathcal{F}\left(I^{\,0}\right) \to \mathcal{F}\left(I^{\,1}\right) \to \mathcal{F}\left(I^{\,2}\right) \to \dots, \]
 e, ancora una volta, prenderne la coomologia. \\
 
-Non è banale mostrare né che le due definizioni non dipendono dalla risoluzione scelta e né che sono equivalenti, ma per fortuna non ce ne occuperemo. Questo assodato, affermiamo, con una certa convinzione, che tutti i moduli iniettivi hanno coomologia banale
-\begin{equation} \label{injban}
+Non è banale mostrare né che le due definizioni non dipendono dalla risoluzione scelta né che sono equivalenti, ma per fortuna non ce ne occuperemo. Dalla costruzione è comunque evidente che tutti i moduli iniettivi hanno coomologia banale
+\begin{equation}\label{injban}
 	\HH^i(G, \, I) = 0 \quad \forall \, i > 0.
 \end{equation}
 
 %% Costruzione esplicita e cocatene
-Una costruzione alternativa dei gruppi $ \HH^i(G, \, A) $ si ottiene prendendo l'omologia dal complesso
+Equivalentemente, possiamo ottenere i gruppi $ \HH^i(G, \, A) $ come coomologia dal complesso
 \[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
-dove l'oggetto $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $; i differenziali $ \delta^i \colon K^i \to K^{i+1} $, nel classico stile della coomologia singolare, sono definiti in modo incomprensibile e stranamente intrigante:
+dove $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $ e i differenziali $ \delta^i \colon K^i \to K^{i+1} $ sono definiti da un'inintelligibile somma a segni alterni, nel classico stile della coomologia singolare:
 \begin{align*}
 	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
 \end{align*}
 
-Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. \\
-
-È interessante osservare che, avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
+Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $, detti \leftquote cocatene"; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. Avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
 \begin{lemma}%
 	Se sia $ G $ che $ A $ sono finiti, allora tutti i gruppi di coomologia $ \HH^i(G, \, A) $ sono finiti.
 \end{lemma}
+Una volta trovato il coraggio di scrivere per esteso nuclei e immagini dei differenziali di grado basso, è possibile calcolare esplicitamente il gruppo in grado zero, $ \HH^0(G, \, A) = A^G, $ e il gruppi in grado uno quando $ G $ agisce banalmente su $ A $, nel qual caso si presenta nella docile forma di $ \HH^1(G, \, A) = \Hom_\Z(G, \, A). $
 
-Passiamo ora all'analisi della coomologia di grado basso: per definizione abbiamo
-$$  \HH^0(G, \, A) = \ker \delta^0 = \{ f \colon G^0 \to A \mid gf-f = 0 \quad \forall \, g \in G \},  $$
-identificando $ K^0(A) $ con $ A $, mandando $ f $ nell'unico elemento che compone la sua immagine, scopriamo che
-\[ \HH^0(G, \, A) = \{ a \in A \mid ga = a \quad \forall \, g \in G \} = A^G. \]
-Abbiamo ottenuto una descrizione piuttosto piacevole del gruppo di grado zero! Questo risultato è tutt'altro che inaspettato, è vero per ogni funtore derivato e si dimostra altrettanto facilmente andando a studiare la costruzione della risoluzione iniettiva di cui sopra. In grado uno il calcolo si fa appena più complesso: abbiamo bisogno di scriverci esplicitamente i cocicli
-\[ Z^1(A) = \ker \delta^1 = \{ f \colon G \to A \mid f(gh) = gf(h) + f(g) \}, \]
-poi i cobordi
-\[ B^1(A) = \im \delta^0 = \{ ga - a \mid g \in G, \, a \in A  \}, \]
-e infine il quoziente
-\[ \HH^1(G, \, A) = \frac{Z^1(A)}{B^1(A)} = \frac{\{ f(gh) = gf(h) + f(g) \}}{\{ ga - a\}}. \]
-Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavia, nel caso in cui l'azione di $ G $ su $ A $ sia banale otteniamo una più profonda comprensione dell'oggetto, infatti il denominatore scompare e scopriamo che
-\[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
-Accettiamo il risultato come vagamente interessante e procediamo.
+%Passiamo ora all'analisi della coomologia di grado basso: per definizione abbiamo
+%$$  \HH^0(G, \, A) = \ker \delta^0 = \{ f \colon G^0 \to A \mid gf-f = 0 \quad \forall \, g \in G \},  $$
+%identificando $ K^0(A) $ con $ A $, mandando $ f $ nell'unico elemento che compone la sua immagine, scopriamo che
+%\[ \HH^0(G, \, A) = \{ a \in A \mid ga = a \quad \forall \, g \in G \} = A^G. \]
+%Abbiamo ottenuto una descrizione piuttosto piacevole del gruppo di grado zero! Questo risultato è tutt'altro che inaspettato, è vero per ogni funtore derivato e si dimostra altrettanto facilmente andando a studiare la costruzione della risoluzione iniettiva di cui sopra. In grado uno il calcolo si fa appena più complesso: abbiamo bisogno di scriverci esplicitamente i cocicli
+%\[ Z^1(A) = \ker \delta^1 = \{ f \colon G \to A \mid f(gh) = gf(h) + f(g) \}, \]
+%poi i cobordi
+%\[ B^1(A) = \im \delta^0 = \{ ga - a \mid g \in G, \, a \in A  \}, \]
+%e infine il quoziente
+%\[ \HH^1(G, \, A) = \frac{Z^1(A)}{B^1(A)} = \frac{\{ f(gh) = gf(h) + f(g) \}}{\{ ga - a\}}. \]
+%Il risultato è meno chiaro del precedente, per non dire più deludente; tuttavia, nel caso in cui l'azione di $ G $ su $ A $ sia banale otteniamo una più profonda comprensione dell'oggetto, infatti il denominatore scompare e scopriamo che
+%\[ \HH^1(G, \, A) = \{ f(gh) = f(h) + f(g) \} = \Hom_\Z(G, \, A). \]
+%Accettiamo il risultato come vagamente interessante e procediamo.
 
 % Mettiamoci qui il discorso su finito / profinito!
 
 \begin{profinite}
-	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito. Avremo però bisogno di estendere il nostro linguaggio in modo da comprendere anche i gruppi profiniti: la difficoltà che si pone è l'entrata in scena della topologia; la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia e che tutte le mappe siano continue, in particolare la moltiplicazione per $ g $. Questo è equivalente a chiedere che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi: questa ha infatti abbastanza iniettivi; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
+	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito, a patto però di estendere il nostro linguaggio in modo da comprendere anche i gruppi profiniti. La difficoltà principale che si pone è l'entrata in scena della topologia: la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia per cui la moltiplicazione per $ g $ sia continua; oppure, equivalentemente, che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi, perché questa ha abbastanza iniettivi \cite[Lemma 6.11.10]{Weibel}; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
 \end{profinite}
 
 \section{Funtorialità}
@@ -112,9 +118,9 @@ I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, m
 	\[ h \cdot_{H} A := f(h) \cdot_{G} A \qquad \forall\, h \in H. \]
 \end{definition}
 
-È bene ribadire che $ \f $ è un'operazione puramente formale, ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con il quale è stato introdotto; inizieremo presto a omettere il $ \f $, per semplificare la notazione, lasciando che sia il contesto a indicare la giusta azione. Osserviamo inoltre che l'operazione è, in un qualche senso, parzialmente invertibile: possiamo munire il gruppo abeliano
+È bene ribadire che $ \f $ è un'operazione puramente formale che ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con il quale è stato introdotto; inizieremo presto a omettere $ \f $, per semplificare la notazione, lasciando che sia il contesto a suggerire la giusta azione. Osserviamo inoltre che l'operazione è, in un qualche senso, parzialmente invertibile: possiamo munire il gruppo abeliano
 \[ \Ind_{H}^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_{H}(\Z[G], \, A) \]
-di un'azione naturale di $ G $:
+di un'azione di $ G $ molto naturale:
 \[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
 
 Che recupera quanto dimenticato nel seguente senso:
@@ -128,9 +134,9 @@ Che recupera quanto dimenticato nel seguente senso:
 
 Classicamente, i moduli che abbiamo appena introdotto vengono chiamati \emph{coindotti}, mentre gli indotti si ottengono tensorizzando per l'anello di gruppo. Quando $ G $ ed $ H $ sono finiti le due definizioni coincidono:
 \[ \Hom_H(\Z[G], \, A)  = \Z[G] \otimes_H A. \]
-Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e che, di conseguenza, $ \f $ preserva i proiettivi. Siamo finalmente pronti per affrontare il risultato principale del capitolo, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
+Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e, di conseguenza, che $ \f $ preserva i proiettivi. Siamo finalmente pronti per affrontare il risultato principale del capitolo, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
 \begin{proposition}\label{funct}
-	Siano  $ A $ uno $ G $ modulo e $ A' $ un $ H $ modulo. Dati $ f \colon H \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omomorfismo $ H $-equivariante, otteniamo una mappa in coomologia
+	Siano  $ A $ uno $ G $-modulo e $ A' $ un $ H $-modulo. Dati $ f \colon H \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omomorfismo $ H $-equivariante, otteniamo una mappa in coomologia
 	\[ \HH^i(G, \, A) \to \HH^i(H, \, A') \qquad\forall i \geq 0. \]
 \end{proposition}
 
@@ -158,7 +164,7 @@ Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e che, di conse
 	Dalla funtorialità di $ \HH^i $ nel secondo argomento, otteniamo la tesi componendo la mappa appena trovata con quella indotta da $ u $.
 \end{proof}
 
-Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo un sottogruppo $ H $ di $ G $. Daremo la dignità di un nome alle mappe più naturali da proporre e, al contempo, più rilevanti nello studio dei gruppi di coomologia.
+Affrontato il problema nella dovuta generalità, decliniamo la soluzione nei casi a cui siamo interessati: fissiamo un sottogruppo $ H $ di $ G $. Concederemo un nome alle mappe più naturali e, al contempo, più rilevanti nello studio dei gruppi di coomologia.
 \begin{definition}[Restrizione]
 	Chiamiamo mappa di restrizione l'omomorfismo
 	\[ \Res \colon \HH^i(G, \, A) \to \HH^i(H, \, \iota^\times A) \]
@@ -179,9 +185,9 @@ Un'altra mappa che si incontra spontaneamente in natura è quella indotta dal co
 	è l'identità.
 \end{proposition}
 \begin{proof}
-	Dimostriamo il risultato per décalage: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi vera fino al grado $ i $ per ogni $ G $-modulo. Preso ora un qualunque modulo $ A $, immergiamolo in un modulo iniettivo $ I $:
+	Dimostriamo il risultato per décalage: per $ i = 0 $ non c'è nulla da dimostrare. Supponiamo ora la tesi fino al grado $ i $. Preso un modulo $ A $, consideriamo un'immersione in un modulo iniettivo $ I $:
 	\[ 0 \to A \to I \to Q \to 0. \]
-	La successione esatta lunga associata (per \ref{fond}) è costellata di $ 0 $ ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
+	La successione esatta lunga associata (per $ \ref{fond} $) è costellata di zeri ovunque si prenda la coomologia di $ I $ (per \ref{injban}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar & A^G \rar\dar["\sigma_t = \id" description] & I^G \rar\dar["\sigma_t = \id" description] & Q^G \rar\dar["\sigma_t = \id" description] & \HH^1(G, \, A) \rar\dar["\sigma_t"] & 0 \\
 	0 \rar & A^G \rar & I^G \rar & Q^G \rar & \HH^1(G, \, A) \rar & 0
@@ -227,7 +233,7 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 
 \begin{corollary}[Successione Restrizione-Inflazione]\label{boo2}
 	Associata ad $ H $, sottogruppo normale di $ G $ per cui $ \HH^i(H, \, A ) = 0 $ per ogni $ 1 \leq i < q $, si ha la successione esatta
-	\[\begin{tikzcd}[column sep = small]
+	\[\begin{tikzcd}
 	0 \rar & \HH^q(G/H, \, A^H) \rar["\Inf"]
 	& \HH^q(G, \, A) \rar["\Res"]
 	& \HH^q(H, \, A).
@@ -240,7 +246,7 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 
 
 \section{Corestrizione}
-Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrizione, ovvero che in qualche modo risale dalla coomologia rispetto ad $ H $ a quella rispetto a $ G $. Per costruire questa mappa è fondamentale che l'indice $ [G \, \colon H] $ sia finito, cosa che accade sicuramente supponendo $ G $ finito.
+Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrizione, ovvero che in qualche modo risale dalla coomologia di $ H $ a quella di $ G $. Per costruire questa mappa è fondamentale che l'indice $ [G \, \colon H] $ sia finito, cosa che accade sicuramente supponendo $ G $ finito.
 
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $-modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
@@ -252,7 +258,7 @@ A^H \rar["f"] \dar{N}
 A^G \rar["f"]
 & B^G
 \end{tikzcd}\] 
-commuta, perché, per definizione, la mappa $ f $ è $ \Z[G] $-lineare. \todo[sistemare] \\
+commuta, perché, per definizione, la mappa $ f $ è $ \Z[G] $-lineare. \\
 
 Per estendere la mappa a tutti i gradi possiamo quindi partire da una risoluzione iniettiva di $ A $, prenderne gli invarianti sia rispetto ad $ H $ che a $ G $ e, prima di prenderne l'omologia, applicare la norma per ottenere un morfismo di complessi
 \[\begin{tikzcd}
@@ -273,9 +279,9 @@ e quindi una mappa in coomologia che chiamiamo \emph{corestrizione}:
 
 \end{definition}
 
-La nostra prima preoccupazione è controllare come la corestrizione si comporta rispetto alla restrizione: osserviamo che componendo le due mappe otteniamo un endomorfismo di $ \HH^i(G, \, A) $. Esplicitando la definizione di entrambe riusciamo a descrivere questo omomorfismo esplicitamente.
+La nostra prima preoccupazione è controllare come la corestrizione si comporta rispetto alla restrizione: osserviamo che componendo le due mappe otteniamo un endomorfismo di $ \HH^i(G, \, A) $. Riusciamo a descrivere questo omomorfismo esplicitamente.
 
-\begin{theorem}[della corestrizione]
+\begin{theorem}
 	Sia $ m = [G \,\colon H] $ l'indice di $ H $ in $ G $. La composizione
 	\[\begin{tikzcd}
 	\HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) \rar["\Cor"] & \HH^i(G, \, A)
@@ -285,12 +291,12 @@ La nostra prima preoccupazione è controllare come la corestrizione si comporta 
 \begin{proof}
 	La dimostrazione è per décalage: in $ i = 0 $ ritroviamo l'azione della norma su elementi fissati dall'azione di $ G $
 	\[\begin{tikzcd}
-	A^G \rar["i"] & A^H \rar["N"] & A^G & \\
-	a \rar[mapsto] & a \rar[mapsto] & \displaystyle\sum_{x \in G/H} x \cdot a = ma.
+	A^G \rar["\iota", hookrightarrow] & A^H \rar["N"] & A^G &
 	\end{tikzcd}  \]
-	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $-modulo. Immergiamo $ A $ nel suo indotto per ottenere una successione esatta corta
-	\[ 0 \to A \to \Ind_1^G(A) \to Q \to 0, \]
-	la cui successione esatta lunga associata (per \ref{fond}) è costellata di zeri ovunque si prenda la coomologia dell'indotto (per \ref{indotti}), rimangono quindi solo il segmento iniziale
+	che è proprio $ \sum_{x \in G/H} x \cdot a = ma $, trovando su $ A^G $ l'azione banale di $ G/H $.
+	Supponiamo ora la tesi vera fino al grado $ i $, per ogni $ G $-modulo. Immergiamo $ A $ in un iniettivo $ I $, così da ottenere la successione esatta corta
+	\[ 0 \to A \to I \to Q \to 0, \]
+	la cui successione esatta lunga associata (per $ \ref{fond} $) è costellata di zeri ovunque si prenda la coomologia dell'iniettivo (per \ref{injban}), rimangono quindi solo il segmento iniziale
 	\[\begin{tikzcd}
 	0 \rar
 	& A^G \rar\dar["\cdot m" description]
@@ -325,33 +331,36 @@ Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarme
 
 Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Se per esempio sapessimo che $ A $ è finitamente generato e di conseguenza $ \HH^i(G, \, A) $ è finitamente generato (per la descrizione esplicita in cocatene, per dire), scopriremmo dunque che dev'essere finito: perché finitamente generato e di torsione. \\
 
-Tra le meraviglie che ci porge l'aritmetica, troviamo il seguente risultato, tanto più raffinato del precedente quanto della meno chiara utilità. Si tratta di un primo passo verso la decomposizione dello studio dei gruppi di coomologia nello studio delle singole componenti primarie e si rivelerà fondamentale quando affronteremo il discorso più dettagliatamente.
+Tra le meraviglie dell'aritmetica, troviamo il seguente risultato, tanto più raffinato del precedente quanto della meno chiara utilità. Si tratta di un primo passo verso la decomposizione dello studio dei gruppi di coomologia nello studio delle singole componenti primarie e si rivelerà fondamentale quando affronteremo il discorso più dettagliatamente.
 
 \begin{lemma}\label{injp}
-	Se $ p $ è un primo per cui $ m = [G \, \colon H] $ è coprimo con $ p $, allora $ \Res $ è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $.
+	Preso un primo $ p $ per cui $ [G \, \colon H] $ è coprimo con $ p $, la restrizione è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $:
+	\[ \begin{tikzcd}
+	0 \rar & T_p \HH^i(H, \, A) \rar["\Res"] & \HH^i(H, \, A).
+	\end{tikzcd}\]
 \end{lemma}
 
-Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe ad una mappa iniettiva, dunque la mappa più interna, la restrizione, dev'essere iniettiva a sua volta.
+Sotto queste ipotesi, infatti, la composizione $ \Cor \cdot \Res $ si restringe ad una mappa iniettiva, dunque la mappa più interna, la restrizione, dev'essere iniettiva a sua volta. Per di più, osserviamo che è stato introdotto surrettiziamente un nuovo pezzettino di notazione: $ T_p M $ sarà da qui in poi la componente $ p $-primaria del gruppo abeliano $ M $. \\
 
 \begin{profinite}
-	La norma, e di conseguenza la corestrizione, è ben definita per ogni sottogruppo $ U $ d'indice finito e chiuso di $ G $. Poiché i sottogruppi sono aperti se e solo se chiusi e d'indice finito, possiamo applicare il corollario \ref{ntors}, per passare al limite (come nella proposizione \ref{limite}) e scoprire che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
+	La norma, e di conseguenza la corestrizione, è ben definita per ogni sottogruppo $ U $ d'indice finito e chiuso di $ G $.
+	Poiché i sottogruppi chiusi d'indice finito coincidono con quelli aperti, il corollario sulla torsione $ \ref{ntors} $ si estende ai gruppi profiniti: il limite diretto non può che mandare gruppi di torsione in gruppi di torsione.
+%	Poiché un sottogruppo chiuso e d'indice finito è anche aperto, possiamo applicare il corollario \ref{ntors}, per passare al limite (come nella proposizione \ref{limite}) e scoprire che i gruppi di coomologia dei gruppi profiniti sono anch'essi di torsione.
 \end{profinite}
 
 \section{Gruppi di Tate}
-La coomologia di gruppi introdotta fino a questo momento è accompagnata, poco sorprendentemente, da una duale teoria omologica. I due strumenti si riescono a mettere in comunicazione fra loro e, modificati opportunamente, a riunire in un unico grande macchinario: i gruppi di coomologia di Tate, $ \Hh^i(G, \, A) $. \\
-
-\todo[Sistemare i Tate! Sforano]
+La coomologia di gruppi introdotta fino a questo momento è accompagnata, poco sorprendentemente, da una duale teoria omologica. I due strumenti si riescono a mettere in comunicazione fra loro e, modificati opportunamente, a riunire in un unico grande macchinario: i gruppi di coomologia di Tate, $ \Hh(G, \, A) $. \\
 
 Consideriamo il funtore $ \mathcal{G} $ che, preso un modulo, restituisce il più grande quoziente su cui $ G $ agisce banalmente, detto modulo dei co-invarianti:
 \begin{align*} 
 \mathcal{G} \colon \Gmod &\to \mathcal{A}b \\
 A &\mapsto A_G.
 \end{align*}
-Riusciamo a descrivere $ \mathcal{G} $ esplicitamente osservando che il nucleo della proiezione $ A \to A_G $ dev'essere il sottomodulo generato da $ \{ a - ga \mid a \in A, \, g \in G \} $, infatti quozientare per quest'ultimo corrisponde esattamente a imporre che l'azione sia banale. Nel caso dell'anello di gruppo otteniamo il cosiddetto \emph{ideale di augmentazione}:
+Riusciamo a descrivere $ \mathcal{G} $ esplicitamente osservando che il nucleo della proiezione $ A \to A_G $ dev'essere il sottomodulo generato dagli elementi della forma $ (a - ga) $, infatti quozientare per quest'ultimo corrisponde esattamente a imporre che l'azione sia banale. Nel caso dell'anello di gruppo otteniamo il cosiddetto \emph{ideale di augmentazione}:
 \[ 0 \to I_G \to \Z[G] \to \Z \to 0, \]
 che ci fornisce una descrizione semplice del funtore in analisi
 \[ \mathcal{G} \colon A \to A_G = A/I_GA = A \otimes_G \Z. \]
-Averlo descritto come tensore ci dice, in particolare, che $ \mathcal{G} $ è esatto a destra ma, in generale, non a sinistra. Possiamo quindi prenderne il derivato sinistro:
+Essendo un prodotto tensore, $ \mathcal{G} $ è esatto a destra ma, in generale, non a sinistra. Possiamo quindi prenderne il derivato sinistro:
 
 \begin{definition}[Omologia di Gruppi]
 	Dato un gruppo finito $ G $ e un intero $ i \geq 0 $, chiamiamo $ i $-esimo gruppo di omologia di $ G $ il funtore
@@ -360,7 +369,7 @@ Averlo descritto come tensore ci dice, in particolare, che $ \mathcal{G} $ è es
 
 Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, inflazione e corestrizione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate: non saremo così diligenti da riscriverle, ci limitiamo ad incoraggiare il lettore interessato a rileggerle, sostituendo \textquotedblleft iniettivo" con \textquotedblleft proiettivo" e guardando i diagrammi attraverso uno specchio. \\
 
-Occupiamoci piuttosto del collegamento tra i due strumenti. L'obiettivo principale è quello di raccordare le due successioni esatte lunghe in una successione lunghissima, illimitata in entrambe le direzioni. L'unico problema che si presenta è che, al momento, entrambe le successioni terminano in una direzione: dovremo quindi modificare i primi elementi di ciascuna. Per fare questo prendiamo la norma su $ A $ associata al sottogruppo banale
+Occupiamoci piuttosto del collegamento tra i due strumenti. L'obiettivo principale è raccordare le due successioni esatte lunghe in una successione lunghissima, illimitata in entrambe le direzioni. L'unico problema che si presenta è che, al momento, entrambe le successioni terminano: dovremo quindi modificare i gruppi terminali di ciascuna. Per fare questo prendiamo la norma associata al sottogruppo banale
 \begin{align*}
 N \colon A  & \to A^G \\
 a & \mapsto \sum_{g \in G} \, g \cdot a
@@ -369,12 +378,12 @@ e osserviamo che passa al quoziente $ N \colon A/I_G \to A^G $.
 
 \begin{definition}[Gruppi di Tate]
 	Questa definizione è quasi esclusivamente un cambio di notazione: i gruppi di grado positivo saranno i coomologici, mentre quelli di grado negativo saranno gli omologici
-	\[ \Hh^i(G, \, A) = \HH^i(G, \, A) \quad \forall\, i > 0, \qquad\quad\qquad \Hh^{-i}(G, \, A) = \HH_{i-1}(G, \, A) \quad \forall\, i > 1;
+	\[ \Hhh^i(G, \, A) = \HH_i(G, \, A) \quad \forall\, i > 0, \qquad\quad\qquad \Hhh^{-i}(G, \, A) = \HH_{i-1}(G, \, A) \quad \forall\, i > 1;
 	 \]
 	 definiamo invece i gruppi di Tate di grado $ i = -1, \, 0 $ come $ \ker $ e $ \coker $ della norma:
-	 \begin{equation}
+	 \begin{equation}\label{tatedef}
 	 	\begin{tikzcd}[column sep = small]
-	 	0 \rar& \Hh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hh^0(G, \, A) \rar& 0.
+	 	0 \rar& \Hhh^{-1}(G, \, A) \rar& A_G \rar["N"]& A^G \rar&\Hhh^0(G, \, A) \rar& 0.
 	 	\end{tikzcd}
 	 \end{equation}
 \end{definition}
@@ -388,106 +397,77 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 	\end{tikzcd}\]
 	si ha una successione esatta lunghissima di gruppi abeliani
 	\[\begin{tikzcd}[column sep = small, row sep = small]
-	\dots \rar & \Hh^{-2}(G, \, C) \rar &\Hh^{-1}(G, \, A) \rar & \Hh^{-1}(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \Hh^{-1}(G, \, C) \arrow[dll, 
-	rounded corners = 7 pt, 
+	\dots \rar & \Hhh^{-2}(G, \, C) \rar &\Hhh^{-1}(G, \, A) \rar & \Hhh^{-1}(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \Hhh^{-1}(G, \, C) \arrow[dll, 
+	rounded corners = 5 pt, 
 	to path={ --([xshift=3ex]\tikztostart.east)
 		|- (W)[near end]\tikztonodes
 		-| ([xshift=-3ex]\tikztotarget.west)
 		-- (\tikztotarget)}] && \\
-	&&\Hh^0(G, \, A) \rar & \Hh^0(G, \, B) \rar & \Hh^0(G, \, C) \rar
-	 & \Hh^1(G, \, A) \rar & \dots \end{tikzcd}\]
+	&&\Hhh^0(G, \, A) \rar & \Hhh^0(G, \, B) \rar & \Hhh^0(G, \, C) \rar
+	 & \Hhh^1(G, \, A) \rar & \dots \end{tikzcd}\]
 \end{theorem}
-\begin{proof}
-	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare
-	\[\begin{tikzcd}[column sep = small, row sep = small]
-	\dots \rar
-	& \Hh^{-2}(G, \, C) \rar["\delta_0"]
-	& A_G \rar
-	& B_G \rar
-	& C_G \rar
-	& 0 & \\
-	& 0 \rar
-	&A^G \rar
-	& B^G \rar
-	& C^G \rar["\delta^0"]
-	& \Hh^1(G, \, A) \rar
-	& \dots \end{tikzcd}\]
-	e colleghiamole provvisoriamente tramite la norma, che funge da buon collante, perché già sappiamo produrre dei quadrati commutativi:
-	\[\begin{tikzcd}[column sep = small]
-	&& \Hh^{-1}(G, \, A) \dar 
-	& \Hh^{-1}(G, \, B) \dar 
-	& \Hh^{-1}(G, \, C) \dar
-	&& \\
-	\dots \rar
-	& \Hh^{-2}(G, \, C) \rar["\delta_0"]
-	& A_G \rar["f_*"] \dar{N} 
-	& B_G \rar \dar{N}
-	& C_G \rar \dar{N}
-	& 0 & \\
-	& 0 \rar
-	&A^G \rar["f^*"]\dar
-	& B^G \rar\dar
-	& C^G \rar["\delta^0"]\dar
-	& \Hh^1(G, \, A) \rar
-	& \dots \\
-	&& \Hh^{0}(G, \, A) 
-	& \Hh^{0}(G, \, B)  
-	& \Hh^{0}(G, \, C).
-	&&
-	\end{tikzcd}\]
-	Costruiamo ora le mappe di collegamento. Osserviamo che $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato qua sotto \eqref{ponteggio}; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero che spezza attraverso la mappa curva qua sotto:
-	\begin{equation} \label{ponteggio}
-		\begin{tikzcd}[column sep = small]
-		& \Hh^{-1}(G, \, A) \dar
-		& \Hh^{-1}(G, \, B) \dar \\
-		\Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
-		& A_G \rar["f_*"] \dar{N} 
-		& B_G \arrow[d, "N"]\\
-		0 \rar
-		&A^G \rar["f^*"]
-		& B^G
-		\end{tikzcd}
-	\end{equation}
-	Analogamente si trova una mappa $ \Hh^0(G, \, C) \to \Hh^1(G, \, A) $. Possiamo infine invocare lo Snake Lemma per ottenere tutte le mappe mancanti:
-	\[\begin{tikzcd}[column sep = small]
-	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
-	& \Hh^{-1}(G, \, B) \dar \rar[dashed]
-	& \Hh^{-1}(G, \, C) \dar \ar[out=0, in=180, looseness=1, dashed]{dddll} %\arrow[dddll, dashed]
-	&& \\
-	\dots \rar
-	& \Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
-	& A_G \rar \dar 
-	& B_G \rar \arrow[d]
-	& C_G \rar \dar
-	& 0 & \\
-	& 0 \rar
-	&A^G \rar\dar
-	& B^G \rar\dar
-	& C^G \rar["\delta^0"]\dar
-	& \Hh^1(G, \, A) \rar
-	& \dots \\
-	&& \Hh^{0}(G, \, A) \rar[dashed]
-	& \Hh^{0}(G, \, B)  \rar[dashed]
-	& \Hh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
-	&&
-	\end{tikzcd}\]
-	
+%\begin{proof}
+%	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare
+%	\[\begin{tikzcd}[column sep = small, row sep = small]
+%	\dots \rar
+%	& \Hh^{-2}(G, \, C) \rar["\delta_0"]
+%	& A_G \rar
+%	& B_G \rar
+%	& C_G \rar
+%	& 0 & \\
+%	& 0 \rar
+%	&A^G \rar
+%	& B^G \rar
+%	& C^G \rar["\delta^0"]
+%	& \Hh^1(G, \, A) \rar
+%	& \dots \end{tikzcd}\]
+%	e colleghiamole provvisoriamente tramite la norma, che funge da buon collante, perché già sappiamo produrre dei quadrati commutativi:
+%	\[\begin{tikzcd}[column sep = small]
+%	&& \Hh^{-1}(G, \, A) \dar 
+%	& \Hh^{-1}(G, \, B) \dar 
+%	& \Hh^{-1}(G, \, C) \dar
+%	&& \\
+%	\dots \rar
+%	& \Hh^{-2}(G, \, C) \rar["\delta_0"]
+%	& A_G \rar["f_*"] \dar{N} 
+%	& B_G \rar \dar{N}
+%	& C_G \rar \dar{N}
+%	& 0 & \\
+%	& 0 \rar
+%	&A^G \rar["f^*"]\dar
+%	& B^G \rar\dar
+%	& C^G \rar["\delta^0"]\dar
+%	& \Hh^1(G, \, A) \rar
+%	& \dots \\
+%	&& \Hh^{0}(G, \, A) 
+%	& \Hh^{0}(G, \, B)  
+%	& \Hh^{0}(G, \, C).
+%	&&
+%	\end{tikzcd}\]
+%	Costruiamo ora le mappe di collegamento. Osserviamo che $ N\delta_0 = 0 $: infatti $ Nf_*\delta_0 = 0 $ per esattezza della prima riga e coincide con $ f^*N\delta_0 = Nf_*\delta_0 = 0 $ per commutatività del quadrato qua sotto \eqref{ponteggio}; $ f^* $ è iniettiva per esattezza della seconda riga, da cui quanto asserito. Abbiamo dunque scoperto che $ \delta_0 $ ha immagine in $ \ker N $, ovvero che spezza attraverso la mappa curva qua sotto:
+%	\begin{equation} \label{ponteggio}
+%		\begin{tikzcd}[column sep = small]
+%		& \Hh^{-1}(G, \, A) \dar
+%		& \Hh^{-1}(G, \, B) \dar \\
+%		\Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
+%		& A_G \rar["f_*"] \dar{N} 
+%		& B_G \arrow[d, "N"]\\
+%		0 \rar
+%		&A^G \rar["f^*"]
+%		& B^G
+%		\end{tikzcd}
+%	\end{equation}
+%	Analogamente si trova una mappa $ \Hh^0(G, \, C) \to \Hh^1(G, \, A) $. Possiamo infine invocare lo Snake Lemma per ottenere tutte le mappe mancanti:
 %	\[\begin{tikzcd}[column sep = small]
 %	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
 %	& \Hh^{-1}(G, \, B) \dar \rar[dashed]
-%	& \Hh^{-1}(G, \, C) \dar \arrow[dddll, out=0, in=0, dashed, rounded corners = 10pt,
-%	to path={ --([xshift=3ex]\tikztostart.east)
-%		|- (C)[near end]\tikztonodes
-%		-- (B)[near end]\tikztonodes
-%		-- (A)[near end]\tikztonodes
-%		-| ([xshift=-3ex]\tikztotarget.west)
-%		-- (\tikztotarget)}]
+%	& \Hh^{-1}(G, \, C) \dar \ar[out=0, in=180, looseness=1, dashed]{dddll} %\arrow[dddll, dashed]
 %	&& \\
 %	\dots \rar
 %	& \Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
-%	& A_G \rar \dar[""{coordinate, name=A}] 
-%	& B_G \rar \dar[""{coordinate, name=B}]
-%	& C_G \rar \dar[""{coordinate, name=C}]
+%	& A_G \rar \dar 
+%	& B_G \rar \arrow[d]
+%	& C_G \rar \dar
 %	& 0 & \\
 %	& 0 \rar
 %	&A^G \rar\dar
@@ -500,7 +480,62 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 %	& \Hh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
 %	&&
 %	\end{tikzcd}\]
-	Seguendo le mappe tratteggiate, otteniamo la tesi.
+%	
+%%	\[\begin{tikzcd}[column sep = small]
+%%	&& \Hh^{-1}(G, \, A) \dar \rar[dashed]
+%%	& \Hh^{-1}(G, \, B) \dar \rar[dashed]
+%%	& \Hh^{-1}(G, \, C) \dar \arrow[dddll, out=0, in=0, dashed, rounded corners = 10pt,
+%%	to path={ --([xshift=3ex]\tikztostart.east)
+%%		|- (C)[near end]\tikztonodes
+%%		-- (B)[near end]\tikztonodes
+%%		-- (A)[near end]\tikztonodes
+%%		-| ([xshift=-3ex]\tikztotarget.west)
+%%		-- (\tikztotarget)}]
+%%	&& \\
+%%	\dots \rar
+%%	& \Hh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
+%%	& A_G \rar \dar[""{coordinate, name=A}] 
+%%	& B_G \rar \dar[""{coordinate, name=B}]
+%%	& C_G \rar \dar[""{coordinate, name=C}]
+%%	& 0 & \\
+%%	& 0 \rar
+%%	&A^G \rar\dar
+%%	& B^G \rar\dar
+%%	& C^G \rar["\delta^0"]\dar
+%%	& \Hh^1(G, \, A) \rar
+%%	& \dots \\
+%%	&& \Hh^{0}(G, \, A) \rar[dashed]
+%%	& \Hh^{0}(G, \, B)  \rar[dashed]
+%%	& \Hh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
+%%	&&
+%%	\end{tikzcd}\]
+%	Seguendo le mappe tratteggiate, otteniamo la tesi.
+%\end{proof}
+
+\begin{proof}
+	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare colleghiamole provvisoriamente tramite la norma, che funge da buon collante, perché già sappiamo produrre dei quadrati commutativi. Una volta invocato il Lemma dei Cinque, la tesi segue dalla contemplazione del seguente diagramma
+	\[\begin{tikzcd}[column sep = small]
+	&& \Hhh^{-1}(G, \, A) \dar \rar[dashed]
+	& \Hhh^{-1}(G, \, B) \dar \rar[dashed]
+	& \Hhh^{-1}(G, \, C) \dar \ar[out=0, in=180, looseness=1, dashed]{dddll} %\arrow[dddll, dashed]
+	&& \\
+	\dots \rar
+	& \Hhh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
+	& A_G \rar \dar 
+	& B_G \rar \arrow[d]
+	& C_G \rar \dar
+	& 0 & \\
+	& 0 \rar
+	&A^G \rar\dar
+	& B^G \rar\dar
+	& C^G \rar["\delta^0"]\dar
+	& \Hhh^1(G, \, A) \rar
+	& \dots \\
+	&& \Hhh^{0}(G, \, A) \rar[dashed]
+	& \Hhh^{0}(G, \, B)  \rar[dashed]
+	& \Hhh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
+	&&
+	\end{tikzcd}\]
 \end{proof}
 
 Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo convinto valere anche per i gruppi di omologia, si estenderanno ai gruppi di Tate: le mappe di restrizione, inflazione e corestrizione diventano morfismi di successioni esatte lunghissime non appena ci si accorge che le loro definizioni classiche in grado $ i = 0,\, -1 $ fattorizzano tramite la norma.\\
@@ -510,17 +545,18 @@ Tutti i risultati che abbiamo dimostrato per i gruppi di coomologia e vi abbiamo
 \end{profinite}
 
 \section{Moduli Indotti}
-L'inclusione naturale $ i \colon H \to G $ e la mappa $ u \colon \Ind_H^G(B) \to B $ (che valuta ogni mappa nell'elemento neutro $ f \mapsto f(1) $) inducono un omomorfismo \[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B). \]
+Introduciamo un'importante famiglia di moduli, il cui calcolo della coomologia rientra di diritto nei prerequisiti teorici. L'inclusione naturale $ \iota \colon H \to G $, assieme alla proiezione $ u \colon \Ind_H^G(A) \to A $ data dalla valutazione nell'elemento neutro, induce (per \ref{funct}) un omomorfismo \[ \HH^i(G, \, \Ind_H^G(A)) \to \HH^i(H, \, A), \]
+particolarmente semplice in coomologia.
 
 \begin{lemma}[di Shapiro] \label{Shapiro}
 	L'omomorfismo sopra definito
-	\[ \HH^i(G, \, \Ind_H^G(B)) \to \HH^i(H, \, B) \]
+	\[ \HH^i(G, \, \Ind_H^G(A)) \to \HH^i(H, \, A) \]
 	è un isomorfismo.
 \end{lemma}
 \begin{proof}
-	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ \f $ (\ref{aggiunzione}), abbiamo che
-	\[ \Hom_G(\Z,\, \Ind_H^G(B)) = \Hom_H(f^\times \Z, \, B), \]
-	ma, essendo $ \Z $ già munito dell'azione banale, scopriamo che i due funtori $ \HH^i(G, \, \Ind_H^G(\,\bullet\,)) $ e $ \HH^i(H, \, \bullet\,) $ sono il derivato dello stesso $ \Hom_H(\Z, \,\bullet \,) $ e pertanto che coincidono.
+	Per l'aggiunzione del funtore $ \Ind_H^G $ con il funtore dimenticante $ \f $ (\ref{aggiunzione}), troviamo un isomorfismo
+	\[ \Hom_G(\Z,\, \Ind_H^G(\,\bullet\, )) \to \Hom_H(f^\times \Z, \, \bullet\, ). \]
+	Ne segue che i rispettivi derivati saranno isomorfi, i quali, essendo $ \Ind_H^G $ esatto e $ \f\Z =\Z $ perché già munito dell'azione banale, sono i gruppi di coomologia della tesi.
 \end{proof}
 
 Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani senza struttura, perché è particolarmente semplice calcolarne la coomologia.
@@ -529,14 +565,18 @@ Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani s
 	Chiamiamo \emph{modulo indotto} uno $ G $-modulo $ M $ che si possa scrivere nella forma $ M = \Ind_1^G(A) $, per un opportuno gruppo abeliano $ A $.
 \end{definition}
 
-Per esempio, i moduli liberi sono indotti: abbiamo infatti che, preso un modulo libero $ F = \bigoplus_n \Z[G] $, questo si scrive come
-$ F = \left(\bigoplus_n\Z\,\right) \otimes_\Z \Z[G],  $ che è indotto per definizione.
-Segue immediatamente dal Lemma di Shapiro $ (\ref{Shapiro}) $ che
-\begin{corollary}\label{indotti} \todo[potenziare]
+Per esempio, i moduli liberi sono indotti: un modulo libero $ F = \bigoplus_n \Z[G] $ si scrive infatti come $ F = \left(\bigoplus_n\Z\,\right) \otimes_\Z \Z[G],  $ indotto per definizione.
+Segue immediatamente dal Lemma di Shapiro che
+\begin{corollary}
 	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
 \end{corollary}
 
-Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque. Preso un modulo $ A $, possiamo immergerlo nel suo indotto
+Se la proposizione di aggiunzione (\ref{aggiunzione}) ammettesse una versione duale, troveremmo una variante del Lemma di Shapiro per gruppi di omologia e ne seguirebbe altrettanto immediatamente la banalità dei gruppi di omologia per i moduli indotti, da lì la banalità di tutti i gruppi di Tate: in effetti è così \cite[lemma 6.3.2]{Weibel}. 
+\begin{corollary}\label{indotti}
+	Se $ A $ è un modulo indotto, allora $ \Hh(G, \, A) $ per ogni $ i > 0 $.
+\end{corollary}
+
+Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque; preso un modulo $ A $, possiamo immergerlo nel suo indotto
 \begin{align*}
 	A &\hookrightarrow \Ind_1^G(A) \\
 	a & \mapsto f_a \colon g \mapsto g \cdot a, \end{align*} 
@@ -548,25 +588,19 @@ oppure proiettarci sopra l'indotto
 in modo da avere sempre delle successioni esatte corte pronte per soddisfare un improvviso bisogno dimostrazioni per décalage. Possiamo infatti sfruttare la banalità degli indotti per costruire dei moduli con coomologia \leftquote traslata": scriviamo esplicitamente la successione indotta dall'inclusione
 \[ 0 \to A \to \Ind_1^G \to A_1 \to 0; \]
 questa produce una successione esatta lunghissima che contiene degli isomorfismi
-$ \Hh^{i}(G, \, A_1) = \Hh^{i+1}(G, \, A). $
+$ \Hh(G, \, A_1) = \Hhb(G, \, A). $
 Analogamente possiamo fare esplicitando la successione associata alla proiezione:
 \[ 0 \to A_{-1} \to \Ind_1^G(A) \to A \to 0. \]
-Riassumiamo il tutto donando a questi moduli, nei quali risiede l'intera idea di décalage, la dignità di un nome.
-
-\begin{definition} \todo[brutto!]
-	Sia $ A $ uno $ G $-modulo. Chiamiamo \emph{moduli di coomologia traslata} $ A_0 = A $, $ A_1 $ e $ A_{-1} $ definiti come sopra. Definiamo ricorsivamente
+La costruzione ammette un'ovvia generalizzazione
+\begin{definition}
+	Sia $ A $ uno $ G $-modulo. Chiamiamo \emph{moduli con coomologia traslata} $ A_0 = A $, $ A_1 $ e $ A_{-1} $ definiti come sopra. Definiamo ricorsivamente
 	\begin{align*}
 		A_r & = (A_{r-1})_1 & \text{per  }  r > 1, \\
 		A_r & = (A_{r+1})_{-1} &\text{per  } r < -1.
 	\end{align*}
 \end{definition}
 
-Per questi, in effetti, vale che
+In questi moduli ritroviamo la quintessenza di tutte le dimostrazione per décalage, vale infatti:
 \begin{equation}\label{traslati}
-\Hh^{i}(G, \, A_r) = \Hh^{i+r}(G, \, A).
+\Hh(G, \, A_r) = \Hhc(G, \, A).
 \end{equation}
-
-
-\begin{lemma}\label{scappa} \todo[muori!]
-	Dati due moduli $ A $ e $ B $, se $ B $ è indotto, pure $ \Hom_\Z(A, \, B) $ è indotto.
-\end{lemma}

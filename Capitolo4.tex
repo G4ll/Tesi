@@ -1,9 +1,9 @@
 \chapter{Il Prodotto}
-Il capitolo seguente è sicuramente il più tecnico, ma non ci si poteva aspettare diversamente. Fino ad ora non abbiamo fatto altro che introdurre il linguaggio dei funtori coomologici e tradurvici quanto già sapevamo: è giunto il momento di mettere in azione questo misterioso macchinario e vedere cosa ne possiamo ricavare.\\
+Il capitolo seguente è sicuramente il più tecnico, ma non poteva essere diversamente: fino ad ora non abbiamo fatto altro che introdurre il linguaggio dei funtori coomologici e tradurvici quanto già sapevamo, è giunto il momento di mettere in azione questo misterioso macchinario e vedere cosa ne possiamo ricavare.\\
 
-Il grande vantaggio di una teoria coomologica è che possiamo definirci sopra un prodotto. Uno dei fondamentali problemi, è che dovremo effettivamente definirlo. Ci lanceremo dunque in un tentativo di presentare con cura la definizione, in modo che si riesca a credere ai risultati tecnici di buon comportamento del prodotto che seguiranno. Tutti i dettagli si trovano qua. \todo[ref] \\
+Il grande vantaggio di una teoria coomologica è che possiamo definirci sopra un prodotto. Uno dei fondamentali problemi, è che dovremo effettivamente definirlo. Ci lanceremo dunque in un tentativo di presentare con cura la definizione, in modo che si riesca a credere ai risultati tecnici di buon comportamento del prodotto che seguiranno. Al lettore affamato di dettagli consigliamo \cite{Schmidt}. \\
 
-Seguirà la dimostrazione del teorema di dualità di Tate-Nakayama, risultato che, tramite il prodotto appena definito (dunque in maniera piuttosto oscura), mette in comunicazione gruppi di coomologia con coefficienti in moduli diversi. Questo ci permetterà di reinterpretare la coomologia di un campo spostando i coefficienti su moduli più semplici, $ \Z $ per esempio, e ricavare qualche informazione sul gruppo di Galois in questione. \\
+Seguirà la dimostrazione del teorema di dualità di Tate-Nakayama, risultato che, tramite il prodotto appena definito (dunque in maniera piuttosto oscura), mette in comunicazione gruppi di coomologia con coefficienti in moduli diversi. Questo ci permetterà di reinterpretare la coomologia di un campo spostando i coefficienti su moduli più semplici, $ \Z $ per esempio, e ricavare di conseguenza qualche informazione sul gruppo di Galois in questione. \\
 
 L'ultimo paragrafo sarà il momento in cui tutti i nostri sforzi saranno ripagati: otterremo una descrizione del gruppo di Galois della massima estensione abeliana di un campo locale in termini della struttura del campo stesso, l'applicazione di reciprocità locale.
 
@@ -26,9 +26,9 @@ permettendoci di passare in coomologia.
 	\[ \cup \colon \HH^p(G, \, A) \times \HH^q(G, \, B) \to \HH^{p+q}(G, \, A \otimes B)  \]
 \end{definition}
 
-Il prodotto è ovviamente compatibile con le successioni esatte lunghe:
+Il prodotto che abbiamo ottenuto ovviamente funtoriale e compatibile con le successioni esatte lunghe:
 
-\begin{proposition}\label{cup1} \todo[rendere utilizzabile!]
+\begin{proposition}\label{cup1}
 	Se entrambe le successioni
 	\[ 0 \to A \to A' \to A'' \to 0, \qquad 0 \to A \otimes B \to A'\otimes B \to A''\otimes B \to 0 \]
 	sono esatte, allora il tazza-prodotto, fissato $ \beta \in \HH^q(G, \, B) $, in induce un morfismo di complessi
@@ -44,6 +44,8 @@ Il prodotto è ovviamente compatibile con le successioni esatte lunghe:
 	& \HH^{p+q+1}(G, \, A\otimes B) \rar &\dots \, , \end{tikzcd}\]
 	equivalentemente $ (\delta\alpha'') \cup \beta = \delta (\alpha'' \cup \beta) $.
 \end{proposition}
+
+Segue ovviamente una proposizione duale scambiano i ruoli di $ A $ e $ B $. Queste due proprietà, assieme alla funtorialità, determinano in modo unico il prodotto trovato, fissata un'applicazione bilineare in grado 0. È pertanto possibile dare una definizione di tazza-prodotto per i gruppi di Tate \cite[proposizione 1.4.7]{Schmidt}. \\
 
 Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B \to C $, componendo all'omomorfismo $ \varphi\colon A \otimes B \to C  $ con il tazza-prodotto otteniamo qualunque sorta di prodotto in coomologia. Dalla proposizione di compatibilità precedente possiamo dedurne una versione appena più generale, che ci tornerà utile in futuro.
 
@@ -61,20 +63,20 @@ Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B 
 \end{lemma}
 
 \section{Dualità di Tate-Nakayama}
-Ci addentreremo ora nell'argomento più tecnico di tutta la tesi: il teorema di dualità di Tate-Nakayama sarà preceduto da alcuni risultati di natura puramente algebrica e carattere incredibilmente generale, per questo difficili da digerire. L'obbiettivo dei risultati seguenti è di trasformare i criteri di banalità, introdotti qualche pagine indietro, in strumenti per costruire isomorfismi tra gruppi di coomologia con coefficienti diversi. Per fare questo assumeremo delle ipotesi ad hoc, della cui ragionevolezza ci occuperemo solo in futuro. 
+Ci addentreremo ora nell'argomento più tecnico di tutta la tesi: il teorema di dualità di Tate-Nakayama, che sarà preceduto da alcuni risultati di natura puramente algebrica e dal carattere incredibilmente generale. L'obbiettivo dei risultati seguenti è di trasformare i criteri di banalità, introdotti qualche capitolo addietro, in strumenti per costruire isomorfismi tra gruppi di coomologia con coefficienti diversi. Per fare questo cominceremo assumendo ipotesi ad hoc, della cui ragionevolezza ci preoccuperemo solo in futuro. 
 
 \begin{proposition}
-	Sia $ f \colon B \to C $ una mappa tra $ G $ moduli. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui
+	Sia $ f \colon B \to C $ una mappa tra $ G $ moduli. Supponiamo di conoscere un indice $ n_p $, per ogni primo $ p $, per cui
 	\begin{align*}
-		\Hh^{n_p}(G_p,\, B) &\twoheadrightarrow \Hh^{n_p}(G_p,\, C) & \text{ sia suriettivo,} \\
-		\Hh^{n_p+1}(G_p,\, B) &\to \Hh^{n_p+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
-		\Hh^{n_p+2}(G_p,\, B) &\hookrightarrow \Hh^{n_p+2}(G_p,\, C) & \text{ sia iniettivo.}
+		\Hhnp(G_p,\, B) &\twoheadrightarrow \Hhnp(G_p,\, C) & \text{ sia suriettivo,} \\
+		\Hhnpp(G_p,\, B) &\to \Hhnpp(G_p,\, C) & \text{ sia un isomorfismo,} \\
+		\Hhnppp(G_p,\, B) &\hookrightarrow \Hhnppp(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
 	Possiamo allora concludere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tensore
-	\[ \Hh^n(H, \, B \otimes D) \to \Hh^n(H, \, C \otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
+	\[ \Hhn(H, \, B \otimes D) \to \Hhn(H, \, C \otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
 \end{proposition}
 
-La tesi è assolutamente sopraffacente. È utile pensare al risultato prima nella forma più semplice, con $ H=G $ e $ D = \Z $, seguito da due piccole aggiunte che, essendo gratuite, abbiamo deciso di includere per completezza: che sia valida per ogni sottogruppo non è sorprendente, data la definizione di \leftquote coomologicamente banale"; che si possano estendere i coefficienti, segue invece dal fatto che i moduli piatti preservano gli indotti. 
+La tesi è sopraffacente. È utile pensare al risultato prima nella forma più semplice, con $ H=G $ e $ D = \Z $, in cui sono stati semplicemente prodotti degli isomorfismi infilando abbastanza zeri nella successione esatta lunghissima associata; a cui seguono due piccole aggiunte che, essendo gratuite, abbiamo deciso di includere per completezza: che sia valida per ogni sottogruppo non è sorprendente, dato che la definizione di \leftquote coomologicamente banale" è una condizione rispetto ai sottogruppi; che si possano estendere i coefficienti, segue invece dal fatto che i moduli piatti preservano gli indotti $ (\ref{tensor magic}) $. 
 
 \begin{proof}
 	Le ipotesi sono scelte in modo da funzionare magnificamente una volta assunto $ f $ iniettiva: in questo caso otteniamo una successione esatte corta
@@ -85,12 +87,12 @@ La tesi è assolutamente sopraffacente. È utile pensare al risultato prima nell
 	& Q \rar
 	& 0 \end{tikzcd} \]
 	la cui successione esatta lunga associata, per ogni primo $ p $, restituisce
-	\[ \Hh^{n_p}(G_p, \, Q) = \Hh^{n_p+1}(G_p, \, Q), \]
+	\[ \Hhnp(G_p, \, Q) = \Hhnp(G_p, \, Q), \]
 	da cui, per il criterio di banalità $ (\ref{ban2}) $, deduciamo che $ Q $ è coomologicamente banale. Abbiamo già osservato che $ Q \otimes D $ rimane tale (\ref{tensor magic}), da cui la tesi. \\
 	
-	Per concludere è pertanto sufficiente mostrare che è ci si può ricondurre al caso precedente. Per fare questo consideriamo la classica immersione di $ B $ nel suo modulo indotto $ j \colon B \to \Ind_1^G(B) $ e dunque la mappa iniettiva
-	\[ (f, j)\colon B \to C \oplus \Ind_1^G(B), \]
-	la tesi segue dunque dalla banalità dell'indotto, che trasforma la successione esatta corta
+	Per concludere è pertanto sufficiente mostrare che  ci si può ricondurre al caso precedente. Per fare questo consideriamo la classica immersione di $ B $ nel suo modulo indotto $ j \colon B \hookrightarrow \Ind_1^G(B) $ e dunque la mappa iniettiva
+	\[ (f, j)\colon B \hookrightarrow C \oplus \Ind_1^G(B), \]
+	la tesi segue dunque dal caso precedente e dalla banalità dell'indotto, che trasforma la successione esatta corta
 	\[ \begin{tikzcd}[column sep = small]
 	0 \rar
 	& C \rar["f"]
@@ -98,7 +100,7 @@ La tesi è assolutamente sopraffacente. È utile pensare al risultato prima nell
 	& \Ind_1^G(B) \rar
 	& 0 \end{tikzcd} \]
 	in degli isomorfismi
-	\[ \Hh^n(H, \, C \otimes D ) = \Hh^n \left(H, \, \left(C \oplus \Ind_1^G(B)\right) \otimes D \right). \]
+	\[ \Hhn(H, \, C \otimes D ) = \Hhn \left(H, \, \left(C \oplus \Ind_1^G(B)\right) \otimes D \right). \]
 \end{proof}
 
 Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state scelte le ipotesi, procediamo verso una generalizzazione ancora più spinta. Vorremmo un risultato analogo per mappe indotte dal tazza-prodotto, che come unica differenza producono un cambio di dimensione in arrivo.
@@ -106,12 +108,12 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state s
 \begin{proposition}
 	Sia $ \varphi \colon A \times B \to C $ una mappa bilineare tra $ G $ moduli; fissiamo un elemento $ a \in \HH^q(G, \, A) $. Supponiamo di conoscere, per ogni primo $ p $, un indice $ n_p $ per cui l'omomorfismo indotto dal tazza prodotto per $ \Res a $
 	\begin{align*}
-	\Hh^{n_p}(G_p,\, B) &\twoheadrightarrow \Hh^{n_p+q}(G_p,\, C) & \text{ sia suriettivo,} \\
-	\Hh^{n_p+1}(G_p,\, B) &\to \Hh^{n_p+q+1}(G_p,\, C) & \text{ sia un isomorfismo,} \\
-	\Hh^{n_p+2}(G_p,\, B) &\hookrightarrow \Hh^{n_p+q+2}(G_p,\, C) & \text{ sia iniettivo.}
+	\Hhnp(G_p,\, B) &\twoheadrightarrow \Hhnpq(G_p,\, C) & \text{ sia suriettivo,} \\
+	\Hhnpp(G_p,\, B) &\to \Hhnppq(G_p,\, C) & \text{ sia un isomorfismo,} \\
+	\Hhnppp(G_p,\, B) &\hookrightarrow \Hhnpppq(G_p,\, C) & \text{ sia iniettivo.}
 	\end{align*}
 	Possiamo allora concludere che, per ogni modulo $ D $ piatto e ogni sottogruppo $ H < G $, la mappa indotta dal tazza-prodotto per $ \Res a $
-	\[ \Hh^n(H, \, B \otimes D) \to \Hh^{n+q}(H, \,  C\otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
+	\[ \Hhn(H, \, B \otimes D) \to \Hhnq(H, \,  C\otimes D) \qquad\text{ è un isomorfismo, per ogni } n. \]
 \end{proposition}
 
 \begin{proof}
@@ -123,15 +125,15 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state s
 	& A_1 \rar \dar["\cdot_{\varphi_1}\beta", dashed]
 	& 0\\
 	0 \rar & C \rar & \Ind_1^G(C) \rar & C_1 \rar & 0.  \end{tikzcd} \]
-	Prendialmo l'elemento $ a_1 \in \Hh^0(G, \, A_1) $ corrispondente ad $ a $: l'unico per cui $ \delta(a_1) = a $. La tesi è vera per il prodotto indotto da $ \varphi_1 $ e l'elemento $ a_1 $: abbiamo dei meravigliosi isomorfismi
-	\[ \begin{tikzcd}[column sep = small]
-	\Hh^n(H, \, B \otimes D) \rar["a_1\cup"] & \Hh^{n}(H, \,  C_1 \otimes D)
+	Prendialmo l'elemento $ a_1 \in \Hhz(G, \, A_1) $ corrispondente ad $ a $: l'unico per cui $ \delta(a_1) = a $. La tesi è vera per il prodotto indotto da $ \varphi_1 $ e l'elemento $ a_1 $, abbiamo pertanto dei meravigliosi isomorfismi
+	\[ \begin{tikzcd}
+	\Hhn(H, \, B \otimes D) \rar["a_1\cup"] & \Hhn(H, \,  C_1 \otimes D)
 	\end{tikzcd}  \]
-	a cui possiamo aggiungere il classico isomorfismo
-	\[ \begin{tikzcd}[column sep = small]
-	\Hh^n(H, \, B \otimes D) \rar["a_1\cup"] & \Hh^{n}(H, \,  C_1 \otimes D) \rar["\delta"] & \Hh^{n+1}(G, \, C \otimes D).
+	a cui possiamo aggiungere il classico isomorfismo di collegamento
+	\[ \begin{tikzcd}
+	\Hhn(H, \, B \otimes D) \rar["a_1\cup"] & \Hhn(H, \,  C_1 \otimes D) \rar["\delta"] & \Hhnu(G, \, C \otimes D).
 	\end{tikzcd}  \]
-	Deduciamo la tesi grazie al risultato di compatibilità del tazza-prodotto (\ref{cup1}): l'isomorfsimo trovato è infatti $$  \beta \mapsto \delta(a_1 \cup x) = \delta(a_1) \cup x = a \cup x.  $$ La dimostrazione è analoga per ogni $ q $.
+	Deduciamo la tesi grazie al risultato di compatibilità del tazza-prodotto (\ref{cup1}): l'isomorfismo trovato è infatti $$  \beta \mapsto \delta(\Res a_1 \cup x) = \delta(\Res a_1) \cup x = \Res a \cup x.  $$ Analogamente si procede per ogni $ q $.
 \end{proof}
 
 Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare le particolari ipotesi in una forma più accessibile, se non proprio comprensibile.
@@ -143,76 +145,76 @@ Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare
 		\item il gruppo $ \HH^2(G_p, \, A) $ ha la stessa cardinalità di $ G_p $, diciamo $ m_p $, ed è generato da $ \Res a $.
 	\end{enumerate}
 	Possiamo allora concludere che l'omomorfismo indotto dal tazza-prodotto con $ \Res a $ induce, per ogni sottogruppo $ H < G $, un isomorfismo
-	\[ \Hh^n(H, \, \Z) \to \Hh^{n+2}(H, \,  A) \qquad \text{ per ogni } n.\]
+	\[ \Hhn(H, \, \Z) \to \Hhnd(H, \,  A) \qquad \text{ per ogni } n.\]
 \end{theorem}
 
 \begin{proof}
 	Applichiamo la proposizione precedente con $ B = \Z $, $ C = A $ e $ D = \Z $. Le ipotesi sono verificate per $ n_p = -1 $:
 	\begin{align*}
-		\Hh^{-1}(G_p,\, \Z) &\twoheadrightarrow \Hh^{1}(G_p,\, A) = 0 & \text{per l'ipotesi } i, \\
-		\Z/m_p\Z=\Hh^{0}(G_p,\, \Z) &\to \Hh^{2}(G_p,\, A) = \Z/m_p\Z & \text{per l'ipotesi } ii,\\
-		0 = \Hh^{1}(G_p,\, \Z) &\hookrightarrow \Hh^{3}(G_p,\, A) & \text{per l'ipotesi } i.
+		\Hhm(G_p,\, \Z) &\twoheadrightarrow \Hhu(G_p,\, A) = 0 & \text{per l'ipotesi } i, \\
+		\Z/m_p\Z=\Hhz(G_p,\, \Z) &\to \Hhd(G_p,\, A) = \Z/m_p\Z & \text{per l'ipotesi } ii,\\
+		0 = \Hhu(G_p,\, \Z) &\hookrightarrow \Hht(G_p,\, A) & \text{per l'ipotesi } i.
 	\end{align*}
 \end{proof}
-
-È naturale chiedersi a questo punto se non abbiamo esagerato: erano davvero necessarie quelle due proposizioni dal carattere ridicolmente generale e vagamente incomprensibile che abbiamo dimostrato? Se pensate che avrebbe prodotto un'idea intuitiva dietro il risultato di dualità, siete liberi di provarci.
-
+Al contrario delle proposizioni precedenti, le ipotesi del teorema di dualità sembrano avere qualcosa a che fare con quanto visto fin'ora. Il risultato dovrebbe però chiarire in parte perché abbiamo deciso di percorrere questa strada: cambiando i coefficienti da un modulo qualunque a $ \Z $, riusciamo a spostare risultati specifici, per esempio le proprietà aritmetiche di un campo, a gruppi che invece conosciamo esplicitamente, per dire $ \HH_1(G, \, \Z) $ che, classicamente, coincide con l'abelianizzato $ G^\texttt{ab} $. Nella sezione seguente ci addentreremo più approfonditamente nell'argomento.
 \section{Reciprocità Locale}
 
-
 % Costruzione della Reciprocità e... poco altro?
-Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo il teorema di dualità di Tate-Nakayama al caso dei campi locali: ne otterremo una descrizione dei gruppi di Galois in funzione della struttura del campo stesso; siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $. Poniamo $ A = L^\times $ e $ G $ il gruppo di Galois dell'estensione. Per Hilbert 90 l'ipotesi $ i $ del teorema di Tate-Nakayama è soddisfatta 
+Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo il teorema di dualità di Tate-Nakayama al caso dei campi locali: ne otterremo una descrizione dei gruppi di Galois in funzione della struttura del campo stesso. Siano $ K $ un campo locale, $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $; chiamiamo $ G $ il gruppo di Galois dell'estensione e poniamo $ A = L^\times $ . Per Hilbert 90 la prima ipotesi del teorema di Tate-Nakayama è soddisfatta 
 \[ i. \; \HH^1(G_p,\, L^\times) = 0 \]
-e, grazie al nostro studio del gruppo di Brauer, anche l'ipotesi $ ii $: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, L^\times) $ coincide con il sottogruppo di $ n $-torsione di $ \Br K = \Q/\Z $, possiamo pertanto scegliere l'unico elemento $ u \in \HH^2(G, \, L^\times) $ per cui $ \inv_K(u) = \frac{1}{n} $; per il lemma di compatibilità tra invarianti e restrizione (\ref{inv}), si ha che
+e, grazie al nostro studio del gruppo di Brauer, anche la seconda: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, L^\times) $ coincide con il sottogruppo di $ n $-torsione di $ \Br K = \Q/\Z $, possiamo pertanto scegliere l'unico elemento $ u \in \HH^2(G, \, L^\times) $ per cui $ \inv_K(u) = \frac{1}{n} $; per il lemma di compatibilità tra invarianti e restrizione (\ref{inv}), si ha che
 \[ ii. \; \HH^2(G_p, \, L^\times) = T_p \Br(L/K) \;\text{ è generato da } \Res u. \]
 Il teorema di dualità produce allora un isomorfismo
-\[ \theta\colon \Hh^{-2}(G, \, \Z) \to \Hh^{0}(G, \,  L^\times), \]
-che coincide con il tazza-prodotto per $ u. $
+\[ \theta\colon \Hhmm(G, \, \Z) \to \Hhz(G, \,  L^\times), \]
+che coincide con il tazza-prodotto per $ u. $ Il primo gruppo è proprio con $ G^\text{ab} $: la successione esatta lunga in omologia associata a 
+\[ 0 \to I_G \to \Z[G] \to \Z \to 0 \]
+dona infatti l'isomorfismo richiesto; per esplicitare il secondo gruppo è invece sufficiente andare a riprendere la definizione \eqref{tatedef}. Ne segue dunque che
 
 \begin{theorem}[Reciprocità Locale]
-	Per ogni estensione abeliana finita $ L/K $, abbiamo un isomorfismo
+	Ogni estensione abeliana finita $ L/K $ è accompagnata da un isomorfismo
 	\[ \omega_L\colon \frac{K^\times}{NL^\times} \to \Gal{L/K}, \]
 	dove $ N $ è, come al solito, la norma.
 \end{theorem}
 
-\begin{proof}
-	Consideriamo l'isomorfismo $ \theta^{-1} $ definito sopra e calcoliamo i due gruppi di coomologia coinvolti. Per definizione
-	\[ \Hh^{0}(G, \,  L^\times) = K^\times / NL^\times. \]
-	Il primo gruppo di omologia $ \Hh^{-2}(G, \, \Z) = \HH_1(G, \, \Z) $ è l'abelianizzato di $ G $: la successione esatta corta
-	\[ 0 \to I_G \to \Z[G] \to \Z \to 0 \]
-	produce in omologia, poiché $ \Z[G] $ è indotto, la successione esatta
-	\[ 0 \to \HH_1(G,\, \Z) \to I_G/I_G^2 \to \Z \to \Z \to 0. \]
-	Da cui deduciamo che $ \HH_1(G,\, \Z) = I_G/I_G^2 = G^\mathtt{ab} $.
-\end{proof}
+%\begin{proof}
+%	Consideriamo l'isomorfismo $ \theta^{-1} $ definito sopra e calcoliamo i due gruppi di coomologia coinvolti. Per definizione
+%	\[ \Hh^{0}(G, \,  L^\times) = K^\times / NL^\times. \]
+%	Il primo gruppo di omologia $ \Hh^{-2}(G, \, \Z) = \HH_1(G, \, \Z) $ è l'abelianizzato di $ G $: la successione esatta corta
+%	\[ 0 \to I_G \to \Z[G] \to \Z \to 0 \]
+%	produce in omologia, poiché $ \Z[G] $ è indotto, la successione esatta
+%	\[ 0 \to \HH_1(G,\, \Z) \to I_G/I_G^2 \to \Z \to \Z \to 0. \]
+%	Da cui deduciamo che $ \HH_1(G,\, \Z) = I_G/I_G^2 = G^\mathtt{ab} $.
+%\end{proof}
 
-
-Questa mappa fornisce un primo importante collegamento tra il gruppo di Galois di un'estensione abeliana e gli elementi del campo stesso. Questo conclude in un qualche senso lo studio delle estensioni abeliane di un campo locale, per esempio possiamo annunciare trionfanti di essere riusciti a calcolare il gruppo di Galois della massima estensione abeliana, ovvero l'abelianizzato del gruppo di Galois assoluto $ \Gamma_K $: prendendo il limite inverso di $ \omega_L $ sulle estensioni abeliane finite, otteniamo una mappa
+Questo conclude in un qualche senso lo studio delle estensioni abeliane di un campo locale. Per esempio, possiamo annunciare trionfanti di essere riusciti a calcolare il gruppo di Galois della massima estensione abeliana, ovvero l'abelianizzato del gruppo di Galois assoluto $ \Gamma_K $: prendendo il limite inverso di $ \omega_L $ sulle estensioni abeliane finite, otteniamo una mappa
 \[ \omega\colon K^\times \to \Gamma_K^{\texttt{ab}}, \]
 detta \emph{applicazione di reciprocità}, che sul quoziente $ \varprojlim_L K^\times / NL^\times  $ è un isomorfismo:
-\[ \Gamma_K^{\texttt{ab}} = \varprojlim_L \frac{K^\times}{NL^\times}. \]
-% Mi piacerebbe dire qualcosa qua, ma temo che non mi sia chiarissimo a cosa ci serve dove siamo arrivati e perché.
-Tornando con i piedi per terra, soffermiamoci su quella fastidiosa $ N $ al denominatore: come speriamo di calcolare esplicitamente questo gruppo? Come si calcola l'immagine tramite la norma di una data estensione? Studiando più approfonditamente l'applicazione di reciprocità è possibile raffinare il risultato, arrivando a mostrare che il limite in questione coincide proprio con la definizione di completamento profinito: sarà sufficiente mostrare che $ NL^\times $ spazia su tutti e soli i sottogruppi aperti (e di indice finito) di $ K^\times $. Nel paragrafo successivo ci concentreremo sul caso di un campo $ p $-adico, per cui aggireremo il problema: mostreremo infatti che
+\begin{equation}\label{lim}
+	\Gamma_K^{\texttt{ab}} = \varprojlim_L \frac{K^\times}{NL^\times}.
+\end{equation}
+Tornando con i piedi per terra, soffermiamoci su quella fastidiosa $ N $ al denominatore: come speriamo di calcolare esplicitamente questo gruppo? Come si calcola l'immagine tramite la norma di una data estensione? Studiando più approfonditamente l'applicazione di reciprocità è possibile raffinare il risultato, arrivando a mostrare che il limite in questione coincide proprio con la definizione di completamento profinito: sarà sufficiente mostrare che $ NL^\times $ spazia su tutti e soli i sottogruppi aperti (e di indice finito) di $ K^\times $ (\cite[XIV.\S 6.1]{SerreFields}). Nel paragrafo successivo ci concentreremo sul caso dei campi $ p $-adici, per cui aggireremo il problema mostrando che
 \[ \Gamma^\text{ab}_K = \varprojlim_n \frac{K^\times}{{K^\times}^n}, \]
-che a sua volta coincide proprio con il completamento profinito $ \hat{K}^\times $.
+limite che a sua volta coincide con il completamento profinito $ \hat{K}^\times $.
 % assicurarsi della presenza dell'applicazione di reciprocità nella dualità di Tate
 
 \section{Dualità di Tate}
-Ci concentriamo ora sui campi $ p $-adici, principalmente perché conoscendone la struttura aritmetica siamo in grado di mostrare la seguente proprietà, di cui ometteremo la dimostrazione, essendo un risultato classico in teoria dei numeri.
+Ci concentriamo ora sui campi $ p $-adici, principalmente perché la struttura aritmetica presenta la seguente proprietà, di cui ometteremo la dimostrazione, essendo un risultato classico in teoria dei numeri.
+\todo[volevo metterci una referenza, ma Harari punta un capitolo che mi pare centrare solo vagamente]
 
 % Lemmino dei p-adici
 \begin{proposition}
 	Sia $ K $ un campo $ p $-adico, i gruppi $ K^\times / {K^\times}^n $ sono finiti.
 \end{proposition}
 
-Osserviamo che quest'osservazione è fondamentale qualunque stra di cerchi di intraprendere per calcolare il limite desiderato, stiamo infatti mostrando che i sottogruppi $ {K^\times}^n $ sono aperti: se riuscissimo a far vedere che gli $ NL^\times $ sono aperti, avremmo trovato una successione cofinale su cui calcolare sia il limite del completamento che quello che calcola $ \Gamma_K^\mathtt{ab} $.
+Osserviamo che quest'osservazione è fondamentale qualunque strada si cerchi di intraprendere per calcolare il limite desiderato \eqref{lim}, stiamo infatti mostrando che i sottogruppi $ {K^\times}^n $ sono di indice finito con l'obbiettivo di trovare una successione cofinale su cui calcolare sia il limite del completamento che quello che \eqref{lim}.
 
 \begin{corollary} \label{finiti}
-	Sia $ A $ un $ \Gamma $-modulo finito. I gruppi $ \HH^i(K, \, A) $ sono finiti per ogni $ i > 0 $.
+	Sia $ A $ un $ \Gamma_K $-modulo finito. I gruppi $ \HH^i(K, \, A) $ sono finiti per ogni $ i > 0 $.
 \end{corollary}
 \begin{proof}
-	Avendo ogni campo locale dimensione coomologica $ 2 $, sarà sufficiente concentrasi sui gradi bassi $ i = 0, \, 1, \, 2 $. Osserviamo che per le radici $ n $-esime dell'unità $ A = \mu_n $ la tesi è già stata mostrata: in $ i = 0 $ per definizione, in $ i = 1 $ per la proposizione appena enunciata, in $ i = 2 $ perché il gruppo di $ n $-torsione del Brauer. Preso un modulo $ A $ di cardinalità $ n $, troviamo un sottogruppo normale e aperto di $ U < \Gamma_K $ che agisce banalmente sia su $ A $ che su $ \mu_n $, per esempio dentro l'intersezione degli stabilizzatori di tutti gli elementi. Pensato come $ U $-modulo $ A $ ha solo la struttura di gruppo abeliano, possiamo pertanto pensarlo come somma diretta di finiti $ \mu_{n_i} $, per qualche $ n_i \mid n $. Avendo già mostrato il teorema per le radici dell'unità, scopriamo che $ \HH^i(U, \, A) $ è finito per ogni $ i \geq 0 $. Concludiamo sfruttando la successione spettrale di Hoschild-Serre, che in pagina due presenta solo moduli finiti
+	Avendo ogni campo locale dimensione coomologica $ 2 $, sarà sufficiente concentrasi sui gradi bassi $ i = 0, \, 1, \, 2 $. Osserviamo che per le radici $ n $-esime dell'unità $ A = \mu_n $ la tesi è già stata mostrata: in $ i = 0 $ per definizione, in $ i = 1 $ è la proposizione appena enunciata, in $ i = 2 $ si tratta della $ n $-torsione del Brauer. Preso un modulo $ A $ di cardinalità $ n $, troviamo un sottogruppo normale e aperto di $ U < \Gamma_K $ che agisce banalmente sia su $ A $ che su $ \mu_n $, per esempio dentro l'intersezione degli stabilizzatori di tutti gli elementi. Pensato come $ U $-modulo $ A $ ha solo la struttura di gruppo abeliano, possiamo pertanto pensarlo come somma diretta di finiti $ \mu_{n_i} $, per qualche $ n_i \mid n $. Avendo già mostrato il teorema per le radici dell'unità, scopriamo che $ \HH^i(U, \, A) $ è finito per ogni $ i \geq 0 $. Concludiamo sfruttando la successione spettrale di Hoschild-Serre, che in pagina due presenta solo moduli finiti
 	\[ \HH^p(G/U, \, \HH^q(U, \, A)), \]
-	i cui quozienti, necessariamente finiti, filtrano $ \HH^{p+q}(G, \, A) $, che risulterà pertanto a sua volta finito.
+	i cui quozienti, necessariamente finiti, filtrano $ \HH^{p+q}(G, \, A) $, che risulterà pertanto finito a sua volta.
 \end{proof}
 
 Prima di poter enunciare il teorema di dualità di Tate, dobbiamo introdurre una serie di dualità, diverse ma dallo stesso sapore: una per i gruppi, classica, e una meno nota per i moduli.
@@ -235,7 +237,7 @@ ovvero una mappa bilineare non degenere.
 	segue il caso finito per il teorema di struttura. Passando al limite raggiungiamo tutti i gruppi profiniti.
 \end{proof}
 
-Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso modo, ma abbiamo bisogno quantomeno di una topologia su $ \Q/\Z $. Poiché la scelta non è univoca, ci limitiamo a farlo in un caso in cui è quantomeno naturale: quando il gruppo in questione è un gruppo di Galois $ \Gamma $, pensiamo $ \Q/\Z $ come al gruppo di tutte le radici dell'unità $ \mu_\infty < \bar{K}^\times $. Equivalentemente, possiamo pensare al duale come alle mappe in $ \K^\times $, che avranno però immagine, necessariamente, nel suo sottogruppo di torsione.
+Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso modo, ma abbiamo bisogno quantomeno di una topologia su $ \Q/\Z $. Poiché la scelta non è univoca, ci limitiamo a farlo in un caso in cui è quantomeno naturale: quando il gruppo in questione è un gruppo di Galois $ \Gamma $, pensiamo $ \Q/\Z $ come al gruppo di tutte le radici dell'unità $ \mu_\infty < \bar{K}^\times $. Equivalentemente, possiamo pensare al duale come alle mappe in $ \K^\times $, che avranno però necessariamente immagine nel suo sottogruppo di torsione: $ \mu_\infty. $
 
 \begin{definition}[Duale di Cartier]
 	Per ogni $ \Gamma $-modulo $ A $, definiamo il duale secondo Cartier come
@@ -247,10 +249,10 @@ Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso
 \end{proposition}
 
 % Misteriosa esistenza del modulo dualizzante
-Presentiamo ora un risultato generale di algebra omologica, che non dimostreremo. I dettagli si trovano qui \todo[ref].
+Presentiamo ora un risultato generale di algebra omologica, nella cui dimostrazione, pavidamente, non ci addentreremo \cite[I.3.6]{SerreGalois}.
 \begin{proposition}
-	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = d $. Se ogni modulo $ A $ finito ha $ n $-esimo gruppo di coomologia $ \HH^d(G, \, A) $ finito, allora il funtore $ \HH^d(G,\, \bullet\,)^\vee $ è rappresentabile sulla sottocategoria dei moduli finti: esiste un modulo $ I $ di torsione per cui
-	\[ \HH^d(G, \, \bullet \, )^\vee = \Hom_G(\,\bullet\, , \, I). \]
+	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = d $. Se il funtore $ \HH^d(G,\, \bullet\,) $ manda moduli finiti in gruppi finiti, il suo duale $ \HH^d(G,\, \bullet\,)^\vee $ è rappresentabile sulla sottocategoria dei moduli finti: ovvero esiste un modulo $ I $ di torsione per cui
+	\[ \HH^d(G, \, A )^\vee = \Hom_G(A , \, I) \qquad \text{ per ogni } A \text{ finito.} \]
 \end{proposition}
 
 \begin{definition}

@@ -1,8 +1,8 @@
 \chapter{Teoria del Campo di Classe}
-In questo capitolo faremo fruttare quanto preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di Galois. Inizieremo con qualche risultato di carattere generale riguardo le estensioni di Galois, dalle nozioni di base alla teoria di Kummer, per restringere poi la nostra attenzione ai campi locali. \\
+In questo capitolo faremo fruttare quanto preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di campi. Inizieremo con qualche risultato di carattere generale riguardo le estensioni di Galois, dalle nozioni di base alla teoria di Kummer, per restringere poi la nostra attenzione ai campi locali. \\
 
 % Discorso su perché i campi locali.
-Per campo locale intendiamo un campo completo rispetto a una valutazione discreta di rango 1. Si può pensare, senza perdita di generalità, a estensioni dei $ p $-adici $ \Q_p $ o delle serie Laurent su campi finiti $ \F_p((t)) $. Studiamo questi campi per almeno due buone ragioni; in primis, perché presentano una struttura relativamente semplice: i relativi anelli degli interi sono locali (da cui il nome) e le unità sono di facile descrizione; in secondo luogo, perché sono un ottimo punto di partenza per dedurre risultati analoghi anche nel caso globale. \\
+Per campo locale intendiamo un campo completo rispetto a una valutazione discreta di rango 1. Si può pensare, senza perdita di generalità, a estensioni finite dei $ p $-adici $ \Q_p $ o delle serie Laurent su campi finiti $ \F_p((t)) $. Studiamo questi campi per almeno due buone ragioni; in primis, perché presentano una struttura relativamente semplice: i relativi anelli degli interi sono locali (da cui il nome) e le unità sono di facile descrizione; in secondo luogo, perché sono un ottimo punto di partenza per dedurre risultati analoghi anche nel caso globale, trattazione che però esula dagli scopi di questa tesi. \\
 
 % Cos'è la Class Field Theory?
 Il capitolo sarà dunque rivolto a calcolare la coomologia dei moduli naturali di un campo locale: mostreremo che in grado uno è sempre nulla, la calcoleremo il grado due e mostreremo che dal grado tre in poi torna a essere nulla.
@@ -13,7 +13,7 @@ Sia $ k $ un campo. Fissiamo una chiusura separabile $ \bar{k} $. D'ora in avant
 \[ \HH^i(k, \, A) := \HH^i(\Gamma_k, \, A). \]
 Osserviamo che, presa una diversa chiusura separabile $ k' $ e un sollevamento di $ \id_{k} $ a un isomorfismo $ f\colon \bar{k} \to \bar{k}' $, questo induce un isomorfismo in coomologia
 \[ f^* \colon \HH^i(\Gal{\bar{\K} / \K}, \, A) \to \HH^i(\Gal{\bar{\K}' / \K}, \, A) \]
-che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi. Possiamo quindi parlare senza remore della \leftquote coomologia di $ k $" e della sua dimensione coomologica. \\
+che non dipende affatto dalla scelta di $ f $: possiamo cambiare l'immersione $ f $ solo agendo in partenza o in arrivo con un elemento del rispettivo gruppo di Galois, il che equivale a permutare il gruppo stesso per coniugio, isomorfismo che, per la proposizione \ref{coniugio}, è l'identità in coomologia. Scelte comunque due chiusure separabili, i relativi gruppi di coomologia sono canonicamente isomorfi. Possiamo quindi parlare senza remore della \leftquote coomologia di $ k $", della sua dimensione coomologica e dei suoi gruppi di coomologia. \\
 
 % Hilbert 90 additivo
 Fissiamo un'estensione di Galois $ L/k $ e cominciamo ad analizzare la coomologia del modulo più naturale del relativo gruppo $ \Gal{L/k} $: il campo $ L $. Il gruppo di Galois è composto dagli automorfismi del campo, per definizione, quindi è ben definita un'azione tanto sul gruppo additivo $ L $, quanto sul gruppo moltiplicativo $ L^\times $.
@@ -34,9 +34,9 @@ Non potevamo chiedere niente di meglio. La coomologia del gruppo moltiplicativo 
 \end{theorem}
 \begin{proof}
 	Assumiamo, per il momento, che $ L/k $ sia finita. Mostreremo che tutti i cocicli sono cobordi: prendiamo un cociclo $ a \colon G \to L^\times $, gli elementi di $ G $ sono linearmente indipendenti su $ L $, quindi troviamo $ x \in L^\times $ per cui
-	\[ y = \sum_{g \in G} a_g g(x) \neq 0. \]
-	Ma $ hy = a_h^{-1}y $ per ogni $ h \in G $, da cui la tesi.
-	Ancora una volta, passando al limite otteniamo la tesi anche per le estensioni infinite. \todo[bruttino]
+	\[ y = \sum_{g \in G} a_g \, g(x) \neq 0. \]
+	Ma, traslando questo elemento di $ h $ e ricordando che i $ a_{hg} = a_h \, ha_g $ per definizione, otteniamo $$  hy = \sum_{g \in G} ha_g  \, hg(x)  = a_h^{-1} \sum_{hg \in G} a_{hg} \,  hg(x) = a_h^{-1}y  $$ per ogni $ h \in G $, da cui la tesi.
+	Ancora una volta, passando al limite (con \ref{limite}) otteniamo la tesi anche per le estensioni infinite.
 \end{proof}
 
 % Gruppo di Brauer
@@ -46,32 +46,31 @@ Il grado $ i = 2 $ si fa ancora più interessante, tanto da meritarsi un nome pr
 \end{definition}
 
 % mi serve dire qualcosa sul gruppo di Brauer? Tipo perché ci piace? Sì dai!
-Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore che ne avesse sentito parlare a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava più che altro una buona intuizione dei risultati.\\
+Il gruppo di Brauer compare in diverse aree della matematica ed è di particolare importanza in algebra non commutativa, dove si scopre classificare le algebra centrali semplici sul campo in oggetto. Non entreremo nel dettaglio di questa corrispondenza, invitando però il lettore esperto a interpretare i risultati dei capitoli seguenti anche in quest'ottica: se ne ricava una buona intuizione dei risultati.\\
 
 % Metto un paio di proposizioni per stare tranquilli; è importante dire che possiamo pensare al Brauer come contenete i sottobrauerini, che direi essere il lemma qua sotto
-Nel seguito sarà comoda avere della notazione per indicare $ \HH^2(\Gal{L/k}, \, L^\times) $, che possiamo pensare come il gruppo di Brauer relativo all'estensione $ L/k $: lo chiameremo $ \Br(L/k) $.
+Nel seguito sarà comoda avere della notazione per indicare $ \HH^2(\Gal{L/k}, \, L^\times) $, che possiamo pensare come il gruppo di Brauer \leftquote relativo" all'estensione $ L/k $: lo chiameremo $ \Br(L/k) $.
 
 \begin{lemma}\label{stronzetto}
-	Se $ L/k $ è un'estensione finita di Galois
+	Per ogni estensione $ L/k $ finita di Galois, troviamo una successione esatta
 	\[ 0 \to \Br(L/k) \to \Br k \to \Br L.  \]
 \end{lemma}
 \begin{proof}
 	Possiamo riscrivere la tesi come
 	\[ 0 \to \HH^2(\Gal{L/k}, \, L^\times) \to \HH^2(\Gal{\bar{k}, \, k}, \, \bar{k}^\times) \to \HH^2(\Gal{\bar{k}, \, L}, \, \bar{k}^\times), \]
-	la cui esattezza segue da una delle successioni di termini di grado basso della successione spettrale di Hoschild-Serre (corollario \ref{boo2}).
+	che è proprio una delle successioni di termini di grado basso della successione spettrale di Hoschild-Serre (corollario \ref{boo2}).
 \end{proof}
 
-Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un campo come l'unione dei misteriosi gruppi $ \HH^2(G, \, L^\times) $ di tutte le estensioni di Galois finite.
+Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un campo come l'unione dei gruppi $ \HH^2(G, \, L^\times) $, che siamo interessati a calcolare, su tutte le estensioni di Galois finite. Enunciamo ora un'osservazione molto comoda per maneggiare il gruppo di Brauer di un campo, che quindi useremo spesso in futuro.
 
-
-\begin{lemma} \label{torsione del brauer}
-	Il sottogruppo di $ n $-torsione $ (\Br k) [n] $ coincide con $ \HH^2(k, \mu_n) $.
-\end{lemma}
+\begin{proposition} \label{torsione del brauer}
+	Il sottogruppo di $ n $-torsione $ (\Br k) [\,n\,] $ coincide con $ \HH^2(k, \mu_n) $.
+\end{proposition}
 \begin{proof}
 	La successione esatta lunga associata a 
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
-	& \mu_p \rar
+	& \mu_n \rar
 	& \bar{k}^\times \rar["\cdot n"]
 	& \bar{k}^\times \rar
 	& 0,
@@ -86,18 +85,17 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 \end{proof}
 
 % Verso il profinito
-\begin{profinite}
-	È incredibilmente rassicurante osservare che, nonostante sia indispensabile aver definito la coomologia per gruppi profiniti, tutto si riconduca senza problemi alla coomologia di gruppi finiti. Tiriamo un sospiro di sollievo e procediamo con serenità
-\end{profinite}
+\begin{Profinite}
+	È incredibilmente rassicurante osservare che, nonostante sia indispensabile aver definito la coomologia per gruppi profiniti, tutto si riconduca senza problemi alla coomologia di gruppi finiti. Tiriamo un sospiro di sollievo e procediamo con serenità.
+\end{Profinite}
 
 \section{Teoria di Kummer}
-
-
+Questa sezione è dedicata a mostrare l'efficacia del linguaggio coomologico sviluppato fin'ora nel trattare problemi in teoria dei campi, presenteremo una via alternativa per dedurre dei risultati classici.
 Sia $ \Gamma_k = \Gal{\bar{k}/ k} $ il gruppo di Galois assoluto di $ k $. Fissiamo un gruppo abeliano $ A $, finito e munito della topologia discreta; scegliendo un omomorfismo continuo
 \[ \varphi \colon \Gamma_k \to A, \]
 produciamo come nucleo un sottogruppo chiuso e normale. Per il teorema di corrispondenza di Galois, vi è associata un'estensione $ L $ di gruppo
 \[ \Gal{L/k} = \frac{\Gal{\bar{k}/ k}}{\ker \varphi} \hookrightarrow A. \]
-Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfismi $ \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $, in realtà a meno della relazione che identifica due omomorfismi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(\Gamma_k, \, A) = \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $. Possiamo quindi sfoggiare il nostro arsenale per produrre un risultato piacevole.
+Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pertanto sufficiente trovare tutti gli omomorfismi $ \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $, in realtà a meno della relazione che identifica due omomorfismi con lo stesso nucleo. Poiché $ G $ non agisce su $ A $, siamo in grado di trasportare il problema nel linguaggio della coomologia: siamo interessati a calcolare $ \HH^1(\Gamma_k, \, A) = \Hom_{\textsf{Gr}}(\Gamma_k, \, A) $. Possiamo quindi sfoggiare il nostro arsenale per produrre un piacevole risultato.
 
 \begin{theorem}[di Kummer]
 	Sia $ \K $ un campo e $ p $ un numero primo. Supponiamo che $ \K $ contenga le radici $ p $-esime dell'unità $ \mu_p $. In questo caso, c'è una corrispondenza tra le estensioni cicliche di gruppo $ \Z/p\Z $ (o banale) e $ \K^\times / {\K^\times}^p $.
@@ -124,7 +122,7 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	\[ \HH^1(\Gamma_k, \, \Z/p\Z) = \HH^1(\Gamma_k, \, \mu_p) =\K^\times / {\K^\times}^p . \]
 \end{proof}
 
-Il Teorema di Kummer si colloca appena all'inizio di una teoria più ampia, piuttosto che esserne il culmine. La dimostrazione mostra la potenza e la comodità del linguaggio coomologico per affrontate lo studio delle estensioni di campi: in poche righe siamo riusciti a smontare un teorema per nulla banale, avendo costruito in precedenza tutta la rete di mappe e isomorfismi che questa dimostrazione avrebbe altrimenti richiesto di esplicitare. A titolo informativo presentiamo il seguente risultato, che permette sia di chiarire quanto esplicita si possa rendere la corrispondenza di Kummer e, al contempo, di mostrare che tipo di risultati si può sperare di ottenere procedendo in questa direzione.
+Il Teorema di Kummer si colloca appena all'inizio di una teoria più ampia, piuttosto che esserne il culmine. La dimostrazione mostra la potenza e la comodità del linguaggio coomologico per affrontate lo studio delle estensioni di campi: in poche righe siamo riusciti a smontare un teorema per nulla banale, avendo costruito in precedenza tutta la rete di mappe e isomorfismi che questa dimostrazione avrebbe altrimenti richiesto di esplicitare. A titolo informativo presentiamo il seguente risultato, che permette sia di chiarire quanto esplicita si possa rendere la corrispondenza di Kummer e, al contempo, di mostrare il tipo di risultati si può sperare di ottenere procedendo in questa direzione.
 
 \begin{proposition}
 	Sia $K/\mathbb{Q}$ un'estensione ciclica di grado 3. Allora $ K $ è il campo di spezzamento di un polinomio della forma $$ x^3-3x-\frac{(2(a^2-3b^2))}{(a^2+3b^2)} $$ per certi $ a,\, b $ razionali. Viceversa, ogni tale polinomio o è riducibile o ha gruppo di Galois ciclico.
@@ -132,9 +130,9 @@ Il Teorema di Kummer si colloca appena all'inizio di una teoria più ampia, piut
 
 \section{Struttura di un Campo Locale}
 % struttura
-Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi di $ \K $ come gli elementi di valutazione non negativa
+Ricordiamo brevemente tutto quello che è necessario sapere sui campi locali per poter procedere. Chiamato il nostro campo locale $ \K $, possiamo definire l'anello degli interi su $ \K $ come gli elementi di valutazione non negativa
 \[ \mathcal{O}_{\K} = \{ x \in \K \mid v(x)\geq 0 \}. \]
-Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiamiamo $ \pi $ il generatore dell'ideale primo e $ \kappa = \mathcal{O}_{\K}/(\pi) $ il campo residuo. Le unità di quest'anello sono il nucleo dell'omomorfismo di valutazione
+Questo è naturalmente un anello a valutazione discreta, pertanto locale: chiamiamo $ \pi $ un generatore dell'ideale primo e $ \kappa = \mathcal{O}_{\K}/(\pi) $ il campo residuo. Le unità di quest'anello sono il nucleo dell'omomorfismo di valutazione
 \begin{equation}\label{local1}
 	\begin{tikzcd}[column sep = small]
 	1 \rar
@@ -184,10 +182,9 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 	& 0
 	\end{tikzcd}\]
 	la stessa proprietà segue per tutti gli $ U^i_{L} / U^{i+1}_{L} $.
-	\todo[aggiungere nel capitolo 1 l'osservazione seguente]
-	Poiché la coomologia di un gruppo finito commuta con il limite proiettivo nel secondo argomento, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologicamente banale. \\
+	Poiché la coomologia di un gruppo finito commuta con il limite proiettivo nel secondo argomento se tutti i moduli in questione sono finiti \cite[proposizione 1.12]{Harari}, segue per induzione che $ U^1_{L} / U^{i}_{L} $, e passando al limite che tutto $ U^1_L = \varprojlim U^1_{L} / U^{i}_{L} $, è coomologicamente banale. \\
 	
-	Per estendere la proprietà a tutto $ \mathcal{O}_{L}^\times $ riscriviamo la successione esatta \ref{local3}
+	Per estendere la proprietà a tutto $ \mathcal{O}_{L}^\times $ riscriviamo la successione esatta \eqref{local3}
 	\begin{equation*}
 	\begin{tikzcd}[column sep = small]
 	1 \rar
@@ -197,10 +194,8 @@ Procediamo ora nell'enunciare qualche risultato che, sfruttando la relativa semp
 	&1
 	\end{tikzcd}
 	\end{equation*}
-	e osserviamo che non solo $  U^1_L $ è coomologicamente banale, ma anche $ \lambda^\times $: infatti in grado $ i = 1 $ è banale per Hilbert 90, in grado $ i = 2 $ banale perché sottogruppo di $ \Br \kappa $ (volendo per \ref{stronzetto}), che è nullo perché $ \hat{\Z} $ ha dimensione coomologica 1, e il gruppo $ G $ è ciclico. Segue la tesi prendendo la successione esatta lunga associata.
+	e osserviamo che non solo $  U^1_L $ è coomologicamente banale, ma anche $ \lambda^\times $: infatti in grado $ i = 1 $ è banale per Hilbert 90, in grado $ i = 2 $ banale perché $ \Br \lambda $ è nullo, perché $ \hat{\Z} $ ha dimensione coomologica 1, e il gruppo $ G $ è ciclico. Segue la tesi prendendo la successione esatta lunga associata.
 \end{proof}
-
-
 
 % Assioma del corpo di classe
 Per estensioni ramificate la situazione non è così semplice, anche rimanendo interessati alle sole estensioni cicliche; tant'è che abbiamo bisogno di premettere un lemma tecnico alla generalizzazione del risultato appena ottenuto.
@@ -210,10 +205,10 @@ Per estensioni ramificate la situazione non è così semplice, anche rimanendo i
 \end{lemma}
 
 \begin{proof}
-	Per il teorema della Base Normale esiste un elemento $ \alpha \in L $ per cui $ \{ g\alpha \mid g \in G \} $ sia una base di $ L $ come spazio vettoriale su $ K $. Poiché l'estensione è finita, troviamo un elemento $ a \in K^\times $ di valutazione abbastanza grande da far cadere tutti i $ a (g\alpha) $ negli interi $ \mathcal{O}_L $: chiamiamo $ M $ l'$ \mathcal{O}_K $-sottomodulo di $ \mathcal{O}_L $ generato da questi elementi; osserviamo che $ M $ è isomorfo a $ \mathcal{O}_K[G] $ per costruzione.  
-	Per di più, è un sottogruppo aperto di $ \mathcal{O}_L $ (che, equipaggiato con la topologia indotta da $ L $, è un gruppo additivo profinito): dette $ p_i $ le proiezioni sulle componenti, otteniamo infatti $ M $ come intersezione di aperti della forma $ \{ x \in \mathcal{O}_L \mid v_K p_i (x) \geq m_i\} $, per opportuni interi $ m_i $. Ne segue che $ M $ è un sottogruppo di indice finito e dunque che esiste un intero $ M $ per cui
+	Per il teorema della Base Normale esiste un elemento $ \alpha \in L $ per cui $ \{ g\alpha \mid g \in G \} $ sia una base di $ L $ come spazio vettoriale su $ K $. Poiché l'estensione è finita, troviamo un elemento $ a \in K^\times $ di valutazione abbastanza grande da far cadere tutti i $ a (g\alpha) $ negli interi $ \mathcal{O}_L $: chiamiamo $ M $ l'$ \mathcal{O}_K $-sottomodulo di $ \mathcal{O}_L $ generato da questi elementi; $ M $ è isomorfo a $ \mathcal{O}_K[G] $ per costruzione.  
+	Per di più, $ M $ è un sottogruppo aperto di $ \mathcal{O}_L $ (che, equipaggiato con la topologia indotta da $ L $, è un gruppo additivo profinito): dette $ p_i $ le proiezioni sulle componenti, otteniamo infatti $ M $ come intersezione di aperti della forma $ \{ x \in \mathcal{O}_L \mid v_K p_i (x) \geq m_i\} $, per opportuni interi $ m_i $. Ne segue che $ M $ è un sottogruppo di indice finito e dunque che esiste un intero $ m $ per cui
 	\[  \pi^m\mathcal{O}_L\subseteq M \subseteq \mathcal{O}_L. \]
-	Costruiamo allora una serie di sottomoduli di $ U_L^1 $
+	Traslando opportunamente $ M $, costruiamo una serie di sottomoduli di $ U_L^1 $ 
 	\[ V_i = 1 + \pi^{m+i}M, \]
 	con la piacevole proprietà di filtrare $ V_1 $, presentando quozienti coomologicamente banali: abbiamo infatti un isomorfismo $ V_i/V_{i+1} \to M/\pi M $ dato da $$  v_i \mapsto \pi^{-m-i}(v_i-1) \; +\pi M,  $$ che possiamo riassumere in diverse successioni esatte corte
 	\[ 0 \to V_{i+1} \to V_i \to \kappa [G] \to 0; \]
@@ -221,13 +216,13 @@ Per estensioni ramificate la situazione non è così semplice, anche rimanendo i
 \end{proof}
 
 \begin{theorem}[Assioma del Campo di Classe] \label{assioma}
-	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hh^0(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
+	Sia $ L/\K $ un'estensione di Galois, finita e di gruppo $ G = \Gal{L/\K} $ ciclico. Allora $ \HH^1(G, \, L^\times) = 0 $ e $ \Hhz(G, \, L^\times) $ ha cardinalità $ [L \, \colon \K] $.
 \end{theorem}
 \begin{proof}
 	La prima asserzione segue da Hilbert 90. Applichiamo il lemma del sottomodulo banale e scriviamo la successione esatta 
 	\[ 1 \to V \to \mathcal{O}_L^\times \to \mathcal{O}_L^\times/V \to 1; \]
-	il primo modulo è coomologicamente banale per costruzione, pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, e anche l'ultimo modulo ha $ h = 1 $; infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
-	dove il secondo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \ref{local3} $). Segue dalle proprietà del quoziente di Herbrand che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla successione esatta $ \ref{local1} $
+	il primo modulo è coomologicamente banale per costruzione, pertanto il suo quoziente di Herbrand è $ h(V) = 1 $, e anche l'ultimo modulo ha $ h = 1 $: infatti è finito, perché $$  [\mathcal{O}_L^\times \, \colon V] = [\mathcal{O}_L^\times \,\colon U_L^1]\cdot[U_L^1 \,\colon V],  $$
+	dove il secondo indice è finito per costruzione e il primo perché il quoziente di quei due gruppi è $ \lambda^\times $ (si guardi la successione esatta $ \eqref{local3} $). Segue dalle proprietà del quoziente di Herbrand (prima \ref{Herb2} e poi $ \ref{Herb1} $) che $ h(\mathcal{O}_L^\times) = 1 $. Passiamo ora alla successione esatta $ \eqref{local1} $
 	\[ \begin{tikzcd}[column sep = small]
 	1 \rar
 	& \mathcal{O}_{L}^\times \rar
@@ -235,15 +230,17 @@ Per estensioni ramificate la situazione non è così semplice, anche rimanendo i
 	& \Z \rar
 	& 0,
 	\end{tikzcd} \]
-	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che $$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che $$  \Hh^0(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e Hilbert 90
+	della quale conosciamo il quoziente del primo e dell'ultimo gruppo: sappiamo infatti che
+	$$  \HH^1(G, \, \Z) = \Hom_\mathsf{Gr}(G, \, \Z) = \Hom_\Z(G^\texttt{ab}, \, \Z) = 0  $$ perché $ G $ è finito e agisce banalmente su $ \Z $ e che
+	$$  \Hhz(G, \, \Z) = \frac{\Z^G}{ N\Z} = \frac{\Z}{ |G|\, \Z}  $$ per definizione. Infine, per le proprietà del quoziente di Herbrand e Hilbert 90
 	\[ h(L^\times) = h(\Z) \qquad\Longrightarrow\qquad |\Hh^0(\K, L^\times)\, | = |G| = [L \, \colon \K]. \]
 \end{proof}
 
-Questi due risultati, fondamentalmente, traducono nel linguaggio coomologico le proprietà della struttura di un campo locale. Non c'è bisogno di aggiungere che non c'è speranza di ottenere risultati analoghi per campi globali. Nel prossimo paragrafo sfrutteremo quanto appena scoperto per calcolare la coomologia in grado 2.
+Questi due risultati, fondamentalmente, traducono nel linguaggio coomologico le proprietà aritmetiche di un campo locale. Sembra superfluo aggiungere che non c'è speranza di ottenere risultati analoghi per campi globali. Nel prossimo paragrafo sfrutteremo quanto appena scoperto per calcolare la coomologia in grado 2.
 
 \section{Calcolo del gruppo di Brauer}
 % Calcolo del BRKnr e mappa inv
-Ogni campo locale ha esattamente un'estensione non ramificata per ogni grado $ \knr $, il cui gruppo di Galois coincide con la corrispondente estensione del campo residuo dello stesso grado: $ \Gal{\K^n_\texttt{nr} / \K} = \Gal{\kappa^n / \kappa} = \Z / n\Z $. Ne segue che la massima estensione non ramificata $ \knr = \varinjlim \K^n_\texttt{nr} $ ha gruppo di Galois
+Ogni campo locale ha esattamente un'estensione non ramificata per ogni grado $ \knr^n $, il cui gruppo di Galois coincide con la corrispondente estensione del campo residuo dello stesso grado: $ \Gal{\K^n_\texttt{nr} / \K} = \Gal{\kappa^n / \kappa} = \Z / n\Z $. Ne segue che la massima estensione non ramificata $ \knr = \varinjlim \K^n_\texttt{nr} $ ha gruppo di Galois
 \[ G = \Gal{\knr / \K} = \Gal{\bar{\kappa} / \kappa} = \hat{\Z}. \]
 Siamo interessati a calcolare $ \HH^2(\Gamma, \, \knr^\times) $. Dalla successione esatta corta
 \[ \begin{tikzcd}[column sep = small]
@@ -259,7 +256,7 @@ Un po' a sorpresa, ripetiamo il ragionamento sulla successione esatta
 \[ 0 \to \Z \to \Q \to \Q/\Z \to 0, \]
 in cui troviamo $ \Q $ iniettivo, per ottenere un secondo isomorfismo
 \[ \delta \colon \HH^2(G, \, \Z) \to \HH^1(G, \, \Q/\Z). \]
-Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a calcolare $ \Hom(G, \, \Q/\Z) $, che ovviamente coincidono con le possibili immagini del generatore topologico $ 1 $ di $ G = \hat{\Z} $: abbiamo un'identificazione formale $ \gamma \colon \HH^1(G, \, \Q/\Z) \to \Q/\Z.  $
+Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a calcolare $ \Hom(G, \, \Q/\Z) $, morfismi che ovviamente coincidono con le possibili immagini del generatore topologico $ 1 $ di $ G = \hat{\Z} $: abbiamo un'identificazione formale $ \gamma \colon \HH^1(G, \, \Q/\Z) \to \Q/\Z.  $
 
 \begin{definition}
 	Chiamiamo $ \inv_\K $ l'isomorfismo che otteniamo componendo le tre mappe di sopra
@@ -271,6 +268,8 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 	\end{tikzcd} \]
 \end{definition}
 
+Avendo calcolato questo gruppo, abbiamo svolto in scioltezza metà del lavoro. Le buone proprietà di questo isomorfismo saranno fondamentali per affrontare il conto rimanente.
+
 \begin{proposition}\label{inv}
 	Sia $ L/\K $ un'estensione finita di grado $ n = [L\, \colon \K] $. Il seguente diagramma commuta
 	\[ \begin{tikzcd}
@@ -281,9 +280,9 @@ Poiché $ \Q/\Z $ è munito dell'azione banale, siamo in realtà interessati a c
 	\end{tikzcd} \]
 \end{proposition}
 \begin{proof}
-	Analizziamo come commuta la $ \Res $ con i singoli isomorfismi di cui è composto $ \inv $. Siano $ e $ l'indice di ramificazione e $ f $ l'indice d'inerzia dell'estensione. Quando c'è ramificazione abbiamo che $ v_L = e \cdot v_\K $, dunque
-	\[ \Res v_L^* = e \cdot \Res v_\K^* = e \cdot v_\K^* \Res, \]
-	poiché $ \Res $ è un morfismo di complessi per costruzione. 
+	Analizziamo come commuta la $ \Res $ con i singoli isomorfismi di cui è composto l'isomorfismo $ \inv $. Siano $ e $ l'indice di ramificazione e $ f $ l'indice d'inerzia dell'estensione. Quando c'è ramificazione la valutazione viene rinormalizzata in modo che $ (v_L)_{\mid K} = e \cdot v_\K $, dunque
+	\[ v_L^* \Res = e \cdot v_\K^* \Res  = e \cdot  \Res v_\K^*, \]
+	dove possiamo effettuare l'ultima commutazione perché $ \Res $ è un morfismo di complessi per costruzione. 
 	Analogamente, la restrizione commuta anche con l'omomorfismo di collegamento $ \delta $. L'indice $ f $ coincide con il grado della relativa estensione del campo residuo, che dunque è proprio il generatore di $ G_L = f\hat{\Z} < \hat{\Z} = G_\K $; abbiamo così, ricordando che $ \gamma $ coincide con la valutazione nel generatore, che
 	$$  \gamma(\Res h) = (\Res h)(1) = h(\Res(1)) = h(f) = f\cdot h(1) = f \cdot  \gamma(h).  $$
 	Componendo i tre risultati, si ottiene la tesi.
@@ -317,13 +316,15 @@ fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e grup
 \begin{proof}
 	Arriveremo alla tesi per approssimazione. % fuck yeah
 	Il caso in cui $ G $ sia ciclico segue immediatamente dall'Assioma del Campo di Classe (\ref{assioma}). Affrontiamo ora il problema per $ G $ $ p $-gruppo: grazie alla formula delle classi sappiamo che il centro è non banale, questo è abeliano e ha pertanto un sottogruppo normale di ordine $ p $ che chiamiamo $ H $, il quale, essendo un sottogruppo normale di un gruppo caratteristico, è normale in $ G $. A questo gruppo sarà associata un'estensione intermedia $ L^H $, anch'essa di Galois. Dalla successione spettrale di Hoschild-Serre, o meglio per quanto dice il corollario \ref{boo2}, ricaviamo la successione esatta
-	\[\begin{tikzcd}[column sep = small]
+	\[\begin{tikzcd}
 	0 \rar & \HH^q(G/H, \, {L^H}^\times) \rar["\Inf"]
 	& \HH^q(G, \, L^\times) \rar["\Res"]
 	& \HH^q(H, \, L^\times),
 	\end{tikzcd} \qquad  \]
 	da cui deduciamo la tesi per induzione. Segue immediatamente il caso generale: se per ogni primo $ p $ scegliamo un Sylow, la restrizione produce degli omomorfismi iniettivi
-	\[ T_p\HH^2(G, \, L^\times) \to \HH^2(G_p, L^\times), \]
+	\[ \begin{tikzcd}
+	0 \rar & T_p\HH^2(G, \, L^\times) \rar["\Res"] & \HH^2(G_p, L^\times),
+	\end{tikzcd}  \]
 	da cui appunto, invocando il risultato sull'estensione $ L/L^{G_p} $, segue la tesi.
 \end{proof}
 
@@ -342,12 +343,11 @@ fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e grup
 	\Q/\Z \rar["\cdot n"]
 	& \Q/\Z,
 	\end{tikzcd} \]
-	il cui nucleo è proprio
-	\[ 0 \to \HH^2(G, \, L^\times) \to \Br \K \to \Br L \]
-	per la solita successione esatta dei Brauer relativi (\ref{stronzetto}).
+	il cui nucleo è proprio $ \HH^2(G, \, L^\times) $ per la solita successione esatta dei Brauer relativi (\ref{stronzetto}):
+	\[ 0 \to \HH^2(G, \, L^\times) \to \Br \K \to \Br L. \]
 \end{proof}
 
-Torniamo ora alla dimostrazione del teorema. Per il classico lemma di passaggio al limite, sappiamo che $ \Br \K = \HH^2(\Gamma_K, \, \bar{\K}^\times) $ è limite induttivo sulle sottoestensioni di Galois finite, che per il secondo lemma possiamo calcolare sulle sole estensioni non ramificate:
+Torniamo ora alla dimostrazione del teorema. Abbiamo già osservato che $ \Br \K = \HH^2(\Gamma_K, \, \bar{\K}^\times) $ è unione dei Brauer relativi sulle sottoestensioni di Galois finite, che per il secondo lemma coincidono con le sole estensioni non ramificate:
 \[ \Br \K = \varinjlim_{L/K} \HH^2(G, \, L^\times) = \varinjlim_{n} \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) = \Br (\knr /\K) = \Q/\Z. \]
 
 \end{proof}
@@ -367,16 +367,16 @@ La $ p $-torsione è, per definizione, il nucleo della moltiplicazione per $ p $
 
 
 \begin{proof}
-	Assumiamo $ i $. Per ogni $ L $, la $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $, ne segue che
-	\[ (\Br L) [\, p \,] = \HH^2(L, \, \mu_p) = 0. \] \todo[definire le quadre]
+	Assumiamo $ i $. Per ogni $ L $, la $ p $-dimensione coomologica del sottogruppo $ \Gal{\bar{k}/L} $ è al più quella del gruppo $ \Gal{\bar{k}/k} $ (per \ref{cd2}), ne segue che
+	\[ (\Br L) [\, p \,] = \HH^2(L, \, \mu_p) = 0. \] 
 	Assumiamo dunque $ ii $. Sia $ G_p $ un $ p $-Sylow di $ \Gal{\bar{k}/k} $ e $ L $ il sottocampo corrispondente. $ L $ contiene le radici dell'unità $ \mu_p $: infatti l'indice $ [L(\mu_p)\,\colon L] $ deve dividere sia $ p-1 $, perché campo di spezzamento di $ x^p-1 $, che $ p $, per costruzione. Ne segue che
 	\[ \HH^2(L, \, \Z/p\Z) = \HH^2(L, \, \mu_p) = (\Br L)[\, p\,], \]
-	che è nullo per ipotesi; da cui, sfoderando tutti i teoremi sulla dimensione coomologica a nostra conoscenza, $ \cd_p(k) \leq \cd_p(L) = 1 $.
+	che è nullo per ipotesi; da cui, sfoderando tutti i teoremi sulla dimensione coomologica a nostra conoscenza, deduciamo che $ \cd_p(k) = \cd_p(L) = 1 $.
 \end{proof}
 
 
 \begin{theorem}\label{cdim2}
-	La dimensione coomologica di un campo locale è 2. \todo[sembra che ci sia qualche problema se la caratteristica è non zero]
+	La dimensione coomologica di un campo locale è 2.
 \end{theorem}
 \begin{proof}
 	Mostreremo preliminarmente che il gruppo di Galois assoluto $ \Gal{\bar{K}/\knr} $ dell'estensione non ramificata massimale $ \knr $ ha dimensione coomologica $ 1 $. Per il lemma appena enunciato sarà sufficiente dimostrare che, per ogni primo $ p $ e ogni estensione finita e separabile $ L/\knr $, il gruppo di Brauer $ \Br L $ non ha componente $ p $-primaria: questo gruppo è limite diretto dei gruppi di Brauer $ \Br E $ delle estensioni intermedie finite $ K \subseteq E \subseteq L $, per il solito teorema di passaggio al limite (\ref{limite}); mostreremo pertanto che ogni elemento di $ p^\alpha $-torsione viene eventualmente ucciso dalle mappe del sistema induttivo (che ricordiamo essere restrizioni). Nel sistema induttivo si trova infatti, sopra $ E $, un'estensione $ F $ per cui l'indice $ [F \,\colon E] = p^\alpha $, che produce la mappa assassina che cercavamo:
@@ -389,7 +389,7 @@ La $ p $-torsione è, per definizione, il nucleo della moltiplicazione per $ p $
 	Riusciamo ad ottenere l'estensione $ F $ richiesta, per esempio, componendo $ E $ con un'estensione di $ K $ non ramificata del giusto grado.\\
 	
 	Possiamo ora concludere: l'estensione $ \knr /K $ non ramificata massimale ha gruppo di Galois $ \hat{\Z} $, che è un sottogruppo di $ \Gal{\bar{\K}/K} $, il cui quoziente abbiamo appena mostrato avere dimensione coomologica 1; per il lemma \ref{quozienti}, concludiamo che 
-	$$  \cd(K) \leq \cd(\knr) + \cd(\hat{\Z}) \leq 2.  $$
+	$$  \cd(K) \leq \cd(\knr) + \cd(\hat{\Z}) = 1+1.  $$
 	Osserviamo infine che, per un primo $ p $ eventualmente diverso dalla caratteristica di $ K $, il gruppo $ \HH^2(K, \, \mu_p) = (\Br K)[\, p\, ] $ non è nullo; ottenendo la disuguaglianza opposta.
 \end{proof}
 

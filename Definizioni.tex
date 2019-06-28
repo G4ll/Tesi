@@ -11,7 +11,7 @@
 \usepackage{array}
 \usepackage{rotating}
 \usepackage{multirow}
-%\usepackage[inner=0cm,outer=5cm]{geometry}
+%\usepackage{geometry}
 \usepackage{enumitem}
 \usepackage[normalem]{ulem}
 
@@ -38,6 +38,9 @@
     linkcolor=black,
     urlcolor=black
 }
+
+\setlrmarginsandblock{3.5cm}{4cm}{*}
+%\setulmarginsandblock{3.5cm}{4.5cm}{*}
 
 % Comando folle
 %\renewcommand{\textbf}{\bfseries\textsf}
@@ -114,7 +117,36 @@
 \DeclareMathOperator{\Hom}{Hom}
 
 \DeclareMathOperator{\HH}{H}
-\DeclareMathOperator{\Hh}{\widehat{H}}
+\DeclareMathOperator{\Hh}{\widehat{H}^\mathnormal{i}}
+\DeclareMathOperator{\Hhh}{\widehat{H}}
+\DeclareMathOperator{\Hha}{\widehat{H}^\mathnormal{-i}}
+\DeclareMathOperator{\Hhb}{\widehat{H}^{\mathnormal{i}+1}}
+\DeclareMathOperator{\Hhc}{\widehat{H}^{\mathnormal{i+r}}}
+\DeclareMathOperator{\Hhid}{\widehat{H}^{\mathnormal{i}+2}}
+\DeclareMathOperator{\Hhe}{\widehat{H}^\mathnormal{q}}
+\DeclareMathOperator{\Hhf}{\widehat{H}^{\mathnormal{q}+1}}
+
+\DeclareMathOperator{\Hhmm}{\widehat{H}^{-2}}
+\DeclareMathOperator{\Hhm}{\widehat{H}^{-1}}
+\DeclareMathOperator{\Hhz}{\widehat{H}^{0}}
+\DeclareMathOperator{\Hhu}{\widehat{H}^{1}}
+\DeclareMathOperator{\Hhd}{\widehat{H}^{2}}
+\DeclareMathOperator{\Hht}{\widehat{H}^{3}}
+
+\DeclareMathOperator{\Hhnu}{\widehat{H}^{\mathnormal{n}+1}}
+\DeclareMathOperator{\Hhnd}{\widehat{H}^{\mathnormal{n}+2}}
+
+\DeclareMathOperator{\Hhn}{\widehat{H}^{\mathnormal{n}}}
+\DeclareMathOperator{\Hhnq}{\widehat{H}^{\mathnormal{n}+\mathnormal{q}}}
+
+\DeclareMathOperator{\Hhnp}{\widehat{H}^{\mathnormal{n_p}}}
+\DeclareMathOperator{\Hhnpp}{\widehat{H}^{\mathnormal{n_p}+1}}
+\DeclareMathOperator{\Hhnppp}{\widehat{H}^{\mathnormal{n_p}+2}}
+
+\DeclareMathOperator{\Hhnpq}{\widehat{H}^{\mathnormal{n_p}+\mathnormal{q}}}
+\DeclareMathOperator{\Hhnppq}{\widehat{H}^{\mathnormal{n_p}+\mathnormal{q}+1}}
+\DeclareMathOperator{\Hhnpppq}{\widehat{H}^{\mathnormal{n_p}+\mathnormal{q}+2}}
+
 
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\Res}{\mathtt{res}}
