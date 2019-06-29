@@ -1,4 +1,4 @@
-\chapter{Teoria del Campo di Classe}
+\chapter{Campi locali}
 In questo capitolo faremo fruttare quanto preparato in precedenza: cominceremo a parlare di estensioni di campi e a studiare la coomologia dei relativi gruppi di campi. Inizieremo con qualche risultato di carattere generale riguardo le estensioni di Galois, dalle nozioni di base alla teoria di Kummer, per restringere poi la nostra attenzione ai campi locali. \\
 
 % Discorso su perché i campi locali.
@@ -81,7 +81,7 @@ Grazie a questo risultato, ci è concesso pensare al gruppo di Brauer di un camp
 	& \HH^2(G, \, \mu_n) \rar
 	& \HH^2(G, \, \bar{\K}^\times) \rar["\cdot n"]
 	& \HH^2(G, \, \bar{\K}^\times).
-	\end{tikzcd}  \]
+	\end{tikzcd} \qedhere \]
 \end{proof}
 
 % Verso il profinito
@@ -119,7 +119,7 @@ Al fine di classificare le estensioni di gruppo di Galois $ A $ abeliano è pert
 	& 0;
 	\end{tikzcd}  \]
 	che è proprio quello che cercavamo: poiché le radici $ p $-esime dell'unità vivono in $ k $ per ipotesi, $ \Gamma_k $ vi agisce banalmente e pertanto
-	\[ \HH^1(\Gamma_k, \, \Z/p\Z) = \HH^1(\Gamma_k, \, \mu_p) =\K^\times / {\K^\times}^p . \]
+	\[ \HH^1(\Gamma_k, \, \Z/p\Z) = \HH^1(\Gamma_k, \, \mu_p) =\K^\times / {\K^\times}^p . \qedhere \]
 \end{proof}
 
 Il Teorema di Kummer si colloca appena all'inizio di una teoria più ampia, piuttosto che esserne il culmine. La dimostrazione mostra la potenza e la comodità del linguaggio coomologico per affrontate lo studio delle estensioni di campi: in poche righe siamo riusciti a smontare un teorema per nulla banale, avendo costruito in precedenza tutta la rete di mappe e isomorfismi che questa dimostrazione avrebbe altrimenti richiesto di esplicitare. A titolo informativo presentiamo il seguente risultato, che permette sia di chiarire quanto esplicita si possa rendere la corrispondenza di Kummer e, al contempo, di mostrare il tipo di risultati si può sperare di ottenere procedendo in questa direzione.
@@ -127,6 +127,19 @@ Il Teorema di Kummer si colloca appena all'inizio di una teoria più ampia, piut
 \begin{proposition}
 	Sia $K/\mathbb{Q}$ un'estensione ciclica di grado 3. Allora $ K $ è il campo di spezzamento di un polinomio della forma $$ x^3-3x-\frac{(2(a^2-3b^2))}{(a^2+3b^2)} $$ per certi $ a,\, b $ razionali. Viceversa, ogni tale polinomio o è riducibile o ha gruppo di Galois ciclico.
 \end{proposition} 
+
+È possibile utilizzare questo arsenale anche in modo più ricreativo.
+
+\begin{theorem}
+	Le terne pitagoriche sono della forma $ (a^2-b^2,\, 2ab,\, a^2+b^2) $.
+\end{theorem}
+
+\begin{proof}
+	Le terne pitagoriche sono in bigezione con i punti di $ \Q(i) $ sulla circonferenza unitaria, ovvero di norma 1. Per la definizione del gruppo di Tate di grado $ i = -1 $, la ciclicità di $ G = \Gal{\Q(i)/\Q} $ e Hilbert 90, abbiamo che
+	\[  \left(\ker N\right) / I_G \Q(i)^\times = \Hhm(G, \, \Q(i)^\times) = \HH^1(G, \, \Q(i)^\times) = 0, \]
+	ovvero $ \ker N = I_G \Q(i)^\times $: ogni elemento di norma unitaria si scrive nella forma
+	\[ (1-g) (a+ib) = \frac{a+ib}{a-ib} = \frac{a^2 -b^2}{a^2 + b^2} + i \, \frac{2ab}{a^2 + b^2}. \qedhere \]
+\end{proof}
 
 \section{Struttura di un Campo Locale}
 % struttura
@@ -344,11 +357,11 @@ fissiamo un'estensione $ L/\K $ di Galois di grado $ n = [L\,\colon \K] $ e grup
 	& \Q/\Z,
 	\end{tikzcd} \]
 	il cui nucleo è proprio $ \HH^2(G, \, L^\times) $ per la solita successione esatta dei Brauer relativi (\ref{stronzetto}):
-	\[ 0 \to \HH^2(G, \, L^\times) \to \Br \K \to \Br L. \]
+	\[ 0 \to \HH^2(G, \, L^\times) \to \Br \K \to \Br L. \qedhere \]
 \end{proof}
 
 Torniamo ora alla dimostrazione del teorema. Abbiamo già osservato che $ \Br \K = \HH^2(\Gamma_K, \, \bar{\K}^\times) $ è unione dei Brauer relativi sulle sottoestensioni di Galois finite, che per il secondo lemma coincidono con le sole estensioni non ramificate:
-\[ \Br \K = \varinjlim_{L/K} \HH^2(G, \, L^\times) = \varinjlim_{n} \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) = \Br (\knr /\K) = \Q/\Z. \]
+\[ \Br \K = \varinjlim_{L/K} \HH^2(G, \, L^\times) = \varinjlim_{n} \HH^2(\Gal{\K_\mathtt{nr}^n/\K},\, \K_\mathtt{nr}^{n\times}) = \Br (\knr /\K) = \Q/\Z. \qedhere \]
 
 \end{proof}
 
