@@ -213,15 +213,17 @@ Possiamo ora enunciare il risultato che ci ha permesso di confinare i gruppi pro
 
 \section{Successione Spettrale di Hochschild-Serre}
 
-Questa sezione richiederà parecchio tempo, per enuncio i due risultati
+Sia $ H $ un sottogruppo normale di $ G $. Ha senso considerare i funtori $ \mathcal{F}\colon A \to A^H $, che manda $ G $-moduli in $ G/H $-moduli, e $ \mathcal{G}\colon B \to B^{G/H} $, che manda $ G/H $-moduli in gruppi abeliani. La loro composizione è il funtore che prende gli invarianti per l'azione di $ G $. Possiamo allora prendere la successione spettrale di Grothendieck associata, che nel caso in questione è detta successione spettrale di Hochschild-Serre.
 
 \begin{theorem}[Hochschild-Serre]
-	Associata ad $ H $ sottogruppo normale di $ G $, si ha una successione spettrale
+	Esiste una successione spettrale convergente
 	\[ E^{pq}_2 = \HH^p(G/H, \, \HH^q(H, \, A)) \;\Rightarrow\; \HH^{p+q}(G, \, A). \]
 \end{theorem}
 
+Siamo fondamentalmente interessati a sfruttare la filtrazione in grado basso per produrre una successione esatta. 
+
 \begin{corollary}[Successione Restrizione-Inflazione]\label{boo1}
-	Associata ad $ H $ sottogruppo normale di $ G $, si ha una successione esatta
+	Si trova la successione esatta:
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar & \HH^1(G/H, \, A^H) \rar["\Inf"]
 	& \HH^1(G, \, A) \rar["\Res"]
@@ -231,8 +233,10 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 	\end{tikzcd} \]
 \end{corollary}
 
+Variando lievemente l'argomentazione, troviamo anche la successione seguente.
+
 \begin{corollary}[Successione Restrizione-Inflazione]\label{boo2}
-	Associata ad $ H $, sottogruppo normale di $ G $ per cui $ \HH^i(H, \, A ) = 0 $ per ogni $ 1 \leq i < q $, si ha la successione esatta
+	Se $ \HH^i(H, \, A ) = 0 $ per ogni $ 1 \leq i < q $, si trova allora la successione esatta:
 	\[\begin{tikzcd}
 	0 \rar & \HH^q(G/H, \, A^H) \rar["\Inf"]
 	& \HH^q(G, \, A) \rar["\Res"]
@@ -241,7 +245,7 @@ Questa sezione richiederà parecchio tempo, per enuncio i due risultati
 \end{corollary}
 
 \begin{profinite}
-	La successione spettrale di Hochschild-Serre è ben definita anche per $ G $ profinito, una volta assunto che $ H $ sia un sottogruppo normale \emph{chiuso} di $ G $. Seguono dunque i suoi corollari. \todo[ah si? perche?]
+	La successione spettrale di Hochschild-Serre è ben definita anche per $ G $ profinito, una volta assunto che $ H $ sia un sottogruppo normale \emph{chiuso} (in modo da preservare la delicata topologia profinita) di $ G $. Ne ricaviamo analoghi corollari.
 \end{profinite}
 
 
@@ -397,14 +401,14 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 	\end{tikzcd}\]
 	si ha una successione esatta lunghissima di gruppi abeliani
 	\[\begin{tikzcd}[column sep = small, row sep = small]
-	\dots \rar & \Hhh^{-2}(G, \, C) \rar &\Hhh^{-1}(G, \, A) \rar & \Hhh^{-1}(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \Hhh^{-1}(G, \, C) \arrow[dll, 
+	\dots \rar & \Hhmm(G, \, C) \rar &\Hhm(G, \, A) \rar & \Hhm(G, \, B) \arrow[d,phantom, ""{coordinate, name=W}] \rar & \Hhm(G, \, C) \arrow[dll, 
 	rounded corners = 5 pt, 
 	to path={ --([xshift=3ex]\tikztostart.east)
 		|- (W)[near end]\tikztonodes
 		-| ([xshift=-3ex]\tikztotarget.west)
 		-- (\tikztotarget)}] && \\
-	&&\Hhh^0(G, \, A) \rar & \Hhh^0(G, \, B) \rar & \Hhh^0(G, \, C) \rar
-	 & \Hhh^1(G, \, A) \rar & \dots \end{tikzcd}\]
+	&&\Hhz(G, \, A) \rar & \Hhz(G, \, B) \rar & \Hhz(G, \, C) \rar
+	 & \Hhu(G, \, A) \rar & \dots \end{tikzcd}\]
 \end{theorem}
 %\begin{proof}
 %	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare
@@ -515,12 +519,12 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 \begin{proof}
 	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare colleghiamole provvisoriamente tramite la norma, che funge da buon collante, perché già sappiamo produrre dei quadrati commutativi. Una volta invocato il Lemma dei Cinque, la tesi segue dalla contemplazione del seguente diagramma
 	\[\begin{tikzcd}[column sep = small]
-	&& \Hhh^{-1}(G, \, A) \dar \rar[dashed]
-	& \Hhh^{-1}(G, \, B) \dar \rar[dashed]
-	& \Hhh^{-1}(G, \, C) \dar \ar[out=0, in=180, looseness=1, dashed]{dddll} %\arrow[dddll, dashed]
+	&& \Hhm(G, \, A) \dar \rar[dashed]
+	& \Hhm(G, \, B) \dar \rar[dashed]
+	& \Hhm(G, \, C) \dar \ar[out=0, in=180, looseness=1, dashed]{dddll} %\arrow[dddll, dashed]
 	&& \\
 	\dots \rar
-	& \Hhh^{-2}(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
+	& \Hhmm(G, \, C) \rar["\delta_0"] \arrow[ur, dashed, bend left = 30]
 	& A_G \rar \dar 
 	& B_G \rar \arrow[d]
 	& C_G \rar \dar
@@ -529,11 +533,11 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 	&A^G \rar\dar
 	& B^G \rar\dar
 	& C^G \rar["\delta^0"]\dar
-	& \Hhh^1(G, \, A) \rar
+	& \Hhu(G, \, A) \rar
 	& \dots \\
-	&& \Hhh^{0}(G, \, A) \rar[dashed]
-	& \Hhh^{0}(G, \, B)  \rar[dashed]
-	& \Hhh^{0}(G, \, C). \arrow[ur, dashed, bend right = 30]
+	&& \Hhz(G, \, A) \rar[dashed]
+	& \Hhz(G, \, B)  \rar[dashed]
+	& \Hhz(G, \, C). \arrow[ur, dashed, bend right = 30]
 	&& \qedhere
 	\end{tikzcd}\]
 \end{proof}
@@ -573,7 +577,7 @@ Segue immediatamente dal Lemma di Shapiro che
 
 Se la proposizione di aggiunzione (\ref{aggiunzione}) ammettesse una versione duale, troveremmo una variante del Lemma di Shapiro per gruppi di omologia e ne seguirebbe altrettanto immediatamente la banalità dei gruppi di omologia per i moduli indotti, da lì la banalità di tutti i gruppi di Tate: in effetti è così \cite[lemma 6.3.2]{Weibel}. 
 \begin{corollary}\label{indotti}
-	Se $ A $ è un modulo indotto, allora $ \Hh(G, \, A) $ per ogni $ i > 0 $.
+	Se $ A $ è un modulo indotto, allora $ \Hh(G, \, A) $ per ogni $ i $.
 \end{corollary}
 
 Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque; preso un modulo $ A $, possiamo immergerlo nel suo indotto

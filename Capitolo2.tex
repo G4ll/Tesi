@@ -28,7 +28,7 @@ Per i moduli i cui gruppi di Tate sono finiti abbiamo scoperto due importanti in
 
 \begin{definition}(Quoziente di Herbrand)
 	Se $ A $ ha gruppi di Tate finiti chiamiamo \emph{quoziente di Herbrand} il numero naturale
-	\[ {h}(A) := \frac{h_0(A)}{h_1(A)} = \frac{|\Hh^0(G, \, A)|}{|\Hh^1(G, \, A)|}. \]
+	\[ {h}(A) := \frac{h_0(A)}{h_1(A)} = \frac{|\Hhz(G, \, A)|}{|\Hhu(G, \, A)|}. \]
 \end{definition}
 
 Enunciamo ora alcune piacevoli proprietà.
@@ -41,12 +41,12 @@ Enunciamo ora alcune piacevoli proprietà.
 \begin{proof}
 	La successione esatta lunghissima associata può essere riassunta in una successione \leftquote esagonalmente esatta"
 	\[\begin{tikzcd}[column sep={1cm,between origins}, row sep={1.732050808cm,between origins}]
-	& \Hh^0(G, \, A) \arrow[rr] && \Hh^0(G, \, B) \arrow[rd] &  \\
-	\Hh^1(G, \, C) \arrow[ru]&  &&  & \Hh^0(G, \, C) \arrow[ld] \\				& \Hh^1(G, \, B) \arrow[lu] && \Hh^1(G, \, A) \arrow[ll], & 
+	& \Hhz(G, \, A) \arrow[rr] && \Hhz(G, \, B) \arrow[rd] &  \\
+	\Hhu(G, \, C) \arrow[ru]&  &&  & \Hhz(G, \, C) \arrow[ld] \\				& \Hhu(G, \, B) \arrow[lu] && \Hhu(G, \, A) \arrow[ll], & 
 	\end{tikzcd}\]
 	che possiamo slacciare in un punto a piacere
-	\[ 0 \to Q \to \Hh^0(G, \, A) \to \Hh^0(G, \, B) \to \dots \to \Hh^1(G, \, C) \to Q \to 0, \]
-	aggiungendo un opportuno modulo $$  Q = \ker \left[\Hh^0(G, \, A) \to \Hh^0(G, \, B)\right] = \coker\left[ \Hh^1(G, \, B) \to \Hh^1(G, \, C) \right].  $$
+	\[ 0 \to Q \to \Hhz(G, \, A) \to \Hhz(G, \, B) \to \dots \to \Hhu(G, \, C) \to Q \to 0, \]
+	aggiungendo un opportuno modulo $$  Q = \ker \left[\Hhz(G, \, A) \to \Hhz(G, \, B)\right] = \coker\left[ \Hhu(G, \, B) \to \Hhu(G, \, C) \right].  $$
 	Dobbiamo pertanto avere, per esattezza, che
 	\[  h_0(B) h_1(A) h_1(C) \cdot |\,Q\,| = h_0(A) h_0(C) h_1(B) \cdot |\,Q\,|, \]			da cui la tesi.
 \end{proof}
@@ -126,7 +126,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 
 \begin{proposition} \label{ban2}
 	Sia $ A $ uno $ G_p $-modulo di $ p $-torsione.
-	Se esiste un indice $ q $ per cui $ \Hhe(G, \, A) = 0 $, allora $ A $ è indotto.
+	Se esiste un indice $ q $ per cui $ \Hhq(G, \, A) = 0 $, allora $ A $ è indotto.
 \end{proposition}
 
 \begin{proof}
@@ -158,7 +158,7 @@ Questo lemma ci tornerà particolarmente utile nella dimostrazione del risultato
 	0 \rar & A^G \rar["j"] & F^G \rar & Q^G \rar & \HH^1(G, \, A).
 	\end{tikzcd} \]
 	Se $ q = 1 $ ne deduciamo che, essendo $ j $ un isomorfismo, $ Q^G \to 0 $ è iniettiva, dunque $ Q^G = 0 $ e la tesi segue applicando nuovamente il Lemma \ref{ban1}. Se $ q \neq 1 $ abbiamo bisogno di ingegnarci altrimenti: dobbiamo traslare l'ipotesi. Il modulo con coomologia traslata $ A_{q-1} $ ricade nelle ipotesi del caso precedente ed è pertanto coomologicamente banale: ci forza così l'ipotesi 
-	\[ \Hhh^1(G, \, A) = \Hhh^{2-q}(G, \, A_{q-1}) = 0 \]
+	\[ \Hhu(G, \, A) = \Hhdq(G, \, A_{q-1}) = 0 \]
 	di cui avevamo bisogno per concludere.
 \end{proof}
 
@@ -166,7 +166,7 @@ Con un ulteriore piccolo sforzo è possibile rimuovere l'ipotesi di $ p $-torsio
 
 \begin{theorem} \label{CriterioBanalita}
 	Sia $ A $ uno $ G_p $-modulo. Se esiste un indice $ q $ per cui
-	\[ \Hhh^q(G_p, \, A) = \Hhh^{q+1}(G_p, \, A) = 0, \]
+	\[ \Hhq(G_p, \, A) = \Hhqu(G_p, \, A) = 0, \]
 	allora $ A $ è coomologicamente banale.
 \end{theorem}
 
@@ -177,7 +177,7 @@ Con un ulteriore piccolo sforzo è possibile rimuovere l'ipotesi di $ p $-torsio
 	\end{equation*}
 	non ci resta che trovare una sezione.
 	Passando alla successione esatta lunghissima, poiché $ F $ è coomologicamente banale, riusciamo a spostare l'ipotesi su $ R $:
-	\[ \Hhh^{q+1}(G_p, \, R) = \Hhh^{q+2}(G_p, \, R) = 0. \]
+	\[ \Hhqu(G_p, \, R) = \Hhqd(G_p, \, R) = 0. \]
 	Possiamo pertanto supporre senza perdita di generalità che $ A $ sia libero come gruppo abeliano: il nucleo $ R $ lo è comunque e se fosse coomologicamente banale lascerebbe $ A $ da solo ad affogare in un mare di zeri. In questo caso $ \Hom_\Z(A, \, \bullet) $ è esatto e ci restituisce quindi una successione esatta corta
 	\begin{equation}\label{homban3}
 		0 \to \Hom_\Z(A, \, R) \to \Hom_\Z(A, \, F) \to \Hom_\Z(A, \, A) \to 0.
@@ -193,7 +193,7 @@ Con un ulteriore piccolo sforzo è possibile rimuovere l'ipotesi di $ p $-torsio
 		0 \rar & R \rar["\cdot p"] & R \rar & R/pR \rar & 0,
 		\end{tikzcd}
 		\end{equation*}
-		e la successione esatta lunghissima associata; il conucleo $ R/pR $ è uno $ G_p $-modulo di $ p $-torsione per cui $ \Hhf(G_p, R/pR) = 0 $ e pertanto, rileggendo la proposizione precedente (\ref{ban2}), scopriamo che è indotto. Applicando $ \Hom_\Z(A, \, \bullet) $ alla successione esatta otteniamo
+		e la successione esatta lunghissima associata; il conucleo $ R/pR $ è uno $ G_p $-modulo di $ p $-torsione per cui $ \Hhqu(G_p, R/pR) = 0 $ e pertanto, rileggendo la proposizione precedente (\ref{ban2}), scopriamo che è indotto. Applicando $ \Hom_\Z(A, \, \bullet) $ alla successione esatta otteniamo
 		\begin{equation*}
 		\begin{tikzcd}[column sep = small]
 		0 \rar & M \rar["\cdot p"] & M \rar & \Hom_\Z(A, \, R/pR) \rar & 0,
@@ -263,12 +263,12 @@ Siamo in grado di formulare un criterio per il calcolo della dimensione coomolog
 	
 	Per concludere, dimostriamo per décalage che i gruppi di coomologia in grado maggiore di $ n+1 $ sono anch'essi nulli, per ogni modulo $ A $ di $ p $-torsione. È sufficiente scrivere il modulo di coomologia traslata $ A_{r} $ e osservare che, nonostante $ G $ non sia finito, continua ad avere coomologia traslata per $ r \geq 0 $ perché l'indotto $ \Ind_1^G(A) $ è anch'esso di $ p $-torsione, essendo composto da mappe che, per essere continue, devono essere localmente costanti e pertanto con immagine finita. Concludiamo dunque che	
 	\begin{equation*}
-	 \Hhh^{n+1+r}(G, \, A) = \Hhh^{n+1}(G, \, A_r) = 0 \qquad \forall\, r > 0. \qedhere
+	 \Hhnru(G, \, A) = \Hhnu(G, \, A_r) = 0 \qquad \forall\, r > 0. \qedhere
 	\end{equation*}
 \end{proof}
 
 Calcoliamo la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite $ (\ref{limite}) $, si ha infatti che 
-\[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim_n \HH^2(\Z/p^n\Z, \, \Z/p\Z) = \varinjlim_n \Hh^0(\Z/p^n\Z, \, \Z/p\Z). \]
+\[ \HH^2(\Z_p , \, \Z/p\Z) = {\textstyle\varinjlim_n} \HH^2(\Z/p^n\Z, \, \Z/p\Z) = {\textstyle\varinjlim_n} \Hhz(\Z/p^n\Z, \, \Z/p\Z). \]
 I gruppi di Tate di grado zero li conosciamo esplicitamente: per definizione sono $ \Z/p\Z $ quozientato per l'immagine della norma che, trovando l'azione banale, coincide con la moltiplicazione per l'ordine del gruppo $ p^n $ ed è quindi la mappa nulla. Le mappe di collegamento sono indotte dalla proiezione naturale e coincidono quindi con l'inflazione, che in grado zero è per definizione la norma. Poiché tutte le mappe sono nulle
 \[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim \Z/p\Z = 0. \]
 Per la proposizione appena dimostrata $ \cd_p(\Z_p) \leq 1 $; otteniamo l'altra uguaglianza calcolando esplicitamente $$  \HH^1(\Z_p , \, \Z/p\Z) = \Hom(\Z_p , \, \Z/p\Z) = \Z/p\Z \neq 0.  $$
