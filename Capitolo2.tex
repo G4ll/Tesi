@@ -1,5 +1,5 @@
 \chapter{Primi risultati}
-In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le potenzialità e gettando delle solide basi sui cui poggeranno i calcoli successivi. Il primo obbiettivo sarà studiare la coomologia dei gruppi ciclici, che si rivelerà piuttosto semplice e di evidente importanza in tutto il seguito. Segue immediatamente un tentativo di studiare i gruppi per approssimazione: partendo da quelli ciclici, passando per i $ p $-gruppi, per poi affrontare gruppi finiti qualsivoglia. Sarà dunque importante capire come ricondurre il calco operativo della coomologia di un gruppo a quello dei suoi Sylow. Nel farlo, produrremo un criterio per stabilire quando i gruppi di Tate di un modulo sono tutti banali. \\
+In questo capitolo giocheremo con il nostro nuovo strumento, esplorandone le potenzialità e gettando delle solide basi sui cui poggeranno i calcoli successivi. Il primo obbiettivo sarà studiare la coomologia dei gruppi ciclici, che si rivelerà piuttosto semplice e di evidente importanza in tutto il seguito. Segue immediatamente un tentativo di studiare i gruppi per approssimazione: partendo da quelli ciclici, passando per i $ p $-gruppi, per poi affrontare gruppi finiti qualsivoglia. Sarà dunque importante capire come ricondurre il calcolo operativo della coomologia di un gruppo a quello dei suoi Sylow. Nel farlo, produrremo un criterio per stabilire quando i gruppi di Tate di un modulo sono tutti banali. \\
 
 Sistemati i giocattoli, sarà il momento di concentrarci sul vero obbiettivo del nostro lavoro: i gruppi di Galois. Per affrontare la Teoria di Galois avremo bisogno di abbandonare l'ipotesi di finitezza, producendo qualche risultato anche per gruppi profiniti. Introdurremo dunque la nozione di dimensione coomologica, come indice di complessità di un gruppo, di particolare interesse nella caratterizzazione dei gruppi infiniti.
 
@@ -83,7 +83,7 @@ Enunciamo ora alcune piacevoli proprietà.
 %Quest'ultimo lemma sembra, più che una proprietà elementare del quoziente di Herbrand, un risultato tecnico e particolarmente specifico: è così, ci servirà più avanti in una dimostrazione particolarmente impegnativa.
 
 
-\section{Banalità}
+\section{Banalità Coomologica}
 Lo studio della coomologia di un generico gruppo si fa troppo complessa per poter sperare di enunciare teoremi di portata analoga a quelli validi per i gruppi ciclici. Si riesce però a dire qualcosa sui moduli che hanno tutti i gruppi di coomologia banali.
 
 \begin{definition}
@@ -95,7 +95,7 @@ Il lettore più accorto potrebbe trovarsi perplesso da questa scelta: perché, d
 
 Abbiamo già mostrato che i moduli indotti sono coomologicamente banali (Lemma \ref{indotti}). In particolare i moduli liberi sono coomologicamente banali e, di conseguenza, i moduli proiettivi (ragionando per décalage). Anche i moduli iniettivi sono coomologicamente banali, per come abbiamo costruito i gruppi di coomologia (\ref{injban}). \\
 
-In generale non è facile risalire dalla coomologia dei Sylow a quella del gruppo originario, una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che si riesce a spezzarne lo studio in parti più semplici. Per ogni primo $ p $ fissiamo un $ p $-Sylow $ G_p $ di $ G $ e studiamone la coomologia; la scelta del $ p $-Sylow non intacca la generalità dello studio, infatti il gruppo $ \Hh^i(G_p, \, A) $ non dipende dalla scelta del Sylow: ogni automorfismo interno $ \sigma_t $ di $ G $ induce infatti un isomorfismo in coomologia. 
+In generale non è facile risalire dalla coomologia dei Sylow a quella del gruppo originario, una delle ragioni per cui siamo interessati ai moduli coomologicamente banali è che si riesce a spezzarne lo studio in parti più semplici. Per ogni primo $ p $ fissiamo un $ p $-Sylow $ G_p $ di $ G $ e studiamone la coomologia; la scelta del $ p $-Sylow non intacca la generalità dello studio, infatti il gruppo $ \Hh(G_p, \, A) $ non dipende dalla scelta del Sylow: ogni automorfismo interno $ \sigma_t $ di $ G $ induce infatti un isomorfismo in coomologia. 
 
 \begin{lemma}\label{banSylow}
 	Uno $ G $-modulo $ A $ è coomologicamente banale se e solo se è coomologicamente banale come $ G_p $-modulo per ogni $ p $ primo.
@@ -107,10 +107,10 @@ In generale non è facile risalire dalla coomologia dei Sylow a quella del grupp
 	$$ \begin{tikzcd}
 	0 \rar & T_p\HH^i(H, \, A) \rar["\Res"] & \HH^i(H_p, A) = 0,
 	\end{tikzcd}  $$
-	scopriamo che questa è nulla. La tesi segue dall'arbitrarietà di $ p $.
+	scopriamo che questa è nulla. Ricordando che i gruppi di coomologia sono di torsione (\ref{ntors}), la tesi segue dall'arbitrarietà di $ p $.
 \end{proof}
 
-Conviti ora che studiare la coomologia dei $ p $-gruppi sia una strada promettente, 
+Convinti ora che studiare la coomologia dei $ p $-gruppi sia una strada promettente, 
 cominciamo con un lemma tecnico.
 
 \begin{lemma}\label{ban1}
@@ -245,15 +245,15 @@ La dimensione coomologica di un gruppo è un indice di complessità: è il numer
 Siamo in grado di formulare un criterio per il calcolo della dimensione coomologica, riducendo i moduli su cui dobbiamo calcolare la coomologia a solamente quelli semplici.
 
 \begin{proposition}
-	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) $. 
+	Sia $ G_p $ un $ p $-gruppo profinito. La dimensione $ \cd_p(G_p) \leq n $ se e solo se $ \HH^{n+1}(G_p, \, \Z/p\Z) = 0 $. 
 \end{proposition}
 
 \begin{proof}
-	Il risultato è vagamente intutivo e la dimostrazione accomoderà questa sensazione: la componente di $ p $-torsione si può calcolare senza perdita di generalità sui moduli $ p $-primari, che a loro volta potremo spezzare in sottomoduli semplici, riducendo il calcolo all'unico modulo semplice di $ p $-torsione che esiste, $ \Z/p\Z $. Procediamo con ordine. \\
+	Il risultato è vagamente intuitivo e la dimostrazione sarà modellata attorno a questa sensazione: la componente di $ p $-torsione si può calcolare senza perdita di generalità sui moduli $ p $-primari, che a loro volta potremo spezzare in sottomoduli semplici, riducendo il calcolo all'unico modulo semplice di $ p $-torsione che esiste, $ \Z/p\Z $. Procediamo con ordine. \\
 	
-	Mostriamo che l'unico $ G $-modulo semplice di $ p $-torsione è $ \Z/p\Z $ (con l'azione banale!). Un modulo di questo tipo dev'essere, ovviamente, finito; nell'intersezione degli stablizzatori dei vari elementi, che ricordiamo essere aperti, troviamo un sottogruppo $ U < G $ aperto e normale per cui $ A $ è un $ G/U $-modulo semplice, riportandoci a dimostrare il risultato per un gruppo finito, per cui la tesi è chiara. \\
+	Mostriamo che l'unico $ G $-modulo semplice di $ p $-torsione è $ \Z/p\Z $ (con l'azione banale!). Un modulo di questo tipo dev'essere, ovviamente, finito; nell'intersezione degli stablizzatori dei vari elementi, che ricordiamo essere aperti, troviamo un sottogruppo $ U < G $ aperto e normale per cui $ A $ è un $ G/U $-modulo semplice, riportandoci a dimostrare il risultato per un gruppo finito, per cui la tesi è chiara (grazie al lemma \ref{ban1}). \\
 	
-	Se $ \HH^{n+1}(G_p, \, \Z/p\Z) $ è nullo, allora $ \HH^{n+1}(G_p, \, A) $ è nullo per ogni modulo $ A $ finito di $ p $-torsione: In questo caso possiamo infatti scrivere una serie di decomposizione
+	Se $ \HH^{n+1}(G_p, \, \Z/p\Z) $ è nullo, allora $ \HH^{n+1}(G_p, \, A) $ è nullo per ogni modulo $ A $ finito di $ p $-torsione: In questo caso possiamo infatti scrivere una serie di composizione
 	\[ 0 = A^m \hookrightarrow A^{m-1} \hookrightarrow \dots \hookrightarrow A^1 \hookrightarrow A^0 = A, \]
 	i cui quozienti sono tutti semplici, ovvero, per quanto appena mostrato, si trovano in successioni esatte corte della forma
 	\[ 0 \to A^{i+1} \to A^i \to \Z/p\Z \to 0. \]
@@ -267,13 +267,13 @@ Siamo in grado di formulare un criterio per il calcolo della dimensione coomolog
 	\end{equation*}
 \end{proof}
 
-Calcoliamo la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite $ (\ref{limite}) $, si ha infatti che 
+Calcoliamo la dimensione coomologica del gruppo additivo degli interi $ p $-adici $ \Z_p = \varprojlim_n \Z/p^n\Z $. Per il solito teorema di passaggio al limite $ (\ref{limite}) $, si ha che 
 \[ \HH^2(\Z_p , \, \Z/p\Z) = {\textstyle\varinjlim_n} \HH^2(\Z/p^n\Z, \, \Z/p\Z) = {\textstyle\varinjlim_n} \Hhz(\Z/p^n\Z, \, \Z/p\Z). \]
-I gruppi di Tate di grado zero li conosciamo esplicitamente: per definizione sono $ \Z/p\Z $ quozientato per l'immagine della norma che, trovando l'azione banale, coincide con la moltiplicazione per l'ordine del gruppo $ p^n $ ed è quindi la mappa nulla. Le mappe di collegamento sono indotte dalla proiezione naturale e coincidono quindi con l'inflazione, che in grado zero è per definizione la norma. Poiché tutte le mappe sono nulle
+I gruppi di Tate di grado zero li conosciamo esplicitamente: per definizione sono $ \Z/p\Z $ quozientato per l'immagine della norma che, trovando l'azione banale, coincide con la moltiplicazione per l'ordine del gruppo $ p^n $ e quindi è la mappa nulla. Le mappe di collegamento sono indotte dalla proiezione naturale e coincidono quindi con l'inflazione, che in grado zero è per definizione la norma. Poiché tutte le mappe sono nulle
 \[ \HH^2(\Z_p , \, \Z/p\Z) = \varinjlim \Z/p\Z = 0. \]
 Per la proposizione appena dimostrata $ \cd_p(\Z_p) \leq 1 $; otteniamo l'altra uguaglianza calcolando esplicitamente $$  \HH^1(\Z_p , \, \Z/p\Z) = \Hom(\Z_p , \, \Z/p\Z) = \Z/p\Z \neq 0.  $$
 Dunque $ \cd_p(\Z_p) = 1 $.
-Riprendiamo lo studio della dimensione coomologica, mostrando in che modo è legata la dimensione di un gruppo con quella dei sottogruppi
+Riprendiamo lo studio della dimensione coomologica, mostrando in che modo la dimensione di un gruppo è legata a quella dei suoi sottogruppi.
 
 \begin{proposition}\label{cd2}
 	Sia $ G $ un gruppo profinito e $ H $ un suo sottogruppo chiuso. Per ogni primo $ p $ si ha
@@ -281,13 +281,13 @@ Riprendiamo lo studio della dimensione coomologica, mostrando in che modo è leg
 	Se per di più l'indice $ [G\,\colon H] $ è coprimo con $ p $, si ha uguaglianza.
 \end{proposition}
 \begin{proof}
-	Se $ A $ è un $ H $-modulo $ p $-primario, allora anche $ \Ind_H^G(A) $ è $ p $-primario. Per il Lemma di Shapiro si ha per ogni indice $ i $ che
+	Se $ A $ è un $ H $-modulo $ p $-primario, allora anche $ \Ind_H^G(A) $ è $ p $-primario. Per il Lemma di Shapiro si ha che per ogni indice $ i $
 	\[ \HH^i(H, \, A) = \HH^i(G, \, \Ind_H^G(A)),  \]
 	da cui la tesi. Se l'indice $ [G\,\colon H] $ è coprimo con $ p $, per ogni modulo la restrizione fornisce una mappa nella direzione opposta
 	\[\begin{tikzcd}
-	0 \rar & \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A),
+	0 \rar & T_p\HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A),
 	\end{tikzcd}  \]
-	iniettiva su ogni componente di torsione per il lemma \ref{injp}, dunque iniettiva.
+	iniettiva per il lemma \ref{injp}.
 \end{proof}
 
 Quest'ultima proposizione ci permette di ricondurre il calcolo della dimensione di un gruppo a quella dei suoi Sylow. L'esempio per eccellenza è $ \hat{\Z} = \varprojlim_n \Z/n\Z $, dei cui Sylow $ \Z_p$ conosciamo già la dimensione: per ogni primo $ p $ si ha
@@ -301,5 +301,5 @@ Non possiamo sperare in un risultato analogo al precedente per i quozienti: per 
 	\[ \cd_p(G) \leq \cd_p(H) + \cd_p(G/H). \]
 \end{proposition}
 \begin{proof}
-	Segue dall'esistenza successione spettrale di Hoschild Serre: per ogni modulo di $ A $ di torsione, la successione ci dona una filtrazione di $ \HH^n(G, \, A) $ i cui quozienti sono, partendo dalla descrizione della seconda pagina, sottoquozienti di $ \HH^i(G/H, \, \HH^j(H, \, A)) $ per $ i+j = n $. Osserviamo che $ \HH^j(H, \, A) $ sarà nullo non appena $ j > \cd_p(H) $ e che, essendo $ \HH^j(H, \, A) $ di torsione a sua volta (\ref{ntors}), anche $ \HH^i(G/H, \, \HH^j(H, \, A)) $ sarà nullo non appena $ i > \cd_p(G/H) $; da cui la disuguaglianza voluta.
+	Segue dall'esistenza successione spettrale di \HS: per ogni modulo di $ A $ di torsione, la successione ci fornisce una filtrazione di $ \HH^n(G, \, A) $ i cui quozienti sono, partendo dalla descrizione della seconda pagina, sottoquozienti di $ \HH^i(G/H, \, \HH^j(H, \, A)) $ per $ i+j = n $. Osserviamo che $ \HH^j(H, \, A) $ sarà nullo non appena $ j > \cd_p(H) $ e che, essendo $ \HH^j(H, \, A) $ di torsione a sua volta (\ref{ntors}), anche $ \HH^i(G/H, \, \HH^j(H, \, A)) $ sarà nullo non appena $ i > \cd_p(G/H) $; da cui la disuguaglianza voluta.
 \end{proof}

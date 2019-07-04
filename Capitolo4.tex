@@ -10,7 +10,7 @@ L'ultimo paragrafo sarà il momento in cui tutti i nostri sforzi saranno ripagat
 \section{Tazza Prodotto}
 Costruiremo ora un'applicazione bilineare tra i gruppi di coomologia, donando al nostro strumento un prodotto e, dunque, una struttura di algebra. La costruzione del \leftquote tazza-prodotto", così come la presentazione delle relative proprietà, è fondamentalmente una tediosa, lunghissima, verifica: preannuncio solo che dovremo riesumare la descrizione in cocatene. Come ogni buon libro di algebra, presenteremo dettagliatamente la costruzione del prodotto e la lista delle proprietà che useremo in seguito, lasciando decidere al lettore se fidarsi ciecamente di quanto presentato oppure dedicare un paio di pomeriggi alla verifica diretta. \\
 
-Poniamoci nella dovuta generalità. Siano $ A, \, B $ due $ G $-moduli e $ K_{\mathtt{om}}(A) $ e $ K_{\mathtt{om}}(B) $ i corrispondenti complessi di cocatene omogenee; che ricordiamo si ottengono omogeneizzando le usuali cocatene $ K(A) $ e $ K(B) $: presa $ f \colon G^i \to A $, definiamo $ F\colon G^{i+1} \to A  $ in modo che
+Poniamoci nella dovuta generalità. Siano $ A, \, B $ due $ G $-moduli e $ K_{\mathtt{om}}(A) $ e $ K_{\mathtt{om}}(B) $ i corrispondenti complessi di cocatene omogenee, che si ottengono omogeneizzando le usuali cocatene $ K(A) $ e $ K(B) $: presa $ f \colon G^i \to A $, definiamo $ F\colon G^{i+1} \to A  $ in modo che
 \[ F(g_0, \, g_1, \, \dots, \, g_i) = g_0 f(g_0^{-1}g_1, \, g_1^{-1}g_2, \, \dots, \, g_{i-1}^{-1}g_i). \]
 Questa presentazione è molto più comoda perché l'applicazione bilineare
 \begin{align*}
@@ -22,16 +22,16 @@ si comporta bene con i differenziali
 permettendoci di passare in coomologia.
 
 \begin{definition}[Tazza prodotto]
-	Chiamiamo tazza-prodotto l'applicazione $ \Z $-bilineare indotta da dal prodotto appena definito
+	Chiamiamo tazza-prodotto l'applicazione $ \Z $-bilineare indotta dal prodotto appena definito
 	\[ \cup \colon \HH^p(G, \, A) \times \HH^q(G, \, B) \to \HH^{p+q}(G, \, A \otimes B)  \]
 \end{definition}
 
-Il prodotto che abbiamo ottenuto ovviamente funtoriale e compatibile con le successioni esatte lunghe:
+Il prodotto che abbiamo ottenuto è ovviamente funtoriale e compatibile con le successioni esatte lunghe:
 
 \begin{proposition}\label{cup1}
 	Se entrambe le successioni
 	\[ 0 \to A \to A' \to A'' \to 0, \qquad 0 \to A \otimes B \to A'\otimes B \to A''\otimes B \to 0 \]
-	sono esatte, allora il tazza-prodotto, fissato $ \beta \in \HH^q(G, \, B) $, in induce un morfismo di complessi
+	sono esatte, allora il tazza-prodotto, fissato $ \beta \in \HH^q(G, \, B) $, induce un morfismo di complessi
 	\[\begin{tikzcd}[column sep = small]
 	\dots \rar
 	& \HH^{p}(G, \, A') \dar["\cup\beta"] \rar 
@@ -45,28 +45,28 @@ Il prodotto che abbiamo ottenuto ovviamente funtoriale e compatibile con le succ
 	equivalentemente $ (\delta\alpha'') \cup \beta = \delta (\alpha'' \cup \beta) $.
 \end{proposition}
 
-Segue ovviamente una proposizione duale scambiano i ruoli di $ A $ e $ B $. Queste due proprietà, assieme alla funtorialità, determinano in modo unico il prodotto trovato, fissata un'applicazione bilineare in grado 0. È pertanto possibile dare una definizione di tazza-prodotto per i gruppi di Tate \cite[proposizione 1.4.7]{Schmidt}. \\
+Segue ovviamente una proposizione duale scambiando i ruoli di $ A $ e $ B $. Queste due proprietà, assieme alla funtorialità, determinano in modo unico il prodotto trovato, fissata un'applicazione bilineare in grado 0. È pertanto possibile dare una definizione di tazza-prodotto per i gruppi di Tate \cite[proposizione 1.4.7]{Schmidt}. \\
 
-Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B \to C $, componendo all'omomorfismo $ \varphi\colon A \otimes B \to C  $ con il tazza-prodotto otteniamo qualunque sorta di prodotto in coomologia. Dalla proposizione di compatibilità precedente possiamo dedurne una versione appena più generale, che ci tornerà utile in futuro.
+Presa una qualunque applicazione $ \Z[G] $-bilineare $ \varphi\colon A \times B \to C $, componendo l'omomorfismo $ \varphi\colon A \otimes B \to C  $ con il tazza-prodotto otteniamo una più generale nozione di prodotto in coomologia. Dalla proposizione di compatibilità precedente possiamo dedurre una versione appena più generale, che ci tornerà utile in futuro.
 
 \begin{lemma}\label{cup2}
-	Date due successioni esatte
+	Fissiamo due successioni esatte
 	\[ 0 \to A' \to A \to A'' \to 0, \qquad 0 \to B' \to B \to B'' \to 0 \]
 	e un'applicazione bilineare $  \varphi\colon A \times B \to C $ nulla su $ A'\times B' $. Troviamo allora due accoppiamenti
 	\[ \varphi'\colon A' \times B'' \to C, \qquad \varphi''\colon A'' \times B' \to C, \]
-	che inducono prodotti in omologia
+	che inducono prodotti in coomologia
 	\begin{align*}
 		\HH^{p}(G, \, A'') \times \HH^{q}(G, \, B') &\to \HH^{p+q}(G, \, C)\\
 		\HH^{p+1}(G, \, A') \times \HH^{q-1}(G, \, B'') &\to \HH^{p+q}(G, \, C)
 	\end{align*}
-	compatibili con le frecce di bordo delle successioni esatte lunghe associate:  $ \delta \alpha \cup \beta + (-1)^p \, a \cup \delta \beta $.
+	compatibili a meno del segno con le frecce di bordo delle successioni esatte lunghe associate:  $$  \delta \alpha \cup \beta + (-1)^p \, a \cup \delta \beta = 0.  $$
 \end{lemma}
 
 \section{Dualità di Tate-Nakayama}
 Ci addentreremo ora nell'argomento più tecnico di tutta la tesi: il teorema di dualità di Tate-Nakayama, che sarà preceduto da alcuni risultati di natura puramente algebrica e dal carattere incredibilmente generale. L'obbiettivo dei risultati seguenti è di trasformare i criteri di banalità, introdotti qualche capitolo addietro, in strumenti per costruire isomorfismi tra gruppi di coomologia con coefficienti diversi. Per fare questo cominceremo assumendo ipotesi ad hoc, della cui ragionevolezza ci preoccuperemo solo in futuro. 
 
 \begin{proposition}
-	Sia $ f \colon B \to C $ una mappa tra $ G $ moduli. Supponiamo di conoscere un indice $ n_p $, per ogni primo $ p $, per cui
+	Sia $ f \colon B \to C $ una mappa tra $ G $ moduli. Supponiamo di conoscere per ogni primo $ p $ un indice $ n_p $ per cui
 	\begin{align*}
 		\Hhnp(G_p,\, B) &\twoheadrightarrow \Hhnp(G_p,\, C) & \text{ sia suriettivo,} \\
 		\Hhnpp(G_p,\, B) &\to \Hhnpp(G_p,\, C) & \text{ sia un isomorfismo,} \\
@@ -79,7 +79,7 @@ Ci addentreremo ora nell'argomento più tecnico di tutta la tesi: il teorema di 
 La tesi è sopraffacente. È utile pensare al risultato prima nella forma più semplice, con $ H=G $ e $ D = \Z $, in cui sono stati semplicemente prodotti degli isomorfismi infilando abbastanza zeri nella successione esatta lunghissima associata; a cui seguono due piccole aggiunte che, essendo gratuite, abbiamo deciso di includere per completezza: che sia valida per ogni sottogruppo non è sorprendente, dato che la definizione di \leftquote coomologicamente banale" è una condizione rispetto ai sottogruppi; che si possano estendere i coefficienti, segue invece dal fatto che i moduli piatti preservano gli indotti $ (\ref{tensor magic}) $. 
 
 \begin{proof}
-	Le ipotesi sono scelte in modo da funzionare magnificamente una volta assunto $ f $ iniettiva: in questo caso otteniamo una successione esatte corta
+	Le ipotesi sono scelte in modo da funzionare magnificamente una volta assunto che $ f $ sia iniettiva: in questo caso otteniamo una successione esatta corta
 	\[ \begin{tikzcd}[column sep = small]
 	0 \rar
 	& B \rar["f"]
@@ -87,7 +87,7 @@ La tesi è sopraffacente. È utile pensare al risultato prima nella forma più s
 	& Q \rar
 	& 0 \end{tikzcd} \]
 	la cui successione esatta lunga associata, per ogni primo $ p $, restituisce
-	\[ \Hhnp(G_p, \, Q) = \Hhnp(G_p, \, Q), \]
+	\[ \Hhnp(G_p, \, Q) = \Hhnpp(G_p, \, Q)=0, \]
 	da cui, per il criterio di banalità $ (\ref{ban2}) $, deduciamo che $ Q $ è coomologicamente banale. Abbiamo già osservato che $ Q \otimes D $ rimane tale (\ref{tensor magic}), da cui la tesi. \\
 	
 	Per concludere è pertanto sufficiente mostrare che  ci si può ricondurre al caso precedente. Per fare questo consideriamo la classica immersione di $ B $ nel suo modulo indotto $ j \colon B \hookrightarrow \Ind_1^G(B) $ e dunque la mappa iniettiva
@@ -125,7 +125,7 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state s
 	& A_1 \rar \dar["\cdot_{\varphi_1}\beta", dashed]
 	& 0\\
 	0 \rar & C \rar & \Ind_1^G(C) \rar & C_1 \rar & 0.  \end{tikzcd} \]
-	Prendialmo l'elemento $ a_1 \in \Hhz(G, \, A_1) $ corrispondente ad $ a $: l'unico per cui $ \delta(a_1) = a $. La tesi è vera per il prodotto indotto da $ \varphi_1 $ e l'elemento $ a_1 $, abbiamo pertanto dei meravigliosi isomorfismi
+	Prendiamo l'elemento $ a_1 \in \Hhz(G, \, A_1) $ corrispondente ad $ a $: l'unico per cui $ \delta(a_1) = a $. La tesi è vera per il prodotto indotto da $ \varphi_1 $ e l'elemento $ a_1 $, abbiamo pertanto dei meravigliosi isomorfismi
 	\[ \begin{tikzcd}
 	\Hhn(H, \, B \otimes D) \rar["a_1\cup"] & \Hhn(H, \,  C_1 \otimes D)
 	\end{tikzcd}  \]
@@ -133,13 +133,13 @@ Ripreso il fiato, concessoci il tempo di capire quanto attentamente sono state s
 	\[ \begin{tikzcd}
 	\Hhn(H, \, B \otimes D) \rar["a_1\cup"] & \Hhn(H, \,  C_1 \otimes D) \rar["\delta"] & \Hhnu(G, \, C \otimes D).
 	\end{tikzcd}  \]
-	Deduciamo la tesi grazie al risultato di compatibilità del tazza-prodotto (\ref{cup1}): l'isomorfismo trovato è infatti $$  \beta \mapsto \delta(\Res a_1 \cup x) = \delta(\Res a_1) \cup x = \Res a \cup x.  $$ Analogamente si procede per ogni $ q $.
+	Deduciamo la tesi grazie al risultato di compatibilità del tazza-prodotto (\ref{cup1}): l'isomorfismo trovato è infatti $$  x \mapsto \delta(\Res a_1 \cup x) = \delta(\Res a_1) \cup x = \Res a \cup x.  $$ Analogamente si procede per ogni $ q $.
 \end{proof}
 
 Raggiunto il desiderato livello di astrazione, possiamo occuparci di riformulare le particolari ipotesi in una forma più accessibile, se non proprio comprensibile.
 
 \begin{theorem}[Dualità di Tate-Nakayama]
-	Sia $ A $ un $ G $-modulo. Fissiamo un elemento $ a \in \HH^2(G, \, A) $. Supponiamo di sapere , per ogni numero primo $ p $, che
+	Sia $ A $ un $ G $-modulo. Fissiamo un elemento $ a \in \HH^2(G, \, A) $. Supponiamo di sapere, per ogni numero primo $ p $, che
 	\begin{enumerate}[label = \roman*.]
 		\item $ \HH^1(G_p, \, A) = 0 $;
 		\item il gruppo $ \HH^2(G_p, \, A) $ ha la stessa cardinalità di $ G_p $, diciamo $ m_p $, ed è generato da $ \Res a $.
@@ -161,7 +161,7 @@ Al contrario delle proposizioni precedenti, le ipotesi del teorema di dualità s
 \section{Reciprocità Locale}
 
 % Costruzione della Reciprocità e... poco altro?
-Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo il teorema di dualità di Tate-Nakayama al caso dei campi locali: ne otterremo una descrizione dei gruppi di Galois in funzione della struttura del campo stesso. Siano $ K $ un campo locale, $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $; chiamiamo $ G $ il gruppo di Galois dell'estensione e poniamo $ A = L^\times $ . Per Hilbert 90 la prima ipotesi del teorema di Tate-Nakayama è soddisfatta 
+Continuando nella nostra discesa dall'astrazione verso la Teoria del Corpo di Classe, applichiamo il teorema di dualità di Tate-Nakayama al caso dei campi locali: ne otterremo una descrizione dei gruppi di Galois in funzione della struttura del campo stesso. Siano $ K $ un campo locale e $ L / K  $ un'estensione finita di Galois di grado $ n = [L\,\colon K] $; chiamiamo $ G $ il gruppo di Galois dell'estensione e poniamo $ A = L^\times $. Per Hilbert 90 la prima ipotesi del teorema di Tate-Nakayama è soddisfatta 
 \[ i. \; \HH^1(G_p,\, L^\times) = 0 \]
 e, grazie al nostro studio del gruppo di Brauer, anche la seconda: per uno dei lemmi comparsi nel calcolo del Brauer (in particolare \ref{br2}) sappiamo che $ \HH^2(G, \, L^\times) $ coincide con il sottogruppo di $ n $-torsione di $ \Br K = \Q/\Z $, possiamo pertanto scegliere l'unico elemento $ u \in \HH^2(G, \, L^\times) $ per cui $ \inv_K(u) = \frac{1}{n} $; per il lemma di compatibilità tra invarianti e restrizione (\ref{inv}), si ha che
 \[ ii. \; \HH^2(G_p, \, L^\times) = T_p \Br(L/K) \;\text{ è generato da } \Res u. \]
@@ -169,7 +169,12 @@ Il teorema di dualità produce allora un isomorfismo
 \[ \theta\colon \Hhmm(G, \, \Z) \to \Hhz(G, \,  L^\times), \]
 che coincide con il tazza-prodotto per $ u. $ Il primo gruppo è proprio con $ G^\text{ab} $: la successione esatta lunga in omologia associata a 
 \[ 0 \to I_G \to \Z[G] \to \Z \to 0 \]
-dona infatti l'isomorfismo richiesto; per esplicitare il secondo gruppo è invece sufficiente andare a riprendere la definizione \eqref{tatedef}. Ne segue dunque che
+fornisce infatti l'isomorfismo richiesto: vi troviamo infatti $ \HH^1(G, \, \Z) \to I_G/I_G^2 $, che ci permette di concludere perché la mappa
+\begin{align*}
+	G^\texttt{ab} &\to I_G/I_G^2 \\
+	g& \mapsto g-1
+\end{align*}
+è un isomorfimo; per esplicitare il secondo gruppo è invece sufficiente andare a riprendere la definizione \eqref{tatedef}. Ne segue dunque che
 
 \begin{theorem}[Reciprocità Locale]
 	Ogni estensione abeliana finita $ L/K $ è accompagnata da un isomorfismo
@@ -189,11 +194,11 @@ dona infatti l'isomorfismo richiesto; per esplicitare il secondo gruppo è invec
 
 Questo conclude in un qualche senso lo studio delle estensioni abeliane di un campo locale. Per esempio, possiamo annunciare trionfanti di essere riusciti a calcolare il gruppo di Galois della massima estensione abeliana, ovvero l'abelianizzato del gruppo di Galois assoluto $ \Gamma_K $: prendendo il limite inverso di $ \omega_L $ sulle estensioni abeliane finite, otteniamo una mappa
 \[ \omega\colon K^\times \to \Gamma_K^{\texttt{ab}}, \]
-detta \emph{applicazione di reciprocità}, che sul quoziente $ \varprojlim_L K^\times / NL^\times  $ è un isomorfismo:
+detta \emph{applicazione di reciprocità}, che su $ \varprojlim_L K^\times / NL^\times  $ è un isomorfismo:
 \begin{equation}\label{lim}
 	\Gamma_K^{\texttt{ab}} = \varprojlim_L \frac{K^\times}{NL^\times}.
 \end{equation}
-Tornando con i piedi per terra, soffermiamoci su quella fastidiosa $ N $ al denominatore: come speriamo di calcolare esplicitamente questo gruppo? Come si calcola l'immagine tramite la norma di una data estensione? Studiando più approfonditamente l'applicazione di reciprocità è possibile raffinare il risultato, arrivando a mostrare che il limite in questione coincide proprio con la definizione di completamento profinito: sarà sufficiente mostrare che $ NL^\times $ spazia su tutti e soli i sottogruppi aperti (e di indice finito) di $ K^\times $ (\cite[XIV.\S 6.1]{SerreFields}). Nel paragrafo successivo ci concentreremo sul caso dei campi $ p $-adici, per cui aggireremo il problema mostrando che
+Tornando con i piedi per terra, soffermiamoci su quella fastidiosa $ N $ al denominatore: come speriamo di calcolare esplicitamente questo gruppo? Come si calcola l'immagine tramite la norma di una data estensione? Studiando più approfonditamente l'applicazione di reciprocità è possibile raffinare il risultato, arrivando a mostrare che il limite in questione coincide proprio con la definizione di completamento profinito: sarà sufficiente mostrare che $ NL^\times $ spazia fra tutti e soli i sottogruppi aperti (e di indice finito) di $ K^\times $ (\cite[XIV.\S 6.1]{SerreFields}). Nel paragrafo successivo ci concentreremo sul caso dei campi $ p $-adici, per cui aggireremo il problema mostrando che
 \[ \Gamma^\text{ab}_K = \varprojlim_n \frac{K^\times}{{K^\times}^n}, \]
 limite che a sua volta coincide con il completamento profinito $ \hat{K}^\times $.
 % assicurarsi della presenza dell'applicazione di reciprocità nella dualità di Tate
@@ -206,13 +211,13 @@ Ci concentriamo ora sui campi $ p $-adici, principalmente perché la struttura a
 	Sia $ K $ un campo $ p $-adico, i gruppi $ K^\times / {K^\times}^n $ sono finiti.
 \end{proposition}
 
-Osserviamo che quest'osservazione è fondamentale qualunque strada si cerchi di intraprendere per calcolare il limite desiderato \eqref{lim}, stiamo infatti mostrando che i sottogruppi $ {K^\times}^n $ sono di indice finito con l'obbiettivo di trovare una successione cofinale su cui calcolare sia il limite del completamento che quello che \eqref{lim}.
+Quest'osservazione è fondamentale qualunque strada si cerchi di intraprendere per calcolare il limite desiderato \eqref{lim}, stiamo infatti mostrando che i sottogruppi $ {K^\times}^n $ sono aperti con l'obbiettivo di trovare una successione cofinale su cui calcolare sia il limite del completamento che il limite \eqref{lim}.
 
 \begin{corollary} \label{finiti}
 	Sia $ A $ un $ \Gamma_K $-modulo finito. I gruppi $ \HH^i(K, \, A) $ sono finiti per ogni $ i > 0 $.
 \end{corollary}
 \begin{proof}
-	Avendo ogni campo locale dimensione coomologica $ 2 $, sarà sufficiente concentrasi sui gradi bassi $ i = 0, \, 1, \, 2 $. Osserviamo che per le radici $ n $-esime dell'unità $ A = \mu_n $ la tesi è già stata mostrata: in $ i = 0 $ per definizione, in $ i = 1 $ è la proposizione appena enunciata, in $ i = 2 $ si tratta della $ n $-torsione del Brauer. Preso un modulo $ A $ di cardinalità $ n $, troviamo un sottogruppo normale e aperto di $ U < \Gamma_K $ che agisce banalmente sia su $ A $ che su $ \mu_n $, per esempio dentro l'intersezione degli stabilizzatori di tutti gli elementi. Pensato come $ U $-modulo $ A $ ha solo la struttura di gruppo abeliano, possiamo pertanto pensarlo come somma diretta di finiti $ \mu_{n_i} $, per qualche $ n_i \mid n $. Avendo già mostrato il teorema per le radici dell'unità, scopriamo che $ \HH^i(U, \, A) $ è finito per ogni $ i \geq 0 $. Concludiamo sfruttando la successione spettrale di Hoschild-Serre, che in pagina due presenta solo moduli finiti
+	Avendo ogni campo locale dimensione coomologica $ 2 $, sarà sufficiente concentrarsi sui gradi bassi $ i = 0, \, 1, \, 2 $. Osserviamo che per le radici $ n $-esime dell'unità $ A = \mu_n $ la tesi è già stata mostrata: in $ i = 0 $ per definizione, in $ i = 1 $ è la proposizione appena enunciata, in $ i = 2 $ si tratta della $ n $-torsione del Brauer. Preso un modulo $ A $ di cardinalità $ n $, troviamo un sottogruppo normale e aperto di $ U < \Gamma_K $ che agisce banalmente sia su $ A $ che su $ \mu_n $, per esempio dentro l'intersezione degli stabilizzatori di tutti gli elementi. Pensato come $ U $-modulo, $ A $ ha solo la struttura di gruppo abeliano, possiamo pertanto pensarlo come somma diretta di finiti $ \mu_{n_i} $, per qualche $ n_i \mid n $. Avendo già mostrato il teorema per le radici dell'unità, scopriamo che $ \HH^i(U, \, A) $ è finito per ogni $ i \geq 0 $. Concludiamo sfruttando la successione spettrale di \HS, che in pagina due presenta solo moduli finiti
 	\[ \HH^p(G/U, \, \HH^q(U, \, A)), \]
 	i cui quozienti, necessariamente finiti, filtrano $ \HH^{p+q}(G, \, A) $, che risulterà pertanto finito a sua volta.
 \end{proof}
@@ -221,10 +226,10 @@ Prima di poter enunciare il teorema di dualità di Tate, dobbiamo introdurre una
 
 \begin{definition}[Duale di Pontryagin]
 	Per ogni gruppo $ G $, definiamo il duale secondo Pontryagin come
-	\[ G^\vee = \Hom_\Z(G, \, \Q/\Z). \]
+	\[ G^\vee = \Hom_\mathsf{Gr}(G, \, \Q/\Z). \]
 \end{definition}
 
-Osserviamo innanzitutto che, in analogia alla classica dualità tra spazi vettoriali, la dualità tra due gruppi abeliani finiti $ A, \, B $ è equivalente all'esistenza di un accoppiamento
+Osserviamo innanzitutto che, in analogia alla classica dualità tra spazi vettoriali, la dualità tra due gruppi abeliani finiti $ A, \, B $ è equivalente all'esistenza di un accoppiamento perfetto
 \[ A \times B \to \Q/\Z, \]
 ovvero una mappa bilineare non degenere.
 
@@ -232,18 +237,22 @@ ovvero una mappa bilineare non degenere.
 	Il biduale di un gruppo profinito è canonicamente isomorfo all'abelianizzato del gruppo stesso. 
 \end{proposition}
 \begin{proof}
-	Il risultato è evidente per i gruppi ciclici
-	\[ \Hom_\Z(\Z/n\Z, \, \Q/\Z) = \Z/n\Z  \]
-	se di conseguenza per tutti i gruppi abeliani finiti per il teorema di struttura. Passando al limite raggiungiamo tutti i abeliani gruppi profiniti. Infine, osserviamo che
-	\[ \Hom_\Z(G, \, \Q/\Z)  = \Hom_\Z(G^\texttt{ab}, \, \Q/\Z) \]
+	Il risultato è evidente per i gruppi abeliani finiti, per cui possiamo costruire esplicitamente l'isomorfismo che associa ad ogni elemento la corrisponendte valutazione
+	\begin{align*}
+		G & \to \Hom_\Z(G^\vee, \, \Q/\Z) \\
+		g & \mapsto \psi_g \colon \varphi \mapsto \varphi(g).
+	\end{align*}
+	Passando al limite raggiungiamo tutti i gruppi abeliani profiniti. Infine, osserviamo che
+	\[ \Hom_\mathsf{Gr}(G, \, \Q/\Z)  = \Hom_\Z(G^\texttt{ab}, \, \Q/\Z) \]
 	per la proprietà universale dell'abelianizzato, da cui la tesi.
 \end{proof}
 
-Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso modo, ma abbiamo bisogno quantomeno di una topologia su $ \Q/\Z $. Poiché la scelta non è univoca, ci limitiamo a farlo in un caso in cui è quantomeno naturale: quando il gruppo in questione è un gruppo di Galois $ \Gamma $, pensiamo $ \Q/\Z $ come al gruppo di tutte le radici dell'unità $ \mu_\infty < \bar{K}^\times $. Equivalentemente, possiamo pensare al duale come alle mappe in $ \K^\times $, che avranno però necessariamente immagine nel suo sottogruppo di torsione: $ \mu_\infty. $
+Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso modo, ma abbiamo bisogno quantomeno di una topologia su $ \Q/\Z $. Poiché la scelta non è univoca, ci limitiamo a farlo in un caso in cui è quantomeno naturale: quando il gruppo in questione è un gruppo di Galois $ \Gamma $, pensiamo $ \Q/\Z $ come il gruppo di tutte le radici dell'unità $ \mu_\infty < \bar{K}^\times $. Equivalentemente, possiamo pensare al duale come alle mappe in $ \K^\times $, che avranno però necessariamente immagine nel suo sottogruppo di torsione: $ \mu_\infty. $
 
 \begin{definition}[Duale di Cartier]
-	Per ogni $ \Gamma $-modulo $ A $, definiamo il duale secondo Cartier come
-	\[ A^* = \Hom_G(A, \, \mu_\infty). \]
+	Per ogni $ \Gamma $-modulo $ A $, definiamo il duale secondo Cartier come il gruppo
+	\[ A^* = \Hom_\Gamma(A, \, \mu_\infty) \]
+	munito della sua naturale struttura di $ \Gamma $-modulo, quella che si ottiene scegliendo la topologia della convergenza puntuale e lasciando agire $ \Gamma $ a sinistra sulle mappe: $ g \cdot f \colon x \mapsto f(gx) $.
 \end{definition}
 
 \begin{proposition}
@@ -253,18 +262,18 @@ Passiamo ora alla dualità dei moduli: vorremo definire la dualità nello stesso
 % Misteriosa esistenza del modulo dualizzante
 Presentiamo ora un risultato generale di algebra omologica, nella cui dimostrazione, pavidamente, non ci addentreremo \cite[I.3.6]{SerreGalois}.
 \begin{proposition}
-	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = d $. Se il funtore $ \HH^d(G,\, \bullet\,) $ manda moduli finiti in gruppi finiti, il suo duale $ \HH^d(G,\, \bullet\,)^\vee $ è rappresentabile sulla sottocategoria dei moduli finti: ovvero esiste un modulo $ I $ di torsione per cui
+	Sia $ G $ un gruppo profinito di dimensione coomologica finita $ \cd(G) = d $. Se il funtore $ \HH^d(G,\, \bullet\,) $ manda moduli finiti in gruppi finiti, il suo duale $ \HH^d(G,\, \bullet\,)^\vee $ è rappresentabile sulla sottocategoria dei moduli finiti: ovvero esiste un modulo $ I $ di torsione per cui
 	\begin{equation}\label{du}
 		\HH^d(G, \, A )^\vee = \Hom_G(A , \, I) \qquad \text{ per ogni } A \text{ finito.}
 	\end{equation}
 \end{proposition}
 
 \begin{definition}
-	Non contenti della quantità di dualità introdotto finora, chiamiamo il modulo $ I $ della proposizione precedete \emph{modulo dualizzante} di $ G $.
+	Non contenti della quantità di dualità introdotto finora, chiamiamo \emph{modulo dualizzante} di $ G $ uno $ G $-modulo $ I $ per cui valga la $ \eqref{du} $.
 \end{definition}
 
 % Dire che possiamo passare au moduli di torsione con passaggio al limite, dire che su Hom c'è una topologia!
-L'ipotesi di finitezza è soffocante. Il meglio che riusciamo a fare è estendere \eqref{du} a moduli di torsione: scrivendo $ A $ di torsione come unione di moduli finiti $ \varinjlim_i A_i $, tramite la solita proposizione di passaggio $ \ref{limite} $ al limite otteniamo infatti
+L'ipotesi di finitezza è soffocante. Il meglio che riusciamo a fare è estendere \eqref{du} a moduli di torsione: scrivendo $ A $ di torsione come unione di moduli finiti $ \varinjlim_i A_i $, tramite la solita proposizione $ \ref{limite} $ di passaggio al limite otteniamo infatti
 \[ \HH^d(G, \, \varinjlim_i A_i )^\vee = \varprojlim_i \HH^d(G, \, A_i )^\vee = \varprojlim_i \Hom_G(A_i , \, I) = \Hom_G(\varinjlim_i A_i , \, I). \]
 
 % Intro
@@ -301,15 +310,14 @@ Fissiamo ora un campo $ p $-adico $ K $ e il suo gruppo di Galois assoluto $ \Ga
 	avendo impiegato un'intero capitolo per calcolarlo, conosciamo ora il gruppo di Brauer dell'estensione finita relativa a $ U $ e sappiamo dunque che $$  \HH^2(U, \, \mu_n) = (\Br \bar{K}^U)[\, n\, ] = \Z/n\Z.  $$
 	Osservando infine che essendo $ \mu_n $ di $ n $-torsione così sarà la sua immagine, possiamo riscrivere l'isomorfismo \eqref{dualiz} di sopra come
 	\[ \Hom_U(\mu_n, \, I_n) \to \Hom_U(\mu_n, \, I) \to \HH^2(U, \, \mu_n)^\vee \to \Z/n\Z. \]
-	Ne deduciamo che l'azione di $ \Gamma $ su $ \Hom_\Z(\mu_n, \, I_n) $ è sempre banale: se così non fosse lo stabilizzatore di un qualche elemento sarebbe un sottogruppo aperto $ U $, per il quale non varrebbe l'isomorfismo appena scritto. Ne segue che un isomorfismo di gruppi $ \mu_n \to I_n $ è automaticamente $ \Gamma $ equivariante: possiamo prendere, per esempio, l'isomorfismo $ f_n \in \Hom_U(\mu_n, \, I_n) $ che corrisponde a $ 1 $ in $ \Z/n\Z $ (è chiaro che sia un isomorfismo non appena ci si dimentica della struttura di modulo su $ \mu_n $ e $ I_n $). Infine, assembliamo l'isomorfismo
+	Ne deduciamo che l'azione di $ \Gamma $ su $ \Hom_\Z(\mu_n, \, I_n) $ è sempre banale: se così non fosse lo stabilizzatore di un qualche elemento sarebbe un sottogruppo proprio aperto $ U $, il che ci porterebbe a concludere che questo elemento non può appartenere a $ \Hom_U(\mu_n, \, I_n) $, contraddicendo l'isomorfismo appena ottenuto. Ne segue che un isomorfismo di gruppi $ \mu_n \to I_n $ è automaticamente $ \Gamma $-equivariante: possiamo prendere, per esempio, l'isomorfismo $ f_n \in \Hom_U(\mu_n, \, I_n) $ che corrisponde a $ 1 $ in $ \Z/n\Z $ (è chiaro che sia un isomorfismo non appena ci si dimentica della struttura di modulo su $ \mu_n $ e $ I_n $). Infine, assembliamo l'isomorfismo
 	\[ \left(f = \bigcup f_n\right) \colon \left(\mu_\infty = \bigcup \mu_n\right) \to \left(I = \bigcup I_n\right). \qedhere \]
 \end{proof}
 
-\pagebreak
 % Dualità di Tate
 Siamo finalmente pronti a enunciare il risultato principale di questo capitolo.
 \begin{theorem}[Dualità di Tate]
-	Sia $ K $ un campo $ p $-adico e $ M $ un $ \Gamma $-modulo finito. Il tazza-prodotto induce un accoppiamento di dualità tra gruppi finti
+	Sia $ K $ un campo $ p $-adico e $ M $ un $ \Gamma $-modulo finito. Il tazza-prodotto induce un accoppiamento di dualità tra gruppi finiti
 	\[ \HH^i(\Gamma, \, A) \times \HH^{2-i}(\Gamma, \, A^*) \to \HH^2(\Gamma, \, \bar{K}^\times) = \Q / \Z \]
 	per $ i = 0, \, 1, \, 2 $.
 \end{theorem}
@@ -317,7 +325,7 @@ Siamo finalmente pronti a enunciare il risultato principale di questo capitolo.
 % commento?
 
 \begin{proof}
-	Cominciamo osservando che, a rigore, l'immagine del tazza-prodotto dovrebbe avere i coefficienti in $ A \otimes A^* $, che però identifichiamo come sottogruppo di $ \bar{K}^\times $ tramite la dualità di Cartier:
+	Cominciamo osservando che, a rigore, l'immagine del tazza-prodotto dovrebbe avere i coefficienti in $ A \otimes A^* $, che però con la mappa data dalla dualità di Cartier:
 	\[ A \otimes \Hom(A,\, \mu_\infty) \to \mu_\infty. \]
 	Partiamo dal caso $ i = 0 $, da cui segue $ i = 2 $ per simmetria. Tutto il lavoro necessario è in realtà contenuto nella proposizione precedente, otteniamo infatti la tesi da
 	\begin{align*}
@@ -327,7 +335,7 @@ Siamo finalmente pronti a enunciare il risultato principale di questo capitolo.
 	\end{align*}
 	Affrontiamo ora il caso $ i = 1 $. Essendo i gruppi in questione finiti per quanto visto a inizio capitolo (\ref{finiti}), è sufficiente mostrare che l'omomorfismo di dualità
 	\[ \HH^1(\Gamma, \, A) \to \HH^1(\Gamma, \, A^*)^\vee \]
-	è iniettivo: per simmetria lo sarà anche nell'altra direzione. Abbiamo bisogno di applicare una delle misteriose proposizioni del tazza-prodotto: la \ref{cup2}, in particolare. Le ipotesi sono facilmente verificate avendo, per iniettività di $ \f\mu_\infty $, due successioni esatte corte
+	è iniettivo: per simmetria lo sarà anche nell'altra direzione. Abbiamo bisogno di applicare una delle misteriose proprietà del tazza-prodotto: la \ref{cup2}, in particolare. Le ipotesi sono facilmente verificate avendo, poiché $ \f\mu_\infty $ è un modulo iniettivo, due successioni esatte corte
 	\[ 0 \to A \to \Ind_1^\Gamma(A) \to A_1 \to 0, \qquad 0 \to A_1^* \to \Ind_1^\Gamma(A)^* \to A^* \to 0 \]
 	sui cui moduli iniziali il tazza-prodotto è evidentemente nullo:
 	\[ A \otimes A_1^* = A \otimes \Hom(\Ind_1^\Gamma(A)/A, \, \mu_\infty) = 0. \]
@@ -336,7 +344,7 @@ Siamo finalmente pronti a enunciare il risultato principale di questo capitolo.
 	\HH^{1}(\Gamma, \, A_1) \times \HH^{1}(\Gamma, \, A_1^*) &\to \HH^{2}(\Gamma, \, \bar{K}^\times),\\
 	\HH^{0}(\Gamma, \, A) \times \HH^{2}(G, \, A^*) &\to \HH^{2}(\Gamma, \, \bar{K}^\times)
 	\end{align*}
-	compatibili con le mappe di transizione, che quindi possiamo incastrare nel diagramma commutativo
+	compatibili con le mappe di transizione, che quindi possiamo incastrare nel diagramma commutativo a meno del segno
 	\[\begin{tikzcd}[column sep = small]
 	\HH^0(\Gamma, \, \Ind_1^\Gamma(A)) \rar\dar
 	& \HH^0(\Gamma, \, A_1) \rar\dar
@@ -347,16 +355,15 @@ Siamo finalmente pronti a enunciare il risultato principale di questo capitolo.
 	& \HH^1(\Gamma, \, A^*)^\vee,
 	&
 	\end{tikzcd}  \]
-	in cui le mappe orizzontali sono parte delle solite successioni esatte lunghe associate alle due corte riportate sopra (quella sotto, dualizzata), mentre le mappe verticali sono i morfismi di dualità indotti dal tazza-prodotto; per la parte di teorema già dimostrata, i primi due omomorfismi verticali sono isomorfismi: se i due moduli in questione fossero finiti, potremmo comunque estendere l'isomorfismo passando al limite, essendo i due duali di torsione. Segue la tesi per diagram-chasing.
+	in cui le mappe orizzontali sono parte delle solite successioni esatte lunghe associate alle due corte riportate sopra (quella sotto, dualizzata), mentre le mappe verticali sono i morfismi di dualità indotti dal tazza-prodotto; per la parte di teorema già dimostrata, i primi due omomorfismi verticali sono isomorfismi: se i due moduli in questione non fossero finiti, potremmo comunque estendere l'isomorfismo passando al limite, essendo i due duali di torsione. Segue la tesi per diagram-chasing.
 \end{proof}
 
-\pagebreak
+
 % Calcolo del gruppo di Galois assoluto
 Con un piccolo trucco, riusciamo a sfruttare questo risultato di dualità per calcolare il gruppo $ \Gamma^\texttt{ab} $, completando così lo studio della teoria del campo di classe per campi $ p $-adici.
 
-
 \begin{corollary}
-	$ \Gamma^\mathtt{ab} $ è isomorfo al completamento profinito $ \hat{K}^\times = \varprojlim_n K^\times/ {K^\times}^n $.
+	$ \Gamma^\mathtt{ab} $ è isomorfo al completamento profinito $ \hat{K}^\times $.
 \end{corollary}
 \begin{proof}
 	\begin{align*}

@@ -1,7 +1,7 @@
 \chapter{Coomologia di Gruppi}
 
 
-L'obiettivo di questo primo capitolo è di introdurre la coomologia di gruppi, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
+L'obiettivo di questo primo capitolo è introdurre la coomologia di gruppi, mostrarne le principali proprietà e presentare alcune generalizzazioni.\\
 
 Poniamoci nella dovuta generalità. Sia $ G $ un gruppo, consideriamo la categoria $ \Gmod $ costituita dai gruppi abeliani muniti di un'azione di $ G $, i cui morfismi siano le mappe che ne rispettano la struttura: gli omomorfismi di gruppo $ G $-equivarianti. Equivalentemente, possiamo pensare a $ \Gmod $ come la categoria dei moduli sull'anello di gruppo $ \Z[G] $. In quest'ottica, è naturale riferirsi agli oggetti della nostra categoria come \textquotedblleft$ G $-moduli".
 Per fissare le idee si pensi, per esempio, al gruppo di Galois di un'estensione finita $ L/K $; questo agisce naturalmente su $ L $ e di conseguenza su tutti i campi intermedi normali, rendendo sia il loro gruppo additivo che il loro gruppo moltiplicativo dei $ \Gal{L/K} $-moduli. \\
@@ -18,9 +18,7 @@ di evidente importanza in Teoria di Galois. Questo funtore è esatto a sinistra 
 	\[ \HH^i(G, \, \bullet\,) : = R^i\mathcal{F}(\,\bullet\,). \]
 \end{definition}
 
-Con questa definizione, grazie alla magia occulta dei funtori derivati, assegniamo a uno $ G $-modulo $ A $ un'intera famiglia di invarianti $ \HH^i(G, \, A) $, il cui studio ci permetterà di descrivere meglio sia il modulo che il gruppo in questione. 
-
-Dall'altro lato la definizione appena data sembra, al momento, un cambio di notazione completamente arbitrario: perché non continuare a chiamare i nostri oggetti funtori derivati per il resto della tesi? Limitiamoci ad osservare che la presentazione scelta mette in evidenza la proprietà fondamentale di questi oggetti.
+Con questa definizione, grazie alla magia occulta dei funtori derivati, assegniamo a uno $ G $-modulo $ A $ un'intera famiglia di invarianti $ \HH^i(G, \, A) $, il cui studio ci permetterà di descrivere meglio sia il modulo che il gruppo in questione. Dall'altro lato la definizione appena data sembra, al momento, un cambio di notazione completamente arbitrario: perché non continuare a chiamare i nostri oggetti funtori derivati per il resto della tesi? Limitiamoci ad osservare che la presentazione scelta mette in evidenza la proprietà fondamentale di questi oggetti.
 
 \begin{theorem}\label{fond}
 	Data una successione esatta corta di $ G $ moduli
@@ -55,7 +53,7 @@ Dall'altro lato la definizione appena data sembra, al momento, un cambio di nota
 Questa proposizione, come molte altre proprietà dei funtori derivati, non verrà dimostrata: ci limiteremo a ricordare alcuni risultati e lasceremo a un buon libro di algebra \cite{Weibel} il compito di indagare i misteri dell'algebra omologica. Per evidenziare però che non stiamo usando della teoria particolarmente esotica aggiungerei la seguente rassicurazione:
 
 \begin{remark}
-	Indichiamo con $ \Z $, da qui in avanti, il gruppo additivo degli interi munito dell'azione banale.  Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i_G(\Z, \, \bullet\,) $.
+	Indichiamo con $ \Z $, da qui in avanti, il $ G $-modoulo costituito dal gruppo additivo degli interi munito dell'azione banale.  Il funtore $ \mathcal{F} $ che abbiamo deciso di studiare non è altro che $ \Hom_G(\Z,\, \bullet\,) $: infatti, affinché un omomorfismo di gruppi da $ \Z $ in un modulo qualunque sia $ G $ equivariante, è necessario e sufficiente che l'immagine di $ 1 $ sia un punto fisso dell'azione. Il derivato destro è dunque il familiare $ \Ext^i_G(\Z, \, \bullet\,) $.
 \end{remark}
 
 Ricorderemo comunque velocemente la costruzione astratta del funtore derivato, cogliendo l'occasione per dare una qualche intuizione dietro alcuni dei risultati che enunceremo.
@@ -81,7 +79,7 @@ Equivalentemente, possiamo ottenere i gruppi $ \HH^i(G, \, A) $ come coomologia 
 \[ 0 \to K^0(A) \to K^1(A) \to K^2 (A) \to \dots, \]
 dove $ K^i(A) = \{ f \colon G^i \to A\} $ è il gruppo (abeliano) delle applicazioni in $ i $-variabili dal gruppo $ G $ in $ A $ e i differenziali $ \delta^i \colon K^i \to K^{i+1} $ sono definiti da un'inintelligibile somma a segni alterni, nel classico stile della coomologia singolare:
 \begin{align*}
-	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = i}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
+	\delta f(g_1, \, \dots, \, g_{i+1}) = & \;  g_1 f(g_2, \, \dots, \, g_{i+1}) \\ & + \sum_{j = 1}^{i} (-1)^j f(g_1, \, \dots, \, g_jg_{j+1}, \, \dots, \, g_{i+1}) \\ & + (-1)^{i+1} f(g_1, \dots, g_i).
 \end{align*}
 
 Questa definizione ha il vantaggio di fornirci una descrizione esplicita degli elementi del gruppo $ \HH^i(G, \, A) $, detti \leftquote cocatene"; descrizione che, pur avendo una qualche utilità in grado basso ($ i = 0,\, 1 $), risulta troppo macchinosa per poterci effettivamente lavorare. Dunque, ricaviamone quanto possibile e dimentichiamocene in fretta. Avendo una presentazione esplicita degli elementi, ci è concesso cominciare qualche ragionamento di cardinalità: se $ A $ è finito, allora ogni gruppo $ K^i(A) $ è finito e di conseguenza lo è anche ogni suo quoziente.
@@ -107,34 +105,37 @@ Una volta trovato il coraggio di scrivere per esteso nuclei e immagini dei diffe
 % Mettiamoci qui il discorso su finito / profinito!
 
 \begin{profinite}
-	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito, a patto però di estendere il nostro linguaggio in modo da comprendere anche i gruppi profiniti. La difficoltà principale che si pone è l'entrata in scena della topologia: la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia per cui la moltiplicazione per $ g $ sia continua; oppure, equivalentemente, che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi, perché questa ha abbastanza iniettivi \cite[Lemma 6.11.10]{Weibel}; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
+	La teoria per gruppi arbitrariamente complessi procede, ma a noi è concesso il lusso di qualche ipotesi di comodità. In Teoria di Galois compaiono solo gruppi finiti o, mal che vada, profiniti; potremo quindi assumere quasi sempre che $ G $ sia finito, a patto però di estendere il nostro linguaggio in modo da comprendere anche i gruppi profiniti. Ricordiamo che un gruppo profinito $ G $ è, per definizione, limite inverso di gruppi finiti $ G_n $ muniti della topologia discreta:
+	$$  G = \textstyle \varprojlim_n G_n  $$
+	La difficoltà principale che si pone è l'entrata in scena della topologia: la categoria dei $ G $-moduli non è adatta ai nostri scopi, perché non tiene conto della geometria del gruppo. Chiediamo quindi il minimo indispensabile, ovvero che i $ G $-moduli siano muniti di una topologia per cui l'azione di $ G $ sia continua; oppure, equivalentemente, che lo stabilizzatore di ogni punto sia aperto. In questa nuova categoria si riesce a definire la coomologia per gruppi profiniti, esattamente come fatto sopra per i gruppi, perché questa ha abbastanza iniettivi \cite[Lemma 6.11.10]{Weibel}; per nostra fortuna la coomologia dei gruppi profiniti si riconduce al calcolo sui quozienti finiti, pertanto svilupperemo la teoria per i soli gruppi finiti e cercheremo, solo alla fine, di capire se e come è possibile estenderla ai gruppi profiniti.
 \end{profinite}
 
 \section{Funtorialità}
 I gruppi di coomologia sono funtoriali nei coefficienti $ A $ per costruzione, ma cosa succede quando cambiamo il gruppo $ G $? Un problema che si pone immediatamente, seppur puramente formale, è che cambiando gruppo usciamo dalla categoria ambiente: abbiamo quindi bisogno del cugino del funtore dimenticante.
 
 \begin{definition}
-	Dati due gruppi $ G $ e $ H $, un omomorfismo $ f \colon H \to G $ e uno $ G $-modulo $ A $, chiamiamo $ \f A $ il gruppo abeliano $ A $ equipaggiato dell'azione
+	Dati due gruppi $ G $ e $ H $, un omomorfismo $ f \colon H \to G $ e uno $ G $-modulo $ A $, chiamiamo $ \f A $ il gruppo abeliano $ A $ munito dell'azione
 	\[ h \cdot_{H} A := f(h) \cdot_{G} A \qquad \forall\, h \in H. \]
 \end{definition}
 
-È bene ribadire che $ \f $ è un'operazione puramente formale che ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con il quale è stato introdotto; inizieremo presto a omettere $ \f $, per semplificare la notazione, lasciando che sia il contesto a suggerire la giusta azione. Osserviamo inoltre che l'operazione è, in un qualche senso, parzialmente invertibile: possiamo munire il gruppo abeliano
-\[ \Ind_{H}^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_{H}(\Z[G], \, A) \]
+È bene ribadire che $ \f $ è un'operazione puramente formale che ci aiuta a sottolineare quando stiamo pensando a un dato gruppo abeliano con un'azione diversa da quella con la quale è stato introdotto; inizieremo presto a omettere $ \f $, per semplificare la notazione, lasciando che sia il contesto a suggerire la giusta azione. Osserviamo inoltre che l'operazione è parzialmente invertibile, in akmeno due modi diversi: possiamo considerare il $ G $-modulo
+\[ \Ind_{H}^G = \Z[G] \otimes_H A \]
+oppure munire il gruppo abeliano
+\[ \coInd_{H}^G(A) := \{ f \colon G \to A \mid f(hg) = h \cdot f(g) \;\; \forall\, h \in H \} = \Hom_{H}(\Z[G], \, A) \]
 di un'azione di $ G $ molto naturale:
-\[g \cdot f(x) = f(xg) \qquad\forall\, g \in G. \]
-
-Che recupera quanto dimenticato nel seguente senso:
+$ g \cdot f(x) = f(xg)$ per ogni $ g \in G. $
+Questi recuperano quanto dimenticato nel seguente senso:
 
 \begin{proposition}\label{aggiunzione}
-	I due funtori
-	\[ \f \colon \Gmod \to \mathsf{Mod}_\mathsf{H} \qquad\text{ e }\qquad  \Ind_H^G \colon \mathsf{Mod}_\mathsf{H} \to \Gmod \]
-	sono aggiunti. Ovvero, per ogni $ A \in \Gmod $ e $ B \in \Gmod $, soddisfano
-	\[ \Hom_G(A,\, \Ind_H^G(B)) = \Hom_H(\f A, \, B). \]
+	Entrambi i funtoi
+	\[ \coInd \colon \Hmod \to \Gmod \qquad\text{ e }\qquad  \Ind_H^G \colon \Hmod \to \Gmod \]
+	sono aggiunti ad $ \f $. Ovvero, per ogni $ A \in \Gmod $ e $ B \in \Hmod $, soddisfano
+	\[ \Hom_H(\f A, \, B) = \Hom_G(A,\, \coInd_H^G(B)) \quad\text{ e }\quad  \Hom_H(A, \, \f B) = \Hom_G(\Ind_{H}^G(A),\, B) \]
 \end{proposition}
 
-Classicamente, i moduli che abbiamo appena introdotto vengono chiamati \emph{coindotti}, mentre gli indotti si ottengono tensorizzando per l'anello di gruppo. Quando $ G $ ed $ H $ sono finiti le due definizioni coincidono:
-\[ \Hom_H(\Z[G], \, A)  = \Z[G] \otimes_H A. \]
-Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e, di conseguenza, che $ \f $ preserva i proiettivi. Siamo finalmente pronti per affrontare il risultato principale del capitolo, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
+Quando $ G $ ed $ H $ sono finiti le due definizioni coincidono:
+\[ \Hom_H(\Z[G], \, A)  \simeq \Z[G] \otimes_H A. \]
+Essendo nel nostro caso sempre finiti, smetteremo di distunguerli. Ne segue inoltre che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto, dunque che $ \f $, essendone l'aggiunto da ambo i lati, preserva sia iniettivi che proiettivi. Siamo finalmente pronti per affrontare il risultato principale del capitolo, che ci permetterà di costruire tutte le mappe di cui avremo bisogno in seguito.
 \begin{proposition}\label{funct}
 	Siano  $ A $ uno $ G $-modulo e $ A' $ un $ H $-modulo. Dati $ f \colon H \to G $ un omomorfismo di gruppi e $ u \colon \f A \to A' $ un omomorfismo $ H $-equivariante, otteniamo una mappa in coomologia
 	\[ \HH^i(G, \, A) \to \HH^i(H, \, A') \qquad\forall i \geq 0. \]
@@ -146,7 +147,7 @@ Ne segue che $ \Ind_{H}^G(\, \bullet \, ) $ è un funtore esatto e, di conseguen
 	e osserviamo che, poiché il funtore $ \f $ preserva i proiettivi, anche
 	\[ \dots \to \f P_2 \to  \f P_1 \to \f P_0 \to \Z \to 0 \]
 	è una risoluzione proiettiva, ora di $ H $-moduli.
-	Applichiamo $ \Hom_H(\,\bullet\, ,\, \f A) $ alla prima risoluzione e $ \Hom_G(\,\bullet\, ,\, A) $ alla seconda; osserviamo che per funtorialità di $ \f $ abbiamo degli omomorfismi naturali $ \Hom_{G}(P, \, A) \to \Hom_{H}(\f P, \,\f A) $, che producono un morfismo di complessi di gruppi abeliani
+	Applichiamo $ \Hom_G(\,\bullet\, ,\, A) $ alla prima risoluzione e $ \Hom_H(\,\bullet\, ,\, \f A) $ alla seconda; osserviamo che per funtorialità di $ \f $ abbiamo degli omomorfismi naturali $ \Hom_{G}(P, \, A) \to \Hom_{H}(\f P, \,\f A) $, che producono un morfismo di complessi di gruppi abeliani
 	\[\begin{tikzcd}[column sep = small]
 	0 \rar
 	& \Hom_{G}(P_0, \, A) \rar \dar
@@ -213,10 +214,10 @@ Possiamo ora enunciare il risultato che ci ha permesso di confinare i gruppi pro
 
 \section{Successione Spettrale di Hochschild-Serre}
 
-Sia $ H $ un sottogruppo normale di $ G $. Ha senso considerare i funtori $ \mathcal{F}\colon A \to A^H $, che manda $ G $-moduli in $ G/H $-moduli, e $ \mathcal{G}\colon B \to B^{G/H} $, che manda $ G/H $-moduli in gruppi abeliani. La loro composizione è il funtore che prende gli invarianti per l'azione di $ G $. Possiamo allora prendere la successione spettrale di Grothendieck associata, che nel caso in questione è detta successione spettrale di Hochschild-Serre.
+Sia $ H $ un sottogruppo normale di $ G $. Ha senso considerare i funtori $ \mathcal{F}\colon A \to A^H $, che manda $ G $-moduli in $ G/H $-moduli, e $ \mathcal{G}\colon B \to B^{G/H} $, che manda $ G/H $-moduli in gruppi abeliani. La loro composizione è il funtore che prende gli invarianti per l'azione di $ G $. Una volta verificato che i moduli iniettivi vengono mandati in moduli aciclici, possiamo prendere la successione spettrale di Grothendieck associata, che nel caso in questione è detta successione spettrale di \HS.
 
 \begin{theorem}[Hochschild-Serre]
-	Esiste una successione spettrale convergente
+	Esiste una successione spettrale di primo quadrante, convergente
 	\[ E^{pq}_2 = \HH^p(G/H, \, \HH^q(H, \, A)) \;\Rightarrow\; \HH^{p+q}(G, \, A). \]
 \end{theorem}
 
@@ -255,7 +256,7 @@ Costruiamo ora una mappa che va nella direzione opposta rispetto alla restrizion
 \begin{definition}[Corestrizione]
 Fissiamo uno $ G $-modulo $ A $ e un sottogruppo $ H < G $. In grado $ i = 0 $ definiamo la corestrizione tra $ A^H \to A^G $  come la \emph{norma}
 \[N_{G/H} \colon a \mapsto \sum_{x \in G/H} x \cdot a, \]
-che coincide con la moltiplicazione per l'elemento $ N = \sum_{g \in R} \, g $ di $ \Z[G] $, somma di rappresentati delle classi laterali di $ H $. Vale la pena di osservare subito che, proprio perché si identifica con la moltiplicazione per $ N $, tutti i diagrammi che induce commutano: preso un morfismo $ f \colon A \to B $ il diagramma
+che coincide con la moltiplicazione per l'elemento $ N = \sum_{g \in R} \, g $ di $ \Z[G] $, somma di rappresentanti delle classi laterali di $ H $. Vale la pena di osservare subito che, proprio perché si identifica con la moltiplicazione per $ N $, tutti i diagrammi che induce commutano: preso un morfismo $ f \colon A \to B $ il diagramma
 \[\begin{tikzcd}
 A^H \rar["f"] \dar{N} 
 & B^H \arrow[d, "N"]\\
@@ -323,7 +324,7 @@ La nostra prima preoccupazione è controllare come la corestrizione si comporta 
 	da cui deduciamo la tesi in grado $ i+1 $.
 \end{proof}
 
-Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un ponte tra l'algebra omologica e l'aritmetica, che possiamo attraversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = 1 $ la composizione di restrizione e corestrizione
+Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarmente misteriose, definite in modo bizzarro e algebricamente macchinoso, agiamo sugli elementi in modo elementare. Questo trucco edifica un ponte tra l'algebra omologica e l'aritmetica, che possiamo attraversare per tornare indietro con un paio di comodi risultati; per esempio, prendendo il sottogruppo banale $ H = \{1\} $ la composizione di restrizione e corestrizione
 \[\begin{tikzcd}
 \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A) = 0 \rar["\Cor"] & \HH^i(G, \, A)
 \end{tikzcd}  \]
@@ -333,14 +334,14 @@ Abbiamo ottenuto un risultato molto piacevole: componendo due mappe particolarme
 	Sia $ n = [G 	\,\colon 1] $ l'ordine di $ G $. I gruppi di coomologia $ \HH^i(G, \, A) $ sono di $ n $-torsione, per ogni $ i > 0 $.
 \end{corollary}
 
-Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Se per esempio sapessimo che $ A $ è finitamente generato e di conseguenza $ \HH^i(G, \, A) $ è finitamente generato (per la descrizione esplicita in cocatene, per dire), scopriremmo dunque che dev'essere finito: perché finitamente generato e di torsione. \\
+Iniziamo ad avere qualche informazione importante su come sono fatti questi gruppi! Se per esempio sapessimo che $ A $ è finitamente generato e di conseguenza $ \HH^i(G, \, A) $ è finitamente generato (per la descrizione esplicita in cocatene, per dire), scopriremmo dunque che dev'essere finito, in quanto finitamente generato e di torsione. \\
 
 Tra le meraviglie dell'aritmetica, troviamo il seguente risultato, tanto più raffinato del precedente quanto della meno chiara utilità. Si tratta di un primo passo verso la decomposizione dello studio dei gruppi di coomologia nello studio delle singole componenti primarie e si rivelerà fondamentale quando affronteremo il discorso più dettagliatamente.
 
 \begin{lemma}\label{injp}
 	Preso un primo $ p $ per cui $ [G \, \colon H] $ è coprimo con $ p $, la restrizione è iniettiva sulla componente $ p $-primaria di $ \HH^i(G, \, A) $:
 	\[ \begin{tikzcd}
-	0 \rar & T_p \HH^i(H, \, A) \rar["\Res"] & \HH^i(H, \, A).
+	0 \rar & T_p \HH^i(G, \, A) \rar["\Res"] & \HH^i(H, \, A).
 	\end{tikzcd}\]
 \end{lemma}
 
@@ -371,7 +372,7 @@ Essendo un prodotto tensore, $ \mathcal{G} $ è esatto a destra ma, in generale,
 	\[ \HH_i(G, \, \bullet \,) := L^i\mathcal{G}(\, \bullet \,) = \Tor_G(\Z, \, \bullet \, ). \]
 \end{definition}
 
-Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, inflazione e corestrizione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate: non saremo così diligenti da riscriverle, ci limitiamo ad incoraggiare il lettore interessato a rileggerle, sostituendo \textquotedblleft iniettivo" con \textquotedblleft proiettivo" e guardando i diagrammi attraverso uno specchio. \\
+Otteniamo così un funtore omologico, per cui vale il duale di praticamente ogni teorema enunciato fin'ora per il corrispondente funtore coomologico: ad una successione esatta corta sarà associata una lunga in omologia, potremo definire delle opportune mappe di restrizione, corestrizione e coinflazione... Le dimostrazioni di questi teoremi si ottengono dualizzando quelle presentate: non saremo così diligenti da riscriverle, ci limitiamo ad incoraggiare il lettore interessato a rileggerle, sostituendo \textquotedblleft iniettivo" con \textquotedblleft proiettivo" e guardando i diagrammi attraverso uno specchio. \\
 
 Occupiamoci piuttosto del collegamento tra i due strumenti. L'obiettivo principale è raccordare le due successioni esatte lunghe in una successione lunghissima, illimitata in entrambe le direzioni. L'unico problema che si presenta è che, al momento, entrambe le successioni terminano: dovremo quindi modificare i gruppi terminali di ciascuna. Per fare questo prendiamo la norma associata al sottogruppo banale
 \begin{align*}
@@ -517,7 +518,7 @@ Sistemati i dettagli ad arte, enunciamo il risultato che ricompensa i nostri sfo
 %\end{proof}
 
 \begin{proof}
-	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare colleghiamole provvisoriamente tramite la norma, che funge da buon collante, perché già sappiamo produrre dei quadrati commutativi. Una volta invocato il Lemma dei Cinque, la tesi segue dalla contemplazione del seguente diagramma
+	La dimostrazione è una delicata operazione di incollamento: avviciniamo le due estremità che desideriamo saldare e colleghiamole provvisoriamente tramite la norma, che già sappiamo produrre dei quadrati commutativi. Una volta invocato il Lemma dei Cinque, la tesi segue dalla contemplazione del seguente diagramma
 	\[\begin{tikzcd}[column sep = small]
 	&& \Hhm(G, \, A) \dar \rar[dashed]
 	& \Hhm(G, \, B) \dar \rar[dashed]
@@ -572,12 +573,12 @@ Di particolare interesse sono i moduli indotti direttamente da gruppi abeliani s
 Per esempio, i moduli liberi sono indotti: un modulo libero $ F = \bigoplus_n \Z[G] $ si scrive infatti come $ F = \left(\bigoplus_n\Z\,\right) \otimes_\Z \Z[G],  $ indotto per definizione.
 Segue immediatamente dal Lemma di Shapiro che
 \begin{corollary}
-	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) $ per ogni $ i > 0 $.
+	Se $ A $ è un modulo indotto, allora $ \HH^i(G, \, A) = 0 $ per ogni $ i > 0 $.
 \end{corollary}
 
 Se la proposizione di aggiunzione (\ref{aggiunzione}) ammettesse una versione duale, troveremmo una variante del Lemma di Shapiro per gruppi di omologia e ne seguirebbe altrettanto immediatamente la banalità dei gruppi di omologia per i moduli indotti, da lì la banalità di tutti i gruppi di Tate: in effetti è così \cite[lemma 6.3.2]{Weibel}. 
 \begin{corollary}\label{indotti}
-	Se $ A $ è un modulo indotto, allora $ \Hh(G, \, A) $ per ogni $ i $.
+	Se $ A $ è un modulo indotto, allora $ \Hh(G, \, A)=0 $ per ogni $ i $.
 \end{corollary}
 
 Proprio per questo risultato i moduli indotti sono uno strumento comodissimo per il calcolo della coomologia di moduli qualunque; preso un modulo $ A $, possiamo immergerlo nel suo indotto
