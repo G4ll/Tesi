@@ -208,10 +208,10 @@ Ci concentriamo ora sui campi $ p $-adici, principalmente perché la struttura a
 
 % Lemmino dei p-adici
 \begin{proposition}
-	Sia $ K $ un campo $ p $-adico, i gruppi $ K^\times / {K^\times}^n $ sono finiti.
+	Sia $ K $ un campo $ p $-adico, i sottogruppi $ {K^\times}^n $ sono aperti.
 \end{proposition}
 
-Quest'osservazione è fondamentale qualunque strada si cerchi di intraprendere per calcolare il limite desiderato \eqref{lim}, stiamo infatti mostrando che i sottogruppi $ {K^\times}^n $ sono aperti con l'obbiettivo di trovare una successione cofinale su cui calcolare sia il limite del completamento che il limite \eqref{lim}.
+Quest'osservazione è fondamentale qualunque strada si cerchi di intraprendere per calcolare il limite desiderato \eqref{lim}, stiamo infatti mostrando che i sottogruppi $ {K^\times}^n $ sono aperti con l'obbiettivo di trovare una successione cofinale su cui calcolare sia il limite del completamento che il limite \eqref{lim}: che questa sia cofinale tra gli aperti è immediato, infatti ogni sottogruppo $ U $ aperto ha indice finito $ n $ e pertanto deve contenere $ {K^\times}^n $. Se riuscissimo a mostrare che sono cofinali anche negli $ NL^\times $ avremmo concluso, ma non è il percorso che intraprenderemo.
 
 \begin{corollary} \label{finiti}
 	Sia $ A $ un $ \Gamma_K $-modulo finito. I gruppi $ \HH^i(K, \, A) $ sono finiti per ogni $ i > 0 $.
@@ -362,18 +362,18 @@ Siamo finalmente pronti a enunciare il risultato principale di questo capitolo.
 % Calcolo del gruppo di Galois assoluto
 Con un piccolo trucco, riusciamo a sfruttare questo risultato di dualità per calcolare il gruppo $ \Gamma^\texttt{ab} $, completando così lo studio della teoria del campo di classe per campi $ p $-adici.
 
-\begin{corollary}
+\begin{theorem}
 	$ \Gamma^\mathtt{ab} $ è isomorfo al completamento profinito $ \hat{K}^\times $.
-\end{corollary}
+\end{theorem}
 \begin{proof}
 	\begin{align*}
 	\Gamma^\mathtt{ab}
-	& = \Hom_\Z(\Gamma,\, \Q/\Z)^\vee & \text{per dualità di Pontryagin} \\[0.1em]
-	& = \Hom_\Z(\Gamma,\, \textstyle\varinjlim_n \Z/n\Z)^\vee & \text{piccolo trucco}\\ 
-	& = \textstyle\varprojlim_n \Hom_\Z(\Gamma,\, \Z/n\Z)^\vee & \text{per abstract nonsense} \\
+	& = \Hom_\mathsf{Gr}(\Gamma,\, \Q/\Z)^\vee & \text{per dualità di Pontryagin} \\[0.1em]
+	& = \Hom_\mathsf{Gr}(\Gamma,\, \textstyle\varinjlim_n \Z/n\Z)^\vee & \text{piccolo trucco}\\ 
+	& = \textstyle\varprojlim_n \Hom_\mathsf{Gr}(\Gamma,\, \Z/n\Z)^\vee & \text{per abstract nonsense} \\
 	& = \textstyle\varprojlim_n \HH^1(\Gamma,\, \Z/n\Z)^\vee & \text{perché l'azione è banale} \\
 	& = \textstyle\varprojlim_n \HH^1(\Gamma,\, \mu_n) & \text{per dualità di Tate} \\
 	& = \textstyle\varprojlim_n \K^\times / {\K^\times}^n & \text{dalla successione esatta lunga} \\
-	& = \hat{K}^\times. 
+	& = \hat{K}^\times. & \text{per cofinalità di } {\K^\times}^n \text{ negli aperti.}
 	\end{align*}
 \end{proof}
