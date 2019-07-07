@@ -1,0 +1,378 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+\useinnertheme{rectangles}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage{xcolor}
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{amsthm}%
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+%Comandi specifici
+\newcommand{\leftquote}{\textquotedblleft}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+
+% Galois
+\newcommand{\K}{K}
+\newcommand{\knr}{K_\mathtt{nr}}
+\newcommand{\knrr}{{K^\mathtt{nr}_n}}
+\newcommand{\f}{f^\times}
+\newcommand{\Gal}[1]{\mathcal{G}al\left( #1 \right)}
+
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\Br}{Br}
+
+% Omologica
+\newcommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
+
+\DeclareMathOperator{\Hom}{Hom}
+
+\DeclareMathOperator{\HH}{H}
+\DeclareMathOperator{\Hh}{\widehat{H}^\mathnormal{i}}
+\DeclareMathOperator{\Hhh}{\widehat{H}}
+\DeclareMathOperator{\Hha}{\widehat{H}^\mathnormal{-i}}
+\DeclareMathOperator{\Hhb}{\widehat{H}^{\mathnormal{i}+1}}
+\DeclareMathOperator{\Hhc}{\widehat{H}^{\mathnormal{i+r}}}
+\DeclareMathOperator{\Hhid}{\widehat{H}^{\mathnormal{i}+2}}
+
+\DeclareMathOperator{\Hhq}{\widehat{H}^\mathnormal{q}}
+\DeclareMathOperator{\Hhqu}{\widehat{H}^{\mathnormal{q}+1}}
+\DeclareMathOperator{\Hhqd}{\widehat{H}^{\mathnormal{q}+2}}
+\DeclareMathOperator{\Hhdq}{\widehat{H}^{2-\mathnormal{q}}}
+
+\DeclareMathOperator{\Hhmm}{\widehat{H}^{-2}}
+\DeclareMathOperator{\Hhm}{\widehat{H}^{-1}}
+\DeclareMathOperator{\Hhz}{\widehat{H}^{0}}
+\DeclareMathOperator{\Hhu}{\widehat{H}^{1}}
+\DeclareMathOperator{\Hhd}{\widehat{H}^{2}}
+\DeclareMathOperator{\Hht}{\widehat{H}^{3}}
+
+\DeclareMathOperator{\Hhnu}{\widehat{H}^{\mathnormal{n}+1}}
+\DeclareMathOperator{\Hhnd}{\widehat{H}^{\mathnormal{n}+2}}
+
+\DeclareMathOperator{\Hhnru}{\widehat{H}^{\mathnormal{n}+1+\mathnormal{r}}}
+\DeclareMathOperator{\Hhnr}{\widehat{H}^{\mathnormal{n}+\mathnormal{r}}}
+
+\DeclareMathOperator{\Hhn}{\widehat{H}^{\mathnormal{n}}}
+\DeclareMathOperator{\Hhnq}{\widehat{H}^{\mathnormal{n}+\mathnormal{q}}}
+
+\DeclareMathOperator{\Hhnp}{\widehat{H}^{\mathnormal{n_p}}}
+\DeclareMathOperator{\Hhnpp}{\widehat{H}^{\mathnormal{n_p}+1}}
+\DeclareMathOperator{\Hhnppp}{\widehat{H}^{\mathnormal{n_p}+2}}
+
+\DeclareMathOperator{\Hhnpq}{\widehat{H}^{\mathnormal{n_p}+\mathnormal{q}}}
+\DeclareMathOperator{\Hhnppq}{\widehat{H}^{\mathnormal{n_p}+\mathnormal{q}+1}}
+\DeclareMathOperator{\Hhnpppq}{\widehat{H}^{\mathnormal{n_p}+\mathnormal{q}+2}}
+
+
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\coInd}{coInd}
+\DeclareMathOperator{\Res}{\mathtt{res}}
+\DeclareMathOperator{\Cor}{\mathtt{cor}}
+\DeclareMathOperator{\Inf}{\mathtt{inf}}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\cd}{cd}
+\DeclareMathOperator{\coker}{coker}
+
+% Cose da decidere
+\newcommand{\Gmod}{\mathsf{Mod}_\mathsf{G}}
+\newcommand{\Hmod}{\mathsf{Mod}_\mathsf{H}}
+
+\newcommand{\HS}{Hochschild-Serre}
+
+
+%\renewcommand{\varinjlim}{\textstyle\varinjlim}
+%\renewcommand{\varprojlim}{\textstyle\varprojlim}
+
+
+\title{Teoria del Campo di Classe Locale}
+\author{Andrea Gallese}
+\date{7 luglio 2019}
+
+% Cosa vogliamo raccontare??
+
+\begin{document}
+	\begin{frame}
+	\titlepage
+\end{frame}
+
+% Cos'è la teoria del campo di classe e perché vogliamo farla:
+% Vogliamo studiare le estensioni abeliane di un campo, un buon risultato sarebbe per esempio ottenere una descrizione maneggevole del gruppo di Galois della massima estenione abeliana! Non è chiarissimo cosa sia una buona descrizione di questo gruppo... l'idea della CFT è di descriverlo in termini del campo stesso. Vorremmo farlo su Q (campo globale) ma è complicato, così si comincia a farlo nei suoi completamenti metrici (campi locali) e dopodiché si ricostruisce il risultato per Q.
+
+\begin{frame}[fragile]{Qual è l'obiettivo?}
+% Fissiamo un campo \only<1>{$k$}\only<2->{$K$ locale}, una chiusura separabile \only<1>{$\bar{k}$}\only<2->{$\bar{K}$} e il gruppo di Galois assoluto \only<1>{$\Gamma = \Gal{\bar{k}/k}$}\only<2->{$\Gamma = \Gal{\bar{K}/K}$}.
+
+\begin{itemize}
+	\item<1-> Studiare le estensioni abeliane di un campo {$k$}.
+	\item<5-> Descrivere il gruppo di Galois di un'estensione abeliana in termini della struttura aritmetica del campo stesso.
+\end{itemize}
+
+\begin{example}<2->
+	Sia $ F $ l'estensione di $ \Q $, composizione di tutte le estensioni quadratiche:
+	\[\begin{tikzcd}[row sep = small, column sep = tiny]
+	&F&& \\
+	\Q(i) 		  \arrow[dash]{ur}  \arrow[dash]{dr}
+	&\Q(\sqrt{2}) \arrow[dash]{u}   \arrow[dash]{d}
+	&\Q(\sqrt{3}) \arrow[dash]{ul}  \arrow[dash]{dl}
+	&\dots 		  \arrow[dash]{ull} \arrow[dash]{dll} \\
+	&\Q&&	\end{tikzcd}  \]
+	
+	Chi è il gruppo di Galois dell'estensione? $\only<3>{\prod \Z/2\Z.} \only<4->{ \Q^\times/ {\Q^\times}^2.} $
+\end{example}
+
+%L'objet de la théorie du corps de classes est de montrer comment un corps possède en soi les éléments de son propre dépassement. -Chevalley
+\end{frame}
+
+\begin{frame}{Teoria del campo di classe {locale}}
+% Fissiamo un campo \only<1>{$k$}\only<2->{$K$ locale}, una chiusura separabile \only<1>{$\bar{k}$}\only<2->{$\bar{K}$} e il gruppo di Galois assoluto \only<1>{$\Gamma = \Gal{\bar{k}/k}$}\only<2->{$\Gamma = \Gal{\bar{K}/K}$}.
+
+\begin{itemize}
+	\item<1-> Studiare le estensioni abeliane di un campo {locale $K$}.
+	\item<1-> Descrivere il gruppo di Galois di un'estensione abeliana in termini della struttura aritmetica del campo stesso.
+\end{itemize}
+
+Sia $ K $ un campo locale, fissiamo una chiusura separabile $ \bar{K} $ e chiamiamo $ \Gamma $ il relativo gruppo di Galois assoluto.
+
+%L'objet de la théorie du corps de classes est de montrer comment un corps possède en soi les éléments de son propre dépassement. -Chevalley
+
+{\begin{theorem}<3->
+		Il gruppo di Galois dell'estensione abeliana massimale $\Gamma^\mathtt{ab}$ di un campo locale $K$ è isomorfo al completamento profinito del gruppo moltiplicativo del campo stesso:
+		\[  \Gamma^\mathtt{ab} \simeq \hat{K}^\times. \]
+\end{theorem}}
+\end{frame}
+
+% Come procediamo?
+% Lo strumento più moderno per affrontare problemi in Teoria di Galois è la coomologia di gruppi, i quali si ineriscono naturalemnte nel discorso permettendoci di capire in che modo il funtore degli invarianti non è esatto: esempio? 
+\section{Coomologia}
+\begin{frame}{Come procederemo?}
+Sia $ \Gmod $ la categoria degli $ \Z[G] $-moduli.
+% Hi(G,.) è il derivato destro del funtore (esatto a sinistra) che prende gli elementi invarianti per l'azione del gruppo G.
+\begin{align*} 
+\mathcal{F} \colon \Gmod &\to \mathcal{A}b \\
+A &\mapsto A^G = \{ a \in A \mid ga = a \; \forall \, g \in G \},
+\end{align*}
+
+\begin{definition}
+	I gruppi di coomologia sono i derivati destri di $ \mathcal{F} $:
+	\[ \HH^i(G, \, \bullet\,) : = R^i\mathcal{F}(\,\bullet\,). \]
+\end{definition}
+
+
+% Se G è il gruppo di Galois di un'estensione L/K, ci sono dei coefficienti naturali su cui calcolare la coomologia: L e L*.
+\begin{itemize}
+	\item Calcoleremo la coomologia di $ \Gamma $ con opportuni coefficienti,
+	riconducendoci alle sottoestensioni finite:
+\end{itemize}
+\[ \HH^n \left(\Gamma, \, A \right)  = \varinjlim_{U < \Gamma} \HH^n(\Gamma/U, \, A^U). \]
+
+\end{frame}
+
+\begin{frame}[fragile]{Coomologia di Gruppi}
+\begin{theorem}\label{fond}
+Data una successione esatta corta di $ G $ moduli
+\[\begin{tikzcd}[column sep = small]
+0 \rar & A \rar & B \rar & C \rar & 0,
+\end{tikzcd}\]
+si ha una successione esatta lunga di gruppi abeliani
+\[\begin{tikzcd}[column sep = small, row sep = small]
+0 \rar
+&A^G \rar\arrow[d,phantom, ""{coordinate, name=A, near end}]
+& B^G \arrow[d,phantom, ""{coordinate, name=B}] \rar
+& C^G \arrow[dll, 
+rounded corners = 5 pt, 
+to path={ --([xshift=3ex]\tikztostart.east)
+	|- (A)\tikztonodes
+	-| ([xshift=-3ex]\tikztotarget.west)
+	-- (\tikztotarget)}]  \\
+\qquad \quad
+&\HH^1(G, \, A)  \arrow[d,phantom, ""{coordinate, name=X}] \rar 
+& \HH^1(G, \, B) \arrow[d,phantom, ""{coordinate, name=Y}] \rar
+& \HH^1(G, \, C) \arrow[d,phantom, ""{coordinate, name=Z}] \arrow[dll, 
+rounded corners = 5 pt, 
+to path={ --([xshift=3ex]\tikztostart.east)
+	|- (X)\tikztonodes
+	-| ([xshift=-3ex]\tikztotarget.west)
+	-- (\tikztotarget)}]  \\
+&\HH^2(G, \, A) \rar
+& \dots
+& \qquad \end{tikzcd}\]
+\end{theorem}
+\end{frame}
+
+% Useremo questi invarianti come strumento per studiare i gruppi di Galois: fissiamo un'estensione L/K e andiamo a calcolarci H(G, L) e H(G, L*)... i primi sono banali (Teorema della Base Normale) e gli altri sono banali in 1 (Hilbert 90) e via via sempre più interessanti. Alla fine ci servirà un modo di risalire dalla coomologia al gruppo.
+
+\begin{frame}{Coomologia di Galois}
+\begin{theorem} \label{Hadd}
+Sia $ L / k $ un'estensione di Galois. Il gruppo additivo di $ L $ è coomologicamente banale.
+\end{theorem}
+\begin{theorem}[Hilbert 90]\label{H90}
+Sia $ L/k $ un'estensione di Galois. Si ha
+\[ \HH^1(\Gal{ L / k}, \, L^\times) = 0. \]
+\end{theorem}
+Brauer??
+\end{frame}
+
+\section{Campi Locali}
+% Perché i campi locali?
+% Per campo locale intendiamo un campo completo rispetto a una valutazione discreta di rango uno: questi hanno una piacevola struttura che permette un calcolo agevole degli Hi. I due riultati fondamentali sono che BrK = Q/Z e che la dimensione coomologica è 2.
+
+\begin{frame}{Cos'é un campo locale?}
+\Huge
+\[ \Qp \]
+\end{frame}
+
+\begin{frame}[fragile]{Cos'é un campo locale?}
+	\begin{definition}
+		Un campo completo rispetto a una valutazione discreta di rango 1.
+	\end{definition}
+
+% perché ci piacciono
+	\[ \begin{tikzcd}[row sep = small]
+	K \rar & \mathcal{O}_K \rar & \pi_K \rar & \kappa \\
+	L \rar & \mathcal{O}_L \rar & \pi_L^e \rar& \lambda
+	\end{tikzcd} \]
+	
+
+	
+% conto
+	\[ \begin{tikzcd}[column sep = small]
+	\inv_\K \colon \HH^2(G, \, \knr^\times)  \rar["v^*"]
+	& \HH^2(G, \, \Z) \rar["\delta"]
+	& \HH^1(G, \, \Q/\Z) \rar["\gamma"]
+	& \Q/\Z.
+	\end{tikzcd} \]
+\end{frame}
+
+\begin{frame}[fragile]
+	% le estensioni non ramificate ci piacciono particolarmente
+	\[ \begin{tikzcd}[row sep = tiny, column sep = tiny]
+	&&K^\mathtt{nr}&& \\
+	&\vdots&\vdots&\vdots& \\
+	&&&K^\mathtt{nr}_{n+1}\arrow[dash]{dddl}\arrow[dash]{ul}& \\
+	K^\mathtt{nr}_n\arrow[dash]{ddrr}\arrow[dash]{uur}\arrow[dash]{uurrr}&&&&\\
+	&&&&K^\mathtt{nr}_{n-1}\arrow[dash]{dll}\arrow[dash]{uuul} \\
+	&& K &&
+	\end{tikzcd}
+	
+	\begin{tikzcd}[row sep = tiny, column sep = tiny]
+	&&\bar{\F}_q&& \\
+	&&&& \\
+	&&&& \\
+	\F_{q^n} \arrow[dash]{drr}&&&& \\
+	&& \F_q &&
+	\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}[fragile]{Campi Locali}
+
+Per campo locale intendiamo  Si può pensare, senza perdita di generalità, a estensioni finite dei $ p $-adici $ \Q_p $ o delle serie Laurent su campi finiti $ \F_p((t)) $.
+
+\begin{equation}\label{local1}
+\begin{tikzcd}[column sep = small]
+1 \rar
+& \mathcal{O}_{\K}^\times \rar
+& \K^\times \rar["v"]
+& \Z \rar
+& 0.
+\end{tikzcd}
+\end{equation}
+
+\begin{equation}\label{local3}
+\begin{tikzcd}[column sep = small]
+1 \rar
+& U_K^{1} \rar
+& \mathcal{O}_{\K}^\times \rar
+& \kappa^\times \rar
+&1,
+\end{tikzcd}
+\end{equation}
+
+
+\begin{equation}\label{local2}
+\begin{tikzcd}[column sep = small]
+1 \rar
+& U_K^{i+1} \rar
+& U_{K}^i \rar
+& \kappa \rar
+& 0.
+\end{tikzcd}
+\end{equation}
+
+$ \Br K = \Q / \Z. $
+
+\begin{theorem}\label{cdim2}
+La dimensione coomologica di un campo locale è 2.
+\end{theorem}
+
+\end{frame}
+
+% Che cosa ce ne facciamo?
+% Introduciamo il cup prodotto. Sotto ipotesi ragionevoli otteniamo Tate-Nakayama, che ci permette di arrivare alla reciprocità locale, che è praticamente quello che volevamo: l'ultimo passo è mostrare che il limite buffo è in realtà il limite del completamento profinito, che forse vorremmo dire cos'è. Infine presentiamo la dualità di Tate, con cui conludiamo il risultato nel caso p-adico.
+
+\begin{frame}{Prodotto Tazza}
+\[ \cup \colon \HH^p(G, \, A) \times \HH^q(G, \, B) \to \HH^{p+q}(G, \, A \otimes B)  \]
+
+
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Reciprocità Locale]
+Ogni estensione abeliana finita $ L/K $ è accompagnata da un isomorfismo
+\[ \omega_L\colon \frac{K^\times}{NL^\times} \to \Gal{L/K}, \]
+dove $ N $ è, come al solito, la norma.
+\end{theorem}
+
+\begin{equation}\label{lim}
+\Gamma_K^{\texttt{ab}} = \varprojlim_L \frac{K^\times}{NL^\times}.
+\end{equation}
+
+\end{frame}
+\begin{frame}
+\begin{theorem}[Dualità di Tate]
+Sia $ K $ un campo $ p $-adico e $ M $ un $ \Gamma $-modulo finito. Il tazza-prodotto induce un accoppiamento di dualità tra gruppi finiti
+\[ \HH^i(\Gamma, \, A) \times \HH^{2-i}(\Gamma, \, A^*) \to \HH^2(\Gamma, \, \bar{K}^\times) = \Q / \Z \]
+per $ i = 0, \, 1, \, 2 $.
+\end{theorem}
+
+\end{frame}
+
+% Slide conclusiva
+
+\begin{frame}{The End}
+
+\begin{theorem}
+$ \Gamma^\mathtt{ab} $ è isomorfo al completamento profinito $ \hat{K}^\times $.
+\end{theorem}
+
+\begin{align*}
+\Gamma^\mathtt{ab}
+& = \Hom_\mathsf{Gr}(\Gamma,\, \Q/\Z)^\vee \\[0.1em]
+& = \Hom_\mathsf{Gr}(\Gamma,\, \textstyle\varinjlim_n \Z/n\Z)^\vee \\ 
+& = \textstyle\varprojlim_n \Hom_\mathsf{Gr}(\Gamma,\, \Z/n\Z)^\vee \\
+& = \textstyle\varprojlim_n \HH^1(\Gamma,\, \Z/n\Z)^\vee \\
+& = \textstyle\varprojlim_n \HH^1(\Gamma,\, \mu_n) \\
+& = \textstyle\varprojlim_n \K^\times / {\K^\times}^n \\
+& = \hat{K}^\times.
+\end{align*}
+
+\end{frame}
+
+\end{document}
+
+
